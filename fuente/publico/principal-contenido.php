@@ -12,6 +12,7 @@ $inicio_2 = $inicio*10;
 $registros=mysql_query("SELECT idCuentas, cuenta, nota, notas.tiempo_de_creacion  FROM cuentas
 						INNER JOIN notas 
 						ON cuentas.idcuentas = notas.cuentas_idcuentas
+						ORDER BY `idnotas` DESC
 						LIMIT $inicio_2,10", $conn) or die(mysql_error());
 $impresos=0;
 
