@@ -1,60 +1,66 @@
 body {
 	background-image:url(../../imagenes/fondo.png);
 	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	margin: 0;
+   	padding: 0;
+	font-size:15px;
 	}
 	
 .contenedor {
-	width: 960px;
+	width: 100%;
+	min-width:100px;
+	max-width:1580;
 	margin: 0px auto;
 	}
 	
+/*
+	ENCABEZADO 
+*/
+	
 header {
-	border-radius: 20px;
-	background-color: rgba(255,168,5,0.48);
-	-webkit-box-shadow: 0px 0px 5px 0px #000000;
-	box-shadow: 0px 0px 5px 0px #000000;
+	background-color: #F3B52F;
 		}
 		
 #titulo {
 	float: left;
-	width: 550px;
 	color: #F98300;
 	font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif;
 	font-size: 60px;
-	text-align: center;
 	font-style: normal;
-	font-variant: small-caps;
-	text-shadow: 0px 5px 5px #F50219;
 	text-transform: uppercase;
 	}
 	
+@media screen and (max-width: 480px){
+	#titulo {
+		width: 100%;
+		font-size:30px;
+	}
+}
+
 #entrar {
 	float: right;
-	width: 410px;
 	font-size: 10px;
 	}
+	
+	
+@media screen and (max-width: 480px){
+#entrar {
+	float: none;
+	width: 100%;
+	}
+}
 		
 nav {
-	background-color:rgba(245,147,6,0.68);
+	background-color: #FBE4C8;
 	clear:both;
 	text-align: center;
-	border-radius: 20px;
-	-webkit-box-shadow: 0px 0px 5px 0px #000000;
-	box-shadow: 0px 0px 5px 0px #000000;
 	}
 	
 nav ul li {
 	display: inline-block;
-	margin-right: 20px;
-	border-radius: 1px;
-	background-image: url(../../imagenes/fondo_contenido.png);
-	-webkit-box-shadow: 0px 0px 5px 0px #000000;
-	box-shadow: 0px 0px 5px 0px #000000;
 	font-size: 20px;
 	font-weight: bold;
 	color: #F89200;
-	margin-bottom: 5px;
-	margin-top: 5px;
 	font-variant: small-caps;
 	text-transform: uppercase;	
 	}
@@ -81,51 +87,40 @@ nav ul li a:active{
 	-webkit-box-shadow: inset 0px 0px 5px 0px #000000;
 	box-shadow: inset 0px 0px 5px 0px #000000;
 	}
-	
-h1 {
-	color: #F81109;
-	font-weight: bold;
-	}
-	
+
+/* 
+	CONTENIDO GLOBAL
+*/
+
 section {
 	float: left;
-	width: 620px;
+	width: 75%;
 	margin-bottom:20px;
 	}
 	
 #contenido {
-	border-radius: 10px;
 	background-color:rgba(255,168,5,0.48);
 	text-align: left;
-	-webkit-box-shadow: 0px 0px 5px 0px #000000;
-	box-shadow: 0px 0px 5px 0px #000000;
 	word-wrap: break-word;
 	}
-	
+
+/* 
+	BARRA LATERAL 
+*/
 aside {
-	width: 320px;
+	width:25%;
 	float: right;
-	border-radius: 20px;
 	background-image: url(../../imagenes/fondo_contenido.png);
-	-webkit-box-shadow: 0px 0px 5px 0px #000000;
-	box-shadow: 0px 0px 5px 0px #000000;
-	margin-bottom:20px;
+	margin-bottom:20px; /* REVISAR */
 	}
-	
+
+/* 
+	PIE 
+*/
 footer {
-	border-radius: 20px;
 	background-color: rgba(255,168,5,0.48);
-	-webkit-box-shadow: 0px 0px 5px 0px #000000;
-	box-shadow: 0px 0px 5px 0px #000000;
 	clear: both;
 	text-align:center;
-	}
 	
-#cont {
-	border-radius: 20px;
-	background-color: rgba(255,168,5,0.48);
-	-webkit-box-shadow: 0px 0px 5px 0px #000000;
-	box-shadow: 0px 0px 5px 0px #000000;
-	text-align:left;
 	}
 	

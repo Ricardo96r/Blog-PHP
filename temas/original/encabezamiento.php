@@ -20,11 +20,11 @@
             	if (!isset($_POST['entrar_logueo'])) {
             ?>
                <form method="post" action="">
-                   <table width="335" border="0">
+                   <table>
                      <tr>
-                       <td width="60"><label for="email">Email:</label></td>
-                       <td width="84"><label for="contraseña">Contraseña:</label></td>
-                       <td width="42">&nbsp;</td>
+                       <td><label for="email">Email:</label></td>
+                       <td><label for="contraseña">Contraseña:</label></td>
+                       <td>&nbsp;</td>
                      </tr>
                      <tr>
                        <td><input type="email" name="email" id="email" placeholder="email" required></td>

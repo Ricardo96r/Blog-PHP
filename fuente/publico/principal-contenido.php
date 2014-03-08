@@ -28,7 +28,7 @@ if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GE
 						
 $inicio_2 = $inicio*10;
 $registros=mysql_query("
-	SELECT cuentas.idCuentas, notas.idnotas, cuentas.cuenta, notas.nota, notas.tiempo_de_creacion  
+	SELECT cuentas.idCuentas, cuentas.cuenta,cuentas.nombres, cuentas.apellidos, notas.idnotas, notas.nota, notas.tiempo_de_creacion  
 	FROM cuentas
 	INNER JOIN notas 
 	ON cuentas.idcuentas = notas.cuentas_idcuentas
@@ -41,18 +41,17 @@ if (!isset($_GET['id'])) {
 		?><div id="contenido"><?php
 			$impresos++;
 			if (isset($_SESSION['username'])) {
-				echo "<a href='/proyecto/Proyecto/?proyecto=principal&pos=$inicio&id=$reg[idnotas]'>";
-				echo "Nombre:".$reg['cuenta']."-------";
+				echo $reg['nombres']." ".$reg['apellidos']." @".$reg['cuenta'];
 				echo "Fecha:".$reg['tiempo_de_creacion']."<br>";
+				echo "<a href='/proyecto/Proyecto/?proyecto=principal&pos=$inicio&id=$reg[idnotas]'>";
 				echo "<strong>".$reg['nota']."</strong><br>";
-				echo "\\ a favoritos \\";
-				echo "\\ me gusta \\";
-				echo "\\ comentar \\.</a>";
+				echo "</a>";
 			} else {	  
+				echo $reg['nombres']." ".$reg['apellidos']." @".$reg['cuenta'];
+				echo $reg['tiempo_de_creacion']."<br>";
 				echo "<a href='/proyecto/Proyecto/?proyecto=principal&pos=$inicio&id=$reg[idnotas]'>";
-				echo "Nombre:".$reg['cuenta']."-------";
-				echo "Fecha:".$reg['tiempo_de_creacion']."<br>";
-				echo "<strong>".$reg['nota']."</strong><br></a>";
+				echo "<strong>".$reg['nota']."</strong><br>";
+				echo "</a>";
 			}
 		?></div><br><?php
 	}

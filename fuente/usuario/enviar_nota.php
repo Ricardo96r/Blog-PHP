@@ -1,4 +1,4 @@
-<div id="cont">
+<div id="contenido">
 <?php
 if(isset($_SESSION['username'])) {
 	if(!isset($_POST['enviar_nota'])) {
