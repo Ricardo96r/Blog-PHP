@@ -5,7 +5,7 @@ if(isset($_SESSION['username'])) {
 		?>
         Escribe una nota:<br>
         <form method="post" action="">
-            <input type="text" name="nota" maxlength="400" required>
+            <textarea name="nota" rows="5" cols="60%"></textarea><br>
             <input type="submit" name="enviar_nota" value="enviar nota">
         </form>
         <?php
