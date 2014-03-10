@@ -40,19 +40,22 @@ if (!isset($_GET['id'])) {
 	while ($reg=mysql_fetch_array($registros)) {
 		?><div id="contenido"><?php
 			$impresos++;
-			if (isset($_SESSION['username'])) {
-				echo $reg['nombres']." ".$reg['apellidos']." @".$reg['cuenta'];
-				echo "Fecha:".$reg['tiempo_de_creacion']."<br>";
-				echo "<a href='/proyecto/Proyecto/?proyecto=principal&pos=$inicio&id=$reg[idnotas]'>";
-				echo "<strong>".$reg['nota']."</strong><br>";
-				echo "</a>";
-			} else {	  
-				echo $reg['nombres']." ".$reg['apellidos']." @".$reg['cuenta'];
-				echo $reg['tiempo_de_creacion']."<br>";
-				echo "<a href='/proyecto/Proyecto/?proyecto=principal&pos=$inicio&id=$reg[idnotas]'>";
-				echo "<strong>".$reg['nota']."</strong><br>";
-				echo "</a>";
-			}
+				echo "
+				<div id='contenido_arriba'>
+					<div id='contenido_arriba_nombre'>
+						".$reg['nombres']." ".$reg['apellidos']." @".$reg['cuenta']."
+					</div>
+					<div id='contenido_arriba_fecha'>"
+						.$reg['tiempo_de_creacion']."<br>"."
+					</div>
+				</div>
+				<div id='contenido_central'>
+					<a href='/proyecto/Proyecto/?proyecto=principal&pos=$inicio&id=$reg[idnotas]'>
+						<strong>".$reg['nota']."</strong><br>
+					</a>
+				</div>
+				<div id='contenido_abajo'>
+				</div>";
 		?></div><br><?php
 	}
 	

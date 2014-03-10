@@ -103,7 +103,18 @@ section {
 	text-align: left;
 	word-wrap: break-word;
 	}
-
+	
+#contenido_arriba_nombre {
+	float:left;
+	}
+	
+#contenido_arriba_fecha {
+	float:right
+	}
+	
+#contenido_central {
+	clear:both
+	}
 /* 
 	BARRA LATERAL 
 */
