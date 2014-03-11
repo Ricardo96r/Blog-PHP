@@ -1,5 +1,5 @@
 body {
-	background-image:url(../../imagenes/fondo.png);
+	background-color:#FF8E00;
 	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
 	margin: 0;
    	padding: 0;
@@ -24,7 +24,6 @@ header {
 	border-bottom-style: solid;
 	border-bottom-width:1px;
 	border-bottom-color:#000000;
-
 		}
 		
 #titulo {
@@ -39,6 +38,12 @@ header {
 		font-size:30px;
 	}
 }
+
+a:link, a:active, a:hover, a:visited {   
+	text-decoration: none;
+	color:inherit;
+}
+  
 #login {
 	float: right;
 	}
@@ -143,7 +148,7 @@ section {
 	BARRA LATERAL 
 */
 aside {
-	width:25%;
+	width:300px;
 	float: right;
 	background-image: url(../../imagenes/fondo_contenido.png);
 	margin-top:10px;

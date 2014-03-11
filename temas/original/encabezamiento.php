@@ -9,13 +9,13 @@
 </head>
 <div class="contenedor">
 	<header>
-    	<div id="titulo">
+    	<div class="enlace-sincont" id="titulo">
             <hgroup>
-				 <?php echo ucwords($prop['nombre']); ?>
+				 <a href="?<?php echo $prop['nombre']; ?>=principal"><?php echo ucwords($prop['nombre']); ?></a>
             </hgroup>
          </div>
          <div id="create_acc">
-         	<button id="create-boton">crear cuenta</button>
+         	<button id="create-boton"><a href="?<?php echo $prop['nombre']; ?>=principal&page=registro">crear cuenta</a></button>
          </div>
          <div id="login">
          	<button id="login-boton">entrar</button>
