@@ -5,7 +5,7 @@
 	<title><?php echo ucwords($prop['nombre']); ?></title>
     <link rel="stylesheet" type="text/css"  href="<?php echo $prop['tema'];?>/includes/css/estilos.css">
 	<script src="http://code.jquery.com/jquery-1.9.0.js" type="text/javascript"></script>
-    <script src="includes/js/slider.js"></script>
+    <script src="<?php echo $prop['tema'];?>/includes/js/header.js"></script>
 </head>
 <div class="contenedor">
 	<header>
@@ -13,6 +13,9 @@
             <hgroup>
 				 <?php echo ucwords($prop['nombre']); ?>
             </hgroup>
+         </div>
+         <div id="login">
+         	<button id="login-boton">login</button>
          </div>
          <div id="entrar">
 		 	<?php

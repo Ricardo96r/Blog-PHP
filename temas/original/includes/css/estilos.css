@@ -25,21 +25,27 @@ header {
 	float: left;
 	color: #F98300;
 	font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif;
-	font-size: 60px;
-	font-style: normal;
+	font-size: 35px;
 	text-transform: uppercase;
 	}
 	
 @media screen and (max-width: 480px){
 	#titulo {
-		width: 100%;
 		font-size:30px;
 	}
 }
-
-#entrar {
+#login {
 	float: right;
+	}
+	
+#login-boton {
+	font-size:20px;
+	background-color:rgba(251,251,251,1.00);
+	}
+	
+#entrar {
 	font-size: 10px;
+	float:right;
 	}
 	
 	
