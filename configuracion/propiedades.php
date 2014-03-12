@@ -5,4 +5,12 @@
 		
 	# Define $gtp variable
 	$gtp = isset($_GET["$prop[nombre]"]) ? $_GET["$prop[nombre]"] : "";
+	
+	# Valores de PERFIL especificado por $_SESSION['username']
+	if (isset($_SESSION['username'])) {
+		$pf_op = mysql_query("SELECT idcuentas, cuenta, email, nombres, apellidos, nacimiento, sexo FROM cuentas WHERE email = '$_SESSION[username]'", $conn) or die (mysql_error());
+		$pf = mysql_fetch_array($pf_op);
+	} else {
+		// no pasa nada REVISAR
+		}
 ?>

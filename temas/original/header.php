@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 	<title><?php echo ucwords($prop['nombre']); ?></title>
     <link rel="stylesheet" type="text/css"  href="<?php echo $prop['tema'];?>/includes/css/css-reset.css">
+    <link rel="stylesheet" type="text/css"  href="<?php echo $prop['tema'];?>/includes/css/header.css">
+    <link rel="stylesheet" type="text/css"  href="<?php echo $prop['tema'];?>/includes/css/nav.css">
     <link rel="stylesheet" type="text/css"  href="<?php echo $prop['tema'];?>/includes/css/estilos.css">
+    <link rel="stylesheet" type="text/css"  href="<?php echo $prop['tema'];?>/includes/css/aside.css">
+    <link rel="stylesheet" type="text/css"  href="<?php echo $prop['tema'];?>/includes/css/footer.css">
 	<script src="http://code.jquery.com/jquery-1.9.0.js" type="text/javascript"></script>
     <script src="<?php echo $prop['tema'];?>/includes/js/header.js"></script>
 </head>
@@ -14,12 +18,21 @@
             	<?php echo ucwords($prop['nombre']); ?>
 			</button>
 		</div>
+        <?php if(!isset($_SESSION['username'])) {?>
 		<div id="create_acc">
 			<button id="create-boton" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=principal&page=registro'">crear cuenta</button>
 		</div>
 		<div id="login">
 			<button id="login-boton">iniciar sesión &darr;</button>
 		</div>
+        <?php } else { ?>
+        <div id="header-propieades">
+			<button id="boton-propiedades">propieades&darr;</button>
+		</div>
+        <div id="header-perfil">
+			<button id="boton-perfil" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=usuario&page=perfil&pf=<?php echo $pf['cuenta'];?>'"><?php echo $pf['nombres']." ".$pf['apellidos']?></button>
+		</div>
+        <?php } ?>
 		<div id="entrar">
 			<?php
 			if (!isset($_SESSION['username'])) {
@@ -39,7 +52,7 @@
                </form>
            <?php 
 				} else {
-					$sesion = mysql_query("SELECT email, contraseña FROM cuentas WHERE email = '$_POST[email]'");
+					$sesion = mysql_query("SELECT email, contraseña, nombres, apellidos FROM cuentas WHERE email = '$_POST[email]'");
 					$sesion1 = mysql_fetch_array($sesion);
 	
 					if (isset($_POST["email"]) and !empty($_POST["email"]) and
@@ -56,15 +69,15 @@
 						header("Location: ?".$prop[nombre]."=principal&page=login");
 						}	
 					}
-			} else {
-				echo $_SESSION['username'];?>
-				<br>
-				<a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=cerrar_sesión">Cerrar sesión</a>
-				<a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=perfil">Perfil</a>
-				<a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=opciones">Opciones</a>
-				<?php
-				}
-				?>
+			} else {?>
+                <div id="header-menu-propiedades">
+                	<ul>
+                        <li><a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=cerrar_sesión">Cerrar sesión</a></li>
+                        <li><a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=perfil">Perfil</a></li>
+                        <li><a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=opciones">Opciones</a></li>
+                    </ul>
+                </div>
+			<?php }?>
          </div>
 	</header>
     <div class="contenedor">

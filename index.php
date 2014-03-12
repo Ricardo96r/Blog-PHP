@@ -18,25 +18,31 @@
 			header("Location: ?".$prop['nombre']."=principal");
 			break;
 		case "principal":
-			include($prop['tema']."/encabezamiento.php");
+			include($prop['tema']."/header.php");
 			include($prop['tema']."/nav.php");
 			include("fuente/publico/principal.php");
 			include($prop['tema']."/aside.php");
 			break;
 		case "usuario":
-			include($prop['tema']."/encabezamiento.php");
+			include($prop['tema']."/header.php");
 			include($prop['tema']."/nav.php");
 			include("fuente/usuario/usuario.php");
 			include($prop['tema']."/aside.php");
 			break;
 		case "admin":
-			include($prop['tema']."/encabezamiento.php");
+			include($prop['tema']."/header.php");
 			include($prop['tema']."/nav.php");
 			include("fuente/admin/principal.php");
 			include($prop['tema']."/aside.php");
 			break;
+		case "perfil":
+			include($prop['tema']."/header.php");
+			include($prop['tema']."/nav-perfil.php");
+			include("fuente/usuario/usuario.php");
+			include($prop['tema']."/aside.php");
+			break;
 		default:
-			include($prop['tema']."/encabezamiento.php");
+			include($prop['tema']."/header.php");
 			include($prop['tema']."/nav.php");
 			include("fuente/publico/principal.php");
 			include($prop['tema']."/aside.php");
