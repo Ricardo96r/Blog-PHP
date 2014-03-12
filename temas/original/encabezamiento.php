@@ -9,71 +9,62 @@
     <script src="<?php echo $prop['tema'];?>/includes/js/header.js"></script>
 </head>
 	<header>
-    	<div class="enlace-sincont" id="titulo">
-            <hgroup>
-				 <a href="?<?php echo $prop['nombre']; ?>=principal"><?php echo ucwords($prop['nombre']); ?></a>
-            </hgroup>
-         </div>
-         <div id="create_acc">
-         	<button id="create-boton"><a href="?<?php echo $prop['nombre']; ?>=principal&page=registro">crear cuenta</a></button>
-         </div>
-         <div id="login">
-         	<button id="login-boton">entrar</button>
-         </div>
-         <div id="entrar">
-		 	<?php
+    	<div id="header-titulo">
+            <button id="titulo" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=principal'">
+            	<?php echo ucwords($prop['nombre']); ?>
+			</button>
+		</div>
+		<div id="create_acc">
+			<button id="create-boton" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=principal&page=registro'">crear cuenta</button>
+		</div>
+		<div id="login">
+			<button id="login-boton">iniciar sesión &darr;</button>
+		</div>
+		<div id="entrar">
+			<?php
 			if (!isset($_SESSION['username'])) {
             	if (!isset($_POST['entrar_logueo'])) {
             ?>
                <form method="post" action="">
-                   <table>
-                     <tr>
-                       <td><label for="email">Email:</label></td>
-                       <td><label for="contraseña">Contraseña:</label></td>
-                       <td>&nbsp;</td>
-                     </tr>
-                     <tr>
-                       <td><input type="email" name="email" id="email" placeholder="email" required></td>
-                       <td><input type="password" name="contraseña" id="contraseña" placeholder="contraseña" required></td>
-                       <td><input type="submit" name="entrar_logueo" id="submit" value="Entrar"></td>
-                     </tr>
-                     <tr>
-                       <td><input type="checkbox" name="ncsesion" id="ncsesion" value="1">
-                        <label for="ncsesion"> No cerrar sessión</label></td>
-                       <td><a href="#">¿Olvidaste tu contraseña?</a></td>
-                       <td>&nbsp;</td>
-                     </tr>
-                   </table>
+                    <div><input type="email" name="email" id="menu-entrar-email" placeholder="email" required></div>
+                    <div><input type="password" name="contraseña" id="menu-entrar-password" placeholder="contraseña" required></div>
+                    <div id="menu-entrar-ncsesion_submit">
+                        <div id="menu-entrar-ncsesion-div">
+                            <input type="checkbox" name="ncsesion" id="menu-entrar-ncsesion" value="1"><label for="menu-entrar-ncsesion"> No cerrar sesión</label>
+                        </div>
+                        <div>
+                            <input type="submit" name="entrar_logueo" id="menu-entrar-submit" value="Entrar">
+                        </div>
+                    </div>
                </form>
            <?php 
-		   } else {
-				$sesion = mysql_query("SELECT email, contraseña FROM cuentas WHERE email = '$_POST[email]'");
-				$sesion1 = mysql_fetch_array($sesion);
-
-				if (isset($_POST["email"]) and !empty($_POST["email"]) and
-					isset($_POST["contraseña"]) and !empty($_POST["contraseña"])) {
-					if ($_POST["contraseña"] === $sesion1["contraseña"]) {
-						$_SESSION["username"] = $_POST["email"];
-						echo "Conectando a la web";
-						header("Location: ".$_SERVER['HTTP_REFERER']);
-						
-					} else {
-						header("Location: ?".$prop[nombre]."=principal&page=login_error");
-						}
 				} else {
-					header("Location: ?".$prop[nombre]."=principal&page=login_error");
-					}	
+					$sesion = mysql_query("SELECT email, contraseña FROM cuentas WHERE email = '$_POST[email]'");
+					$sesion1 = mysql_fetch_array($sesion);
+	
+					if (isset($_POST["email"]) and !empty($_POST["email"]) and
+						isset($_POST["contraseña"]) and !empty($_POST["contraseña"])) {
+						if ($_POST["contraseña"] === $sesion1["contraseña"]) {
+							$_SESSION["username"] = $_POST["email"];
+							echo "Conectando a la web";
+							header("Location: ".$_SERVER['HTTP_REFERER']);
+							
+						} else {
+							header("Location: ?".$prop[nombre]."=principal&page=login");
+							}
+					} else {
+						header("Location: ?".$prop[nombre]."=principal&page=login");
+						}	
+					}
+			} else {
+				echo $_SESSION['username'];?>
+				<br>
+				<a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=cerrar_sesión">Cerrar sesión</a>
+				<a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=perfil">Perfil</a>
+				<a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=opciones">Opciones</a>
+				<?php
 				}
-		} else {
-			echo $_SESSION['username'];
-			?>
-            <br>
-            <a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=cerrar_sesión">Cerrar sesión</a>
-            <a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=perfil">Perfil</a>
-            <a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=opciones">Opciones</a>
-            <?php
-			}
-			?>
+				?>
          </div>
 	</header>
     <div class="contenedor">

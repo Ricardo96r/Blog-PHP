@@ -38,7 +38,7 @@ $impresos=0;
 
 if (!isset($_GET['id'])) {
 	while ($reg=mysql_fetch_array($registros)) {
-		?><div id="contenido"><?php
+		?><article id="contenido"><?php
 			$impresos++;
 				echo "
 				<div id='contenido_arriba'>
@@ -57,7 +57,7 @@ if (!isset($_GET['id'])) {
 				<div id='contenido_abajo'>
 				</div>";
 				
-		?><hr></div><br><?php
+		?><hr></article><?php
 	}
 	
 	$impresos /= 10;
@@ -87,7 +87,7 @@ if (!isset($_GET['id'])) {
 		echo "<strong><h3>Comentarios:</h3></strong>";
 		if (mysql_num_rows($registro_com) > 0) {
 			while ($cm=mysql_fetch_array($registro_com)) {
-				?><div id="contenido"><?php
+				?><article id="contenido"><?php
 					if (isset($_SESSION['username'])) {
 						echo "Nombre:".$cm['cuenta']."-------";
 						echo "<strong>".$cm['comentario']."</strong><br>";
@@ -98,7 +98,7 @@ if (!isset($_GET['id'])) {
 						echo "Nombre:".$cm['cuenta']."-------";
 						echo "<strong>".$cm['comentario']."</strong><br></a>";
 					}
-				?></div><br><?php
+				?></article><br><?php
 			}
 		} else {
 			?><div style="text-align:center" id="contenido">
