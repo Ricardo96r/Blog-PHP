@@ -19,6 +19,7 @@
 			break;
 		case "principal":
 			include($prop['tema']."/encabezamiento.php");
+			include($prop['tema']."/nav.php");
 			include("fuente/publico/principal.php");
 			include($prop['tema']."/aside.php");
 			include($prop['tema']."/pie.php");

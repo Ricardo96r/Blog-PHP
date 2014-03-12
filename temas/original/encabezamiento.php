@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 	<title><?php echo ucwords($prop['nombre']); ?></title>
+    <link rel="stylesheet" type="text/css"  href="<?php echo $prop['tema'];?>/includes/css/css-reset.css">
     <link rel="stylesheet" type="text/css"  href="<?php echo $prop['tema'];?>/includes/css/estilos.css">
 	<script src="http://code.jquery.com/jquery-1.9.0.js" type="text/javascript"></script>
     <script src="<?php echo $prop['tema'];?>/includes/js/header.js"></script>
 </head>
-<div class="contenedor">
 	<header>
     	<div class="enlace-sincont" id="titulo">
             <hgroup>
@@ -76,4 +76,4 @@
 			?>
          </div>
 	</header>
-<section>
+    <div class="contenedor">

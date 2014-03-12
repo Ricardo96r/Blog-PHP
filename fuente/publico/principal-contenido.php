@@ -56,7 +56,8 @@ if (!isset($_GET['id'])) {
 				</div>
 				<div id='contenido_abajo'>
 				</div>";
-		?></div><br><?php
+				
+		?><hr></div><br><?php
 	}
 	
 	$impresos /= 10;

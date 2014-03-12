@@ -12,4 +12,6 @@
 			}
 			?>
 	</ul>
+    <hr>
 </nav>
+<section>
