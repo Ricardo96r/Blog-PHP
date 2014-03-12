@@ -22,25 +22,24 @@
 			include($prop['tema']."/nav.php");
 			include("fuente/publico/principal.php");
 			include($prop['tema']."/aside.php");
-			include($prop['tema']."/pie.php");
 			break;
 		case "usuario":
 			include($prop['tema']."/encabezamiento.php");
+			include($prop['tema']."/nav.php");
 			include("fuente/usuario/usuario.php");
 			include($prop['tema']."/aside.php");
-			include($prop['tema']."/pie.php");
 			break;
 		case "admin":
 			include($prop['tema']."/encabezamiento.php");
+			include($prop['tema']."/nav.php");
 			include("fuente/admin/principal.php");
 			include($prop['tema']."/aside.php");
-			include($prop['tema']."/pie.php");
 			break;
 		default:
 			include($prop['tema']."/encabezamiento.php");
+			include($prop['tema']."/nav.php");
 			include("fuente/publico/principal.php");
 			include($prop['tema']."/aside.php");
-			include($prop['tema']."/pie.php");
 			break;
 	}
 
