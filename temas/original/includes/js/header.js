@@ -7,10 +7,6 @@ $(document).on("ready", function(){
 	});
 	
 	$("#boton-propiedades").on("click", function (){
-		$("#entrar").slideToggle(0,function(){
-			$("#entrar").css({
-				// width:200, quita el responsive 
-				})
-			});
-});
+		$("#entrar").slideToggle();
+	});	
 });

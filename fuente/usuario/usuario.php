@@ -1,5 +1,4 @@
 <?php
-if(isset($_SESSION['username'])) { // Necesario?
 	if(isset($_GET['page'])){
 		$main = $_GET['page'];
 	}else{
@@ -23,7 +22,5 @@ if(isset($_SESSION['username'])) { // Necesario?
 	}else{
 		header("Location: ?".$prop['nombre']."=principal");
 		} 
-} else {
-	header("Location: ?".$prop['nombre']."=principal");
-	}
+
 	?>

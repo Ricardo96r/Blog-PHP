@@ -12,7 +12,8 @@ body {
 	}
 	
 /* 
-	CONTENIDO CENTRAL
+	CONTENIDO:
+	-INICIO
 */
 
 section {
@@ -38,4 +39,102 @@ section {
 	
 #contenido_central {
 	clear:both
+	}
+	
+/* 
+	CONTENIDO:
+	-PERFIL
+*/
+/* 
+	CONTENIDO:
+	-PERFIL: PARTE SUPERIOR
+*/
+
+#perfil-contenedor {
+	position:relative;
+	}
+
+#perfil-fondo-imagen_perfil {
+	height:150px;
+	width:200px;
+	background:#FFFFFF;
+	border-style:solid;
+	border-width:1px;
+	position:absolute;
+	}
+
+#perfil-fondo-contenido_fondo {
+	margin-left:200px;
+	background:#E88200;
+	}
+	
+#perfil-fondo-contenido {
+	width:100%;
+	}
+
+#perfil-fondo-contenido-nombre {
+	padding-top:40px;
+	width:100%;
+	font-size:20px;
+	}
+	
+#perfil-fondo-contenido-cuenta {
+	font-size:10px;
+	}
+
+#perfil-fondo-contenido-datos {
+	text-align:center;
+	margin-top:40px;
+	background: #FF0004;
+	height:40px;
+	border-style:solid;
+	border-width:1px;
+	}
+	
+#perfil-fondo-contenido-datos_publicaciones {
+	float:right;
+	border-left-style:solid;
+	border-left-width:1px;
+	}
+	
+#perfil-fondo-contenido-datos_publicaciones_boton {
+	color: #FFFFFF;
+	font-size: 10px;
+	background-color: #FFA600;
+	border:none;
+	height:40px;
+	text-transform:uppercase;
+	font-weight:900;
+	}
+	
+#perfil-fondo-contenido-datos_seguidores {
+	float:right;
+	}
+	
+#perfil-fondo-contenido-datos_seguidores_boton {
+	color: #FFFFFF;
+	font-size: 10px;
+	background-color: #FFA600;
+	border:none;
+	height:40px;
+	text-transform:uppercase;
+	font-weight:900;
+	}
+	
+#perfil-fondo-contenido-datos_siguiendo {
+	float: right;
+	border-left-style:solid;
+	border-left-width:1px;
+	border-right-style:solid;
+	border-right-width:1px;
+	}
+
+#perfil-fondo-contenido-datos_siguiendo_boton {
+	color: #FFFFFF;
+	font-size: 10px;
+	background-color: #FFA600;
+	border:none;
+	height:40px;
+	text-transform:uppercase;
+	font-weight:900;
 	}

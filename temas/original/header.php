@@ -12,6 +12,7 @@
 	<script src="http://code.jquery.com/jquery-1.9.0.js" type="text/javascript"></script>
     <script src="<?php echo $prop['tema'];?>/includes/js/header.js"></script>
 </head>
+<body>
 	<header>
     	<div id="header-titulo">
             <button id="titulo" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=principal'">
