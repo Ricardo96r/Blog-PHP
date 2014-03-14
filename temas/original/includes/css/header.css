@@ -171,3 +171,14 @@ header {
 	text-transform:uppercase;
 	font-weight:900;
 	}
+	
+#header-perfil-imagen {
+	float:left;
+	width:40px;
+	height:40px;
+	}
+	
+#header-perfil-nombre {
+	float:left;
+	margin-top:15px;
+	}

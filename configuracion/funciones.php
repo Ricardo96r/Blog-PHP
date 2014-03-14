@@ -80,4 +80,31 @@ function mostrarNacimiento( $type ) {
 		echo "</select>";
 	}
 }
-?>
+
+function post ($dt) {
+	?>
+    <article id="contenido-contenedor">
+    	<div id="contenido">
+			<div id='contenido_arriba'>
+            	<div id="contenido_arriba_imagen-perfil">
+                	<img src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
+                </div>
+				<div id='contenido_arriba_nombre'>
+					<a href="?proyecto=usuario&page=perfil&pf=<?php echo $dt['cuenta'];?>">
+						<?php echo $dt['nombres']." ".$dt['apellidos']." @".$dt['cuenta']; ?>
+                    </a>
+				</div>
+				<div id='contenido_arriba_fecha'>
+					<?php echo $dt['tiempo_de_creacion']; ?>
+				</div>
+			</div>
+			<div id='contenido_central'>
+				<a href='/proyecto/Proyecto/?proyecto=principal&id=<?php echo $dt['idnotas']; ?>'>
+					<?php echo $dt['nota']; ?>
+				</a>
+			</div>
+			<div id='contenido_abajo'>
+			</div>
+        </div>
+	</article>
+<?php } ?>

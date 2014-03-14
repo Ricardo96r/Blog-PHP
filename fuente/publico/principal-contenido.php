@@ -28,7 +28,7 @@ if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GE
 						
 $inicio_2 = $inicio*10;
 $registros=mysql_query("
-	SELECT cuentas.idCuentas, cuentas.cuenta,cuentas.nombres, cuentas.apellidos, notas.idnotas, notas.nota, notas.tiempo_de_creacion  
+	SELECT cuentas.idCuentas, cuentas.cuenta,cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, notas.idnotas, notas.nota, notas.tiempo_de_creacion  
 	FROM cuentas
 	INNER JOIN notas 
 	ON cuentas.idcuentas = notas.cuentas_idcuentas
@@ -38,26 +38,8 @@ $impresos=0;
 
 if (!isset($_GET['id'])) {
 	while ($reg=mysql_fetch_array($registros)) {
-		?><article id="contenido"><?php
-			$impresos++;
-				echo "
-				<div id='contenido_arriba'>
-					<div id='contenido_arriba_nombre'>
-						".$reg['nombres']." ".$reg['apellidos']." @".$reg['cuenta']."
-					</div>
-					<div id='contenido_arriba_fecha'>"
-						.$reg['tiempo_de_creacion']."<br>"."
-					</div>
-				</div>
-				<div id='contenido_central'>
-					<a href='/proyecto/Proyecto/?proyecto=principal&pos=$inicio&id=$reg[idnotas]'>
-						<strong>".$reg['nota']."</strong><br>
-					</a>
-				</div>
-				<div id='contenido_abajo'>
-				</div>";
-				
-		?><hr></article><?php
+		$impresos++;
+		post($reg);
 	}
 	
 	$impresos /= 10;

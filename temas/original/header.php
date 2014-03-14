@@ -31,7 +31,14 @@
 			<button id="boton-propiedades">propieades&darr;</button>
 		</div>
         <div id="header-perfil">
-			<button id="boton-perfil" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=usuario&page=perfil&pf=<?php echo $pf['cuenta'];?>'"><?php echo $pf['nombres']." ".$pf['apellidos']?></button>
+			<button id="boton-perfil" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=usuario&page=perfil&pf=<?php echo $pf['cuenta'];?>'">
+                <div id="header-perfil-imagen">
+                	<img src="static-content/perfiles/<?php echo $pf['imagen_perfil']?>">
+                </div>
+                <div id="header-perfil-nombre">
+					<?php echo $pf['nombres']." ".$pf['apellidos']?>
+               	</div>
+            </button>
 		</div>
         <?php } ?>
 		<div id="entrar">

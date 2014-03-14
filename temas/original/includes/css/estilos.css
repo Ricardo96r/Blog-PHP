@@ -23,12 +23,27 @@ section {
 	margin-bottom:20px;
 	}
 	
-#contenido {
+#contenido-contenedor {
 	background-color: #FFFFFF;
 	text-align: left;
 	word-wrap: break-word;
+	border-style:solid;
+	border-width:1px;
+	}
+
+#contenido {
+	padding:10px;
 	}
 	
+#contenido_arriba {
+	margin-bottom:30px;
+	}
+
+#contenido_arriba_imagen-perfil {
+	float:left;
+	width:40px;
+	height:40px;
+	}
 #contenido_arriba_nombre {
 	float:left;
 	}
@@ -52,49 +67,51 @@ section {
 
 #perfil-contenedor {
 	position:relative;
+	border-style:solid;
+	border-width:1px;
 	}
 
 #perfil-fondo-imagen_perfil {
-	height:150px;
+	height:200px;
 	width:200px;
+	margin-top:20px;
+	margin-left:20px;
 	background:#FFFFFF;
 	border-style:solid;
 	border-width:1px;
 	position:absolute;
+	box-shadow: 1px 2px 3px #000000;
 	}
 
 #perfil-fondo-contenido_fondo {
-	margin-left:200px;
-	background:#E88200;
+	margin-left:220px;
 	}
 	
 #perfil-fondo-contenido {
 	width:100%;
+	padding-top:60px;
+	padding-left:5%;
 	}
 
 #perfil-fondo-contenido-nombre {
-	padding-top:40px;
 	width:100%;
-	font-size:20px;
+	font-size:40px;
 	}
 	
 #perfil-fondo-contenido-cuenta {
-	font-size:10px;
+	font-size:20px;
 	}
 
 #perfil-fondo-contenido-datos {
 	text-align:center;
-	margin-top:40px;
-	background: #FF0004;
+	margin-top:100px;
 	height:40px;
-	border-style:solid;
-	border-width:1px;
 	}
 	
 #perfil-fondo-contenido-datos_publicaciones {
 	float:right;
-	border-left-style:solid;
-	border-left-width:1px;
+	border-width:1px;
+	border-style:solid;
 	}
 	
 #perfil-fondo-contenido-datos_publicaciones_boton {
@@ -109,6 +126,8 @@ section {
 	
 #perfil-fondo-contenido-datos_seguidores {
 	float:right;
+	border-width:1px;
+	border-style:solid;
 	}
 	
 #perfil-fondo-contenido-datos_seguidores_boton {
@@ -123,10 +142,9 @@ section {
 	
 #perfil-fondo-contenido-datos_siguiendo {
 	float: right;
-	border-left-style:solid;
-	border-left-width:1px;
-	border-right-style:solid;
-	border-right-width:1px;
+	border-style:solid;
+	border-top-width:1px;
+	border-bottom-width:1px;
 	}
 
 #perfil-fondo-contenido-datos_siguiendo_boton {
