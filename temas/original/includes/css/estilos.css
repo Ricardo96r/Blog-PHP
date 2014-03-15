@@ -28,32 +28,89 @@ section {
 	background-color: #FFFFFF;
 	text-align: left;
 	word-wrap: break-word;
-	border-style:solid;
-	border-width:1px;
+	margin-bottom:10px;
 	}
 
 #contenido {
 	}
 	
 #contenido_arriba {
-	margin-bottom:30px;
+	height:100px;
+	background-size:100% 100%;
 	}
 
 #contenido_arriba_imagen-perfil {
 	float:left;
-	width:40px;
-	height:40px;
+	width:100px;
+
 	}
 #contenido_arriba_nombre {
 	float:left;
+	margin-top:30px;
+	font-size:20px;
+	background-color:#FF8F32;
+	color:#FFFFFF;
 	}
 	
 #contenido_arriba_fecha {
-	float:right
+	float:right;
+	background-color:#FF8F32;
+	color:#FFFFFF;
 	}
 	
 #contenido_central {
-	clear:both
+	clear:both;
+	border-style:solid;
+	border-width:1px;
+	}
+
+#contenido_abajo {
+	text-align:center;
+	height:40px;
+	background-color:#FF8F32;
+	}
+	
+#contenido_abajo_megusta {
+	float:right;
+	}
+	
+#contenido_abajo_megusta_boton {
+	color: #FFFFFF;
+	font-size: 10px;
+	background-color: #FF8F32;
+	border:none;
+	height:40px;
+	text-transform:uppercase;
+	font-weight:900;
+	}
+	
+#contenido_abajo_favoritos {
+	float:right;
+	}
+	
+#contenido_abajo_favoritos_boton {
+	color: #FFFFFF;
+	font-size: 10px;
+	background-color: #FF8F32;
+	border:none;
+	height:40px;
+	text-transform:uppercase;
+	font-weight:900;
+	}
+	
+#contenido_abajo_guardar {
+	float: right;
+
+	}
+
+#contenido_abajo_guardar_boton {
+	color: #FFFFFF;
+	font-size: 10px;
+	background-color: #FF8F32;
+	border:none;
+	height:40px;
+	text-transform:uppercase;
+	font-weight:900;
 	}
 	
 /* 

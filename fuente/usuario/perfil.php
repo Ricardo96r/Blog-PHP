@@ -16,7 +16,7 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 	} else {
 		if($perfil == !NULL) { 
 		$perfil_notas = mysql_query("
-			SELECT cuentas.idCuentas, cuentas.cuenta,cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, notas.idnotas, notas.nota, notas.tiempo_de_creacion 
+			SELECT cuentas.idCuentas, cuentas.cuenta,cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, notas.idnotas, notas.nota, notas.tiempo_de_creacion 
 			FROM notas
 			INNER JOIN cuentas
 			ON cuentas.idcuentas = notas.cuentas_idcuentas

@@ -28,7 +28,7 @@ if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GE
 						
 $inicio_2 = $inicio*10;
 $registros=mysql_query("
-	SELECT cuentas.idCuentas, cuentas.cuenta,cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, notas.idnotas, notas.nota, notas.tiempo_de_creacion  
+	SELECT cuentas.idCuentas, cuentas.cuenta,cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, notas.idnotas, notas.nota, notas.tiempo_de_creacion  
 	FROM cuentas
 	INNER JOIN notas 
 	ON cuentas.idcuentas = notas.cuentas_idcuentas

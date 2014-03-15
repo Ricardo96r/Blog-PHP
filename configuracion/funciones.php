@@ -81,7 +81,7 @@ function mostrarNacimiento( $type ) {
 	}
 }
 
-function post ($dt) {
+function post1 ($dt) {
 	?>
     <article id="contenido-contenedor">
     	<div id="contenido">
@@ -105,6 +105,52 @@ function post ($dt) {
 			</div>
 			<div id='contenido_abajo'>
 			</div>
+        </div>
+	</article>
+<?php } 
+
+function post ($dt) {
+	?>
+    <article id="contenido-contenedor">
+    	<div id="contenido">
+			<div id='contenido_arriba' style="background-image:url(static-content/imagen_perfil_fondo/<?php echo $dt['imagen_perfil_fondo']?>);">
+            	<div id="contenido_arriba_imagen-perfil">
+                	<img src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
+                </div>
+				<div id='contenido_arriba_nombre'>
+					<a href="?proyecto=usuario&page=perfil&pf=<?php echo $dt['cuenta'];?>">
+						<?php echo $dt['nombres']." ".$dt['apellidos']." <br>@".$dt['cuenta']; ?>
+                    </a>
+				</div>
+				<div id='contenido_arriba_fecha'>
+					<?php echo $dt['tiempo_de_creacion']; ?>
+				</div>
+			</div>
+			<div id='contenido_central'>
+				<a href='/proyecto/Proyecto/?proyecto=principal&id=<?php echo $dt['idnotas']; ?>'>
+					<?php echo $dt['nota']; ?>
+				</a>
+			</div>
+			<div id='contenido_abajo' >
+                    <div id="contenido_abajo_megusta">
+                    	<button id="contenido_abajo_megusta_boton">
+                        	<div>Me gusta</div>
+                        	<div></div>
+                       	</button>
+                    </div>
+                    <div id="contenido_abajo_favoritos">
+                    	<button id="contenido_abajo_favoritos_boton">
+                    		<div>A favoritos</div>
+                        	<div></div>
+                        </button>
+                    </div>
+                    <div id="contenido_abajo_guardar">
+                        <button id="contenido_abajo_guardar_boton">
+                            <div>Guardar</div>
+                            <div></div>
+                        </button>
+                    </div>
+            </div>
         </div>
 	</article>
 <?php } ?>
