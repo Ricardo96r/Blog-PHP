@@ -29,10 +29,14 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
             <div id="perfil-fondo-contenido_fondo">
             	<div id="perfil-fondo-contenido">
 					<div id="perfil-fondo-contenido-nombre">
+                    	<span>
 						<?php echo $perfil['nombres']." ".$perfil['apellidos'];?>
+                        </span>
                     </div>
                     <div id="perfil-fondo-contenido-cuenta">
+                   		<span>
                     	<?php echo "@".$perfil['cuenta']; ?>
+                        </span>
                     </div>
                 </div>
            	</div>
