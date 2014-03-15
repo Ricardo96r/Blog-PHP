@@ -22,7 +22,7 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 			ON cuentas.idcuentas = notas.cuentas_idcuentas
 			WHERE cuentas.cuenta = '$perfil[cuenta]'
 			ORDER BY `idnotas` DESC", $conn) or die(mysql_error());?>
-        <div id="perfil-contenedor" style=" background-image:url(static-content/imagen_perfil_fondo/<?php echo $perfil['imagen_perfil_fondo']?>)">
+        <div id="perfil-contenedor" style=" background-image:url(static-content/imagen_perfil_fondo/<?php echo $perfil['imagen_perfil_fondo']?>); ">
         	<div id="perfil-fondo-imagen_perfil">
             	<img src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
             </div>
