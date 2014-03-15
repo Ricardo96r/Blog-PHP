@@ -3,8 +3,9 @@
 */
 
 nav {
-	position:absolute;
+	position:fixed;
 	width:150px;
+	margin-top:10px;
 	}
 	
 nav ul li {
