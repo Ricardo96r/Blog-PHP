@@ -3,9 +3,8 @@
 */
 
 nav {
-	position:fixed;
+	position:absolute;
 	width:150px;
-	margin-top:10px;
 	}
 	
 nav ul li {
