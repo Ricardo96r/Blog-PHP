@@ -20,12 +20,13 @@ body {
 section {
 	margin-right:320px;
 	margin-left:150px;
-	margin-top:10px;
 	margin-bottom:20px;
+	margin-top:4px;
 	}
 article {
-	margin-bottom:10px;
+	padding:4px;
 	}
+	
 #contenido-contenedor {
 	background-color: #FFFFFF;
 	text-align: left;
@@ -44,25 +45,32 @@ article {
 
 #contenido_arriba_imagen-perfil {
 	float:left;
-	width:100px;
+	width:80px;
+	padding:10px;
+	
+	margin-right:1%;
 
 	}
 #contenido_arriba_nombre {
 	float:left;
 	margin-top:30px;
-	font-size:20px;
+	font-size:15px;
 	background-color:#FF8F32;
 	color:#FFFFFF;
+
 	}
 	
 #contenido_arriba_fecha {
 	float:right;
 	background-color:#FF8F32;
 	color:#FFFFFF;
+	box-shadow: 1px 3px 10px #000000;
 	}
 	
 #contenido_central {
 	clear:both;
+	padding:10px;
+	text-align:center;
 	}
 
 #contenido_abajo {
