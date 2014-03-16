@@ -23,16 +23,17 @@ section {
 	margin-top:10px;
 	margin-bottom:20px;
 	}
-	
+article {
+	margin-bottom:10px;
+	}
 #contenido-contenedor {
 	background-color: #FFFFFF;
 	text-align: left;
 	word-wrap: break-word;
-	margin-bottom:10px;
 	}
 
 #contenido {
-		border-style:solid;
+	border-style:solid;
 	border-width:1px;
 	}
 	

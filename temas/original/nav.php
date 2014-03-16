@@ -12,6 +12,5 @@
 			}
 			?>
 	</ul>
-    <hr>
 </nav>
 <section>

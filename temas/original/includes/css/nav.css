@@ -5,26 +5,29 @@
 nav {
 	position:fixed;
 	width:150px;
-	margin-top:10px;
+	margin-top:0px;;
+	background-color:#FF8F32;
+	height:100%;
 	}
 	
 nav ul li {
 	font-size: 20px;
 	font-weight: bold;
-	color: #F89200;
+	color: #FFFFFF;
 	font-variant: small-caps;
-	text-transform: uppercase;	
+	text-transform: uppercase;
+	margin-top:10px;
 	}
 	
 nav ul li a:link{
-	color: #FF5700;
+	color: #FFFFFF;
 	text-decoration:none;
 	margin-left:10px;
 	margin-right:10px;
 	}
 	
 nav ul li a:visited{
-	color: #FF5700;	
+	color: #FFFFFF;
 	text-decoration:none;
 	margin-left:10px;
 	margin-right:10px;

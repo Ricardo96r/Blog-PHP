@@ -3,7 +3,14 @@ aside {
 	top: 0px;
 	bottom: 0;
 	right: 0;
-	width: 300px;
-	margin-top:50px;
+	width: 320px;
+	margin-top:40px;
+	background-color:#FF8F32;
+	}
+	
+#publicidad {
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:10px;
 	}
 
