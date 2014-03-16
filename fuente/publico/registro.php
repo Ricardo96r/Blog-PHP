@@ -40,8 +40,8 @@ if (!isset($_POST["registro"])) {
 	$nacimiento = antiSqlInjection($_POST['año'])."-".antiSqlInjection($_POST['mes'])."-".antiSqlInjection($_POST['dia']); 
 	$sexo = antiSqlInjection($_POST['sexo']);
 	
-	$crevisar = mysql_query("SELECT * FROM `cuentas` WHERE `cuenta`='".$cuenta."'") or die(mysql_error());
-	$erevisar = mysql_query("SELECT * FROM `cuentas` WHERE `email`='".$email."'") or die(mysql_error());
+	$crevisar = mysql_query("SELECT cuenta FROM `cuentas` WHERE `cuenta`='".$cuenta."'") or die(mysql_error());
+	$erevisar = mysql_query("SELECT email FROM `cuentas` WHERE `email`='".$email."'") or die(mysql_error());
 	/*
 	-----------------------
 	Errores al registrarse
@@ -62,7 +62,7 @@ if (!isset($_POST["registro"])) {
 			 Signos: _ <br><br>
 			 <strong>No es valido: </strong><br>
 			 El espacio, todo tiene que ir pegado');
-	} elseif (mysql_num_rows($crevisar) >= 1) {
+	} elseif (mysql_num_rows($crevisar) != NULL) {
 		echo "Este nombre de usuario ya esta en uso";
 		
 	//$contraseña
@@ -84,8 +84,8 @@ if (!isset($_POST["registro"])) {
 		echo "Porfavor llene el campo email";
 	} elseif(strlen($email) > 100){
 		echo "El email es muy largo";
-	} elseif (mysql_num_rows($erevisar) >= 1) {
-		echo "Este nombre de usuario ya esta en uso";
+	} elseif (mysql_num_rows($erevisar) != NULL) {
+		echo "Este email ya esta en uso";
 		
 	//$nombres
 	} elseif(!isset($nombres) or empty($nombres)) {

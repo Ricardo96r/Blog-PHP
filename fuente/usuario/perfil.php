@@ -3,7 +3,7 @@
 if (isset($_GET['pf'])) {
 	$perfil_get= antiSqlInjection($_GET['pf']);
   	$perfil_op = mysql_query("
-		SELECT idcuentas, cuenta, email, nombres, apellidos, nacimiento, sexo, imagen_perfil, imagen_perfil_fondo
+		SELECT idcuenta, cuenta, email, nombres, apellidos, nacimiento, sexo, imagen_perfil, imagen_perfil_fondo
 		FROM cuentas WHERE cuenta = '$perfil_get'"
 		, $conn) or die (mysql_error());
 	$perfil = mysql_fetch_array($perfil_op);
@@ -16,12 +16,12 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 	} else {
 		if($perfil == !NULL) { 
 		$perfil_notas = mysql_query("
-			SELECT cuentas.idCuentas, cuentas.cuenta,cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, notas.idnotas, notas.nota, notas.tiempo_de_creacion 
-			FROM notas
+			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion 
+			FROM publicaciones
 			INNER JOIN cuentas
-			ON cuentas.idcuentas = notas.cuentas_idcuentas
+			ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
 			WHERE cuentas.cuenta = '$perfil[cuenta]'
-			ORDER BY `idnotas` DESC", $conn) or die(mysql_error());?>
+			ORDER BY `idpublicacion` DESC", $conn) or die(mysql_error());?>
         <div id="perfil-contenedor" style=" background-image:url(static-content/imagen_perfil_fondo/<?php echo $perfil['imagen_perfil_fondo']?>); ">
         	<div id="perfil-fondo-imagen_perfil">
             	<img src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">

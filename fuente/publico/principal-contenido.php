@@ -1,5 +1,5 @@
 <?php
-$counts = mysql_query("SELECT * FROM notas") or die (mysql_error());
+$counts = mysql_query("SELECT idpublicacion FROM publicaciones") or die (mysql_error());
 $count = (mysql_num_rows($counts));
 
 if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0 and $_GET['pos'] <= ($count / 10)) {
@@ -11,13 +11,13 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0 and $
 if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GET['id'] <= $count) {
 	$com=$_GET['id'];
 	$registro_com=mysql_query("
-	SELECT cuentas.cuenta, comentarios.cuentas_idcuentas, comentarios.notas_idnotas, comentarios.comentario, notas.idnotas, comentarios.idcomentarios
+	SELECT cuentas.cuenta, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, publicaciones.idpublicacion, comentarios.idcomentario
 	FROM comentarios 
-	INNER JOIN notas
-	ON notas.idnotas = comentarios.notas_idnotas
+	INNER JOIN publicaciones
+	ON publicaciones.idpublicacion = comentarios.publicaciones_idpublicacion
 	INNER JOIN cuentas
-	ON cuentas.idcuentas = comentarios.cuentas_idcuentas
-	WHERE notas.idnotas=$com
+	ON cuentas.idcuenta = comentarios.cuentas_idcuenta
+	WHERE publicaciones.idpublicacion=$com
 	", $conn) or die(mysql_error());
 } else {
 	#REVISAR EN EL FUTURO
@@ -28,11 +28,11 @@ if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GE
 						
 $inicio_2 = $inicio*10;
 $registros=mysql_query("
-	SELECT cuentas.idCuentas, cuentas.cuenta,cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, notas.idnotas, notas.nota, notas.tiempo_de_creacion  
+	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion  
 	FROM cuentas
-	INNER JOIN notas 
-	ON cuentas.idcuentas = notas.cuentas_idcuentas
-	ORDER BY `idnotas` DESC
+	INNER JOIN publicaciones 
+	ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
+	ORDER BY `idpublicacion` DESC
 	LIMIT $inicio_2,10", $conn) or die(mysql_error());
 $impresos=0;
 
@@ -61,11 +61,7 @@ if (!isset($_GET['id'])) {
 } else {
 	if(isset($com)) {
 		$reg=mysql_fetch_array($registros);
-		?><div id="contenido"><?php
-				echo "Nombre:".$reg['cuenta']."-------";
-				echo "Fecha:".$reg['tiempo_de_creacion']."<br>";
-				echo "<strong>".$reg['nota']."</strong><br></a>";
-		?></div><?php
+		post($reg);
 		echo "<strong><h3>Comentarios:</h3></strong>";
 		if (mysql_num_rows($registro_com) > 0) {
 			while ($cm=mysql_fetch_array($registro_com)) {
@@ -96,9 +92,9 @@ if (!isset($_GET['id'])) {
                 <input type="submit" name="enviar_nota" value="enviar nota">
             </form><?php
             } else {
-                $idcuentap = mysql_query("SELECT idcuentas, email FROM cuentas WHERE email = '$_SESSION[username]'");
+                $idcuentap = mysql_query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'");
                 $idcuentap2 = mysql_fetch_array($idcuentap);
-                $idcuenta = $idcuentap2['idcuentas'];
+                $idcuenta = $idcuentap2['idcuenta'];
                 $comentario = antiSqlInjection($_POST['comentario']);
                 if(!isset($comentario) and empty($comentario)) {
                     echo "Porfavor no deje campos vacios";
@@ -108,9 +104,9 @@ if (!isset($_GET['id'])) {
                     echo "La nota es muy larga, el máximo de caracteres es 400";
                 } else {
                 $enviar_nota = mysql_query("
-					INSERT INTO `comentarios` (`cuentas_idcuentas`, `notas_idnotas`, `comentario`) 
+					INSERT INTO `comentarios` (`cuentas_idcuenta`, `publicaciones_idpublicacion`, `comentario`) 
 					VALUES ('".$idcuenta."','".$com."','".$comentario."')") or die (mysql_error());
-                echo "nota enviada";
+                echo "Comentario enviado";
                     }
                 }
 		} else {
