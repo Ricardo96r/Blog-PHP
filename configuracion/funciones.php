@@ -99,9 +99,15 @@ function post ($dt) {
 				</div>
 			</div>
 			<div id='contenido_central'>
+            <?php if (!isset($dt['idcomentario'])) {?>
 				<a href='?proyecto=principal&id=<?php echo $dt['idpublicacion']; ?>'>
 					<?php echo $dt['publicacion']; ?>
 				</a>
+            <?php } else {?>
+            	<a href='?proyecto=principal&id=<?php echo $dt['idcomentario']; ?>'>
+					<?php echo $dt['comentario']; ?>
+				</a>
+            <?php } ?>
 			</div>
 			<div id='contenido_abajo' >
                     <div id="contenido_abajo_megusta">

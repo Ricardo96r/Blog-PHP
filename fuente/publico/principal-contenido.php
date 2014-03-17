@@ -11,7 +11,7 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0 and $
 if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GET['id'] <= $count) {
 	$com=$_GET['id'];
 	$registro_com=mysql_query("
-	SELECT cuentas.cuenta, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, publicaciones.idpublicacion, comentarios.idcomentario
+	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
 	FROM comentarios 
 	INNER JOIN publicaciones
 	ON publicaciones.idpublicacion = comentarios.publicaciones_idpublicacion
@@ -26,17 +26,19 @@ if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GE
 	*/
 }
 						
-$inicio_2 = $inicio*10;
-$registros=mysql_query("
-	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion  
-	FROM cuentas
-	INNER JOIN publicaciones 
-	ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
-	ORDER BY `idpublicacion` DESC
-	LIMIT $inicio_2,10", $conn) or die(mysql_error());
-$impresos=0;
-
+/* 
+	PUBLICACIONES 
+*/
 if (!isset($_GET['id'])) {
+	$inicio_2 = $inicio*10;
+	$registros=mysql_query("
+		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion  
+		FROM cuentas
+		INNER JOIN publicaciones 
+		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
+		ORDER BY `idpublicacion` DESC
+		LIMIT $inicio_2,10", $conn) or die(mysql_error());
+	$impresos=0;
 	while ($reg=mysql_fetch_array($registros)) {
 		$impresos++;
 		post($reg);
@@ -57,40 +59,36 @@ if (!isset($_GET['id'])) {
 	} else {
 		echo "";
 	}
-
+	
+/* 
+	COMENTARIOS
+*/
 } else {
 	if(isset($com)) {
+		$registros=mysql_query("
+			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion  
+			FROM cuentas
+			INNER JOIN publicaciones 
+			ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
+			WHERE idpublicacion = '$com'", $conn) or die(mysql_error());
 		$reg=mysql_fetch_array($registros);
-		post($reg);
-		echo "<strong><h3>Comentarios:</h3></strong>";
-		if (mysql_num_rows($registro_com) > 0) {
-			while ($cm=mysql_fetch_array($registro_com)) {
-				?><article id="contenido"><?php
-					if (isset($_SESSION['username'])) {
-						echo "Nombre:".$cm['cuenta']."-------";
-						echo "<strong>".$cm['comentario']."</strong><br>";
-						echo "\\ a favoritos \\";
-						echo "\\ me gusta \\";
-						echo "\\ comentar \\.";
-					} else {	  
-						echo "Nombre:".$cm['cuenta']."-------";
-						echo "<strong>".$cm['comentario']."</strong><br></a>";
-					}
-				?></article><br><?php
-			}
-		} else {
-			?><div style="text-align:center" id="contenido">
-            <strong>No hay comentarios</strong><br>
-            </div>
-			<?php }
-		?><div id="contenido"><?php
+		post($reg);?>
+		<div id="comentarios">
+        	Comentarios
+       	</div>
+		<?php
 		if(isset($_SESSION['username'])) {
 			if(!isset($_POST['enviar_nota'])) {
-			?>Escribe una nota:<br>
-            <form method="post" action="">
-                <input type="text" name="comentario" maxlength="400" required>
-                <input type="submit" name="enviar_nota" value="enviar nota">
-            </form><?php
+				?>
+                <div id="comentario_enviar">
+                    <div id="comentario_enviar-comentario">
+                        Escribe un comentario:
+                    </div>
+                    <form method="post" action="">
+                        <textarea type="text" name="comentario" maxlength="400" id="comentario_enviar-text" required></textarea>
+                        <input type="submit" name="enviar_nota" value="Enviar comentario" id="comentario_enviar-boton">
+                    </form>
+				</div><?php
             } else {
                 $idcuentap = mysql_query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'");
                 $idcuentap2 = mysql_fetch_array($idcuentap);
@@ -109,10 +107,20 @@ if (!isset($_GET['id'])) {
                 echo "Comentario enviado";
                     }
                 }
-		} else {
-		echo "Para escribir un comentario nesecitas iniciar sesión";
-		?></div><br><?php
+		} else { ?>
+        <div id="comentario_iniciar-sesion">
+			<?php echo "Para escribir un comentario nesecitas tener una cuenta e iniciar sesión"; ?>
+        </div><?php
 		}
+		if (mysql_num_rows($registro_com) > 0) {
+			while ($cm=mysql_fetch_array($registro_com)) {
+				post($cm);
+			}
+		} else {
+			?><div id="comentario_sin-comentarios">
+            No hay comentarios
+            </div>
+		<?php }
 	} else {
 		header("Location: ?$prop[nombre]=principal&pos=$inicio");
 		}
