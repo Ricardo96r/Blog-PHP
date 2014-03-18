@@ -1,4 +1,4 @@
-<div id="contenido">
+
 <?php
 if (isset($_GET['pf'])) {
 	$perfil_get= antiSqlInjection($_GET['pf']);
@@ -71,4 +71,3 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 		
 		}
 ?>
-</div>

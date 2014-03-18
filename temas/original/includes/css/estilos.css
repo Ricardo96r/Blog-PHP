@@ -44,7 +44,7 @@ article {
 	
 #contenido_arriba {
 	height:100px;
-	background-size:100% 100%;
+	background-size:cover;
 	}
 
 #contenido_arriba_imagen-perfil {
@@ -188,7 +188,7 @@ article {
 #perfil-contenedor {
 	width:100%;
 	height:100%;
-	background-size:100% 100%;
+	background-size:cover;
 	margin-bottom:10px;
 	}
 

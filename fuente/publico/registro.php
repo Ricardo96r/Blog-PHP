@@ -1,7 +1,7 @@
 <div id="contenido">
 <?php
 if (!isset($_SESSION["username"])) {
-if (!isset($_POST["registro"])) {
+	if (!isset($_POST["registro"])) {
 ?>
 
               <form method="post" action="">
@@ -27,7 +27,7 @@ if (!isset($_POST["registro"])) {
                      <input type="radio" name="sexo" id="hombre" value="1">
                      <label for="mujer">Mujer </label>
                      <input type="radio" name="sexo" id="mujer" value="2"><br>
-                     <input type="submit" name="registro" id="submit" value="Registrarse"><br><br><br><br><br><br><br><br>
+                     <input type="submit" name="registro" id="submit" value="Registrarse">
               </form>
 <?php
 } else {
@@ -106,7 +106,7 @@ if (!isset($_POST["registro"])) {
 	//$nacimiento
 	}elseif(!isset($nacimiento) or empty($nacimiento)){
 		echo "Porfavor ponga la fecha de nacimiento!";  
-	}elseif($_POST['año'] == "año" or 
+	} elseif($_POST['año'] == "año" or 
 			$_POST['mes'] == "mes" or
 			$_POST['dia'] == "dia"){
 		echo "Porfavor ponga la fecha de nacimiento!"; 
@@ -116,8 +116,8 @@ if (!isset($_POST["registro"])) {
 	//$sexo
 	} elseif(!isset($sexo) or empty($sexo)) {
 		echo "Porfavor llene el campo sexo";
-	
-	
+	} elseif($sexo = NULL) {
+		echo "Porfavor llene el campo sexo";
 		
 	/*
 	----------------
@@ -140,7 +140,7 @@ if (!isset($_POST["registro"])) {
 		}
 } else {
 	echo "No puedes registrarte al estar logeado";
-	header("Location: ");
+	header("Location: ?$prop[nombre]=principal");
 	}
 	
 		
