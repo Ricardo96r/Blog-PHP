@@ -21,14 +21,14 @@ section {
 	margin-right:320px;
 	margin-left:150px;
 	margin-bottom:20px;
-	margin-top:4px;
+	
 	}
 	
 /*
 	POST - PUBLICACION
 */
 article {
-	padding:4px;
+	padding-bottom:4px;
 	}
 	
 #contenido-contenedor {
@@ -67,14 +67,27 @@ article {
 	float:right;
 	background-color:#FF8F32;
 	color:#FFFFFF;
-	box-shadow: 1px 3px 10px #000000;
 	}
 	
 #contenido_central {
-	clear:both;
-	padding:10px;
 	text-align:center;
+	margin-left:20%;
+	margin-right:20%;
 	}
+	
+@media screen and (max-width: 1024px){
+	#contenido_central {
+		margin-left:5%;
+		margin-right:5%;
+	}
+}
+
+@media screen and (max-width: 768px){
+	#contenido_central {
+		margin-left:0%;
+		margin-right:0%;
+	}
+}
 
 #contenido_abajo {
 	text-align:center;
