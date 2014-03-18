@@ -82,15 +82,16 @@ function mostrarNacimiento( $type ) {
 }
 
 function post ($dt) {
+	global $prop; //Para usar la global $prop en una funcion
 	?>
     <article id="contenido-contenedor">
     	<div id="contenido">
-			<div id='contenido_arriba' style="background-image:url(static-content/imagen_perfil_fondo/<?php echo $dt['imagen_perfil_fondo']?>);">
+			<div id='contenido_arriba' style="background:#FF8F32;);">
             	<div id="contenido_arriba_imagen-perfil">
                 	<img src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
                 </div>
 				<div id='contenido_arriba_nombre'>
-					<a href="?proyecto=usuario&page=perfil&pf=<?php echo $dt['cuenta'];?>">
+					<a href="?<?php echo $prop['nombre'];?>=usuario&page=perfil&pf=<?php echo $dt['cuenta'];?>">
 						<?php echo $dt['nombres']." ".$dt['apellidos']." <br>@".$dt['cuenta']; ?>
                     </a>
 				</div>
@@ -100,13 +101,11 @@ function post ($dt) {
 			</div>
 			<div id='contenido_central'>
             <?php if (!isset($dt['idcomentario'])) {?>
-				<a href='?proyecto=principal&id=<?php echo $dt['idpublicacion']; ?>'>
+				<a href='?<?php echo $prop['nombre'];?>=principal&id=<?php echo $dt['idpublicacion']; ?>'>
 					<?php echo $dt['publicacion']; ?>
 				</a>
             <?php } else {?>
-            	<a href='?proyecto=principal&id=<?php echo $dt['idcomentario']; ?>'>
 					<?php echo $dt['comentario']; ?>
-				</a>
             <?php } ?>
 			</div>
 			<div id='contenido_abajo' >

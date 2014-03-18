@@ -39,6 +39,7 @@ if (!isset($_SESSION["username"])) {
 	$apellidos = antiSqlInjection($_POST['apellidos']);
 	$nacimiento = antiSqlInjection($_POST['año'])."-".antiSqlInjection($_POST['mes'])."-".antiSqlInjection($_POST['dia']); 
 	$sexo = antiSqlInjection($_POST['sexo']);
+	(int)$sexo;
 	
 	$crevisar = mysql_query("SELECT cuenta FROM `cuentas` WHERE `cuenta`='".$cuenta."'") or die(mysql_error());
 	$erevisar = mysql_query("SELECT email FROM `cuentas` WHERE `email`='".$email."'") or die(mysql_error());
@@ -114,9 +115,7 @@ if (!isset($_SESSION["username"])) {
 		echo "Fecha de nacimiento invalidad. Esta fecha no existe";
 		
 	//$sexo
-	} elseif(!isset($sexo) or empty($sexo)) {
-		echo "Porfavor llene el campo sexo";
-	} elseif($sexo = NULL) {
+	} elseif (!isset($sexo) or empty($sexo)) { //REVISAR ERROR
 		echo "Porfavor llene el campo sexo";
 		
 	/*
