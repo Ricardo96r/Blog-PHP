@@ -49,13 +49,21 @@ if (!isset($_GET['id'])) {
 	if ($inicio==0) {
 		echo "";
 	} else {
-		$anterior=$inicio-1;
-		echo "<a href=\"?".$prop['nombre']."=principal&pos=$anterior\"><<<--Anteriores </a>";
+		$anterior=$inicio-1;?>
+        <a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $anterior; ?>">
+            	<button id="publicaciones-principal-boton_anterior">
+                	Anterior
+                </button>
+        </a> <?php 
 	}
 	
-	if ($impresos==1) {
-		$proximo=$inicio+1;
-		echo "<a href=\"?".$prop['nombre']."=principal&pos=$proximo\">Siguientes-->>></a>";
+	if ($inicio>=0) {
+		$proximo=$inicio+1;?>
+		<a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $proximo; ?>">
+            <button id="publicaciones-principal-boton_siguiente">
+                Siguiente
+            </button>
+        </a> <?php 
 	} else {
 		echo "";
 	}
