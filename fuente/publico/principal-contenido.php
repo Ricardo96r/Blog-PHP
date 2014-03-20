@@ -2,7 +2,7 @@
 $counts = mysql_query("SELECT idpublicacion FROM publicaciones") or die (mysql_error());
 $count = (mysql_num_rows($counts));
 
-if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0 and $_GET['pos'] <= ($count / 10)) {
+if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0 and $_GET['pos'] <= (($count / 10))) {
   $inicio=$_GET['pos'];
 } else {
   $inicio=0;
@@ -38,36 +38,44 @@ if (!isset($_GET['id'])) {
 		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
 		ORDER BY `idpublicacion` DESC
 		LIMIT $inicio_2,10", $conn) or die(mysql_error());
-	$impresos=0;
 	while ($reg=mysql_fetch_array($registros)) {
-		$impresos++;
 		post($reg);
 	}
+	$proximo=$inicio+1;
+	$anterior=$inicio-1;
 	
-	$impresos /= 10;
-	
-	if ($inicio==0) {
-		echo "";
-	} else {
-		$anterior=$inicio-1;?>
+	if ($inicio == 0) { ?>
+    	<div id="publicaciones-principal-final">
+            <a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $proximo; ?>">
+                <button id="publicaciones-principal-boton_siguiente">
+                    Siguiente -->
+                </button>
+            </a> 
+		</div><?php 
+	} elseif ($inicio < ($count / 10)) {?>
+    <div id="publicaciones-principal-final">
+    	<a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $anterior; ?>">
+			<button id="publicaciones-principal-boton_anterior">
+				<-- Anterior
+			</button>
+        </a>
+		<a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $proximo; ?>">
+			<button id="publicaciones-principal-boton_siguiente">
+				Siguiente -->
+			</button>
+		</a> 
+    </div>
+	<?php		
+	} else { ?>
+    <div id="publicaciones-principal-final">
         <a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $anterior; ?>">
             	<button id="publicaciones-principal-boton_anterior">
-                	Anterior
+                	<-- Anterior
                 </button>
-        </a> <?php 
-	}
-	
-	if ($inicio>=0) {
-		$proximo=$inicio+1;?>
-		<a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $proximo; ?>">
-            <button id="publicaciones-principal-boton_siguiente">
-                Siguiente
-            </button>
-        </a> <?php 
-	} else {
-		echo "";
-	}
-	
+        </a>  
+	</div> <?php
+		}
+		
 /* 
 	COMENTARIOS
 */
@@ -133,4 +141,5 @@ if (!isset($_GET['id'])) {
 		header("Location: ?$prop[nombre]=principal&pos=$inicio");
 		}
 	}
+	include($prop['tema']."/pie.php");
 ?>
