@@ -134,7 +134,7 @@ if (!isset($_GET['id'])) {
 			}
 		} else {
 			?><div id="comentario_sin-comentarios">
-            No hay comentarios
+            	No hay comentarios
             </div>
 		<?php }
 	} else {

@@ -1,13 +1,18 @@
-<div id="contenido">
 <?php
 if(isset($_SESSION['username'])) {
 	if(!isset($_POST['enviar_nota'])) {
 		?>
-        Escribe una nota:<br>
-        <form method="post" action="">
-            <textarea name="nota" rows="5" cols="60%"></textarea><br>
-            <input type="submit" name="enviar_nota" value="enviar nota">
-        </form>
+        <div id="enviar_publicacion">
+        	<div id="enviar_publicacion_texto">
+        		Manda una publicacion:
+            </div>
+            <div id="enviar_publicacion_form">
+                <form enctype="multipart/form-data" method="post" action="">
+                	<input name="uploadedfile" type="file" />
+                    <textarea name="nota" rows="4" cols="100%"></textarea><br>
+                    <input type="submit" name="enviar_nota" value="enviar nota" id="enviar_publicacion_submit-boton">
+                </form>
+             </div>
         <?php
 		} else {
 			$idcuentap = mysql_query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'");
@@ -29,5 +34,4 @@ if(isset($_SESSION['username'])) {
 	echo "Tu no has iniciado sesión";
 	
 	}
-?>
-</div>
+?></div>

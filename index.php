@@ -25,7 +25,9 @@
 			break;
 		case "usuario":
 			include($prop['tema']."/header.php");
+			include($prop['tema']."/nav.php");
 			include("fuente/usuario/usuario.php");
+			include($prop['tema']."/aside.php");
 			break;
 		case "admin":
 			include($prop['tema']."/header.php");
