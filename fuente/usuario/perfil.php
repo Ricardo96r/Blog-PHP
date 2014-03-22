@@ -68,6 +68,6 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 		} else {
 			header("Location: ?$prop[nombre]=principal");
 			}
-		
+		include($prop['tema']."/pie.php");
 		}
 ?>
