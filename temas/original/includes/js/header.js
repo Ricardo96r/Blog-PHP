@@ -9,4 +9,10 @@ $(document).on("ready", function(){
 	$("#boton-propiedades").on("click", function (){
 		$("#entrar").slideToggle();
 	});	
+	
+	
+	
+	$("#nav_boton").on("click", function(){
+		$("nav").toggle();
+	});
 });

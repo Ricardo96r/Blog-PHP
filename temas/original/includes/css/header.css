@@ -14,6 +14,30 @@ header {
 	
 }
 
+#header-nav_boton {
+	float:left;
+	visibility:hidden;
+	width:0px;
+	}
+	
+	@media screen and (max-width: 1024px){
+	#header-nav_boton {
+		visibility:visible;
+		width:40px;
+		height:40px;
+	}
+}
+
+#nav_boton {
+	width:40px;
+	height:40px;
+	color: #FFFFFF;
+	background-color: #FFA600;
+	border:none;
+	text-transform:uppercase;
+	font-weight:900;
+	}
+	
 #header-titulo {
 	float: left;
 	}

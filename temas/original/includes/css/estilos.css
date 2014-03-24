@@ -21,8 +21,13 @@ body {
 section {
 	margin-right:320px;
 	margin-left:150px;
-	
 	}
+	
+@media screen and (max-width: 1024px){
+	section {
+		margin-left:0px;
+	}
+}
 	
 /*
 	POST - PUBLICACION
@@ -237,9 +242,12 @@ article {
 */
 
 #perfil-contenedor {
-	width:100%;
+	
 	height:100%;
 	background-size:cover;
+	border-style:solid;
+	border-width:1px;
+	border-bottom-style:none;
 	}
 
 #perfil-fondo-imagen_perfil {
@@ -251,7 +259,6 @@ article {
 	border-style:solid;
 	border-width:1px;
 	position:absolute;
-	box-shadow: 1px 2px 3px #000000;
 	}
 
 #perfil-fondo-contenido_fondo {
@@ -303,6 +310,7 @@ article {
 	float:right;
 	border-width:1px;
 	border-style:solid;
+	border-right-style:none;
 	}
 	
 #perfil-fondo-contenido-datos_seguidores_boton {

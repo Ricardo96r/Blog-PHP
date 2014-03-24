@@ -14,6 +14,11 @@
 </head>
 <body>
 	<header>
+    	<div id="header-nav_boton">
+        	<button id="nav_boton">
+            
+            </button>
+        </div>
     	<div id="header-titulo">
             <button id="titulo" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=principal'">
             	<?php echo ucwords($prop['nombre']); ?>
