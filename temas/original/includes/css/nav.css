@@ -8,7 +8,20 @@ nav {
 	margin-top:0px;;
 	background-color:#FF8F32;
 	height:100%;
+	visibility: visible;
 	}
+	
+@media screen and (max-width: 1024px){
+nav {
+	visibility:hidden;
+	}
+}
+
+@media screen and (min-width: 1025px){
+nav {
+	visibility:visible;
+	}
+}
 	
 nav ul li {
 	font-size: 20px;

@@ -1,7 +1,9 @@
 <footer>
 	<div id="footer_contenido">
-       	Contactanos<br>
-        Version: <?php echo $prop['version'];?>
+    	<ul>
+            <li>Contactanos</li>
+            <li>Version: <?php echo $prop['version'];?></li>
+        </ul>
     </div>
 </footer>
 </body>

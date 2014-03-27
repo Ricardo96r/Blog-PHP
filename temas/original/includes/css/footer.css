@@ -1,11 +1,18 @@
-footer {
+#footer_contenido {
 	border-top-width:1px;
 	background-color: #FF8F32;
 	color:#FFFFFF;
 	text-align:left;
-	height:50px;
+	height:100px;
 	padding-top:20px;
 	border-style:solid;
-	border:1px;
+	border-width:1px;
+	border-color:#000000;
+	border-top-width:0px;
+	}
+	
+#footer_contenido ul li {
+	display:inline;
+	padding-right:10px;
 	}
 	
