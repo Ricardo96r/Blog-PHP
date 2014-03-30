@@ -141,5 +141,4 @@ if (!isset($_GET['id'])) {
 		header("Location: ?$prop[nombre]=principal&pos=$inicio");
 		}
 	}
-	include($prop['tema']."/pie.php");
 ?>

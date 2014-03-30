@@ -14,8 +14,8 @@
 			include('fuente/usuario/opciones.php');
 		} elseif($main == "perfil"){
 			include('fuente/usuario/perfil.php');
-		} elseif($main == "enviar_nota"){
-			include('fuente/usuario/enviar_nota.php');
+		} elseif($main == "enviar_publicacion"){
+			include('fuente/usuario/enviar_publicacion.php');
 		}else{
 			header("Location: ?".$prop['nombre']."=principal");
 		}

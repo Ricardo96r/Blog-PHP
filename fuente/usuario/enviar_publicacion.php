@@ -1,8 +1,9 @@
+<div id="enviar_publicacion">
 <?php
 if(isset($_SESSION['username'])) {
 	if(!isset($_POST['enviar_nota'])) {
 		?>
-        <div id="enviar_publicacion">
+    
         	<div id="enviar_publicacion_texto">
         		Manda una publicacion:
             </div>
@@ -19,6 +20,7 @@ if(isset($_SESSION['username'])) {
 			$idcuentap2 = mysql_fetch_array($idcuentap);
 			$idcuenta = $idcuentap2['idcuenta'];
 			$nota = antiSqlInjection($_POST['nota']);
+			
 			if(!isset($nota) and empty($nota)) {
 				echo "Porfavor no deje campos vacios";
 			} elseif(strlen($nota) < 20) {
@@ -34,4 +36,5 @@ if(isset($_SESSION['username'])) {
 	echo "Tu no has iniciado sesión";
 	
 	}
-?></div>
+?>
+</div>
