@@ -54,7 +54,7 @@ header {
 	
 @media screen and (max-width: 480px){
 	#titulo {
-		font-size:30px;
+		font-size:20px;
 	}
 }
  
@@ -94,7 +94,7 @@ header {
 	box-shadow: 1px 2px 5px #888888;
 	}
 	
-@media screen and (max-width: 480px){
+@media screen and (max-width: 768px){
 #entrar {
 	float: none;
 	width: 100%;
