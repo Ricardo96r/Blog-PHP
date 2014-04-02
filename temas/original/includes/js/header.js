@@ -9,13 +9,13 @@ $(document).on("ready", function(){
 	
 	$("#boton-propiedades").on("click", function (){
 		$("#entrar").slideToggle();
-	});	
-	
+	});
+				
 	$("#nav_boton").on("click", function(){
-		$('nav').toggle(function () {
-			$("nav").css({visibility: "hidden"});
+		$('nav').toggle(0, function () {
+				$("nav").css({visibility: "hidden"});
 			}, function () {
-			$("nav").css({visibility: "visible"});
+				$("nav").css({visibility: "visible"});
 			});
 		});
 });

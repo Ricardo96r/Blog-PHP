@@ -8,6 +8,12 @@ aside {
 	background-color:#FF8F32;
 	}
 	
+@media screen and (max-width: 768px){
+	aside {
+		visibility:hidden;
+	}
+}
+
 #publicidad {
 	margin-left:10px;
 	margin-right:10px;
