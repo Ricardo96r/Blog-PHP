@@ -1,34 +1,61 @@
-<div id="contenido">
+<div id="registro">
 <?php
 if (!isset($_SESSION["username"])) {
 	if (!isset($_POST["registro"])) {
 ?>
-
-              <form method="post" action="">
-                      <label for="cuenta">Nombre de usuario:</label><br>
-                      <input type="text" name="cuenta" id="cuenta" maxlength="20"  placeholder="Nombre de usuario" required><br>
-                      <label for="contraseña1">Contraseña:</label><br>
-                      <input type="password" name="contraseña" id="contraseña1" maxlength="30" placeholder="Nueva contraseña" required><br>
-                      <label for="contraseña2">Repetir contraseña:</label><br>
-                      <input type="password" name="contraseña2" id="contraseña2" maxlength="30" placeholder="Repita contraseña" required><br>
-                      <label for="correo">Correo electrónico:</label> <br>
-                      <input type="email" name="email" id="correo" maxlength="100" placeholder="Correo electrónico" required><br>
-                      <label for="nombres">Nombre(s):</label><br>
-                      <input type="text" name="nombres" id="nombres" maxlength="20" placeholder="Nombre(s)" required><br>
-                      <label for="apellidos">Apellido(s):</label><br>
-                      <input type="text" name="apellidos" id="apellidos" maxlength="20" placeholder="Apellido(s)"  required><br>
-                      <?php
-						  echo mostrarNacimiento('dia');
-						  echo mostrarNacimiento('mes');
-						  echo mostrarNacimiento('año');
-						  echo "<br>";
-					  ?>
-                     <label for="hombre">Hombre</label>
-                     <input type="radio" name="sexo" id="hombre" value="1">
-                     <label for="mujer">Mujer </label>
-                     <input type="radio" name="sexo" id="mujer" value="2"><br>
-                     <input type="submit" name="registro" id="submit" value="Registrarse">
-              </form>
+<div id="registro-form">
+	<form method="post" action="">
+		<label for="registro-form-cuenta-input" id="registro-form-label">
+			Nombre de usuario
+		</label>
+		<input type="text" name="cuenta" id="registro-form-cuenta-input" maxlength="20"  placeholder="nombre de usuario" required>
+        
+		<label for="registro-form-contraseña1-input" id="registro-form-label">
+        	Contraseña
+        </label><br>
+		<input type="password" name="contraseña" id="registro-form-contraseña1-input" maxlength="30" placeholder="nueva contraseña" required>
+       
+		<label for="registro-form-contraseña2-input" id="registro-form-label">
+        	Repetir contraseña
+        </label>
+		<input type="password" name="contraseña2" id="registro-form-contraseña2-input" maxlength="30" placeholder="repita contraseña" required>
+        
+		<label for="registro-form-correo-input" id="registro-form-label">
+        	Correo electrónico
+		</label>
+		<input type="email" name="email" id="registro-form-correo-input" maxlength="100" placeholder="correo electrónico" required>
+        
+		<label for="registro-form-nombres-input" id="registro-form-label">
+        	Nombre(s)
+        </label>
+		<input type="text" name="nombres" id="registro-form-nombres-input" maxlength="20" placeholder="nombre(s)" required>
+        
+		<label for="registro-form-apellidos-input" id="registro-form-label">
+        	Apellido(s):
+        </label>
+		<input type="text" name="apellidos" id="registro-form-apellidos-input" maxlength="20" placeholder="apellido(s)"  required>
+        <div id="registro-form-nacimiento">
+			<?php
+            echo mostrarNacimiento('dia');
+            echo mostrarNacimiento('mes');
+            echo mostrarNacimiento('año');
+            ?>
+        </div>
+        <div id="registro-form-sexo">             
+            <label for="hombre" id="registro-form-label">
+                Hombre
+            </label>
+            <input type="radio" name="sexo" id="hombre" value="1">
+            
+            <label for="mujer" id="registro-form-label">
+                Mujer
+            </label>
+			<input type="radio" name="sexo" id="mujer" value="2">
+        </div>
+        
+		<input type="submit" name="registro" id="registro-form-submit" value="Registrarse">
+	</form>
+</div>
 <?php
 } else {
 	$cuenta = antiSqlInjection($_POST['cuenta']);
@@ -38,9 +65,13 @@ if (!isset($_SESSION["username"])) {
 	$nombres = antiSqlInjection($_POST['nombres']);
 	$apellidos = antiSqlInjection($_POST['apellidos']);
 	$nacimiento = antiSqlInjection($_POST['año'])."-".antiSqlInjection($_POST['mes'])."-".antiSqlInjection($_POST['dia']); 
-	$sexo = antiSqlInjection($_POST['sexo']);
-	(int)$sexo;
 	
+	if(isset($_POST['sexo'])) {
+		$sexo = antiSqlInjection($_POST['sexo']);
+	} else {
+		$sexo = 3;
+		}
+
 	$crevisar = mysql_query("SELECT cuenta FROM `cuentas` WHERE `cuenta`='".$cuenta."'") or die(mysql_error());
 	$erevisar = mysql_query("SELECT email FROM `cuentas` WHERE `email`='".$email."'") or die(mysql_error());
 	/*
@@ -115,7 +146,7 @@ if (!isset($_SESSION["username"])) {
 		echo "Fecha de nacimiento invalidad. Esta fecha no existe";
 		
 	//$sexo
-	} elseif (!isset($sexo) or empty($sexo)) { //REVISAR ERROR
+	} elseif (!isset($sexo) or empty($sexo) or $sexo == 3) { //REVISAR ERROR
 		echo "Porfavor llene el campo sexo";
 		
 	/*

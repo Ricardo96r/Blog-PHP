@@ -18,7 +18,7 @@ function antiSqlInjection( $variable ) {
 function mostrarNacimiento( $type ) {
 	if ($type == 'mes') {
 		echo "
-			<select name=\"mes\">
+			<select name=\"mes\" id=\"registro-form-nacimiento-select\">
 				<option value=\"mes\">Mes</option>
 				<option value=\"1\">
 					Enero
@@ -60,7 +60,7 @@ function mostrarNacimiento( $type ) {
 	";
 	}
 	if ($type == 'dia') {
-		echo "<select name=\"dia\">";
+		echo "<select name=\"dia\" id=\"registro-form-nacimiento-select\">";
 		echo "<option value=\"day\">Día</option>";
 		$maxdy = 31;
 		for ($i = 1; $i <= $maxdy; $i++)
@@ -70,7 +70,7 @@ function mostrarNacimiento( $type ) {
 		echo "</select>";
 	}
 	if ($type == 'año') {
-		echo "<select name=\"año\">";
+		echo "<select name=\"año\" id=\"registro-form-nacimiento-select\">";
 		echo "<option value=\"año\">Año</option>";
 		for ($i = date('Y'); $i >= 1900; $i--)
 		{
