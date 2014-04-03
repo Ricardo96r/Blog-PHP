@@ -1,19 +1,15 @@
-<div id="enviar_publicacion">
+<div id="publicar">
 <?php
 if(isset($_SESSION['username'])) {
 	if(!isset($_POST['enviar_nota'])) {
 		?>
-    
-        	<div id="enviar_publicacion_texto">
-        		Manda una publicacion:
-            </div>
-            <div id="enviar_publicacion_form">
-                <form enctype="multipart/form-data" method="post" action="">
-                	<input name="uploadedfile" type="file" />
-                    <textarea name="nota" rows="4" cols="100%"></textarea><br>
-                    <input type="submit" name="enviar_nota" value="enviar nota" id="enviar_publicacion_submit-boton">
-                </form>
-             </div>
+		<div id="publicar-form">
+			<form enctype="multipart/form-data" method="post" action="">
+				<input name="uploadedfile" type="file" id="publicar-form-file">
+				<textarea name="nota" rows="4" id="publicar-form-publicacion"></textarea><br>
+				<input type="submit" name="enviar_nota" value="enviar nota" id="publicar-form-submit">
+			</form>
+        </div>
         <?php
 		} else {
 			$idcuentap = mysql_query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'");

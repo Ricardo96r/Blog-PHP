@@ -461,4 +461,52 @@ article {
 	text-align:center;
 	margin-bottom:10px;
 	}
+
+/*
+	ENVIAR PUBLICACION
+*/
+#publicar {
+	background-color:#FF8F32;
+	border-style:solid;
+	border-width:1px;
+	}
+
+#publicar-form {
+	padding-top:10px;
+	margin-left:20%;
+	margin-right:20%;
+	}
+
+@media screen and (max-width: 1024px){
+	#publicar-form {
+		margin-left:5%;
+		margin-right:5%;
+	}
+}
+
+@media screen and (max-width: 768px){
+	#publicar-form {
+		margin-left:1%;
+		margin-right:2%;
+	}
+}
+
+#publicar-form-publicacion {
+	width:100%;
+}
+
+#publicar-form-file {
+	text-align:center;
+	}
 	
+#publicar-form-submit {
+	color: #FFFFFF;
+	font-size: 20px;
+	background-color: #FFA600;
+	border:none;
+	height:40px;
+	width:100%;
+	text-transform:uppercase;
+	font-weight:900;
+	margin-bottom:10px;
+	}
