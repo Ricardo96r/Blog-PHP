@@ -6,7 +6,7 @@ nav {
 	position:fixed;
 	width:150px;
 	margin-top:0px;;
-	background-color: #FFFFFF;
+	background-color:#FF8F32;
 	height:100%;
 	visibility: visible;
 	}
@@ -29,17 +29,22 @@ nav {
 
 nav ul li {
 	font-size: 20px;
-	font-weight: lighter;
+	font-weight: bold;
+	background:#FF9600;
 	font-variant: small-caps;
+	border-style:solid;
+	border-bottom-width:1px;
 	}
 	
 nav ul li a:link{
+	color: #FFFFFF;
 	text-decoration:none;
 	margin-left:10px;
 	margin-right:10px;
 	}
 	
 nav ul li a:visited{
+	color: #FFFFFF;
 	text-decoration:none;
 	margin-left:10px;
 	margin-right:10px;

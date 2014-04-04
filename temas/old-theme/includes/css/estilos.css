@@ -43,44 +43,48 @@ article {
 	}
 	
 #contenido-contenedor {
+	background-color: #FFFFFF;
+	text-align: left;
 	word-wrap: break-word;
 	}
 
 #contenido {
 	border-style:solid;
-	border-color:#E75600;
-	border-bottom-width:2px;
-	border-left-width:2px;
-	border-right-width:2px;
+	border-bottom-width:1px;
+	border-left-width:1px;
+	border-right-width:1px;
+	
 	}
 	
 #contenido_arriba {
-	height:80px;
-	border-style:solid;
-	border-color:#BDBDBD;
-	border-bottom-width:1px;
+	height:100px;
+	background-size:cover;
 	}
 
 #contenido_arriba_imagen-perfil {
 	float:left;
-	width:60px;
+	width:80px;
 	padding:10px;
+	margin-right:1%;
+
 	}
-	
 #contenido_arriba_nombre {
 	float:left;
-	margin-top:25px;
+	margin-top:30px;
 	font-size:15px;
+	background-color:#FF8F32;
+	color:#FFFFFF;
+
 	}
 	
 #contenido_arriba_fecha {
 	float:right;
+	background-color:#FF8F32;
+	color:#FFFFFF;
 	padding:5px;
 	}
 	
 #contenido_central {
-	padding-top:10px;
-	padding-bottom:10px;
 	text-align:center;
 	margin-left:20%;
 	margin-right:20%;
@@ -103,9 +107,7 @@ article {
 #contenido_abajo {
 	text-align:center;
 	height:40px;
-	border-style:solid;
-	border-color:#BDBDBD;
-	border-top-width:1px;
+	background-color:#FF8F32;
 	}
 	
 #contenido_abajo_megusta {
@@ -113,8 +115,9 @@ article {
 	}
 	
 #contenido_abajo_megusta_boton {
+	color: #FFFFFF;
 	font-size: 10px;
-	background-color: inherit;
+	background-color: #FF8F32;
 	border:none;
 	height:40px;
 	text-transform:uppercase;
@@ -126,8 +129,9 @@ article {
 	}
 	
 #contenido_abajo_favoritos_boton {
+	color: #FFFFFF;
 	font-size: 10px;
-	background-color:inherit;
+	background-color: #FF8F32;
 	border:none;
 	height:40px;
 	text-transform:uppercase;
@@ -140,8 +144,9 @@ article {
 	}
 
 #contenido_abajo_guardar_boton {
+	color: #FFFFFF;
 	font-size: 10px;
-	background-color: inherit;
+	background-color: #FF8F32;
 	border:none;
 	height:40px;
 	text-transform:uppercase;
@@ -149,15 +154,17 @@ article {
 	}
 	
 #publicaciones-principal-final {
+	background-color: #FF8F32;
 	border-style:solid;
-	border-color:#E75600;
-	border-width:2px;
-	border-top-width:0px;
+	border-left-width:1px;
+	border-right-width:1px;
+	border-bottom-width:1px;
 	}
 	
 #publicaciones-principal-boton_anterior {
+	color: #FFFFFF;
 	font-size: 10px;
-	background-color:inherit;
+	background-color:#FF8F32;
 	border:none;
 	height:40px;
 	text-transform:uppercase;
@@ -168,8 +175,9 @@ article {
 	}
 	
 #publicaciones-principal-boton_siguiente {
+	color: #FFFFFF;
 	font-size: 10px;
-	background-color:inherit;
+	background-color:#FF8F32;
 	border:none;
 	border-color:#000000;
 	border-right-style:solid;
@@ -343,6 +351,7 @@ article {
 	-REGISTRO
 */
 #registro {
+	background-color:#FF8F32;
 	border-style:solid;
 	border-width:1px;
 	}
@@ -369,6 +378,7 @@ article {
 
 #registro-form-label {
 	margin-bottom:10px;
+	color: #FFFFFF;
 	font-size:12px;
 	height:40px;
 	text-transform:uppercase;
@@ -424,6 +434,18 @@ article {
 	margin-top:3px;
 	}
 	
+#registro-form-submit {
+	color: #FFFFFF;
+	font-size: 20px;
+	background-color: #FFA600;
+	border:none;
+	height:40px;
+	width:100%;
+	text-transform:uppercase;
+	font-weight:900;
+	margin-bottom:10px;
+	}
+
 #registro-form-nacimiento {
 	text-align:center;
 	}
@@ -437,18 +459,6 @@ article {
 	
 #registro-form-sexo {
 	text-align:center;
-	margin-bottom:10px;
-	}
-	
-#registro-form-submit {
-	color: #FFFFFF;
-	font-size: 20px;
-	background-color: #E75600;
-	border:none;
-	height:40px;
-	width:100%;
-	text-transform:uppercase;
-	font-weight:900;
 	margin-bottom:10px;
 	}
 

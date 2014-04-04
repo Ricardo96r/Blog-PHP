@@ -16,7 +16,7 @@
 	<header>
     	<div id="header-nav_boton">
         	<button id="nav_boton">
-            	&darr;
+            
             </button>
         </div>
     	<div id="header-titulo">

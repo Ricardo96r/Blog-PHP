@@ -86,7 +86,7 @@ function post ($dt) {
 	?>
     <article id="contenido-contenedor">
     	<div id="contenido">
-			<div id='contenido_arriba' style="background:#FF8F32;);">
+			<div id="contenido_arriba">
             	<div id="contenido_arriba_imagen-perfil">
                 	<img src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
                 </div>
