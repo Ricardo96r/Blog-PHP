@@ -1,11 +1,12 @@
 aside {
-	position: fixed;
-	top: 0px;
-	bottom: 0;
+	position: absolute;
+	top:0;
 	right: 0;
-	width: 320px;
-	margin-top:40px;
-	background-color: inherit;
+	width: 300px;
+	margin-top:50px;
+	margin-right:10px;
+	
+	
 	}
 	
 @media screen and (max-width: 768px){
@@ -15,8 +16,8 @@ aside {
 }
 
 #publicidad {
-	margin-left:10px;
-	margin-right:10px;
-	margin-top:10px;
+	margin-bottom:10px;
+	background-color: #FFFFFF;
+	
 	}
 

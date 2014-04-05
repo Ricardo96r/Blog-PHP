@@ -3,11 +3,12 @@
 */
 
 nav {
-	position:fixed;
-	width:150px;
-	margin-top:0px;;
+	position: absolute;
+	width:140px;
+	height:1000px;
+	margin-top:10px;
+	margin-left:10px;
 	background-color: #FFFFFF;
-	height:100%;
 	visibility: visible;
 	}
 	
@@ -16,6 +17,9 @@ nav {
 	display:none;
 	border-style:solid;
 	border-width:1px;
+	margin-top:0px;
+	margin-left:0px;
+	height:100%;
 	}
 }
 
@@ -28,9 +32,7 @@ nav {
 */	
 
 nav ul li {
-	font-size: 20px;
-	font-weight: lighter;
-	font-variant: small-caps;
+	font-size: 15px;
 	}
 	
 nav ul li a:link{

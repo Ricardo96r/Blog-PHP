@@ -1,5 +1,5 @@
 body {
-	background-color: #FFFFFF;
+	background-color: #DDDCDC;
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0;
    	padding: 0;
@@ -20,7 +20,8 @@ body {
 
 section {
 	margin-right:320px;
-	margin-left:150px;
+	margin-left:160px;
+	margin-top:10px;
 	}
 	
 @media screen and (max-width: 1024px){
@@ -39,7 +40,8 @@ section {
 	POST - PUBLICACION
 */
 article {
-	
+	background-color: #FFFFFF;
+	margin-bottom:10px;
 	}
 	
 #contenido-contenedor {
@@ -47,11 +49,7 @@ article {
 	}
 
 #contenido {
-	border-style:solid;
-	border-color:#E75600;
-	border-bottom-width:2px;
-	border-left-width:2px;
-	border-right-width:2px;
+
 	}
 	
 #contenido_arriba {
@@ -149,10 +147,7 @@ article {
 	}
 	
 #publicaciones-principal-final {
-	border-style:solid;
-	border-color:#E75600;
-	border-width:2px;
-	border-top-width:0px;
+	background-color: #FFFFFF;
 	}
 	
 #publicaciones-principal-boton_anterior {
