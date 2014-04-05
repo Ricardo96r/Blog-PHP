@@ -1,4 +1,6 @@
 <nav>
+	<div id="nav-superior-espacio">
+    </div>
 	<ul>
 		<?php if(!isset($_SESSION['username'])) { ?>
             <li><a href="?<?php echo $prop['nombre'];?>=principal">Inicio</a></li>

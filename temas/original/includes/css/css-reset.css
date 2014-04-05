@@ -62,3 +62,10 @@ img {
 textarea { 
     resize: none; 
 }
+
+button {
+	border:none;
+	padding:0px;
+	background-color: inherit;
+	background-color: transparent;
+}

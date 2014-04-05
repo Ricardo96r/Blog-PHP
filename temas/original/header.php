@@ -11,9 +11,11 @@
     <link rel="stylesheet" type="text/css"  href="<?php echo $prop['tema'];?>/includes/css/footer.css">
 	<script src="http://code.jquery.com/jquery-1.9.0.js" type="text/javascript"></script>
     <script src="<?php echo $prop['tema'];?>/includes/js/header.js"></script>
+    <script src="//use.edgefonts.net/ubuntu.js"></script>
 </head>
 <body>
 	<header>
+    	<div id="header-content-left">
     	<div id="header-nav_boton">
         	<button id="nav_boton">
             	&darr;
@@ -24,16 +26,18 @@
             	<?php echo ucwords($prop['nombre']); ?>
 			</button>
 		</div>
+        </div>
+        <div id="header-content-right">
         <?php if(!isset($_SESSION['username'])) {?>
 		<div id="create_acc">
 			<button id="create-boton" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=principal&page=registro'">crear cuenta</button>
 		</div>
 		<div id="login">
-			<button id="login-boton">iniciar sesión &darr;</button>
+			<button id="login-boton">Iniciar sesión &darr;</button>
 		</div>
         <?php } else { ?>
         <div id="header-propieades">
-			<button id="boton-propiedades">propieades&darr;</button>
+			<button id="boton-propiedades">Propieades&darr;</button>
 		</div>
         <div id="header-perfil">
 			<button id="boton-perfil" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=usuario&page=perfil&pf=<?php echo $pf['cuenta'];?>'">
@@ -91,6 +95,7 @@
                     </ul>
                 </div>
 			<?php }?>
+         </div>
          </div>
 	</header>
     <div class="contenedor">

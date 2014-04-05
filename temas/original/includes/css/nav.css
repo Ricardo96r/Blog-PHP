@@ -3,24 +3,27 @@
 */
 
 nav {
-	position: absolute;
+	position: fixed;
 	width:140px;
-	height:1000px;
-	margin-top:10px;
-	margin-left:10px;
+	top:0;
+	margin-left:0px;
 	background-color: #FFFFFF;
 	visibility: visible;
+	height:100%;
+	border-right-style:solid;
+	border-right-width:1px;
+	/*overflow-y: scroll;*/ 
 	}
 	
 @media screen and (max-width: 1024px){
 nav {
 	display:none;
-	border-style:solid;
-	border-width:1px;
-	margin-top:0px;
-	margin-left:0px;
-	height:100%;
+
 	}
+}
+
+#nav-superior-espacio {
+	height:50px;
 }
 
 /* REVISAR

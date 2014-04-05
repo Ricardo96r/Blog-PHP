@@ -5,11 +5,14 @@
 header {
 	position:fixed;
 	z-index:9999;
-	background-color: #FFCE00;
+	background-color: #FFFFFF;
 	width:100%;
 	height:40px;
-	border-style:solid;
-	border-bottom-width:1px;
+}
+
+#header-content-left {
+	position:absolute;
+	width:140px;
 }
 
 #header-nav_boton {
@@ -29,14 +32,9 @@ header {
 #nav_boton {
 	width:40px;
 	height:40px;
-	color:#FFFFFF;
 	background-color:inherit;
 	border:none;
-	text-transform:uppercase;
-	font-weight:900;
-	border-color:#000000;
-	border-right-style:solid;
-	border-right-width:1px;
+	font-weight:bold;
 	}
 	
 #header-titulo {
@@ -44,11 +42,9 @@ header {
 	}
 		
 #titulo {
-	color: #FFFFFF;
 	font-size: 20px;
 	background-color: inherit;
-	text-transform:uppercase;
-	font-weight: 900;
+	font-weight: bold;
 	border:none;
 	height:40px;
 	}
@@ -59,6 +55,12 @@ header {
 	}
 }
 
+#header-content-right {
+	height: 40px;
+	margin-left: 140px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
 
 /*
 	HEADER:
@@ -69,16 +71,11 @@ header {
 	}
 	
 #login-boton {
-	color: #FFFFFF;
 	font-size: 10px;
-	background-color: transparent;
+	background-color: inherit;
 	border:none;
-	border-left-style:solid;
-	border-left-color:#000000;
-	border-left-width:1px;
 	height:40px;
-	text-transform:uppercase;
-	font-weight:900;
+	font-weight:bold;
 	}
 
 #entrar {
@@ -87,13 +84,11 @@ header {
 	right:0;
     top: 40px;
 	z-index:1000;
-    width:320px;
-	background-color: #FF8F32;
-	color: #000000;
+    width:340px;
+	background-color: #FFFFFF;
 	border-style:solid;
 	border-width:1px;
 	text-align:center;
-	box-shadow: 1px 2px 5px #888888;
 	}
 	
 @media screen and (max-width: 768px){
@@ -122,9 +117,8 @@ header {
 #menu-entrar-ncsesion-div {
 	float:left;
 	font-size: 12px;
-	font-weight:900;
-	color:#FFFFFF;
-	text-transform:uppercase;
+	font-weight:bold;
+	
 	}
 
 #menu-entrar-submit {
@@ -134,8 +128,7 @@ header {
 	background-color: #FFA600;
 	border:none;
 	height:20px;
-	text-transform:uppercase;
-	font-weight:900;
+	font-weight:bold;
 	}
 	
 /*
@@ -147,16 +140,11 @@ header {
 	}
 	
 #create-boton {
-	color: #FFFFFF;
 	font-size: 10px;
 	background-color: transparent;
 	border:none;
-	border-left-style:solid;
-	border-left-color:#000000;
-	border-left-width:1px;
 	height:40px;
-	text-transform:uppercase;
-	font-weight:900;
+	font-weight:bold;
 	}
 /*
 	HEADER:
@@ -167,16 +155,11 @@ header {
 	}
 	
 #boton-propiedades {
-	color: #FFFFFF;
 	font-size: 10px;
 	background-color: transparent;
 	border:none;
-	border-left-style:solid;
-	border-left-color:#000000;
-	border-left-width:1px;
 	height:40px;
-	text-transform:uppercase;
-	font-weight:900;
+	font-weight:bold;
 	}
 	
 #header-menu-propiedades {
@@ -200,16 +183,9 @@ header {
 	}
 	
 #boton-perfil {
-	color: #FFFFFF;
 	font-size: 10px;
-	background-color: transparent;
-	border:none;
-	border-left-style:solid;
-	border-left-color:#000000;
-	border-left-width:1px;
 	height:40px;
-	text-transform:uppercase;
-	font-weight:900;
+	font-weight:bold;
 	}
 	
 #header-perfil-imagen {
