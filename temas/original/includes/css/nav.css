@@ -12,6 +12,7 @@ nav {
 	height:100%;
 	border-right-style:solid;
 	border-right-width:1px;
+	z-index:1;
 	/*overflow-y: scroll;*/ 
 	}
 	

@@ -65,7 +65,9 @@ textarea {
 
 button {
 	border:none;
-	padding:0px;
+	padding:0;
+	padding-left:5px;
+	padding-right:5px;
 	background-color: inherit;
 	background-color: transparent;
 }

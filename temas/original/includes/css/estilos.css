@@ -176,16 +176,13 @@ article {
 #comentarios {
 	font-size:20px;
 	padding:5px;
-	background-color:#FF8F32;
-	color:#FFFFFF;
-	text-align:center;
-	
+	background-color: #FFFFFF;
 	}
 	
 #comentario_enviar {
-	background-color:#FF8F32;
-	color:#FFFFFF;
+	background-color:#FFFFFF;
 	padding:10px;
+	margin-bottom:10px;
 	}
 	
 #comentario_enviar-comentario {
@@ -205,15 +202,17 @@ article {
 	
 #comentario_iniciar-sesion {
 	text-align:center;
-	background-color:#FF8F32;
-	color:#FFFFFF;
+	background-color: #FFFFFF;
+	border-top-style:solid;
+	border-top-width:1px;
+	margin-bottom:10px;
 	padding:5px;
-	font-weight:bold;
+	font-weight: lighter;
 	}
 	
 #comentario_sin-comentarios {
 	color: #000000;
-	background-color:#FF8F32;
+	background-color: #FFFFFF;
 	padding:5px;
 	margin-top:5px;
 	font-weight:bold;
@@ -246,15 +245,40 @@ article {
 	border-width:1px;
 	position: absolute;
 	}
+	
+@media screen and (max-width: 768px){
+	#perfil-fondo-imagen_perfil {
+		position: static;
+		margin-left:0px;
+		margin-bottom:5px;
+		display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+}
 
 #perfil-fondo-contenido_fondo {
 	margin-left:220px;
 	}
 	
+@media screen and (max-width: 768px){
+	#perfil-fondo-contenido_fondo {
+		margin-left:0px;
+		text-align:center;
+	}
+}
+	
 #perfil-fondo-contenido {
 	padding-top:60px;
 	padding-left:5%;
 	}
+	
+@media screen and (max-width: 768px){
+	#perfil-fondo-contenido {
+		padding-top:0px;
+		padding-left:0;
+	}
+}
 
 #perfil-fondo-contenido-nombre span{
 	font-size:40px;
@@ -275,6 +299,12 @@ article {
 	border-style:solid;
 	background-color:rgba(0,0,0,0.31);
 	}
+	
+@media screen and (max-width: 768px){
+	#perfil-fondo-contenido-datos {
+		margin-top:5px
+	}
+}
 	
 #perfil-fondo-contenido-datos_publicaciones {
 	float:right;

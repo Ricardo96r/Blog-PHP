@@ -4,7 +4,7 @@
 	
 header {
 	position:fixed;
-	z-index:9999;
+	z-index:2;
 	background-color: #FFFFFF;
 	width:100%;
 	height:40px;
@@ -13,6 +13,13 @@ header {
 #header-content-left {
 	position:absolute;
 	width:140px;
+}
+
+@media screen and (max-width: 1024px){
+	#header-content-left {
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+	}
 }
 
 #header-nav_boton {
@@ -155,11 +162,11 @@ header {
 	}
 	
 #boton-propiedades {
-	font-size: 10px;
+	font-size: 11px;
 	background-color: transparent;
 	border:none;
 	height:40px;
-	font-weight:bold;
+	font-weight: lighter;
 	}
 	
 #header-menu-propiedades {
@@ -183,9 +190,9 @@ header {
 	}
 	
 #boton-perfil {
-	font-size: 10px;
+	font-size: 11px;
 	height:40px;
-	font-weight:bold;
+	font-weight: lighter;
 	}
 	
 #header-perfil-imagen {
@@ -196,5 +203,14 @@ header {
 	
 #header-perfil-nombre {
 	float:left;
-	margin-top:15px;
+	margin-top:13px;
+	padding-left:5px;
+	visibility: visible;
 	}
+
+@media screen and (max-width: 768px){
+#header-perfil-nombre {
+	visibility:hidden;
+	width:0px;
+	}
+}
