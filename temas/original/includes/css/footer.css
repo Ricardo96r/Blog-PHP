@@ -4,6 +4,10 @@
 	height:50px;
 	padding:20px;
 	margin-top:10px;
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 1px;
+	border-radius: 4px;
 	}
 	
 #footer_contenido ul li {

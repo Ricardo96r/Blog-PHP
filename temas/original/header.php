@@ -28,6 +28,16 @@
 		</div>
         </div>
         <div id="header-content-right">
+        <div id="header-buscador">
+        <form method="post" action="">
+        	<div id="header-buscador-input-div">
+            	<input type="text" name="header-buscador-input" id="header-buscador-input">
+            </div>
+            <div id="header-buscador-submit-div">
+            	<input name="header-buscador-submit"  id="header-buscador-submit" type="image" src="static-content/buscar.png">
+            </div>
+        </form>
+        </div>
         <?php if(!isset($_SESSION['username'])) {?>
 		<div id="create_acc">
 			<button id="create-boton" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=principal&page=registro'">crear cuenta</button>
@@ -37,7 +47,7 @@
 		</div>
         <?php } else { ?>
         <div id="header-propieades">
-			<button id="boton-propiedades">Propieades&darr;</button>
+			<button id="boton-propiedades"><img src="static-content/opciones.png"></button>
 		</div>
         <div id="header-perfil">
 			<button id="boton-perfil" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=usuario&page=perfil&pf=<?php echo $pf['cuenta'];?>'">
@@ -62,7 +72,7 @@
                         <div id="menu-entrar-ncsesion-div">
                             <input type="checkbox" name="ncsesion" id="menu-entrar-ncsesion" value="1"><label for="menu-entrar-ncsesion"> No cerrar sesión</label>
                         </div>
-                        <div>
+                        <div id="menu-entrar-submit-div">
                             <input type="submit" name="entrar_logueo" id="menu-entrar-submit" value="Entrar">
                         </div>
                     </div>

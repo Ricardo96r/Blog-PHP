@@ -18,6 +18,7 @@ header {
 @media screen and (max-width: 1024px){
 	#header-content-left {
 		border-bottom-style: solid;
+		border-bottom-color:#D3D3D3;
 		border-bottom-width: 1px;
 	}
 }
@@ -50,15 +51,15 @@ header {
 		
 #titulo {
 	font-size: 20px;
+	margin-left:20px;
 	background-color: inherit;
-	font-weight: bold;
 	border:none;
 	height:40px;
 	}
 	
-@media screen and (max-width: 480px){
+@media screen and (max-width: 1024px){
 	#titulo {
-		font-size:20px;
+		margin-left:0px;
 	}
 }
 
@@ -66,9 +67,42 @@ header {
 	height: 40px;
 	margin-left: 140px;
 	border-bottom-style: solid;
+	border-bottom-color:#D3D3D3;
 	border-bottom-width: 1px;
 }
 
+#header-buscador {
+	float:left;
+	height:40px;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+
+#header-buscador-input-div {
+	float:left;
+}
+
+#header-buscador-input {
+	height:30px;
+	border-style:solid;
+	border-width:1px;
+	border-right-width:0px;
+	border-color:#D3D3D3;
+	width:600px;	
+}
+
+#header-buscador-submit-div {
+	float:left;
+}
+
+#header-buscador-submit {
+	height:30px;
+	border-style:solid;
+	border-width:1px;
+	border-left-width:0px;
+	border-color:#D3D3D3;
+	background-image: url(static-content/buscar.png);
+}
 /*
 	HEADER:
 	-Login BOTON
@@ -82,7 +116,6 @@ header {
 	background-color: inherit;
 	border:none;
 	height:40px;
-	font-weight:bold;
 	}
 
 #entrar {
@@ -95,6 +128,7 @@ header {
 	background-color: #FFFFFF;
 	border-style:solid;
 	border-width:1px;
+	border-color:#D3D3D3;
 	text-align:center;
 	}
 	
@@ -107,29 +141,46 @@ header {
 
 #menu-entrar-email {
 	margin-top:10px;
+	height:24px;
 	width:90%;
+	border:none;
+	border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 	
 #menu-entrar-password {
+	margin-top:5px;
+	height:24px;
 	width:90%;
+	border:none;
+	border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 	
 #menu-entrar-ncsesion_submit {
 	margin-left:5%;
-	margin-top:5px;
+	margin-top:10px;
 	margin-right:5%;
-	margin-bottom:30px;
+	margin-bottom:40px;
 }
 
 #menu-entrar-ncsesion-div {
 	float:left;
 	font-size: 12px;
-	font-weight:bold;
-	
 	}
-
+	
+#menu-entrar-ncsesion {
+	margin-top:5px;
+}
+#menu-entrar-submit-div {
+		float:right;
+	}
+	
 #menu-entrar-submit {
-	float:right;
 	color: #FFFFFF;
 	font-size: 10px;
 	background-color: #FFA600;
@@ -192,7 +243,7 @@ header {
 #boton-perfil {
 	font-size: 11px;
 	height:40px;
-	font-weight: lighter;
+	font-weight: bold;
 	}
 	
 #header-perfil-imagen {

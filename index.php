@@ -38,13 +38,6 @@
 			include($prop['tema']."/pie.php");
 			include($prop['tema']."/aside.php");
 			break;
-		case "perfil":
-			include($prop['tema']."/header.php");
-			include($prop['tema']."/nav-perfil.php");
-			include("fuente/usuario/usuario.php");
-			include($prop['tema']."/pie.php");
-			include($prop['tema']."/aside.php");
-			break;
 		default:
 			include($prop['tema']."/header.php");
 			include($prop['tema']."/nav.php");

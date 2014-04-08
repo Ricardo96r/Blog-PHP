@@ -4,6 +4,8 @@
  */
  * {
 	margin: 0;
+	padding: 0;
+	border: 0;
 	 }
 	 
 html, body, div, span, applet, object, iframe,
@@ -19,9 +21,6 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
@@ -61,13 +60,4 @@ img {
 	
 textarea { 
     resize: none; 
-}
-
-button {
-	border:none;
-	padding:0;
-	padding-left:5px;
-	padding-right:5px;
-	background-color: inherit;
-	background-color: transparent;
 }
