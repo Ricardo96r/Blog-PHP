@@ -7,7 +7,7 @@ nav {
 	width:140px;
 	top:0;
 	margin-left:0px;
-	background-color:#FFFFFF;
+	background-color: #FFFFFF;
 	visibility: visible;
 	height:100%;
 	border-right-style:solid;
@@ -20,7 +20,6 @@ nav {
 @media screen and (max-width: 1024px){
 nav {
 	display:none;
-
 	}
 }
 
@@ -28,37 +27,22 @@ nav {
 	height:40px;
 }
 
-/* REVISAR
-@media screen and (max-width: 768px){
-nav {
-	width:100%;
-	}
+#nav-content {
+	text-align:left;
+	border-style:solid;
+	border-top-width:1px;
+	border-top-color:#D3D3D3;
+	padding-top:10px;
 }
-*/	
 
-nav ul li {
-	font-size: 18px;
+#nav-content div {
+	padding-left:30px;
 	padding-top:5px;
 	padding-bottom:5px;
+	font-size:15px;
 	}
 	
-nav ul li a:link{
-	text-decoration:none;
-	margin-left:10px;
-	margin-right:10px;
-	}
-	
-nav ul li a:visited{
-	text-decoration:none;
-	margin-left:10px;
-	margin-right:10px;
-	}
-	
-nav ul li a:hover{
-	background-color:#D3D3D3;
-	}
-	
-nav ul li a:active{
-	-webkit-box-shadow: inset 0px 0px 5px 0px #000000;
-	box-shadow: inset 0px 0px 5px 0px #000000;
+#nav-content div:hover{
+	background-color: #FF9600;
+	color:#FFFFFF;
 	}

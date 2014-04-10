@@ -18,7 +18,9 @@
     	<div id="header-content-left">
     	<div id="header-nav_boton">
         	<button id="nav_boton">
-            	&darr;
+            	<div id="header-nav_boton-div"></div>
+                <div id="header-nav_boton-div"></div>
+                <div id="header-nav_boton-div"></div>
             </button>
         </div>
     	<div id="header-titulo">
@@ -99,9 +101,8 @@
 			} else {?>
                 <div id="header-menu-propiedades">
                 	<ul>
+                        <li><a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=opciones">Configuración</a></li>
                         <li><a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=cerrar_sesión">Cerrar sesión</a></li>
-                        <li><a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=perfil">Perfil</a></li>
-                        <li><a href="?<?php echo $prop['nombre'];?>=usuario&amp;page=opciones">Opciones</a></li>
                     </ul>
                 </div>
 			<?php }?>

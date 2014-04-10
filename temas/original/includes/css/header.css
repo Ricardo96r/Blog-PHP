@@ -29,12 +29,17 @@ header {
 	width:0px;
 	}
 	
-	@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px){
 	#header-nav_boton {
 		visibility:visible;
 		width:40px;
 		height:40px;
+		margin-right:10px;
 	}
+}
+
+#header-nav_boton:hover {
+	background-color: #D1D1D1;
 }
 
 #nav_boton {
@@ -45,6 +50,14 @@ header {
 	font-weight:bold;
 	}
 	
+#header-nav_boton-div {
+	border-style:solid;
+	border-width:2px;
+	border-color:#FF8E00;
+	border-radius:5px;
+	margin:5px;
+}
+
 #header-titulo {
 	float: left;
 	}
@@ -277,7 +290,7 @@ header {
 	margin-right:5px;
 	border-style:solid;
 	border-width:1px;
-	border-color: #FF0004;
+	border-color: #FF9600;
 	border-radius:5px;
 	padding-right:5px;
 	padding-left:5px;
@@ -295,16 +308,25 @@ header {
 	
 #header-menu-propiedades {
 	text-align:left;
-	margin-left:5%;
-	margin-right:5%;
+	margin-top:10px;
+	margin-bottom:10px;
 	}
-		
-@media screen and (max-width: 480px){
-#header-menu-propiedades ul li {
-	display:inline;
-	}
-}
 
+#header-menu-propiedades ul li {
+	background-color:#FFFFFF;
+	padding-left:20px;
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size:15px;
+	}
+
+#header-menu-propiedades ul li:hover {
+	background-color: #FF9600;
+	color:#FFFFFF;
+	}
+	
+	
+	
 /*
 	HEADER:
 	-Perfil
@@ -322,6 +344,13 @@ header {
 	background-color: #FF9600;
 	border-radius:5px;
 	}
+	
+@media screen and (max-width: 768px){
+	#boton-perfil {
+		border:none;
+		background-color: #FFFFFF;
+	}
+}
 
 #boton-perfil:hover {
 	background-color:#CF6D00;
@@ -334,6 +363,13 @@ header {
 	margin-left:2px;
 	border-radius:15px;
 	}
+	
+@media screen and (max-width: 768px){
+	#header-perfil-imagen {
+		width:30px;
+		height:30px;
+	}
+}
 	
 #header-perfil-nombre {
 	float:left;
