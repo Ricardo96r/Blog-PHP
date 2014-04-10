@@ -73,35 +73,71 @@ header {
 
 #header-buscador {
 	float:left;
-	height:40px;
-	padding-top:4px;
-	padding-bottom:4px;
+	height:28px;
+	margin-top:5px;
+	margin-bottom:5px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#FF9600;
+	border-radius:5px;
+}
+
+@media screen and (max-width: 768px){
+	#header-buscador {
+		float:right;
+	}
+	
+	#header-buscador:hover {
+		border-color: #000000;
+	}
 }
 
 #header-buscador-input-div {
 	float:left;
+	padding-top:4px;
 }
 
 #header-buscador-input {
-	height:30px;
-	border-style:solid;
-	border-width:1px;
-	border-right-width:0px;
-	border-color:#D3D3D3;
+	height:20px;
 	width:600px;	
+}
+
+@media screen and (max-width: 1024px){
+	#header-buscador-input {
+		width:400px;
+	}
+}
+
+@media screen and (max-width: 768px){
+	#header-buscador-input {
+		width:0px;
+		visibility:hidden;
+	}
+}
+
+@media screen and (max-width: 480px){
+	#header-buscador-input {
+		
+	}
 }
 
 #header-buscador-submit-div {
 	float:left;
+	padding-top:4px;
+	padding-right:5px;
 }
 
 #header-buscador-submit {
-	height:30px;
-	border-style:solid;
-	border-width:1px;
-	border-left-width:0px;
-	border-color:#D3D3D3;
+	height:20px;
 	background-image: url(static-content/buscar.png);
+}
+
+@media screen and (max-width: 768px){
+	#header-buscador-submit {
+		border:none;
+		margin-left:5px;
+		margin-:5px;
+	}
 }
 /*
 	HEADER:
@@ -109,13 +145,24 @@ header {
 */
 #login {
 	float: right;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-right:5px;
 	}
 	
 #login-boton {
-	font-size: 10px;
-	background-color: inherit;
+	font-size: 13px;
+	color:#FFFFFF;
+	background-color: #FF9600;
 	border:none;
-	height:40px;
+	height:30px;
+	border-radius:5px;
+	padding-right:5px;
+	padding-left:5px;
+	}
+	
+#login-boton:hover{
+	background-color: #CF6D00;
 	}
 
 #entrar {
@@ -165,7 +212,7 @@ header {
 	margin-left:5%;
 	margin-top:10px;
 	margin-right:5%;
-	margin-bottom:40px;
+	margin-bottom:50px;
 }
 
 #menu-entrar-ncsesion-div {
@@ -176,17 +223,20 @@ header {
 #menu-entrar-ncsesion {
 	margin-top:5px;
 }
+
 #menu-entrar-submit-div {
 		float:right;
 	}
 	
 #menu-entrar-submit {
-	color: #FFFFFF;
-	font-size: 10px;
-	background-color: #FFA600;
+	font-size: 13px;
+	color:#FFFFFF;
+	background-color: #FF9600;
 	border:none;
-	height:20px;
-	font-weight:bold;
+	height:30px;
+	border-radius:5px;
+	padding-right:5px;
+	padding-left:5px;
 	}
 	
 /*
@@ -195,14 +245,24 @@ header {
 */
 #create_acc {
 	float: right;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-right:5px;
 	}
 	
 #create-boton {
-	font-size: 10px;
-	background-color: transparent;
+	font-size: 13px;
+	color:#FFFFFF;
+	background-color: #FF0004;
 	border:none;
-	height:40px;
-	font-weight:bold;
+	height:30px;
+	border-radius:5px;
+	padding-right:5px;
+	padding-left:5px;
+	}
+	
+#create-boton:hover{
+	background-color: #CB0000;
 	}
 /*
 	HEADER:
@@ -210,14 +270,27 @@ header {
 */
 #header-propieades {
 	float: right;
+	height:28px;
+	width:20px;
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-right:5px;
+	border-style:solid;
+	border-width:1px;
+	border-color: #FF0004;
+	border-radius:5px;
+	padding-right:5px;
+	padding-left:5px;
 	}
 	
+#header-propieades:hover {
+	border-color: #000000;
+}
+	
 #boton-propiedades {
-	font-size: 11px;
-	background-color: transparent;
-	border:none;
-	height:40px;
-	font-weight: lighter;
+	margin-top:4px;
+	float:left;
+	height:20px;
 	}
 	
 #header-menu-propiedades {
@@ -238,30 +311,43 @@ header {
 */
 #header-perfil {
 	float: right;
+	margin-right:5px;
+	height:40px;
+	padding-top:5px;
 	}
 	
 #boton-perfil {
-	font-size: 11px;
-	height:40px;
-	font-weight: bold;
+	font-size: 12px;
+	height:30px;
+	background-color: #FF9600;
+	border-radius:5px;
 	}
+
+#boton-perfil:hover {
+	background-color:#CF6D00;
+}
 	
 #header-perfil-imagen {
 	float:left;
-	width:40px;
-	height:40px;
+	width:26px;
+	height:26px;
+	margin-left:2px;
+	border-radius:15px;
 	}
 	
 #header-perfil-nombre {
 	float:left;
-	margin-top:13px;
+	color:#FFFFFF;
+	margin-top:7px;
 	padding-left:5px;
+	padding-right:5px;
 	visibility: visible;
 	}
 
 @media screen and (max-width: 768px){
 #header-perfil-nombre {
 	visibility:hidden;
+	padding:0px;
 	width:0px;
 	}
 }

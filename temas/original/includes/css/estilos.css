@@ -41,7 +41,7 @@ section {
 */
 article {
 	background-color: #FFFFFF;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	border-style: solid;
 	border-color: #D3D3D3;
 	border-width: 1px;
@@ -143,6 +143,10 @@ article {
 	
 #publicaciones-principal-final {
 	background-color: #FFFFFF;
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 1px;
+	border-radius: 4px;
 	}
 	
 #publicaciones-principal-boton_anterior {
@@ -151,7 +155,7 @@ article {
 	border:none;
 	height:40px;
 	font-weight:bold;
-	border-color:#000000;
+	border-color: #D3D3D3;
 	border-right-style:solid;
 	border-right-width:1px;
 	}
@@ -160,7 +164,7 @@ article {
 	font-size: 10px;
 	background-color:inherit;
 	border:none;
-	border-color:#000000;
+	border-color: #D3D3D3;
 	border-right-style:solid;
 	border-right-width:1px;
 	height:40px;
@@ -359,7 +363,7 @@ article {
 */
 #registro {
 	background-color:#FFFFFF;
-		border-style: solid;
+	border-style: solid;
 	border-color: #D3D3D3;
 	border-width: 1px;
 	border-radius: 4px;
@@ -387,9 +391,8 @@ article {
 
 #registro-form-label {
 	margin-bottom:10px;
-	font-size:12px;
+	font-size:14px;
 	height:40px;
-	font-weight:bold;
 	}
 	
 #registro-form-cuenta-input {
@@ -397,6 +400,10 @@ article {
 	height:30px;
 	margin-bottom:10px;
 	margin-top:3px;
+		border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 	
 #registro-form-contraseña1-input {
@@ -404,6 +411,10 @@ article {
 	height:30px;
 	margin-bottom:10px;
 	margin-top:3px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 	
 #registro-form-contraseña2-input {
@@ -411,6 +422,10 @@ article {
 	height:30px;
 	margin-bottom:10px;
 	margin-top:3px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 	
 #registro-form-correo-input {
@@ -418,6 +433,10 @@ article {
 	height:30px;
 	margin-bottom:10px;
 	margin-top:3px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 
 #registro-form-correo-input {
@@ -425,6 +444,10 @@ article {
 	height:30px;
 	margin-bottom:10px;
 	margin-top:3px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 	
 #registro-form-nombres-input {
@@ -432,6 +455,10 @@ article {
 	height:30px;
 	margin-bottom:10px;
 	margin-top:3px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 	
 #registro-form-apellidos-input {
@@ -439,35 +466,55 @@ article {
 	height:30px;
 	margin-bottom:10px;
 	margin-top:3px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 	
 #registro-form-nacimiento {
 	text-align:center;
+	border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
-	
+#registro-form-nacimiento-text {
+	padding:5px;
+}
+
 #registro-form-nacimiento-select {
 	height:30px;
 	margin-bottom:10px;
 	margin-top:3px;
 	color:#938989;
+	border-style:solid;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 	
 #registro-form-sexo {
 	text-align:center;
+	margin-top:10px;
 	margin-bottom:10px;
 	}
 	
 #registro-form-submit {
 	color: #FFFFFF;
 	font-size: 20px;
-	background-color: #E75600;
+	background-color: #FF0004;
 	border:none;
 	height:40px;
 	width:100%;
-	
 	font-weight:bold;
 	margin-bottom:10px;
+	border-radius:5px;
 	}
+	
+#registro-form-submit:hover {
+	background-color:#CB0000;	
+}
 
 /*
 	ENVIAR PUBLICACION

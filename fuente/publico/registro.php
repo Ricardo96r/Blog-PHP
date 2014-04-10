@@ -35,6 +35,7 @@ if (!isset($_SESSION["username"])) {
         </label>
 		<input type="text" name="apellidos" id="registro-form-apellidos-input" maxlength="20" placeholder="apellido(s)"  required>
         <div id="registro-form-nacimiento">
+        <div id="registro-form-nacimiento-text">Nacimiento</div>
 			<?php
             echo mostrarNacimiento('dia');
             echo mostrarNacimiento('mes');

@@ -40,10 +40,10 @@
         </div>
         <?php if(!isset($_SESSION['username'])) {?>
 		<div id="create_acc">
-			<button id="create-boton" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=principal&page=registro'">crear cuenta</button>
+			<button id="create-boton" onClick="window.location.href='?<?php echo $prop['nombre']; ?>=principal&page=registro'">Crear cuenta</button>
 		</div>
 		<div id="login">
-			<button id="login-boton">Iniciar sesión &darr;</button>
+			<button id="login-boton">Iniciar sesión</button>
 		</div>
         <?php } else { ?>
         <div id="header-propieades">

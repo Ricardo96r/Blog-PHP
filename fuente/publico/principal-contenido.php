@@ -48,7 +48,7 @@ if (!isset($_GET['id'])) {
     	<div id="publicaciones-principal-final">
             <a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $proximo; ?>">
                 <button id="publicaciones-principal-boton_siguiente">
-                    Siguiente -->
+                    Siguiente
                 </button>
             </a> 
 		</div><?php 
@@ -56,12 +56,12 @@ if (!isset($_GET['id'])) {
     <div id="publicaciones-principal-final">
     	<a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $anterior; ?>">
 			<button id="publicaciones-principal-boton_anterior">
-				<-- Anterior
+				Anterior
 			</button>
         </a>
 		<a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $proximo; ?>">
 			<button id="publicaciones-principal-boton_siguiente">
-				Siguiente -->
+				Siguiente
 			</button>
 		</a> 
     </div>
@@ -70,7 +70,7 @@ if (!isset($_GET['id'])) {
     <div id="publicaciones-principal-final">
         <a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $anterior; ?>">
             	<button id="publicaciones-principal-boton_anterior">
-                	<-- Anterior
+                	Anterior
                 </button>
         </a>  
 	</div> <?php
