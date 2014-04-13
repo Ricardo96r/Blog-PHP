@@ -86,22 +86,23 @@ header {
 
 #header-buscador {
 	float:left;
-	height:28px;
+	height:30px;
 	margin-top:5px;
 	margin-bottom:5px;
 	border-style:solid;
 	border-width:1px;
-	border-color:#FF9600;
-	border-radius:5px;
+	border-color:#D3D3D3;
 }
 
 @media screen and (max-width: 768px){
 	#header-buscador {
 		float:right;
+		border:none;
+		border-radius:5px;
 	}
 	
 	#header-buscador:hover {
-		border-color: #000000;
+		background-color:#FF8E00;
 	}
 }
 
@@ -124,13 +125,8 @@ header {
 @media screen and (max-width: 768px){
 	#header-buscador-input {
 		width:0px;
+		height:30px;
 		visibility:hidden;
-	}
-}
-
-@media screen and (max-width: 480px){
-	#header-buscador-input {
-		
 	}
 }
 
@@ -140,6 +136,12 @@ header {
 	padding-right:5px;
 }
 
+@media screen and (max-width: 768px){
+	#header-buscador-submit-div {
+		padding:0px;
+	}
+}
+
 #header-buscador-submit {
 	height:20px;
 	background-image: url(static-content/buscar.png);
@@ -147,9 +149,9 @@ header {
 
 @media screen and (max-width: 768px){
 	#header-buscador-submit {
+		padding:0px;
+		height:30px;
 		border:none;
-		margin-left:5px;
-		margin-:5px;
 	}
 }
 /*
@@ -284,26 +286,21 @@ header {
 #header-propieades {
 	float: right;
 	height:28px;
-	width:20px;
+	width:28px;
 	margin-top:5px;
 	margin-bottom:5px;
 	margin-right:5px;
-	border-style:solid;
-	border-width:1px;
-	border-color: #FF9600;
-	border-radius:5px;
-	padding-right:5px;
-	padding-left:5px;
 	}
 	
-#header-propieades:hover {
-	border-color: #000000;
-}
-	
 #boton-propiedades {
-	margin-top:4px;
+	background-color:#FFFFFF;
 	float:left;
-	height:20px;
+	height:28px;
+	}
+	
+#boton-propiedades:hover {
+	background-color:#FF9600;
+	border-radius:5px;
 	}
 	
 #header-menu-propiedades {

@@ -24,25 +24,33 @@ nav {
 }
 
 #nav-superior-espacio {
-	height:40px;
+	height:50px;
 }
 
 #nav-content {
-	text-align:left;
-	border-style:solid;
-	border-top-width:1px;
-	border-top-color:#D3D3D3;
-	padding-top:10px;
+	font-size: 12px;
+	height:40px;
+	width:140px;
+	background-color: #FFFFFF;
+	padding-left:10px;
 }
 
-#nav-content div {
-	padding-left:30px;
-	padding-top:5px;
-	padding-bottom:5px;
-	font-size:15px;
-	}
-	
-#nav-content div:hover{
+#nav-content:hover {
 	background-color: #FF9600;
 	color:#FFFFFF;
+}
+
+#nav-content-image {
+	float:left;
+	width:26px;
+	height:26px;
+	margin-left:2px;
 	}
+	
+#nav-content-text {
+	float:left;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:6px;
+	visibility: visible;
+	}	

@@ -1,6 +1,6 @@
 <?php
 
-$host = "localhost:3306";
+$host = "localhost:3307";
 $user = "root";
 $pw = "2318860212";
 $db = "proyecto";
