@@ -26,13 +26,13 @@ section {
 	
 @media screen and (max-width: 1024px){
 	section {
-		margin-left:0px;
+		margin-left:10px;
 	}
 }
 
 @media screen and (max-width: 768px){
 	section {
-		margin-right:0px;
+		margin-right:10px;
 	}
 }
 	
@@ -570,6 +570,10 @@ article {
 
 #intro {
 	background-color: #FFFFFF;
+		border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 1px;
+	border-radius: 4px;
 }
 
 #intro-cabezera {

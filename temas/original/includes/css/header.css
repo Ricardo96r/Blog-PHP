@@ -86,12 +86,13 @@ header {
 
 #header-buscador {
 	float:left;
-	height:30px;
+	height:28px;
 	margin-top:5px;
 	margin-bottom:5px;
 	border-style:solid;
 	border-width:1px;
-	border-color:#D3D3D3;
+	border-color:#FF9600;
+	border-radius:20px;
 }
 
 @media screen and (max-width: 768px){
@@ -109,11 +110,20 @@ header {
 #header-buscador-input-div {
 	float:left;
 	padding-top:4px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+@media screen and (max-width: 768px){
+	#header-buscador-input-div {
+		padding:0px;
+	}
 }
 
 #header-buscador-input {
 	height:20px;
-	width:600px;	
+	width:600px;
+	outline:none;
 }
 
 @media screen and (max-width: 1024px){
@@ -133,7 +143,7 @@ header {
 #header-buscador-submit-div {
 	float:left;
 	padding-top:4px;
-	padding-right:5px;
+	padding-right:10px;
 }
 
 @media screen and (max-width: 768px){

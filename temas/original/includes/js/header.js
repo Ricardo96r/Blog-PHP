@@ -16,10 +16,6 @@ $(document).on("ready", function(){
 	});
 	
 	$("#nav_boton").on("click", function(){
-		$('nav').toggle(0, function () {
-				$("nav").css({visibility: "hidden"});
-			}, function () {
-				$("nav").css({visibility: "visible"});
-			});
+		$('nav').toggle(0);
 		});
-});
+	});

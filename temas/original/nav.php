@@ -17,6 +17,7 @@
 					Explora
                	</div>
             </button>
+            <div id="nav-hr"></div>
             <?php if(!isset($_SESSION['username'])) { 
 			
 			/* 
