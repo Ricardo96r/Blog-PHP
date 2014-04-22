@@ -1,4 +1,4 @@
-<div id="publicar">
+<div class="fondo" id="publicar">
 <?php
 if(isset($_SESSION['username'])) {
 	if(!isset($_POST['enviar_nota'])) {

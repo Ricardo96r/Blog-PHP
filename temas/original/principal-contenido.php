@@ -22,7 +22,6 @@ if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GE
 } else {
 	#REVISAR EN EL FUTURO
 	/* Esta accion se encuentra mas abajo
-	header("Location: ?$prop[nombre]=principal&pos=$inicio");
 	*/
 }
 						
@@ -46,7 +45,7 @@ if (!isset($_GET['id'])) {
 	
 	if ($inicio == 0) { ?>
     	<div id="publicaciones-principal-final">
-            <a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $proximo; ?>">
+            <a href="?&pos=<?php echo $proximo; ?>">
                 <button id="publicaciones-principal-boton_siguiente">
                     Siguiente
                 </button>
@@ -54,12 +53,12 @@ if (!isset($_GET['id'])) {
 		</div><?php 
 	} elseif ($inicio < ($count / 10)) {?>
     <div id="publicaciones-principal-final">
-    	<a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $anterior; ?>">
+    	<a href="?&pos=<?php echo $anterior; ?>">
 			<button id="publicaciones-principal-boton_anterior">
 				Anterior
 			</button>
         </a>
-		<a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $proximo; ?>">
+		<a href="?&pos=<?php echo $proximo; ?>">
 			<button id="publicaciones-principal-boton_siguiente">
 				Siguiente
 			</button>
@@ -68,7 +67,7 @@ if (!isset($_GET['id'])) {
 	<?php		
 	} else { ?>
     <div id="publicaciones-principal-final">
-        <a href="?<?php echo $prop['nombre'];?>=principal&pos=<?php echo $anterior; ?>">
+        <a href="?&pos=<?php echo $anterior; ?>">
             	<button id="publicaciones-principal-boton_anterior">
                 	Anterior
                 </button>
@@ -138,7 +137,7 @@ if (!isset($_GET['id'])) {
             </div>
 		<?php }
 	} else {
-		header("Location: ?$prop[nombre]=principal&pos=$inicio");
+		header("Location: ?&pos=$inicio");
 		}
 	}
 ?>

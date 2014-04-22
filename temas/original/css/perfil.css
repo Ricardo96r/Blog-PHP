@@ -1,0 +1,137 @@
+/* 
+	CONTENIDO:
+	-PERFIL
+*/
+/* 
+	CONTENIDO:
+	-PERFIL: PARTE SUPERIOR
+*/
+
+#perfil-contenedor {
+	height:100%;
+	background-size:cover;
+	border-style:solid;
+	border-width:1px;
+	border-bottom-style:none;
+	margin-bottom:10px;
+	}
+
+#perfil-fondo-imagen_perfil {
+	height:200px;
+	width:200px;
+	margin-top:20px;
+	margin-left:20px;
+	background:#FFFFFF;
+	border-style:solid;
+	border-width:1px;
+	position: absolute;
+	}
+	
+@media screen and (max-width: 768px){
+	#perfil-fondo-imagen_perfil {
+		position: static;
+		margin-left:0px;
+		margin-bottom:5px;
+		display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+}
+
+#perfil-fondo-contenido_fondo {
+	margin-left:220px;
+	}
+	
+@media screen and (max-width: 768px){
+	#perfil-fondo-contenido_fondo {
+		margin-left:0px;
+		text-align:center;
+	}
+}
+	
+#perfil-fondo-contenido {
+	padding-top:60px;
+	padding-left:5%;
+	}
+	
+@media screen and (max-width: 768px){
+	#perfil-fondo-contenido {
+		padding-top:0px;
+		padding-left:0;
+	}
+}
+
+#perfil-fondo-contenido-nombre span{
+	font-size:40px;
+	background-color:#FF8F32;
+	color:#FFFFFF;
+	}
+	
+#perfil-fondo-contenido-cuenta span{
+	font-size:20px;
+	background-color:#FF8F32;
+	color:#FFFFFF;
+	}
+
+#perfil-fondo-contenido-datos {
+	text-align:center;
+	margin-top:120px;
+	height:42px;
+	border-style:solid;
+	background-color:rgba(0,0,0,0.31);
+	}
+	
+@media screen and (max-width: 768px){
+	#perfil-fondo-contenido-datos {
+		margin-top:5px
+	}
+}
+	
+#perfil-fondo-contenido-datos_publicaciones {
+	float:right;
+	border-width:1px;
+	border-style:solid;
+	}
+	
+#perfil-fondo-contenido-datos_publicaciones_boton {
+	color: #FFFFFF;
+	font-size: 10px;
+	background-color: #FF8F32;
+	border:none;
+	height:40px;
+	
+	font-weight:bold;
+	}
+	
+#perfil-fondo-contenido-datos_seguidores {
+	float:right;
+	border-width:1px;
+	border-style:solid;
+	border-right-style:none;
+	}
+	
+#perfil-fondo-contenido-datos_seguidores_boton {
+	color: #FFFFFF;
+	font-size: 10px;
+	background-color: #FF8F32;
+	border:none;
+	height:40px;
+	
+	font-weight:bold;
+	}
+	
+#perfil-fondo-contenido-datos_siguiendo {
+	float: right;
+	border-style:solid;
+	border-top-width:1px;
+	border-bottom-width:1px;
+	}
+
+#perfil-fondo-contenido-datos_siguiendo_boton {
+	color: #FFFFFF;
+	font-size: 10px;
+	background-color: #FF8F32;
+	border:none;
+	height:40px;
+	font-weight:bold;
+	}

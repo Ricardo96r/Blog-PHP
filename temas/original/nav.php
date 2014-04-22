@@ -1,17 +1,33 @@
 <nav>
 	<div id="nav-superior-espacio">
     </div>
-            <button id="nav-content" onClick="window.location.href='?<?php echo $prop['nombre'];?>=principal'">
+            <button class="nav-content"
+            <?php 
+			if ($page == "") {
+            	echo "id='nav-content-stay'";
+			} else {
+				echo "";
+				}
+            ?>
+            onClick="window.location.href='.'">
                 <div id="nav-content-image">
-                	<img src="static-content/nav/inicio.png">
+                	<img src="temas/<?php echo $prop['tema'];?>/imagenes/inicio.png">
                 </div>
                 <div id="nav-content-text">
 					Inicio
                	</div>
             </button>
-            <button id="nav-content" onClick="window.location.href='?<?php echo $prop['nombre'];?>=principal&amp;page=explora'">
+            <button class="nav-content" 
+            <?php 
+			if ($page == "explorar") {
+				echo "id='nav-content-stay'";
+			} else {
+				echo "";
+				}
+            ?>
+            onClick="window.location.href='?p=explora'">
                 <div id="nav-content-image">
-                	<img src="static-content/nav/inicio.png">
+                	<img src="temas/<?php echo $prop['tema'];?>/imagenes/inicio.png">
                 </div>
                 <div id="nav-content-text">
 					Explora
@@ -24,9 +40,17 @@
 				No existe sesion
 			*/
 			?>
-            <button id="nav-content" onClick="window.location.href='?<?php echo $prop['nombre'];?>=principal&amp;page=registro'">
+            <button class="nav-content" 
+            <?php 
+				if ($page == "registro") {
+					echo "id='nav-content-stay'";
+				} else {
+					echo "";
+					}
+            ?>
+            onClick="window.location.href='?p=registro'">
                 <div id="nav-content-image">
-                	<img src="static-content/nav/inicio.png">
+                	<img src="temas/<?php echo $prop['tema'];?>/imagenes/inicio.png">
                 </div>
                 <div id="nav-content-text">
 					Regístrate
@@ -38,9 +62,17 @@
            		Iniciada sesion
             */ 
 		 	} else { ?>
-            <button id="nav-content" onClick="window.location.href='?<?php echo $prop['nombre'];?>=usuario&amp;page=enviar_publicacion'">
+            <button class="nav-content" 
+             <?php 
+			if ($page == "publicar") {
+				echo "id='nav-content-stay'";
+			} else {
+				echo "";
+				}
+            ?>
+            onClick="window.location.href='?p=publicar'">
                 <div id="nav-content-image">
-                	<img src="static-content/nav/inicio.png">
+                	<img src="temas/<?php echo $prop['tema'];?>/imagenes/inicio.png">
                 </div>
                 <div id="nav-content-text">
 					Publica

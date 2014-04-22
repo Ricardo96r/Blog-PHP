@@ -1,4 +1,4 @@
-<div id="intro">
+<div class="fondo" id="intro">
 	<div id="intro-cabezera">
     	<div id="intro-cabezera-texto">
         	<div id="intro-cabezera-texto_1">

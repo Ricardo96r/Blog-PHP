@@ -1,4 +1,4 @@
-<div id="contenido">
+<div class="fondo" id="opciones">
 <?php
 if(isset($_SESSION['username'])) {
 echo "MANTENIMIENTO";

@@ -1,4 +1,4 @@
-<div id="registro">
+<div class="fondo" id="registro">
 <?php
 if (!isset($_SESSION["username"])) {
 	if (!isset($_POST["registro"])) {
@@ -171,7 +171,7 @@ if (!isset($_SESSION["username"])) {
 		}
 } else {
 	echo "No puedes registrarte al estar logeado";
-	header("Location: ?$prop[nombre]=principal");
+	header("Location: ");
 	}
 	
 		

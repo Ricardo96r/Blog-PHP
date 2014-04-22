@@ -8,10 +8,14 @@
 */
 
 function antiSqlInjection( $variable ) {
-	$variable = strip_tags($variable);               // funcion que elimina etiquetas html y php
-	$variable = stripslashes($variable);           // funcion que elimina las barras invertidas 
-	$variable = htmlentities($variable);       //elimina etiquetas html y javascrip
-	$variable = mysql_real_escape_string($variable); //elimina todo lo que tenga que ver con mysql
+	if (isset($variable)) {
+		$variable = strip_tags($variable);               // funcion que elimina etiquetas html y php
+		$variable = stripslashes($variable);           // funcion que elimina las barras invertidas 
+		$variable = htmlentities($variable);       //elimina etiquetas html y javascrip
+		$variable = mysql_real_escape_string($variable); //elimina todo lo que tenga que ver con mysql
+	} else {
+		$variable = "";
+		}
 	return $variable;							
 }
 
@@ -91,7 +95,7 @@ function post ($dt) {
                 	<img src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
                 </div>
 				<div id='contenido_arriba_nombre'>
-					<a href="?<?php echo $prop['nombre'];?>=usuario&page=perfil&pf=<?php echo $dt['cuenta'];?>">
+					<a href="?p=perfil&pf=<?php echo $dt['cuenta'];?>">
 						<?php echo $dt['nombres']." ".$dt['apellidos']." <br>@".$dt['cuenta']; ?>
                     </a>
 				</div>
@@ -101,7 +105,7 @@ function post ($dt) {
 			</div>
 			<div id='contenido_central'>
             <?php if (!isset($dt['idcomentario'])) {?>
-				<a href='?<?php echo $prop['nombre'];?>=principal&id=<?php echo $dt['idpublicacion']; ?>'>
+				<a href='?id=<?php echo $dt['idpublicacion']; ?>'>
 					<?php echo $dt['publicacion']; ?>
 				</a>
             <?php } else {?>
@@ -130,4 +134,6 @@ function post ($dt) {
             </div>
         </div>
 	</article>
-<?php } ?>
+<?php } 
+
+?>

@@ -1,0 +1,41 @@
+/*
+	INTRO
+*/
+
+#intro {
+
+}
+
+#intro-cabezera {
+	height:300px;
+}
+
+#intro-cabezera-texto {
+	float:left;
+	font-size:30px;
+	font-weight:bold;
+	padding:5px;
+	width:50%;
+	margin-top:30px;
+	margin-left:30px;
+	
+}
+
+#intro-cabezera-texto_1 {
+	background-color: #FFFFFF;
+	float:left;
+}
+
+#intro-cabezera-texto_2 {
+	background-color: #FFFFFF;
+	font-weight: lighter;
+	font-size:25px;
+	
+}
+
+#intro-cabezera-texto_3 {
+	margin-top:20px;
+	font-weight: lighter;
+	font-size:25px;
+	float:left;
+}

@@ -27,23 +27,27 @@ nav {
 	height:50px;
 }
 
-#nav-content {
-	font-size: 12px;
+.nav-content {
+	font-size: 14px;
 	height:40px;
-	width:140px;
+	width:100%;
 	background-color: #FFFFFF;
 	padding-left:10px;
 }
 
-#nav-content:hover {
+.nav-content:hover {
+	background-color: #F3F3F3;
+}
+
+#nav-content-stay {
 	background-color: #FF9600;
-	color:#FFFFFF;
+	color: #FFFFFF;
 }
 
 #nav-content-image {
 	float:left;
-	width:20px;
-	height:20px;
+	width:15px;
+	height:15px;
 	margin-left:2px;
 	background-color:#FF9600;
 	padding:4px;
@@ -54,7 +58,7 @@ nav {
 	float:left;
 	padding-left:5px;
 	padding-right:5px;
-	padding-top:7px;
+	padding-top:4px;
 	visibility: visible;
 	}
 	

@@ -1,0 +1,46 @@
+/*
+	enviar_publicacion.php
+*/
+
+#publicar {
+
+	}
+
+#publicar-form {
+	padding-top:10px;
+	margin-left:20%;
+	margin-right:20%;
+	}
+
+@media screen and (max-width: 1024px){
+	#publicar-form {
+		margin-left:5%;
+		margin-right:5%;
+	}
+}
+
+@media screen and (max-width: 768px){
+	#publicar-form {
+		margin-left:1%;
+		margin-right:2%;
+	}
+}
+
+#publicar-form-publicacion {
+	width: 99%;
+	}
+
+#publicar-form-file {
+	text-align:center;
+	}
+	
+#publicar-form-submit {
+	color: #FFFFFF;
+	font-size: 20px;
+	background-color: #FFA600;
+	border:none;
+	height:40px;
+	width:100%;
+	font-weight:bold;
+	margin-bottom:10px;
+	}
