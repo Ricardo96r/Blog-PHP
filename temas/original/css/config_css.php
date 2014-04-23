@@ -1,13 +1,38 @@
-<?php /*
-	Configuracion css para que solo el usuario descargue lo esencial y no descargue todas las hojas de estilo no necesarias
-*/?>
+<?php 
+/*
+	Load: CSS
+*/
+?>
 
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/css-reset.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/header.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/nav.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/estilos.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/aside.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/css-reset.css">
+<link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/header.css">
+<link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/nav.css">
+
+<?php 
+if(!isset($_SESSION['username'])) {
+	if($page != "") {
+		?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/estilos.css"><?php
+		} else  {
+			?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/estilos-intro.css"><?php
+			}
+	} else {
+		?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/estilos.css"><?php
+		}
+?>
+
+<link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/publicaciones.css">
+
+<?php
+if(!isset($_SESSION['username'])) {
+    if($page != "") {
+        ?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/aside.css"><?php
+        } else {
+            echo "";
+            }
+} else {
+    ?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/aside.css"><?php
+    }
+?>
 
 <?php 
 switch ($page) {
@@ -15,7 +40,7 @@ switch ($page) {
 		if(isset($_SESSION['username'])) {
 			echo "";
 		} else { // INTRO
-			?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/intro.css"><?php
+			?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/index-intro.css"><?php
 			}
 	break;
 	case "publicar":
@@ -38,3 +63,5 @@ switch ($page) {
 	break;	
 }
 ?>
+
+<link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/footer.css">

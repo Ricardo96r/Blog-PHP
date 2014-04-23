@@ -1,7 +1,13 @@
-#404 {
-	background:#FF0004;
+#error404 {
+	padding:20px;
+	text-align:center;
 	}
 	
-#404-text {
-	font-size:20px;
+#error404-titulo {
+	font-size:60px;
+	color:#FF9600;
+	}
+	
+#error404-texto {
+	margin-top:30px;
 	}

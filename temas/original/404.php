@@ -1,5 +1,8 @@
-<div class="fondo" id="404">
-	<div id="404-text">
-    	ERROR 404. Esta pagina no existe
+<div class="fondo" id="error404">
+	<div id="error404-titulo">
+    	ERROR 404
+    </div>
+    <div id="error404-texto">
+        Esta página no existe
    	</div>
 </div>
