@@ -34,7 +34,7 @@ header {
 		visibility:visible;
 		width:40px;
 		height:40px;
-		margin-right:10px;
+		
 	}
 }
 
@@ -61,10 +61,9 @@ header {
 #header-titulo {
 	float: left;
 	font-size: 20px;
-	margin-left:10px;
+	margin-left:5px;
 	background-color: inherit;
 	border:none;
-	height:40px;
 	padding-top:5px;
 	color: #FF9600;
 	}
@@ -78,7 +77,6 @@ header {
 #titutlo-boton {
 	font-size: 12px;
 	height:30px;
-	border-radius:5px;
 	background-color:#FFFFFF;
 	}
 
@@ -91,6 +89,7 @@ header {
 	width:26px;
 	height:26px;
 	margin-left:2px;
+	margin-top:1px;
 	border-radius:4px;
 	font-size:25px;
 	color:#FFFFFF;
@@ -121,7 +120,7 @@ header {
 	margin-bottom:5px;
 	border-style:solid;
 	border-width:1px;
-	border-color:#FF9600;
+	border-color: #828282;
 	border-radius:20px;
 }
 
@@ -129,6 +128,7 @@ header {
 	#header-buscador {
 		float:right;
 		border:none;
+		height:30px;
 		border-radius:5px;
 	}
 	
@@ -154,11 +154,15 @@ header {
 	height:20px;
 	width:600px;
 	outline:none;
+	border-radius:15px;
+	padding-left:5px;
+	padding-right:5px;
 }
 
 @media screen and (max-width: 1024px){
 	#header-buscador-input {
 		width:400px;
+		padding:0px;
 	}
 }
 
@@ -325,8 +329,8 @@ header {
 */
 #header-propieades {
 	float: right;
-	height:28px;
-	width:28px;
+	height:30px;
+	width:30px;
 	margin-top:5px;
 	margin-bottom:5px;
 	margin-right:5px;
@@ -335,7 +339,7 @@ header {
 #boton-propiedades {
 	background-color:#FFFFFF;
 	float:left;
-	height:28px;
+	height:30px;
 	}
 	
 #boton-propiedades:hover {
@@ -403,6 +407,7 @@ header {
 	
 @media screen and (max-width: 768px){
 	#header-perfil-imagen {
+		margin-left:0px;
 		width:30px;
 		height:30px;
 	}

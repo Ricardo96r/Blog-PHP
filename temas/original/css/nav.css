@@ -28,15 +28,20 @@ nav {
 }
 
 .nav-content {
-	font-size: 14px;
-	height:40px;
-	width:100%;
+	font-size: 12px;
+	height:30px;
+	margin-left:5px;
+	margin-right:5px;
+	width:130px;
 	background-color: #FFFFFF;
 	padding-left:10px;
+	
+	outline:none;
 }
 
 .nav-content:hover {
-	background-color: #D3D3D3;
+	background-color: #000000;
+	color:#FFFFFF;
 	}
 
 #nav-content-stay {
