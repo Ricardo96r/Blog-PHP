@@ -60,25 +60,52 @@ header {
 
 #header-titulo {
 	float: left;
-	}
-		
-#titulo {
 	font-size: 20px;
 	margin-left:10px;
 	background-color: inherit;
 	border:none;
 	height:40px;
-	font-weight:bold;
-	font-style:italic;
+	padding-top:5px;
 	color: #FF9600;
 	}
 	
 @media screen and (max-width: 1024px){
-	#titulo {
+	#header-titulo {
 		margin-left:0px;
 	}
 }
 
+#titutlo-boton {
+	font-size: 12px;
+	height:30px;
+	border-radius:5px;
+	background-color:#FFFFFF;
+	}
+
+#titutlo-boton:hover {
+	background-color:#D3D3D3;
+	}
+	
+#titulo-logo {
+	float:left;
+	width:26px;
+	height:26px;
+	margin-left:2px;
+	border-radius:4px;
+	font-size:25px;
+	color:#FFFFFF;
+	background-color: #FF8600;
+	}
+	
+#titulo-text {
+	float:left;
+	margin-top:5px;
+	padding-left:2px;
+	padding-right:5px;
+	font-size:20px;
+	visibility: visible;
+	}
+	
 #header-content-right {
 	height: 40px;
 	margin-left: 140px;

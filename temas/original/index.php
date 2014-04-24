@@ -40,7 +40,15 @@
 	/*
 		Load: FOOTER
 	*/
-	include("temas/".$prop['tema']."/pie.php");
+	if(!isset($_SESSION['username'])) {
+		if($page != "") {
+		include("temas/".$prop['tema']."/pie.php");
+			} else {
+				echo "";
+				}
+	} else {
+		include("temas/".$prop['tema']."/pie.php");
+		}
 	
 	/*
 		Load: ASIDE

@@ -3,13 +3,11 @@
 <head>
 <meta charset="utf-8">
 	<title><?php echo ucwords($prop['nombre']); ?></title>
-    <?php include("temas/$prop[tema]/css/config_css.php");?>
-	<?php /*<link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/css-reset.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/header.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/nav.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/estilos.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/aside.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/footer.css">*/
+    <?php 
+	/*
+		Load CSS
+	*/
+	include("temas/$prop[tema]/css/config_css.php");
 	?>
 	<script src="http://code.jquery.com/jquery-1.9.0.js" type="text/javascript"></script>
     <script src="<?php echo "temas/".$prop['tema'];?>/js/header.js"></script>
@@ -25,10 +23,15 @@
                 <div id="header-nav_boton-div"></div>
             </button>
         </div>
-    	<div id="header-titulo">
-            <button id="titulo" onClick="window.location.href='.'">
-            	<?php echo ucwords($prop['nombre']); ?>
-			</button>
+        <div id="header-titulo">
+			<button id="titutlo-boton" onClick=".">
+                <div id="titulo-logo">
+                	N
+                </div>
+                <div id="titulo-text">
+					ombre
+               	</div>
+            </button>
 		</div>
         </div>
         <div id="header-content-right">
