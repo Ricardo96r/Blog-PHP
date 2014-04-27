@@ -31,6 +31,8 @@
 		include('perfil.php');
 	} elseif($page == "publicar"){
 		include('publicar.php');
+	} elseif($page == "explorar"){
+		include('explorar.php');
 	} elseif($page == "404"){
 		include('404.php');
 	}else{

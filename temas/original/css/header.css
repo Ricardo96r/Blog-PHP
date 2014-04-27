@@ -79,10 +79,6 @@ header {
 	height:30px;
 	background-color:#FFFFFF;
 	}
-
-#titutlo-boton:hover {
-	background-color:#D3D3D3;
-	}
 	
 #titulo-logo {
 	float:left;
@@ -115,13 +111,13 @@ header {
 
 #header-buscador {
 	float:left;
-	height:28px;
+	height:26px;
 	margin-top:5px;
 	margin-bottom:5px;
 	border-style:solid;
-	border-width:1px;
-	border-color: #828282;
-	border-radius:20px;
+	border-width:2px;
+	border-color: #FF9600;
+	border-radius:5px;
 }
 
 @media screen and (max-width: 768px){
@@ -139,9 +135,9 @@ header {
 
 #header-buscador-input-div {
 	float:left;
-	padding-top:4px;
-	padding-left:10px;
-	padding-right:10px;
+	padding-top:3px;
+	padding-left:6px;
+	padding-right:6px;
 }
 
 @media screen and (max-width: 768px){
@@ -152,7 +148,7 @@ header {
 
 #header-buscador-input {
 	height:20px;
-	width:600px;
+	width:320px;
 	outline:none;
 	border-radius:15px;
 	padding-left:5px;
@@ -161,7 +157,7 @@ header {
 
 @media screen and (max-width: 1024px){
 	#header-buscador-input {
-		width:400px;
+		
 		padding:0px;
 	}
 }
@@ -176,7 +172,7 @@ header {
 
 #header-buscador-submit-div {
 	float:left;
-	padding-top:4px;
+	padding-top:3px;
 	padding-right:10px;
 }
 

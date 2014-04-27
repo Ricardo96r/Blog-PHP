@@ -25,12 +25,12 @@
 				echo "";
 				}
             ?>
-            onClick="window.location.href='?p=explora'">
+            onClick="window.location.href='?p=explorar'">
                 <div id="nav-content-image">
                 	<img src="temas/<?php echo $prop['tema'];?>/imagenes/inicio.png">
                 </div>
                 <div id="nav-content-text">
-					Explora
+					Explorar
                	</div>
             </button>
             <div id="nav-hr"></div>

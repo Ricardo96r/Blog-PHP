@@ -24,7 +24,7 @@
             </button>
         </div>
         <div id="header-titulo">
-			<button id="titutlo-boton" onClick=".">
+			<button id="titutlo-boton" onClick="window.location.href='.'">
                 <div id="titulo-logo">
                 	N
                 </div>
@@ -38,7 +38,7 @@
         <div id="header-buscador">
         <form method="post" action="">
         	<div id="header-buscador-input-div">
-            	<input type="text" name="header-buscador-input" id="header-buscador-input">
+            	<input type="text" name="header-buscador-input" id="header-buscador-input" placeholder="Buscar">
             </div>
             <div id="header-buscador-submit-div">
             	<input name="header-buscador-submit"  id="header-buscador-submit" type="image" src="temas/<?php echo $prop['tema'];?>/imagenes/buscar.png">

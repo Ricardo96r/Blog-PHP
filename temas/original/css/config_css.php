@@ -60,7 +60,10 @@ switch ($page) {
 	break;
 	case "404": 
 		?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/404.css"><?php
-	break;	
+	break;
+	case "explorar":
+		?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/explorar.css"><?php
+	break;
 }
 ?>
 

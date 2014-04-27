@@ -20,6 +20,9 @@ article {
 	
 #contenido_arriba {
 	height:80px;
+	border-bottom-width:1px;
+	border-bottom-style:solid;
+	border-color:#D3D3D3;
 	}
 
 #contenido_arriba_imagen-perfil {
@@ -64,6 +67,9 @@ article {
 #contenido_abajo {
 	text-align:center;
 	height:40px;
+	border-top-width:1px;
+	border-top-style:solid;
+	border-color:#D3D3D3;
 	}
 	
 #contenido_abajo_megusta {
