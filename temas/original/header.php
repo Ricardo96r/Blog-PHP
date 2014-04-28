@@ -9,9 +9,9 @@
 	*/
 	include("temas/$prop[tema]/css/config_css.php");
 	?>
-	<script src="http://code.jquery.com/jquery-1.9.0.js" type="text/javascript"></script>
+	<script src="<?php echo "temas/".$prop['tema'];?>/js/jquery-1.11.0.min.js" type="text/javascript"></script>
     <script src="<?php echo "temas/".$prop['tema'];?>/js/header.js"></script>
-    <script src="//use.edgefonts.net/ubuntu.js"></script>
+    <script src="<?php echo "temas/".$prop['tema'];?>/js/ubuntu.js"></script>
 </head>
 <body>
 	<header>

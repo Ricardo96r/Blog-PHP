@@ -91,14 +91,20 @@ function post ($dt) {
     <article id="contenido-contenedor">
     	<div id="contenido">
 			<div id="contenido_arriba">
-            	<div id="contenido_arriba_imagen-perfil">
-                	<img src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
-                </div>
-				<div id='contenido_arriba_nombre'>
-					<a href="?p=perfil&pf=<?php echo $dt['cuenta'];?>">
-						<?php echo $dt['nombres']." ".$dt['apellidos']." <br>@".$dt['cuenta']; ?>
-                    </a>
-				</div>
+            	<a href="?p=perfil&pf=<?php echo $dt['cuenta'];?>">
+                    <div id="contenido_arriba_imagen-perfil">
+                        <img src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
+                    </div>
+                    <div id='contenido_arriba_nombre'>
+                        
+                        <div id="contenido_arriba_nombre_nombre">
+                            <?php echo $dt['nombres']." ".$dt['apellidos']; ?>
+                        </div>
+                        <div id="contenido_arriba_nombre_cuenta">
+                             <?php echo '@'.$dt['cuenta']; ?>
+                        </div>
+                    </div>
+                </a>
 				<div id='contenido_arriba_fecha'>
 					<?php echo $dt['tiempo_de_creacion']; ?>
 				</div>

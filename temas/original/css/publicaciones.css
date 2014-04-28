@@ -10,6 +10,10 @@ article {
 	border-radius: 4px;
 	}
 	
+article:hover {
+	background-color: #F7F7F7;
+	}
+	
 #contenido-contenedor {
 	word-wrap: break-word;
 	}
@@ -19,7 +23,7 @@ article {
 	}
 	
 #contenido_arriba {
-	height:80px;
+	height:70px;
 	border-bottom-width:1px;
 	border-bottom-style:solid;
 	border-color:#D3D3D3;
@@ -28,18 +32,37 @@ article {
 #contenido_arriba_imagen-perfil {
 	float:left;
 	width:60px;
-	padding:10px;
+	padding:5px;
 	}
 	
 #contenido_arriba_nombre {
 	float:left;
-	margin-top:25px;
+	margin-top:20px;
 	font-size:15px;
+	}
+	
+
+	
+#contenido_arriba_nombre_nombre {
+	font-weight:bold;
+	}
+	
+#contenido_arriba_nombre_nombre:hover {
+	color: #FF8E00;
+	text-decoration: underline;
+	}
+	
+#contenido_arriba_nombre_cuenta {
+	font-weight:lighter;
+	color: #5F5F5F;
+	font-size:13px;
 	}
 	
 #contenido_arriba_fecha {
 	float:right;
 	padding:5px;
+	font-size:12px;
+	color: #5F5F5F;
 	}
 	
 #contenido_central {
@@ -48,6 +71,7 @@ article {
 	text-align:center;
 	margin-left:20%;
 	margin-right:20%;
+	font-size:14px;
 	}
 	
 @media screen and (max-width: 1024px){
@@ -66,7 +90,7 @@ article {
 
 #contenido_abajo {
 	text-align:center;
-	height:40px;
+	height:30px;
 	border-top-width:1px;
 	border-top-style:solid;
 	border-color:#D3D3D3;
@@ -80,10 +104,17 @@ article {
 	font-size: 10px;
 	background-color: inherit;
 	border:none;
-	height:40px;
+	height:30px;
 	font-weight:bold;
+	padding-left:5px;
+	padding-right:5px;
 	}
-	
+
+#contenido_abajo_megusta_boton:hover {
+	color: #FF8E00;
+	text-decoration: underline;
+}
+
 #contenido_abajo_favoritos {
 	float:right;
 	}
@@ -92,22 +123,35 @@ article {
 	font-size: 10px;
 	background-color:inherit;
 	border:none;
-	height:40px;
+	height:30px;
 	font-weight:bold;
+	padding-left:5px;
+	padding-right:5px;
 	}
+	
+#contenido_abajo_favoritos_boton:hover {
+	color: #FF8E00;
+	text-decoration: underline;
+}
 	
 #contenido_abajo_guardar {
 	float: right;
-
 	}
 
 #contenido_abajo_guardar_boton {
 	font-size: 10px;
 	background-color: inherit;
 	border:none;
-	height:40px;
+	height:30px;
 	font-weight:bold;
+	padding-left:5px;
+	padding-right:5px;
 	}
+	
+#contenido_abajo_guardar_boton:hover {
+	color: #FF8E00;
+	text-decoration: underline;
+}
 	
 #publicaciones-principal-final {
 	background-color: #FFFFFF;

@@ -184,7 +184,6 @@ header {
 
 #header-buscador-submit {
 	height:20px;
-	background-image: url(static-content/buscar.png);
 }
 
 @media screen and (max-width: 768px){
