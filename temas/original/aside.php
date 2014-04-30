@@ -10,4 +10,5 @@
     <img src="temas/<?php echo $prop['tema'];?>/imagenes/publicidad.png">
 	</div>
 </aside>
+
 </div>

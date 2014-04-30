@@ -153,36 +153,22 @@ article:hover {
 	text-decoration: underline;
 }
 	
-#publicaciones-principal-final {
-	background-color: #FFFFFF;
-	border-style: solid;
-	border-color: #D3D3D3;
-	border-width: 1px;
-	border-radius: 4px;
-	}
-	
-#publicaciones-principal-boton_anterior {
-	font-size: 10px;
-	background-color:inherit;
-	border:none;
-	height:40px;
-	font-weight:bold;
-	border-color: #D3D3D3;
-	border-right-style:solid;
-	border-right-width:1px;
-	}
-	
-#publicaciones-principal-boton_siguiente {
-	font-size: 10px;
-	background-color:inherit;
-	border:none;
-	border-color: #D3D3D3;
-	border-right-style:solid;
-	border-right-width:1px;
-	height:40px;
-	font-weight:bold;
-	}
-	
+a.mostrar_mas {
+    display: block;
+    text-decoration: none;
+	background-color:#FFFFFF;
+	text-align:center;
+	color:#FF8E00;
+	padding:10px;
+	font-size:16px;
+	font-weight:lighter;
+}
+
+a.mostrar_mas:hover {
+	background-color: #F7F7F7;
+	text-decoration: underline;
+}
+
 /* 
 	Comentarios
 */

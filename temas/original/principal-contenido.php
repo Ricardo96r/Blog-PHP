@@ -1,12 +1,15 @@
 <?php
 $counts = mysql_query("SELECT idpublicacion FROM publicaciones") or die (mysql_error());
 $count = (mysql_num_rows($counts));
-
-if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0 and $_GET['pos'] <= (($count / 10))) {
-  $inicio=$_GET['pos'];
+if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
+	if ($_GET['pos'] <= (($count / 10))) {
+		$inicio=$_GET['pos'];
+	} else {
+		header("Location: ?&p=404");  
+	}
 } else {
-  $inicio=0;
-}
+	$inicio=0;
+	}
 
 if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GET['id'] <= $count) {
 	$com=$_GET['id'];
@@ -40,27 +43,48 @@ if (!isset($_GET['id'])) {
 	while ($reg=mysql_fetch_array($registros)) {
 		post($reg);
 	}
-	$proximo=$inicio+1;
-	$anterior=$inicio-1;
+	$proximo = $inicio+1;
 	
-	if ($inicio == 0) { ?>
+if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
+	if (($_GET['pos'] + 1) <= (($count / 10))) {
+	?>    
+        <a href="?&pos=<?php echo $proximo; ?>" class="mostrar_mas fondo">
+            Mostrar más
+        </a>
+    <?php
+	} else {
+	?>    
+       <a href="" class="mostrar_mas fondo">
+            No hay nada que mostrar!
+        </a>
+    <?php
+	}
+} else {
+	?>    
+        <a href="?&pos=<?php echo $proximo; ?>" class="mostrar_mas fondo">
+            Mostrar más
+        </a>
+    <?php
+	}
+	
+	/* if ($inicio == 0) { ?>
     	<div id="publicaciones-principal-final">
             <a href="?&pos=<?php echo $proximo; ?>">
-                <button id="publicaciones-principal-boton_siguiente">
-                    Siguiente
+                <button id="publicaciones-principal-mostrar-mas">
+                    Mostrar más
                 </button>
             </a> 
 		</div><?php 
 	} elseif ($inicio < ($count / 10)) {?>
     <div id="publicaciones-principal-final">
     	<a href="?&pos=<?php echo $anterior; ?>">
-			<button id="publicaciones-principal-boton_anterior">
-				Anterior
+			<button id="publicaciones-principal-mostrar-mas">
+				Mostrar más
 			</button>
         </a>
 		<a href="?&pos=<?php echo $proximo; ?>">
-			<button id="publicaciones-principal-boton_siguiente">
-				Siguiente
+			<button id="publicaciones-principal-mostrar-mas">
+				Mostrar más
 			</button>
 		</a> 
     </div>
@@ -68,12 +92,12 @@ if (!isset($_GET['id'])) {
 	} else { ?>
     <div id="publicaciones-principal-final">
         <a href="?&pos=<?php echo $anterior; ?>">
-            	<button id="publicaciones-principal-boton_anterior">
-                	Anterior
-                </button>
+            <button id="publicaciones-principal-mostrar-mas">
+               	Mostrar más
+            </button>
         </a>  
 	</div> <?php
-		}
+		} */
 		
 /* 
 	COMENTARIOS
