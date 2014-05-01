@@ -47,57 +47,19 @@ if (!isset($_GET['id'])) {
 	
 if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 	if (($_GET['pos'] + 1) <= (($count / 10))) {
-	?>    
-        <a href="?&pos=<?php echo $proximo; ?>" class="mostrar_mas fondo">
-            Mostrar más
-        </a>
-    <?php
+	?><a href="?&pos=<?php echo $proximo; ?>" class="mostrar_mas fondo">
+		Mostrar más
+	</a><?php
 	} else {
-	?>    
-       <a href="" class="mostrar_mas fondo">
-            No hay nada que mostrar!
-        </a>
-    <?php
+	?><a href="" class="mostrar_mas fondo">
+		No hay nada que mostrar!
+	</a><?php
 	}
 } else {
-	?>    
-        <a href="?&pos=<?php echo $proximo; ?>" class="mostrar_mas fondo">
-            Mostrar más
-        </a>
-    <?php
+	?><a href="?&pos=<?php echo $proximo; ?>" class="mostrar_mas fondo">
+		 Mostrar más
+	</a><?php
 	}
-	
-	/* if ($inicio == 0) { ?>
-    	<div id="publicaciones-principal-final">
-            <a href="?&pos=<?php echo $proximo; ?>">
-                <button id="publicaciones-principal-mostrar-mas">
-                    Mostrar más
-                </button>
-            </a> 
-		</div><?php 
-	} elseif ($inicio < ($count / 10)) {?>
-    <div id="publicaciones-principal-final">
-    	<a href="?&pos=<?php echo $anterior; ?>">
-			<button id="publicaciones-principal-mostrar-mas">
-				Mostrar más
-			</button>
-        </a>
-		<a href="?&pos=<?php echo $proximo; ?>">
-			<button id="publicaciones-principal-mostrar-mas">
-				Mostrar más
-			</button>
-		</a> 
-    </div>
-	<?php		
-	} else { ?>
-    <div id="publicaciones-principal-final">
-        <a href="?&pos=<?php echo $anterior; ?>">
-            <button id="publicaciones-principal-mostrar-mas">
-               	Mostrar más
-            </button>
-        </a>  
-	</div> <?php
-		} */
 		
 /* 
 	COMENTARIOS

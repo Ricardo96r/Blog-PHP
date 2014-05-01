@@ -43,25 +43,33 @@
 		Load: FOOTER
 	*/
 	if(!isset($_SESSION['username'])) {
-		if($page != "") {
+		if($page != "" and $page != "perfil") {
 		include("temas/".$prop['tema']."/pie.php");
 			} else {
 				echo "";
 				}
 	} else {
+		if($page != "perfil") {
 		include("temas/".$prop['tema']."/pie.php");
+			} else {
+				echo "";
+				}
 		}
 	
 	/*
 		Load: ASIDE
 	*/
 	if(!isset($_SESSION['username'])) {
-		if($page != "") {
+		if($page != "" and $page != "perfil") {
 		include("temas/".$prop['tema']."/aside.php");
 			} else {
 				echo "";
 				}
 	} else {
-		include("temas/".$prop['tema']."/aside.php");
+		if($page != "perfil") {
+			include("temas/".$prop['tema']."/aside.php");
+		} else {
+			echo "";
+			}
 		}
 ?>

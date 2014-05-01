@@ -10,13 +10,17 @@
 
 <?php 
 if(!isset($_SESSION['username'])) {
-	if($page != "") {
+	if($page != "" and $page != "perfil") {
 		?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/estilos.css"><?php
 		} else  {
 			?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/estilos-intro.css"><?php
 			}
 	} else {
+		if ($page != "perfil") {
 		?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/estilos.css"><?php
+		} else {
+			?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/estilos-intro.css"><?php
+			}
 		}
 ?>
 
