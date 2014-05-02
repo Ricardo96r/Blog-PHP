@@ -17,18 +17,18 @@
 	<header>
     	<div id="header-content-left">
     	<div id="header-nav_boton">
-        	<button id="nav_boton">
+        	<button id="header-nav_boton-boton">
             	<div id="header-nav_boton-div"></div>
                 <div id="header-nav_boton-div"></div>
                 <div id="header-nav_boton-div"></div>
             </button>
         </div>
         <div id="header-titulo">
-			<button id="titutlo-boton" onClick="window.location.href='.'">
-                <div id="titulo-logo">
+			<button id="header-titulo-boton" onClick="window.location.href='.'">
+                <div id="header-titulo-logo">
                 	N
                 </div>
-                <div id="titulo-text">
+                <div id="header-titulo-text">
 					ombre
                	</div>
             </button>
@@ -46,18 +46,18 @@
         </form>
         </div>
         <?php if(!isset($_SESSION['username'])) {?>
-		<div id="create_acc">
-			<button id="create-boton" onClick="window.location.href='?p=registro'">Crear cuenta</button>
+		<div id="header-create_acc">
+			<button id="header-create-boton" onClick="window.location.href='?p=registro'">Crear cuenta</button>
 		</div>
-		<div id="login">
-			<button id="login-boton">Iniciar sesión</button>
+		<div id="header-login">
+			<button id="header-login-boton">Iniciar sesión</button>
 		</div>
         <?php } else { ?>
         <div id="header-propieades">
-			<button id="boton-propiedades"><img src="temas/<?php echo $prop['tema'];?>/imagenes/opciones.png"></button>
+			<button id="header-boton-propiedades"><img src="temas/<?php echo $prop['tema'];?>/imagenes/opciones.png"></button>
 		</div>
         <div id="header-perfil">
-			<button id="boton-perfil" onClick="window.location.href='?p=perfil&pf=<?php echo $pf['cuenta'];?>'">
+			<button id="header-boton-perfil" onClick="window.location.href='?p=perfil&pf=<?php echo $pf['cuenta'];?>'">
                 <div id="header-perfil-imagen">
                 	<img src="static-content/perfiles/<?php echo $pf['imagen_perfil']?>">
                 </div>
@@ -67,20 +67,20 @@
             </button>
 		</div>
         <?php } ?>
-		<div id="entrar">
+		<div id="header-entrar">
 			<?php
 			if (!isset($_SESSION['username'])) {
             	if (!isset($_POST['entrar_logueo'])) {
             ?>
                <form method="post" action="">
-                    <div><input type="email" name="email" id="menu-entrar-email" placeholder="email" required></div>
-                    <div><input type="password" name="contraseña" id="menu-entrar-password" placeholder="contraseña" required></div>
-                    <div id="menu-entrar-ncsesion_submit">
-                        <div id="menu-entrar-ncsesion-div">
-                            <input type="checkbox" name="ncsesion" id="menu-entrar-ncsesion" value="1"><label for="menu-entrar-ncsesion"> No cerrar sesión</label>
+                    <div><input type="email" name="email" id="header-entrar-email" placeholder="email" required></div>
+                    <div><input type="password" name="contraseña" id="header-entrar-password" placeholder="contraseña" required></div>
+                    <div id="header-entrar-ncsesion_submit">
+                        <div id="header-entrar-ncsesion-div">
+                            <input type="checkbox" name="ncsesion" id="header-entrar-ncsesion" value="1"><label for="header-entrar-ncsesion"> No cerrar sesión</label>
                         </div>
-                        <div id="menu-entrar-submit-div">
-                            <input type="submit" name="entrar_logueo" id="menu-entrar-submit" value="Entrar">
+                        <div id="header-entrar-submit-div">
+                            <input type="submit" name="entrar_logueo" id="header-entrar-submit" value="Entrar">
                         </div>
                     </div>
                </form>

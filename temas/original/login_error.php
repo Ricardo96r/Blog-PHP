@@ -3,29 +3,29 @@
     if (!isset($_SESSION['username'])) {
         if (!isset($_POST['login_lg'])) {
     ?>
+    <div id="login-form">
        <form method="post" action="">
-           <table width="335" border="0">
-             <tr>
-               <td width="60"><label for="email2">Email:</label></td>
-               <td width="84"><label for="contraseña2">Contraseña:</label></td>
-               <td width="42">&nbsp;</td>
-             </tr>
-             <tr>
-               <td><input type="email" name="email2" id="email2" placeholder="email" required></td>
-               <td><input type="password" name="contraseña2" id="contraseña2" placeholder="contraseña" required></td>
-               <td><input type="submit" name="login_lg" id="login_lg" value="Entrar"></td>
-             </tr>
-             <tr>
-               <td><input type="checkbox" name="ncsesion2" id="ncsesion2" value="1">
-                <label for="ncsesion2"> No cerrar sessión</label></td>
-               <td><a href="#">¿Olvidaste tu contraseña?</a></td>
-               <td>&nbsp;</td>
-             </tr>
-           </table><br>
-           <div>
-                Email o contraseña erroneas*
-           </div>
-       </form>
+            <label for="login-form-email" id="login-form-label">
+            	Email:
+            </label>
+            <input type="email" name="email2" placeholder="email" id="login-form-email" required>
+            
+            <label for="login-form-contraseña" id="login-form-label">
+            	Contraseña:
+            </label>
+            <input type="password" name="contraseña2" id="login-form-contraseña" placeholder="contraseña" required>
+            <div id="login-form-ncsesion">
+                <input type="checkbox" name="ncsesion2" id="login-form-ncsesion-input" value="1">
+                <label for="login-form-ncsesion-input" id="login-form-label">
+                    No cerrar sesión
+                </label>
+            </div>
+            <input type="submit" name="login_lg" id="login-form-submit" value="Entrar">
+		</form>
+        <div id="login-olvidar_contraseña">
+        	<a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+        </div>
     <?php 
     } else {
         $sesion = mysql_query("SELECT email, contraseña FROM cuentas WHERE email = '$_POST[email2]'");
@@ -48,7 +48,7 @@
                 }	
             } 
     } else { 
-        header("Location: ");
+        header("Location: ?p=404");
     }
     ?>
 </div>

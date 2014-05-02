@@ -10,7 +10,10 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 } else {
 	$inicio=0;
 	}
-
+	
+/* 
+	Comentarios
+*/
 if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GET['id'] <= $count) {
 	$com=$_GET['id'];
 	$registro_com=mysql_query("
@@ -24,7 +27,8 @@ if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GE
 	", $conn) or die(mysql_error());
 } else {
 	#REVISAR EN EL FUTURO
-	/* Esta accion se encuentra mas abajo
+	/* 
+		Esta accion se encuentra mas abajo
 	*/
 }
 						
@@ -74,16 +78,16 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 			WHERE idpublicacion = '$com'", $conn) or die(mysql_error());
 		$reg=mysql_fetch_array($registros);
 		post($reg);?>
-		<div id="comentarios">
+		<div class="fondo" id="comentarios">
         	Comentarios
        	</div>
 		<?php
 		if(isset($_SESSION['username'])) {
 			if(!isset($_POST['enviar_nota'])) {
 				?>
-                <div id="comentario_enviar">
+                <div class="fondo" id="comentario_enviar">
                     <div id="comentario_enviar-comentario">
-                        Escribe un comentario:
+                        Manda un comentario:
                     </div>
                     <form method="post" action="">
                         <textarea type="text" name="comentario" maxlength="400" id="comentario_enviar-text" required></textarea>
@@ -109,7 +113,7 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
                     }
                 }
 		} else { ?>
-        <div id="comentario_iniciar-sesion">
+        <div class="fondo" id="comentario_iniciar-sesion">
 			<?php echo "Para escribir un comentario nesecitas tener una cuenta e iniciar sesión"; ?>
         </div><?php
 		}
@@ -118,7 +122,7 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 				post($cm);
 			}
 		} else {
-			?><div id="comentario_sin-comentarios">
+			?><div class="fondo" id="comentario_sin-comentarios">
             	No hay comentarios
             </div>
 		<?php }

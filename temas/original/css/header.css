@@ -42,7 +42,7 @@ header {
 	background-color: #D1D1D1;
 }
 
-#nav_boton {
+#header-nav_boton-boton {
 	width:40px;
 	height:40px;
 	background-color:inherit;
@@ -74,13 +74,13 @@ header {
 	}
 }
 
-#titutlo-boton {
+#header-titulo-boton {
 	font-size: 12px;
 	height:30px;
 	background-color:#FFFFFF;
 	}
 	
-#titulo-logo {
+#header-titulo-logo {
 	float:left;
 	width:26px;
 	height:26px;
@@ -92,7 +92,7 @@ header {
 	background-color: #FF8600;
 	}
 	
-#titulo-text {
+#header-titulo-text {
 	float:left;
 	margin-top:5px;
 	padding-left:2px;
@@ -197,14 +197,14 @@ header {
 	HEADER:
 	-Login BOTON
 */
-#login {
+#header-login {
 	float: right;
 	padding-top:5px;
 	padding-bottom:5px;
 	margin-right:5px;
 	}
 	
-#login-boton {
+#header-login-boton {
 	font-size: 13px;
 	color:#FFFFFF;
 	background-color: #FF9600;
@@ -215,11 +215,11 @@ header {
 	padding-left:5px;
 	}
 	
-#login-boton:hover{
+#header-login-boton:hover{
 	background-color: #CF6D00;
 	}
 
-#entrar {
+#header-entrar {
     display: block;
     position: absolute;
 	right:0;
@@ -234,13 +234,13 @@ header {
 	}
 	
 @media screen and (max-width: 768px){
-#entrar {
+#header-entrar {
 	float: none;
 	width: 100%;
 	}
 }
 
-#menu-entrar-email {
+#header-entrar-email {
 	margin-top:10px;
 	height:24px;
 	width:90%;
@@ -251,7 +251,7 @@ header {
 	border-radius:5px;
 	}
 	
-#menu-entrar-password {
+#header-entrar-password {
 	margin-top:5px;
 	height:24px;
 	width:90%;
@@ -262,27 +262,27 @@ header {
 	border-radius:5px;
 	}
 	
-#menu-entrar-ncsesion_submit {
+#header-entrar-ncsesion_submit {
 	margin-left:5%;
 	margin-top:10px;
 	margin-right:5%;
 	margin-bottom:50px;
 }
 
-#menu-entrar-ncsesion-div {
+#header-entrar-ncsesion-div {
 	float:left;
 	font-size: 12px;
 	}
 	
-#menu-entrar-ncsesion {
+#header-entrar-ncsesion {
 	margin-top:5px;
 }
 
-#menu-entrar-submit-div {
+#header-entrar-submit-div {
 		float:right;
 	}
 	
-#menu-entrar-submit {
+#header-entrar-submit {
 	font-size: 13px;
 	color:#FFFFFF;
 	background-color: #FF9600;
@@ -297,14 +297,14 @@ header {
 	HEADER:
 	-Iniciar sessión BOTON
 */
-#create_acc {
+#header-create_acc {
 	float: right;
 	padding-top:5px;
 	padding-bottom:5px;
 	padding-right:5px;
 	}
 	
-#create-boton {
+#header-create-boton {
 	font-size: 13px;
 	color:#FFFFFF;
 	background-color: #FF0004;
@@ -315,7 +315,7 @@ header {
 	padding-left:5px;
 	}
 	
-#create-boton:hover{
+#header-create-boton:hover{
 	background-color: #CB0000;
 	}
 /*
@@ -331,13 +331,13 @@ header {
 	margin-right:5px;
 	}
 	
-#boton-propiedades {
+#header-boton-propiedades {
 	background-color:#FFFFFF;
 	float:left;
 	height:30px;
 	}
 	
-#boton-propiedades:hover {
+#header-boton-propiedades:hover {
 	background-color:#FF9600;
 	border-radius:5px;
 	}
@@ -374,7 +374,7 @@ header {
 	padding-top:5px;
 	}
 	
-#boton-perfil {
+#header-boton-perfil {
 	font-size: 12px;
 	height:30px;
 	background-color: #FF9600;
@@ -382,13 +382,13 @@ header {
 	}
 	
 @media screen and (max-width: 768px){
-	#boton-perfil {
+	#header-boton-perfil {
 		border:none;
 		background-color: #FFFFFF;
 	}
 }
 
-#boton-perfil:hover {
+#header-boton-perfil:hover {
 	background-color:#CF6D00;
 }
 	

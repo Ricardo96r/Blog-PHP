@@ -1,21 +1,19 @@
 $(document).on("ready", function(){
-	$("#entrar").hide();
+	$("#header-entrar").hide();
 	
-	$("#login-boton").on("click", function (){
-		$("#entrar").slideToggle(0);
+	$("#header-login-boton").on("click", function (){
+		$("#header-entrar").slideToggle(0);
 	});
-	
-	$("#header-memu-propiedades").hide();
 
-	$("#boton-propiedades").on("click", function (){
-		$("#entrar").slideToggle(0, function(){
-			$("#entrar").css({
+	$("#header-boton-propiedades").on("click", function (){
+		$("#header-entrar").slideToggle(0, function(){
+			$("#header-entrar").css({
 				width: 215,
 			})
 		});
 	});
 	
-	$("#nav_boton").on("click", function(){
+	$("#header-nav_boton-boton").on("click", function(){
 		$('nav').toggle(0);
 		});
 	});

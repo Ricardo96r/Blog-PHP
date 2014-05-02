@@ -176,7 +176,8 @@ a.mostrar_mas:hover {
 #comentarios {
 	font-size:20px;
 	padding:5px;
-	background-color: #FFFFFF;
+	margin-bottom:10px;
+	font-weight: lighter;
 	}
 	
 #comentario_enviar {
@@ -187,18 +188,32 @@ a.mostrar_mas:hover {
 	
 #comentario_enviar-comentario {
 	font-size:15px;
-	text-align:center;
+	margin-bottom:10px;
 	}
 	
 #comentario_enviar-text {
-	width:99%;
-	max-width:100%;
+	width:100%;
+	border-width:1px;
+	border-style:solid;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 	
 #comentario_enviar-boton {
 	text-align:center;
 	width:100%;
+	color:#FFFFFF;
+	text-transform:uppercase;
+	padding:5px;
+	font-weight:bold;
+	border-radius:5px;
+	background-color: #FF8E00;
+	margin-top:5px;
 	}
+	
+#comentario_enviar-boton:hover {
+	background-color:#CF6D00;	
+}
 	
 #comentario_iniciar-sesion {
 	text-align:center;

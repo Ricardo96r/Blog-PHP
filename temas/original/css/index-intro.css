@@ -3,7 +3,7 @@
 */
 
 #intro {
-	background-color:#FF8E00;
+	
 }
 
 #intro-cabezera {
@@ -21,14 +21,12 @@
 }
 
 #intro-cabezera-texto_1 {
-	color:#FFFFFF;
 	float:left;
 }
 
 #intro-cabezera-texto_2 {
 	margin-top:20px;
 	font-weight: lighter;
-	color:#FFFFFF;
 	font-size:25px;
 	float:left;
 }
