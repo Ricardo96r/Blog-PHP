@@ -6,7 +6,7 @@ if(isset($_SESSION['username'])) {
 		<div id="publicar-form">
 			<form enctype="multipart/form-data" method="post" action="">
 				<input name="uploadedfile" type="file" id="publicar-form-file">
-				<textarea name="nota" id="publicar-form-publicacion" re></textarea>
+				<textarea name="nota" id="publicar-form-publicacion"></textarea>
 				<input type="submit" name="enviar_nota" value="ENVIAR PUBLICACIÓN" id="publicar-form-submit">
 			</form>
         </div>

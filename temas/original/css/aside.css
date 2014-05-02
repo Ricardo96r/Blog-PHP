@@ -24,4 +24,8 @@ aside {
 	border-width: 1px;
 	border-radius: 4px;
 	}
+	
+#publicidad:hover {
+	background-color:#F7F7F7;	
+}
 

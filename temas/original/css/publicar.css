@@ -27,11 +27,20 @@
 }
 
 #publicar-form-publicacion {
-	width: 99%;
+	width:98%;
+	height:50px;
+	margin-bottom:10px;
+	margin-top:3px;
+	border-style:solid;
+	padding-left:5px;
+	border-width:1px;
+	border-color:#D3D3D3;
+	border-radius:5px;
 	}
 
 #publicar-form-file {
 	text-align:center;
+	margin-bottom:10px;
 	}
 	
 #publicar-form-submit {
@@ -43,4 +52,9 @@
 	width:100%;
 	font-weight:bold;
 	margin-bottom:10px;
+	border-radius:5px;
+	}
+	
+#publicar-form-submit:hover {
+	background-color: #CF6D00;
 	}

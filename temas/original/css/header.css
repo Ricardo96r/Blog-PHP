@@ -12,7 +12,7 @@ header {
 
 #header-content-left {
 	position:absolute;
-	width:140px;
+	width:180px;
 }
 
 @media screen and (max-width: 1024px){
@@ -103,7 +103,7 @@ header {
 	
 #header-content-right {
 	height: 40px;
-	margin-left: 140px;
+	margin-left: 180px;
 	border-bottom-style: solid;
 	border-bottom-color:#D3D3D3;
 	border-bottom-width: 1px;
@@ -117,7 +117,6 @@ header {
 	border-style:solid;
 	border-width:2px;
 	border-color: #FF9600;
-	border-radius:5px;
 }
 
 @media screen and (max-width: 768px){
@@ -126,6 +125,7 @@ header {
 		border:none;
 		height:30px;
 		border-radius:5px;
+		margin-right:5px;
 	}
 	
 	#header-buscador:hover {
@@ -155,15 +155,9 @@ header {
 	padding-right:5px;
 }
 
-@media screen and (max-width: 1024px){
-	#header-buscador-input {
-		
-		padding:0px;
-	}
-}
-
 @media screen and (max-width: 768px){
 	#header-buscador-input {
+		padding:0px;
 		width:0px;
 		height:30px;
 		visibility:hidden;
@@ -172,24 +166,31 @@ header {
 
 #header-buscador-submit-div {
 	float:left;
-	padding-top:3px;
-	padding-right:10px;
+	background-color:#FF8E00;
 }
 
 @media screen and (max-width: 768px){
 	#header-buscador-submit-div {
-		padding:0px;
+		border-radius:5px;
 	}
 }
 
 #header-buscador-submit {
 	height:20px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+#header-buscador-submit:hover {
+	background-color: #CF6D00;
+	border-radius:5px;
 }
 
 @media screen and (max-width: 768px){
 	#header-buscador-submit {
-		padding:0px;
-		height:30px;
+		height:23px;
 		border:none;
 	}
 }
@@ -293,6 +294,9 @@ header {
 	padding-left:5px;
 	}
 	
+#header-entrar-submit:hover {
+	background-color: #CF6D00;
+}
 /*
 	HEADER:
 	-Iniciar sessión BOTON
@@ -324,22 +328,22 @@ header {
 */
 #header-propieades {
 	float: right;
-	height:30px;
-	width:30px;
 	margin-top:5px;
 	margin-bottom:5px;
 	margin-right:5px;
 	}
 	
 #header-boton-propiedades {
-	background-color:#FFFFFF;
-	float:left;
+	background-color:#FF9600;
+	border-radius:5px;
 	height:30px;
+	width:37px;
+	padding-left:5px;
+	padding-right:5px;
 	}
 	
 #header-boton-propiedades:hover {
-	background-color:#FF9600;
-	border-radius:5px;
+	background-color: #CF6D00;
 	}
 	
 #header-menu-propiedades {

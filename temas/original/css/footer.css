@@ -1,5 +1,6 @@
 #footer_contenido {
 	background-color: #FFFFFF;
+	color:#B3B3B3;
 	text-align:left;
 	height:50px;
 	padding:20px;
@@ -10,8 +11,17 @@
 	border-radius: 4px;
 	}
 	
+#footer_contenido:hover {
+	color:#FF8E00;
+	background-color: #F7F7F7;
+	}
+	
 #footer_contenido ul li {
-	display:inline;
-	padding-right:10px;
+	padding-bottom:5px;
+	text-align:center;
+	}
+	
+#footer_contenido ul li:hover {
+	text-decoration:underline;
 	}
 	

@@ -4,7 +4,7 @@
 
 nav {
 	position: fixed;
-	width:140px;
+	width:180px;
 	top:0;
 	margin-left:0px;
 	background-color: #FFFFFF;
@@ -30,17 +30,16 @@ nav {
 .nav-content {
 	font-size: 12px;
 	height:30px;
-	margin-left:5px;
-	margin-right:5px;
-	width:130px;
+	margin-left:10px;
+	margin-right:10px;
+	width:160px;
 	background-color: #FFFFFF;
-	padding-left:10px;
-	
+	padding-left:3px;
 	outline:none;
 }
 
 .nav-content:hover {
-	background-color: #000000;
+	background-color: #3A3A3A;
 	color:#FFFFFF;
 	}
 
@@ -51,19 +50,18 @@ nav {
 
 #nav-content-image {
 	float:left;
-	width:15px;
-	height:15px;
+	width:20px;
+	height:20px;
 	margin-left:2px;
 	background-color:#FF9600;
-	padding:4px;
-	border-radius:5px;
 	}
 	
 #nav-content-text {
 	float:left;
 	padding-left:5px;
 	padding-right:5px;
-	padding-top:4px;
+	font-size:13px;
+	margin-top:3px;
 	visibility: visible;
 	}
 	
