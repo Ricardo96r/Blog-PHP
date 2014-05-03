@@ -39,22 +39,6 @@
 		header("Location: ?p=404");
 	}
 	
-	/*
-		Load: FOOTER
-	*/
-	if(!isset($_SESSION['username'])) {
-		if($page != "" and $page != "perfil") {
-		include("temas/".$prop['tema']."/pie.php");
-			} else {
-				echo "";
-				}
-	} else {
-		if($page != "perfil") {
-		include("temas/".$prop['tema']."/pie.php");
-			} else {
-				echo "";
-				}
-		}
 	
 	/*
 		Load: ASIDE
@@ -72,4 +56,10 @@
 			echo "";
 			}
 		}
+		
+	/*
+		Load: FOOTER
+	*/
+		include("temas/".$prop['tema']."/pie.php");
+
 ?>

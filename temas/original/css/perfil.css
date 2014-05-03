@@ -73,6 +73,9 @@
 	border-style:solid;
 	background:#FFFFFF;
 	margin-top:120px;
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-top-width: 1px;
 	}
 	
 @media screen and (max-width: 768px){

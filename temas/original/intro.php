@@ -16,9 +16,6 @@
         	Contenido
         </div>
     </div>
-    <div id="intro-footer">
-    	<?php include("temas/".$prop['tema']."/pie.php"); ?>
-    </div>
     <div id="intro-aside">
         <div id="intro-aside-content">
         	<img src="temas/<?php echo $prop['tema'];?>/imagenes/publicidad.png">
@@ -31,3 +28,4 @@
         </div>
     </div>
 </div>
+</section>

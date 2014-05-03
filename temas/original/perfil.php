@@ -60,7 +60,7 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
                 </div>
 			</div>
     	</div>
-    <div class="fondo" id="perfil-fondo-contenido-datos" >
+    <div id="perfil-fondo-contenido-datos" >
         <div id="perfil-fondo-contenido-datos_seguidores">
             <button id="perfil-fondo-contenido-datos_seguidores_boton">
                 <div>Seguidores</div>
@@ -108,7 +108,6 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
     	Mostrar más
     </a><?php
 	}
-	include("temas/".$prop['tema']."/pie.php");
 	?>
 	</div>
     <div id="perfil-aside">
@@ -122,3 +121,4 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
             <img src="temas/<?php echo $prop['tema'];?>/imagenes/publicidad.png">
         </div>
     </div>
+	</section>
