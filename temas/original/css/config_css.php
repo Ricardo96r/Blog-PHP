@@ -53,9 +53,6 @@ switch ($page) {
 	case "registro":
 		?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/registro.css"><?php 
 	break;
-	case "explorar": 
-		?><?php
-	break;
 	case "login": 
 		?><link rel="stylesheet" type="text/css"  href="<?php echo "temas/".$prop['tema'];?>/css/login.css"><?php
 	break;

@@ -170,8 +170,7 @@ if (!isset($_SESSION["username"])) {
 			}
 		}
 } else {
-	echo "No puedes registrarte al estar logeado";
-	header("Location: ");
+	header("Location: ?p=404");
 	}
 	
 		

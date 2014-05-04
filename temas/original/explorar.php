@@ -15,7 +15,11 @@ $explorar = mysql_query("
 	ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
 	WHERE publicaciones.verificado = 2
 	ORDER BY `idpublicacion` DESC", $conn) or die(mysql_error());
-			
+?> 
+	<div class="fondo" id="explorar-top">
+    	Explora a traves de las mejores publicaciones con contenido verificado.
+    </div>
+<?php	
 while ($explora = mysql_fetch_array($explorar)) {
 			post($explora);
 			}
