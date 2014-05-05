@@ -17,7 +17,21 @@ $explorar = mysql_query("
 	ORDER BY `idpublicacion` DESC", $conn) or die(mysql_error());
 ?> 
 	<div class="fondo" id="explorar-top">
-    	Explora a traves de las mejores publicaciones con contenido verificado.
+    	<div>
+    		Explora a traves de las mejores publicaciones con contenido verificado.
+        </div>
+        <div>
+            País:
+            <select>
+                 <option value="VE">VE</option>
+                 <option value="ES">ES</option>
+            </select>
+            Idioma
+            <select>
+                <option value="es">Español</option>
+                <option value="en">Inglés</option>
+            </select>
+        </div>
     </div>
 <?php	
 while ($explora = mysql_fetch_array($explorar)) {
