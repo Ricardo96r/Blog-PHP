@@ -14,7 +14,7 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 /* 
 	Comentarios
 */
-if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GET['id'] <= $count) {
+if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 /* and $_GET['id'] <= $count REVISAR*/) {
 	$com=$_GET['id'];
 	$registro_com=mysql_query("
 	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
@@ -38,10 +38,12 @@ if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 and $_GE
 if (!isset($_GET['id'])) {
 	$inicio_2 = $inicio*10;
 	$registros=mysql_query("
-		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion  
+		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
 		FROM cuentas
 		INNER JOIN publicaciones 
 		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
+		INNER JOIN imagenes
+		ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 		ORDER BY `idpublicacion` DESC
 		LIMIT $inicio_2,10", $conn) or die(mysql_error());
 	while ($reg=mysql_fetch_array($registros)) {
@@ -71,10 +73,12 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 } else {
 	if(isset($com)) {
 		$registros=mysql_query("
-			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion  
-			FROM cuentas
-			INNER JOIN publicaciones 
-			ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
+		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
+		FROM cuentas
+		INNER JOIN publicaciones 
+		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
+		INNER JOIN imagenes
+		ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 			WHERE idpublicacion = '$com'", $conn) or die(mysql_error());
 		$reg=mysql_fetch_array($registros);
 		post($reg);?>

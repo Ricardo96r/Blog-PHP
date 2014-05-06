@@ -112,7 +112,10 @@ function post ($dt) {
 			<div id='contenido_central'>
             <?php if (!isset($dt['idcomentario'])) {?>
 				<a href='?id=<?php echo $dt['idpublicacion']; ?>'>
-					<?php echo $dt['publicacion']; ?>
+					<?php
+					echo "<img src="."static-content/publicaciones/".$dt['ruta'].">";
+					echo $dt['publicacion']; 
+					?>
 				</a>
             <?php } else {?>
 					<?php echo $dt['comentario']; ?>

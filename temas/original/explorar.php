@@ -17,9 +17,6 @@ $explorar = mysql_query("
 	ORDER BY `idpublicacion` DESC", $conn) or die(mysql_error());
 ?> 
 	<div class="fondo" id="explorar-top">
-    	<div>
-    		Explora a traves de las mejores publicaciones con contenido verificado.
-        </div>
         <div>
             País:
             <select>
