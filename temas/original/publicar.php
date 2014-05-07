@@ -5,8 +5,15 @@ if(isset($_SESSION['username'])) {
 		?>
 		<div id="publicar-form">
 			<form enctype="multipart/form-data" method="post" action="">
-				<input name="archivo" type="file" id="publicar-form-file">
-				<textarea name="nota" id="publicar-form-publicacion"></textarea>
+                <div id="publicar-form-file">
+                    <input name="archivo" type="file" id="publicar-form-file-input">
+                    <div id="publicar-form-file-text">
+                    	Subir archivo
+                    </div>
+                    <output id="d"></output>
+                </div>
+                <script src="<?php echo "temas/".$prop['tema'];?>/js/publicar.js"></script>
+				<textarea name="nota" id="publicar-form-publicacion" maxlength="200" placeholder="Escribe algo..."></textarea>
 				<input type="submit" name="enviar_nota" value="ENVIAR PUBLICACIÓN" id="publicar-form-submit">
 			</form>
         </div>
@@ -30,7 +37,7 @@ if(isset($_SESSION['username'])) {
 				echo "La nota es muy corta, tiene que tener mas de 20 caracteres";
 			} elseif(strlen($nota) > 200) {
 				echo "La nota es muy larga, el máximo de caracteres es 200";
-			} elseif($_FILES["archivo"]["size"] > 200000000) {
+			} elseif($_FILES["archivo"]["size"] > 20000) {
 				echo "Foto invalida";
 			} elseif($_FILES["archivo"]["error"] > 0) {
 				echo $_FILES["archivo"]["error"]. "Error al subir la imagen!";
@@ -51,10 +58,9 @@ if(isset($_SESSION['username'])) {
 			#Envio de la publicacion a la DB en la tabla publicaciones
 			$enviar_nota = mysql_query("INSERT INTO `publicaciones` (`cuentas_idcuenta`, `publicacion`, `imagenes_idimagenes`) VALUES ('".$idcuenta."','".$nota."', '"."$idimagen[idimagenes]"."')") or die (mysql_error());
 			move_uploaded_file($_FILES["archivo"]["tmp_name"], $ruta.$name);
-			echo "archivo subido";
+			echo "Publicacion Enviada!";
 			echo "<img src=".$ruta.$name.">";
-			echo "publicacion enviada";
-			echo $_FILES["archivo"]["type"];
+			echo $nota;
 				}
 				?></div><?php
 			}

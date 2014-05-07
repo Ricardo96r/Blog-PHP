@@ -34,10 +34,12 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 		if($perfil == !NULL) { 
 		$pfinicio_2 = $pfinicio*10;
 		$perfil_notas = mysql_query("
-			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion 
-			FROM publicaciones
-			INNER JOIN cuentas
+			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
+			FROM cuentas
+			INNER JOIN publicaciones 
 			ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
+			INNER JOIN imagenes
+			ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 			WHERE cuentas.cuenta = '$perfil[cuenta]'
 			ORDER BY `idpublicacion` DESC
 			LIMIT $pfinicio_2,10", $conn) or die(mysql_error());?>

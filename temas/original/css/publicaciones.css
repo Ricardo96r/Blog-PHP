@@ -83,11 +83,19 @@ article:hover {
 
 @media screen and (max-width: 768px){
 	#contenido_central {
-		margin-left:0%;
-		margin-right:0%;
+		margin-left:3%;
+		margin-right:3%;
 	}
 }
 
+#contenido-central-image {
+	margin-bottom:5px;	
+	}
+	
+#contenido-central-text {
+	
+	}
+	
 #contenido_abajo {
 	text-align:center;
 	height:30px;

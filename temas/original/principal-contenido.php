@@ -99,6 +99,7 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
                     </form>
 				</div><?php
             } else {
+				?><div class="fondo" id="comentario_enviar"><?php
                 $idcuentap = mysql_query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'");
                 $idcuentap2 = mysql_fetch_array($idcuentap);
                 $idcuenta = $idcuentap2['idcuenta'];
@@ -114,6 +115,7 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 					INSERT INTO `comentarios` (`cuentas_idcuenta`, `publicaciones_idpublicacion`, `comentario`) 
 					VALUES ('".$idcuenta."','".$com."','".$comentario."')") or die (mysql_error());
                 echo "Comentario enviado";
+				?></div><?php
                     }
                 }
 		} else { ?>

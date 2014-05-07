@@ -76,6 +76,7 @@
 	border-style: solid;
 	border-color: #D3D3D3;
 	border-top-width: 1px;
+	border-radius:5px;
 	}
 	
 @media screen and (max-width: 768px){
