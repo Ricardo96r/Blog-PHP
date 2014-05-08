@@ -1,16 +1,15 @@
 aside {
-	position: absolute;
-	top:0;
-	right: 0;
+	float:left;
 	width: 310px;
-	margin-top:50px;
 	margin-right:10px;
+	margin-left:10px;
 	margin-bottom:40px;
 	}
 	
-@media screen and (max-width: 768px){
+@media screen and (max-width: 958px){
 	aside {
 		visibility:hidden;
+		margin:0px;
 	}
 }
 

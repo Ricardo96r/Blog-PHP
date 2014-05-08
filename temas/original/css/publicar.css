@@ -7,10 +7,9 @@
 	}
 
 #publicar-form {
-	padding-top:5px;
-	padding-bottom:0px;
-	margin-left:20%;
-	margin-right:20%;
+	margin-top:10px;
+	margin-left:10px;
+	margin-right:10px;;
 	}
 
 @media screen and (max-width: 1024px){

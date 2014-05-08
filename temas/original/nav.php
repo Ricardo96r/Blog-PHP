@@ -80,5 +80,5 @@
             </button>
 			<?php } ?>
     </div>
-    
+<div id="contenedor-central">
 <section>

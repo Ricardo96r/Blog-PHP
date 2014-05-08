@@ -16,23 +16,46 @@ body {
 	CONTENIDO:
 	-INICIO
 */
-
-section {
-	margin-right:330px;
-	margin-left:190px;
+#contenedor-central {
+	margin: 0 auto;
+	width:930px;
 	margin-top:10px;
-	margin-bottom:50px;
+
 	}
 	
-@media screen and (max-width: 1024px){
-	section {
-		margin-left:10px;
+@media screen and (max-width: 1300px){
+#contenedor-central {
+	margin-left:190px;
 	}
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1130px){
+	#contenedor-central {
+		margin: 0 auto;
+		margin-top:10px;
+	}
+}
+
+@media screen and (max-width: 958px){
+	#contenedor-central {
+		margin:0;
+		margin-top:10px;
+		width:90%;
+	}
+}
+	
+section {
+	width:600px;
+	float:left;
+	margin-bottom:50px;
+	}
+	
+@media screen and (max-width: 958px){
 	section {
-		margin-right:10px;
+	width:100%;
+	margin-left:5%;
+	margin-right:5%;
+	float:left;
 	}
 }
 

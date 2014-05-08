@@ -10,6 +10,7 @@
 	*/
 	include("temas/".$prop['tema']."/nav.php");
 	
+	
 	/*
 		Load: SECTION
 	*/
@@ -56,7 +57,7 @@
 			echo "";
 			}
 		}
-		
+		?> </div><?php
 	/*
 		Load: FOOTER
 	*/

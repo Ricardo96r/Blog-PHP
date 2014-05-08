@@ -37,7 +37,7 @@ if(isset($_SESSION['username'])) {
 				echo "La nota es muy corta, tiene que tener mas de 20 caracteres";
 			} elseif(strlen($nota) > 200) {
 				echo "La nota es muy larga, el máximo de caracteres es 200";
-			} elseif($_FILES["archivo"]["size"] > 20000) {
+			} elseif($_FILES["archivo"]["size"] > 200000000) {
 				echo "Foto invalida";
 			} elseif($_FILES["archivo"]["error"] > 0) {
 				echo $_FILES["archivo"]["error"]. "Error al subir la imagen!";
