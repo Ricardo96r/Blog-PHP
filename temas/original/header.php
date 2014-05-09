@@ -13,7 +13,7 @@
     <script src="<?php echo "temas/".$prop['tema'];?>/js/header.js"></script>
     <script src="<?php echo "temas/".$prop['tema'];?>/js/ubuntu.js"></script>
 </head>
-<body>
+<body>	
 	<header>
     	<div id="header-content-left">
     	<div id="header-nav_boton">

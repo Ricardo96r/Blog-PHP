@@ -8,15 +8,20 @@
 		ob_start('ob_gzhandler'); 
 	}
 	
-	# Cargar configuracion
-	require_once("configuracion/database.php");
-	require_once("configuracion/propiedades.php");
-	require_once("configuracion/funciones.php");
+	if (isset($_SESSION['admin'])) {
+		# Cargar configuracion
+		require_once("configuracion/database.php");
+		require_once("configuracion/propiedades.php");
+		require_once("configuracion/funciones.php");
+		
+		# Cargar tema
+		require_once("temas/$prop[tema]/index.php");
 	
-	# Cargar tema
-	require_once("temas/$prop[tema]/index.php");
-
-	mysql_close($conn);
-	ob_end_flush();
+		mysql_close($conn);
+		ob_end_flush();
+	} else {
+		echo "<div style='text-align:center; font-size:50px;'> TEST WEB</div>";
+		//header('location: http://www.hostinger.es/');
+		}
 
 ?>
