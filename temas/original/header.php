@@ -1,7 +1,9 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title><?php echo ucwords($prop['nombre']); ?></title>
     <?php 
 	/*
@@ -9,109 +11,48 @@
 	*/
 	include("temas/$prop[tema]/css/config_css.php");
 	?>
-	<script src="<?php echo "temas/".$prop['tema'];?>/js/jquery-1.11.0.min.js" type="text/javascript"></script>
-    <script src="<?php echo "temas/".$prop['tema'];?>/js/header.js"></script>
-    <script src="<?php echo "temas/".$prop['tema'];?>/js/ubuntu.js"></script>
+    <script src="<?php echo "temas/".$prop['tema'];?>/js/jquery-1.11.0.min.js"></script>
+	<script src="<?php echo "temas/".$prop['tema'];?>/js/bootstrap.min.js"></script>
 </head>
-<body>	
-	<header>
-    	<div id="header-content-left">
-    	<div id="header-nav_boton">
-        	<button id="header-nav_boton-boton">
-            	<div id="header-nav_boton-div"></div>
-                <div id="header-nav_boton-div"></div>
-                <div id="header-nav_boton-div"></div>
-            </button>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="."><?php echo $prop['nombre'];?></a>
         </div>
-        <div id="header-titulo">
-			<button id="header-titulo-boton" onClick="window.location.href='.'">
-                <div id="header-titulo-logo">
-                	N
-                </div>
-                <div id="header-titulo-text">
-					ombre
-               	</div>
-            </button>
-		</div>
-        </div>
-        <div id="header-content-right">
-        <div id="header-buscador">
-        <form method="post" action="">
-        	<div id="header-buscador-input-div">
-            	<input type="text" name="header-buscador-input" id="header-buscador-input" placeholder="Buscar">
+        <div class="navbar-collapse collapse">
+        <?php if (!isset($_SESSION['username'])) { ?>
+          <div class="navbar-form navbar-right">
+            <div class="btn-group">
+              <a href="?p=login"><button type="button" class="btn btn-warning">Iniciar sesión</button></a>
+              <a href="?p=registro"><button type="submit" class="btn btn-danger">Crear cuenta</button></a>
             </div>
-            <div id="header-buscador-submit-div">
-            	<input name="header-buscador-submit"  id="header-buscador-submit" type="image" src="temas/<?php echo $prop['tema'];?>/imagenes/buscar.png">
+          </div>
+          <?php } else {?>
+          <div class="navbar-form navbar-right">
+            <div class="btn-group">
+              <a href="?p=login"><button type="button" class="btn btn-warning">
+                <img class="img-xs" src="static-content/perfiles/<?php echo $pf['imagen_perfil']?>">
+                <?php echo $pf['nombres']." ".$pf['apellidos']?>
+              </button></a>
+              <a href="?p=registro"><button type="submit" class="btn btn-danger">Crear cuenta</button></a>
             </div>
-        </form>
+          </div>
+          <?php }?>
+          <form class="navbar-form navbar-left input-group">
+          <div class="input-group">
+          <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">Buscar</button>
+            </span>
+          </div>
+          </form>
         </div>
-        <?php if(!isset($_SESSION['username'])) {?>
-		<div id="header-create_acc">
-			<button id="header-create-boton" onClick="window.location.href='?p=registro'">Crear cuenta</button>
-		</div>
-		<div id="header-login">
-			<button id="header-login-boton">Iniciar sesión</button>
-		</div>
-        <?php } else { ?>
-        <div id="header-propieades">
-			<button id="header-boton-propiedades"><img src="temas/<?php echo $prop['tema'];?>/imagenes/opciones.png"></button>
-		</div>
-        <div id="header-perfil">
-			<button id="header-boton-perfil" onClick="window.location.href='?p=perfil&pf=<?php echo $pf['cuenta'];?>'">
-                <div id="header-perfil-imagen">
-                	<img src="static-content/perfiles/<?php echo $pf['imagen_perfil']?>">
-                </div>
-                <div id="header-perfil-nombre">
-					<?php echo $pf['nombres']." ".$pf['apellidos']?>
-               	</div>
-            </button>
-		</div>
-        <?php } ?>
-		<div id="header-entrar">
-			<?php
-			if (!isset($_SESSION['username'])) {
-            	if (!isset($_POST['entrar_logueo'])) {
-            ?>
-               <form method="post" action="">
-                    <div><input type="email" name="email" id="header-entrar-email" placeholder="email" required></div>
-                    <div><input type="password" name="contraseña" id="header-entrar-password" placeholder="contraseña" required></div>
-                    <div id="header-entrar-ncsesion_submit">
-                        <div id="header-entrar-ncsesion-div">
-                            <input type="checkbox" name="ncsesion" id="header-entrar-ncsesion" value="1"><label for="header-entrar-ncsesion"> No cerrar sesión</label>
-                        </div>
-                        <div id="header-entrar-submit-div">
-                            <input type="submit" name="entrar_logueo" id="header-entrar-submit" value="Entrar">
-                        </div>
-                    </div>
-               </form>
-           <?php 
-				} else {
-					$sesion = mysql_query("SELECT email, contraseña, nombres, apellidos FROM cuentas WHERE email = '$_POST[email]'");
-					$sesion1 = mysql_fetch_array($sesion);
-	
-					if (isset($_POST["email"]) and !empty($_POST["email"]) and
-						isset($_POST["contraseña"]) and !empty($_POST["contraseña"])) {
-						if ($_POST["contraseña"] === $sesion1["contraseña"]) {
-							$_SESSION["username"] = $_POST["email"];
-							echo "Conectando a la web";
-							header("Location: ".$_SERVER['HTTP_REFERER']);
-							
-						} else {
-							header("Location: ?p=login");
-							}
-					} else {
-						header("Location: ?p=login");
-						}	
-					}
-			} else {?>
-                <div id="header-menu-propiedades">
-                	<ul>
-                        <li><a href="?p=opciones">Configuración</a></li>
-                        <li><a href="?p=cerrar_sesión">Cerrar sesión</a></li>
-                    </ul>
-                </div>
-			<?php }?>
-         </div>
-         </div>
-	</header>
-    <div class="contenedor">
+      </div>
+    </div>

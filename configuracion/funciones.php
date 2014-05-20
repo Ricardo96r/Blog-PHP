@@ -88,63 +88,56 @@ function mostrarNacimiento( $type ) {
 function post ($dt) {
 	global $prop; //Para usar la global $prop en una funcion
 	?>
-    <article id="contenido-contenedor">
-    	<div id="contenido">
-			<div id="contenido_arriba">
-            	<a href="?p=perfil&pf=<?php echo $dt['cuenta'];?>">
-                    <div id="contenido_arriba_imagen-perfil">
-                        <img src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
-                    </div>
-                    <div id='contenido_arriba_nombre'>
-                        
-                        <div id="contenido_arriba_nombre_nombre">
-                            <?php echo $dt['nombres']." ".$dt['apellidos']; ?>
-                        </div>
-                        <div id="contenido_arriba_nombre_cuenta">
-                             <?php echo '@'.$dt['cuenta']; ?>
-                        </div>
-                    </div>
+    <div class="well-bl-1">
+        <div class="row">
+            <div class="col-xs-12">
+            <div class="pb-top">
+                <a href="?p=perfil&pf=<?php echo $dt['cuenta'];?>">
+                <div class="pull-left pb-ftpf">
+                    <img class="image-sm" src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
+                </div>
+				<?php echo $dt['nombres']." ".$dt['apellidos']; ?>
+                <?php echo '@'.$dt['cuenta']; ?>      
                 </a>
-				<div id='contenido_arriba_fecha'>
-					<?php echo $dt['tiempo_de_creacion']; ?>
-				</div>
-			</div>
-			<div id='contenido_central'>
-            <?php if (!isset($dt['idcomentario'])) {?>
-				<a href='?id=<?php echo $dt['idpublicacion']; ?>'>
-                	<div id="contenido-central-image">
-						<?php echo "<img src="."static-content/publicaciones/".$dt['ruta'].">"; ?>
-                    </div>
-                    <div id="contenido-central-text">
-                    	<?php echo $dt['publicacion']; ?>
-                    </div>
-				</a>
-            <?php } else {?>
-					<?php echo $dt['comentario']; ?>
-            <?php } ?>
-			</div>
-			<div id='contenido_abajo' >
-                    <div id="contenido_abajo_megusta">
-                    	<button id="contenido_abajo_megusta_boton">
-                        	<div>Me gusta</div>
-                        	<div></div>
-                       	</button>
-                    </div>
-                    <div id="contenido_abajo_favoritos">
-                    	<button id="contenido_abajo_favoritos_boton">
-                    		<div>A favoritos</div>
-                        	<div></div>
-                        </button>
-                    </div>
-                    <div id="contenido_abajo_guardar">
-                        <button id="contenido_abajo_guardar_boton">
-                            <div>Guardar</div>
-                            <div></div>
-                        </button>
-                    </div>
+                <div>
+                <?php echo "<small>".$dt['tiempo_de_creacion']."</small>" ?>
+                </div>
+                </div>
             </div>
         </div>
-	</article>
+			<div class="row">
+                <div class="col-xs-12">
+                    <div class="pb-pb">
+                    <?php if (!isset($dt['idcomentario'])) {?>
+                        <a href='?id=<?php echo $dt['idpublicacion']; ?>'>
+                            <?php echo "<img class='image-md center-block' src="."static-content/publicaciones/".$dt['ruta'].">"; ?>
+                            <div class="center-block text-center pb-text">
+                                <?php echo $dt['publicacion']; ?>
+                            </div>
+                        </a>
+                    <?php } else {?>
+                            <?php echo $dt['comentario']; ?>
+                    <?php } ?>
+                    </div>
+                </div>
+			</div>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <div class="pb-bottom">
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-warning">Me gusta</button>
+                              <button type="submit" class="btn btn-warning">Favoritos</button>
+                              <button type="submit" class="btn btn-warning">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <?php } 
+
+	function publicidad () {
+		global $prop;?>
+		<img class="center-block" src="temas/<?php echo $prop['tema'];?>/imagenes/publicidad.png" >
+		<?php }
 
 ?>

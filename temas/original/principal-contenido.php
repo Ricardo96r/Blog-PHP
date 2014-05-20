@@ -46,24 +46,60 @@ if (!isset($_GET['id'])) {
 		ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 		ORDER BY `idpublicacion` DESC
 		LIMIT $inicio_2,10", $conn) or die(mysql_error());
+	$imp = 0;
 	while ($reg=mysql_fetch_array($registros)) {
 		post($reg);
+		$imp++;
+		if($imp == 5) {
+			?>
+            <div class="row visible-xs visible-sm"><div class="col-xs-12"><div class="well-bl-1"><?php publicidad(); ?></div></div></div>
+			<?php
+		} else {
+			echo "";
+			}
+				
 	}
 	$proximo = $inicio+1;
 	
 if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 	if (($_GET['pos'] + 1) <= (($count / 10))) {
-	?><a href="?&pos=<?php echo $proximo; ?>" class="mostrar_mas fondo">
+	?>
+	<div class="row visible-xs visible-sm"><div class="col-xs-12"><div class="well-bl-1"><?php publicidad(); ?></div></div></div>
+	<?php
+	?><a href="?&pos=<?php echo $proximo; ?>">
+	<div class="row">
+    <div class="col-xs-12">
+    <div class=" well-bl-1">
 		Mostrar más
+    </div>
+    </div>
+    </div>
 	</a><?php
 	} else {
-	?><a href="" class="mostrar_mas fondo">
-		No hay nada que mostrar!
+	?>
+	<div class="row visible-xs visible-sm"><div class="col-xs-12"><div class="well-bl-1"><?php publicidad(); ?></div></div></div>
+	<?php	?><a href="">
+	<div class="row">
+    <div class="col-xs-12">
+    <div class=" well-bl-1">
+		No hay nada que mostrar
+    </div>
+    </div>
+    </div>
 	</a><?php
 	}
 } else {
-	?><a href="?&pos=<?php echo $proximo; ?>" class="mostrar_mas fondo">
-		 Mostrar más
+		?>
+	<div class="row visible-xs visible-sm"><div class="col-xs-12"><div class="well-bl-1"><?php publicidad(); ?></div></div></div>
+	<?php
+	?><a href="?&pos=<?php echo $proximo; ?>">
+	<div class="row">
+    <div class="col-xs-12">
+    <div class=" well-bl-1">
+		Mostrar más
+    </div>
+    </div>
+    </div>
 	</a><?php
 	}
 		
@@ -82,9 +118,13 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 			WHERE idpublicacion = '$com'", $conn) or die(mysql_error());
 		$reg=mysql_fetch_array($registros);
 		post($reg);?>
-		<div class="fondo" id="comentarios">
-        	Comentarios
-       	</div>
+		<div class="row">
+            <div class="col-xs-12">
+                <div class="well-bl-1">
+                    <h4>Comentarios</h4>
+                </div>
+            </div>
+        </div>
 		<?php
 		if(isset($_SESSION['username'])) {
 			if(!isset($_POST['enviar_nota'])) {
@@ -119,18 +159,22 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
                     }
                 }
 		} else { ?>
-        <div class="fondo" id="comentario_iniciar-sesion">
+        <div class="row">
+        <div class="col-xs-12">
+        <div class="well-bl-1">
 			<?php echo "Para escribir un comentario nesecitas tener una cuenta e iniciar sesión"; ?>
-        </div><?php
+        </div></div></div><?php
 		}
 		if (mysql_num_rows($registro_com) > 0) {
 			while ($cm=mysql_fetch_array($registro_com)) {
 				post($cm);
-			}
+				}
 		} else {
-			?><div class="fondo" id="comentario_sin-comentarios">
+			?><div class="row">
+            <div class="col-xs-12">
+            <div class="well-bl-1">
             	No hay comentarios
-            </div>
+            </div></div></div>
 		<?php }
 	} else {
 		header("Location: ?&pos=$inicio");

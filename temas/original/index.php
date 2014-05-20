@@ -6,20 +6,15 @@
 	include("temas/".$prop['tema']."/header.php");
 	
 	/*
-		NAV
+		Load: NAV
 	*/
 	include("temas/".$prop['tema']."/nav.php");
-	
 	
 	/*
 		Load: SECTION
 	*/
 	if($page == ""){
-		if (isset($_SESSION['username'])) {
-			include 'principal-contenido.php';
-		} else {
-			include 'intro.php';
-			}
+		include 'principal-contenido.php';
 	} elseif($page == "registro"){
 		include('registro.php');
 	} elseif($page == "login"){
@@ -39,28 +34,9 @@
 	}else{
 		header("Location: ?p=404");
 	}
-	
-	
 	/*
-		Load: ASIDE
+		Load: Aside
 	*/
-	if(!isset($_SESSION['username'])) {
-		if($page != "" and $page != "perfil") {
-		include("temas/".$prop['tema']."/aside.php");
-			} else {
-				echo "";
-				}
-	} else {
-		if($page != "perfil") {
-			include("temas/".$prop['tema']."/aside.php");
-		} else {
-			echo "";
-			}
-		}
-		?> </div><?php
-	/*
-		Load: FOOTER
-	*/
-		include("temas/".$prop['tema']."/pie.php");
-
+	include("temas/".$prop['tema']."/aside.php");
+	
 ?>
