@@ -44,7 +44,7 @@
             	Publica
             </button>
             <div class="btn-group">
-              <button type="button" class="btn btn-warning">
+              <button type="button" class="btn btn-warning" onclick="document.location.href='?p=perfil&pf=<?php echo $pf['cuenta'];?>'">
                 <?php echo " ".$pf['nombres']." ".$pf['apellidos']?>
               </button>
             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
@@ -59,7 +59,10 @@
             </div>
           </div>
           <?php }?>
-          <form class="navbar-form navbar-left input-group">
+          <div class="navbar-form navbar-left visible-sm">
+          	<button class="btn btn-warning" type="button" onclick="document.location.href='?p=buscar'">Buscar</button>
+          </div>
+          <form class="navbar-form navbar-left input-group hidden-sm">
           <div class="input-group">
           	<input type="text" class="form-control">
             <span class="input-group-btn">

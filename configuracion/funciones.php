@@ -96,9 +96,9 @@ function post ($dt) {
                 <div class="pull-left pb-ftpf">
                     <img class="image-sm" src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
                 </div>
-				<?php echo $dt['nombres']." ".$dt['apellidos']; ?>
-                <?php echo '@'.$dt['cuenta']; ?>      
-                </a>
+				<?php echo $dt['nombres']." ".$dt['apellidos']."" ?></a>
+                <a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo " - @".$dt['cuenta']."" ?></a>     
+               
                 <div>
                 <?php echo "<small>".$dt['tiempo_de_creacion']."</small>" ?>
                 </div>
@@ -122,13 +122,24 @@ function post ($dt) {
                 </div>
 			</div>
                 <div class="row">
-                    <div class="col-xs-12 text-center">
+                    <div class="col-xs-12">
                         <div class="pb-bottom">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-warning">Me gusta</button>
-                              <button type="submit" class="btn btn-warning">Favoritos</button>
-                              <button type="submit" class="btn btn-warning">Guardar</button>
-                            </div>
+							<ul class="nav nav-pills">
+                              <li><a href="#">Me gusta<span class="badge hidden-xs">423</span></a></li>
+                              <li><a href="#">Favoritos<span class="badge hidden-xs">423</span></a></li>
+                                <li class="dropup  pull-right">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                      Compartir <span class="caret"></span>
+                                    </a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Facebook</a></li>
+                                    <li><a href="#">Twitter</a></li>
+                                    <li><a href="#">Tuenti</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Otro</a></li>
+                                  </ul>
+                               </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

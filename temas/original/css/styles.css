@@ -166,3 +166,7 @@ a:focus {
     top: -1000px;
     cursor: pointer;
 	}
+	
+.aside  {
+	width:320px;
+	}
