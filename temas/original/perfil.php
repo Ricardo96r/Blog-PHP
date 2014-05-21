@@ -44,42 +44,54 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 			ORDER BY `idpublicacion` DESC
 			LIMIT $pfinicio_2,10", $conn) or die(mysql_error());?>
             
-	<div class="fondo" id="perfil-contenedor">
-        <div id="perfil-fondo-imagen_perfil">
-            <img src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
-        </div>
-        <div id="perfil-fondo-contenido_fondo">
-            <div id="perfil-fondo-contenido">
-                <div id="perfil-fondo-contenido-nombre">
-                    <span>
-                    <?php echo $perfil['nombres']." ".$perfil['apellidos'];?>
-                    </span>
+	<div class="well-bl-1">
+    <div class="row">
+    	<div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img class="center-block" src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
                 </div>
-                <div id="perfil-fondo-contenido-cuenta">
-                    <span>
-                    <?php echo "@".$perfil['cuenta']; ?>
-                    </span>
-                </div>
-			</div>
-    	</div>
-    <div id="perfil-fondo-contenido-datos" >
-        <div id="perfil-fondo-contenido-datos_seguidores">
-            <button id="perfil-fondo-contenido-datos_seguidores_boton">
-                <div>Seguidores</div>
-                <div><?php echo mysql_num_rows($perfil_notas);?></div>
+            </div>
+            <h4>
+            <div class="row">
+                <div class="col-xs-12 text-center">
+            		<?php echo $perfil['nombres']." ".$perfil['apellidos'];?>
+            	</div>
+            </div>
+			<div class="row">
+                <div class="col-xs-12 text-center">
+            		<small><?php echo "@".$perfil['cuenta']; ?></small>
+            	</div>
+            </div>
+            </h4>
+		</div>
+	</div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+         	<div class="btn-group">
+            <button class="btn btn-warning">
+                Seguidores
             </button>
-        </div>
-        <div id="perfil-fondo-contenido-datos_siguiendo">
-            <button id="perfil-fondo-contenido-datos_siguiendo_boton">
-                <div>Siguiendo</div>
-                <div><?php echo mysql_num_rows($perfil_notas);?></div>
+            <button class="btn btn-danger">
+                <?php echo mysql_num_rows($perfil_notas);?>
             </button>
-        </div>
-        <div id="perfil-fondo-contenido-datos_publicaciones">
-            <button id="perfil-fondo-contenido-datos_publicaciones_boton">
-                <div>Publicaciones</div>
-                <div><?php echo mysql_num_rows($perfil_notas);?></div>
+            </div>
+        	<div class="btn-group">
+            <button class="btn btn-warning">
+                Siguiendo
             </button>
+            <button class="btn btn-danger">
+                <?php echo mysql_num_rows($perfil_notas);?>
+            </button>
+            </div>
+        	<div class="btn-group">
+            <button class="btn btn-warning">
+                Publicaciones
+            </button>
+            <button class="btn btn-danger">
+                <?php echo mysql_num_rows($perfil_notas);?>
+            </button>
+            </div>
         </div>
     </div>
     </div>
@@ -112,15 +124,3 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 	}
 	?>
 	</div>
-    <div id="perfil-aside">
-        <div id="perfil-aside-content">
-            <img src="temas/<?php echo $prop['tema'];?>/imagenes/publicidad.png">
-        </div>
-        <div id="perfil-aside-content">
-            <img src="temas/<?php echo $prop['tema'];?>/imagenes/publicidad.png">
-        </div>
-        <div id="perfil-aside-content">
-            <img src="temas/<?php echo $prop['tema'];?>/imagenes/publicidad.png">
-        </div>
-    </div>
-	</section>

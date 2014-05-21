@@ -27,29 +27,43 @@
           <a class="navbar-brand" href="."><?php echo $prop['nombre'];?></a>
         </div>
         <div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+              <li><a href=".">Inicio</a></li>
+              <li><a href="?p=explorar">Explora</a></li>
+    		</ul>
         <?php if (!isset($_SESSION['username'])) { ?>
           <div class="navbar-form navbar-right">
             <div class="btn-group">
-              <a href="?p=login"><button type="button" class="btn btn-warning">Iniciar sesión</button></a>
-              <a href="?p=registro"><button type="submit" class="btn btn-danger">Crear cuenta</button></a>
+              <button type="button" class="btn btn-warning"  onclick="document.location.href='?p=login'">Iniciar sesión</button>
+              <button type="submit" class="btn btn-danger" onclick="document.location.href='?p=registro'">Crear cuenta</button>
             </div>
           </div>
           <?php } else {?>
           <div class="navbar-form navbar-right">
+            <button type="button" class="btn btn-primary"  onclick="document.location.href='?p=publicar'">
+            	Publica
+            </button>
             <div class="btn-group">
-              <a href="?p=login"><button type="button" class="btn btn-warning">
-                <img class="img-xs" src="static-content/perfiles/<?php echo $pf['imagen_perfil']?>">
-                <?php echo $pf['nombres']." ".$pf['apellidos']?>
-              </button></a>
-              <a href="?p=registro"><button type="submit" class="btn btn-danger">Crear cuenta</button></a>
+              <button type="button" class="btn btn-warning">
+                <?php echo " ".$pf['nombres']." ".$pf['apellidos']?>
+              </button>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-cog"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="?p=configuracion">Configuración</a></li>
+                <li><a href="?p=opciones">Opciones</a></li>
+                <li class="divider"></li>
+                <li><a href="?p=cerrar_sesión">Cerrar sesión</a></li>
+  			</ul>
             </div>
           </div>
           <?php }?>
           <form class="navbar-form navbar-left input-group">
           <div class="input-group">
-          <input type="text" class="form-control">
+          	<input type="text" class="form-control">
             <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">Buscar</button>
+                <button class="btn btn-warning" type="button">Buscar</button>
             </span>
           </div>
           </form>

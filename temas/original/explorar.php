@@ -16,19 +16,21 @@ $explorar = mysql_query("
 	WHERE publicaciones.verificado = 2
 	ORDER BY `idpublicacion` DESC", $conn) or die(mysql_error());
 ?> 
-	<div class="fondo" id="explorar-top">
-        <div>
-            País:
+	<div class="well-bl-1">
+    	<div class="row">
+        	<div class="col-md-12 text-center">
+            <label>País:</label>
             <select>
                  <option value="VE">VE</option>
                  <option value="ES">ES</option>
             </select>
-            Idioma
+            <label>Idioma:</label>
             <select>
                 <option value="es">Español</option>
                 <option value="en">Inglés</option>
             </select>
-        </div>
+            </div>
+		</div>
     </div>
 <?php	
 while ($explora = mysql_fetch_array($explorar)) {

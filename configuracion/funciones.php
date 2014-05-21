@@ -22,7 +22,7 @@ function antiSqlInjection( $variable ) {
 function mostrarNacimiento( $type ) {
 	if ($type == 'mes') {
 		echo "
-			<select name=\"mes\" id=\"registro-form-nacimiento-select\">
+			<select name=\"mes\" class=\"form-control\">
 				<option value=\"mes\">Mes</option>
 				<option value=\"1\">
 					Enero
@@ -64,7 +64,7 @@ function mostrarNacimiento( $type ) {
 	";
 	}
 	if ($type == 'dia') {
-		echo "<select name=\"dia\" id=\"registro-form-nacimiento-select\">";
+		echo "<select name=\"dia\" class=\"form-control\">";
 		echo "<option value=\"day\">Día</option>";
 		$maxdy = 31;
 		for ($i = 1; $i <= $maxdy; $i++)
@@ -74,7 +74,7 @@ function mostrarNacimiento( $type ) {
 		echo "</select>";
 	}
 	if ($type == 'año') {
-		echo "<select name=\"año\" id=\"registro-form-nacimiento-select\">";
+		echo "<select name=\"año\" class=\"form-control\">";
 		echo "<option value=\"año\">Año</option>";
 		for ($i = date('Y'); $i >= 1900; $i--)
 		{
@@ -109,11 +109,11 @@ function post ($dt) {
                 <div class="col-xs-12">
                     <div class="pb-pb">
                     <?php if (!isset($dt['idcomentario'])) {?>
-                        <a href='?id=<?php echo $dt['idpublicacion']; ?>'>
-                            <?php echo "<img class='image-md center-block' src="."static-content/publicaciones/".$dt['ruta'].">"; ?>
+                        <a class='a-clear' href='?id=<?php echo $dt['idpublicacion']; ?>'>
                             <div class="center-block text-center pb-text">
                                 <?php echo $dt['publicacion']; ?>
                             </div>
+                            <?php echo "<img class='image-md center-block' src="."static-content/publicaciones/".$dt['ruta'].">"; ?>
                         </a>
                     <?php } else {?>
                             <?php echo $dt['comentario']; ?>

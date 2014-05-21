@@ -1,61 +1,73 @@
-<div class="fondo" id="registro">
+<div class="well-bl-1">
 <?php
 if (!isset($_SESSION["username"])) {
 	if (!isset($_POST["registro"])) {
 ?>
-<div id="registro-form">
-	<form method="post" action="">
-		<label for="registro-form-cuenta-input" id="registro-form-label">
-			Nombre de usuario
-		</label>
-		<input type="text" name="cuenta" id="registro-form-cuenta-input" maxlength="20"  placeholder="nombre de usuario" required>
-        
-		<label for="registro-form-contraseña1-input" id="registro-form-label">
-        	Contraseña
-        </label><br>
-		<input type="password" name="contraseña" id="registro-form-contraseña1-input" maxlength="30" placeholder="nueva contraseña" required>
-       
-		<label for="registro-form-contraseña2-input" id="registro-form-label">
-        	Repetir contraseña
+<form method="post" action="">
+<div class="row">
+    <div class="col-xs-12">
+        <label for="registro-form-cuenta-input" id="registro-form-label">Nombre de usuario</label>
+        <p><input class="form-control" type="text" name="cuenta" id="registro-form-cuenta-input" maxlength="15"  placeholder="nombre de usuario" required></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+    <label for="registro-form-contraseña1-input" id="registro-form-label">Contraseña</label>
+    <p><input class="form-control" type="password" name="contraseña" id="registro-form-contraseña1-input" maxlength="30" placeholder="nueva contraseña" required></p>
+    </div>
+    <div class="col-md-6">
+    <label for="registro-form-contraseña2-input" id="registro-form-label">Repetir contraseña</label>
+    <p><input class="form-control" type="password" name="contraseña2" id="registro-form-contraseña2-input" maxlength="30" placeholder="repita contraseña" required></p>
+    </div> 
+</div>
+<div class="row">
+    <div class="col-xs-12"> 
+    <label for="registro-form-correo-input" id="registro-form-label">Correo electrónico</label>
+    <p><input class="form-control" type="email" name="email" id="registro-form-correo-input" maxlength="100" placeholder="correo electrónico" required></p>
+    </div> 
+</div>
+<div class="row">
+    <div class="col-md-12"> 
+    <label for="registro-form-nombres-input" id="registro-form-label">Nombre y apellido</label>
+    <p><input class="form-control" type="text" name="nombres" id="registro-form-nombres-input" maxlength="20" placeholder="nombre y apellido" required></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+    	<label class="text-center">Nacimiento:</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <?php echo mostrarNacimiento('dia'); ?>
+    </div>
+    <div class="col-md-4">
+        <?php echo mostrarNacimiento('mes'); ?>
+    </div>
+    <div class="col-md-4">
+        <?php echo mostrarNacimiento('año'); ?>
+    </div>
+</div>
+<p>
+<div class="row">
+	<div class="col-md-12 text-center">     
+        <label for="hombre" id="registro-form-label">
+            Hombre
         </label>
-		<input type="password" name="contraseña2" id="registro-form-contraseña2-input" maxlength="30" placeholder="repita contraseña" required>
-        
-		<label for="registro-form-correo-input" id="registro-form-label">
-        	Correo electrónico
-		</label>
-		<input type="email" name="email" id="registro-form-correo-input" maxlength="100" placeholder="correo electrónico" required>
-        
-		<label for="registro-form-nombres-input" id="registro-form-label">
-        	Nombre(s)
+        <input type="radio" name="sexo" id="hombre" value="1">
+        <label for="mujer" id="registro-form-label">
+            Mujer
         </label>
-		<input type="text" name="nombres" id="registro-form-nombres-input" maxlength="20" placeholder="nombre(s)" required>
-        
-		<label for="registro-form-apellidos-input" id="registro-form-label">
-        	Apellido(s):
-        </label>
-		<input type="text" name="apellidos" id="registro-form-apellidos-input" maxlength="20" placeholder="apellido(s)"  required>
-        <div id="registro-form-nacimiento">
-        <div id="registro-form-nacimiento-text">Nacimiento</div>
-			<?php
-            echo mostrarNacimiento('dia');
-            echo mostrarNacimiento('mes');
-            echo mostrarNacimiento('año');
-            ?>
-        </div>
-        <div id="registro-form-sexo">             
-            <label for="hombre" id="registro-form-label">
-                Hombre
-            </label>
-            <input type="radio" name="sexo" id="hombre" value="1">
-            
-            <label for="mujer" id="registro-form-label">
-                Mujer
-            </label>
-			<input type="radio" name="sexo" id="mujer" value="2">
-        </div>
-        
-		<input type="submit" name="registro" id="registro-form-submit" value="Registrarse">
-	</form>
+        <input type="radio" name="sexo" id="mujer" value="2">
+    </div>
+</div>
+</p>
+<div class="row">
+	<div class="col-xs-12">
+    	<input type="submit" name="registro" class="btn btn-warning form-control" value="Registrarse">
+	</div>
+</div>
+</form>
 </div>
 <?php
 } else {
@@ -64,7 +76,6 @@ if (!isset($_SESSION["username"])) {
 	$contraseña2 = antiSqlInjection($_POST['contraseña2']);
 	$email = antiSqlInjection($_POST['email']);
 	$nombres = antiSqlInjection($_POST['nombres']);
-	$apellidos = antiSqlInjection($_POST['apellidos']);
 	$nacimiento = antiSqlInjection($_POST['año'])."-".antiSqlInjection($_POST['mes'])."-".antiSqlInjection($_POST['dia']); 
 	
 	if(isset($_POST['sexo'])) {
@@ -126,15 +137,7 @@ if (!isset($_SESSION["username"])) {
 	} elseif(strlen($nombres) < 1){
 		echo "Porfavor llene el campo nombres";
 	} elseif(strlen($nombres) > 20){
-		echo "El campo nombre(s) tiene que ser menor a 20 caracteres";
-		
-	//$apellidos
-	} elseif(!isset($apellidos) or empty($apellidos)) {
-		echo "Porfavor llene el campo apellido(s)";
-	} elseif(strlen($apellidos) < 1){
-		echo "Porfavor llene el campo apellido(s)";
-	} elseif(strlen($apellidos) > 20){
-		echo "El campo apellido(s) tiene que ser menor a 20 caracteres";
+		echo "El campo nombre(s) tiene que ser menor o igual a 20 caracteres";
 		
 	//$nacimiento
 	}elseif(!isset($nacimiento) or empty($nacimiento)){
@@ -156,7 +159,7 @@ if (!isset($_SESSION["username"])) {
 	----------------
 	*/
 		} else {
-			$ia = mysql_query("INSERT INTO `cuentas` (`cuenta`,`contraseña`,`nacimiento`,`email`,`nombres`,`apellidos`,`sexo`) VALUES ('".$cuenta."','".$contraseña."','".$nacimiento."','".$email."','".$nombres."','".$apellidos."','".$sexo."')") or die(mysql_error());
+			$ia = mysql_query("INSERT INTO `cuentas` (`cuenta`,`contraseña`,`nacimiento`,`email`,`nombres`,`sexo`) VALUES ('".$cuenta."','".$contraseña."','".$nacimiento."','".$email."','".$nombres."','".$sexo."')") or die(mysql_error());
 				
 			echo "usuario:<br>".$cuenta."<br><br>";
 			echo "contraseña:<br>".$contraseña."<br><br>";
@@ -164,7 +167,6 @@ if (!isset($_SESSION["username"])) {
 			echo "nacimiento:<br>".$nacimiento."<br><br>";
 			echo "email:<br>".$email."<br><br>";
 			echo "nombres:<br>".$nombres."<br><br>";
-			echo "apellidos:<br>".$apellidos."<br><br>";
 			echo "sexo:<br>".$sexo."<br><br>";
 			echo "Tu registro a sido exitoso, se le enviará un correo para confirmar su correo electrónico";
 			}
@@ -175,4 +177,3 @@ if (!isset($_SESSION["username"])) {
 	
 		
 ?>
-</div>

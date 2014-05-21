@@ -3,19 +3,23 @@
 if(isset($_SESSION['username'])) {
 	if(!isset($_POST['enviar_nota'])) {
 		?>
-		<div id="publicar-form">
+		<div class="well-bl-1">
+        <div class="row">
+        <div class="col-md-12">
 			<form enctype="multipart/form-data" method="post" action="">
                 <div id="publicar-form-file">
                     <input name="archivo" type="file" id="publicar-form-file-input">
                     <div id="publicar-form-file-text">
                     	Subir archivo
                     </div>
-                    <output id="d"></output>
+                    
                 </div>
                 <script src="<?php echo "temas/".$prop['tema'];?>/js/publicar.js"></script>
-				<textarea name="nota" id="publicar-form-publicacion" maxlength="200" placeholder="Escribe algo..."></textarea>
-				<input type="submit" name="enviar_nota" value="ENVIAR PUBLICACIÓN" id="publicar-form-submit">
+				<textarea name="nota" class="form-control" maxlength="200" placeholder="Escribe algo..."></textarea>
+				<input class="btn btn-warning form-control" type="submit" name="enviar_nota" value="ENVIAR PUBLICACIÓN" id="publicar-form-submit">
 			</form>
+            </div>
+            </div>
         </div>
         <?php
 		} else {

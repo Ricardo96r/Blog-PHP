@@ -52,7 +52,7 @@ if (!isset($_GET['id'])) {
 		$imp++;
 		if($imp == 5) {
 			?>
-            <div class="row visible-xs visible-sm"><div class="col-xs-12"><div class="well-bl-1"><?php publicidad(); ?></div></div></div>
+            <div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div>
 			<?php
 		} else {
 			echo "";
@@ -62,14 +62,14 @@ if (!isset($_GET['id'])) {
 	$proximo = $inicio+1;
 	
 if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
-	if (($_GET['pos'] + 1) <= (($count / 10))) {
+	if (($_GET['pos'] + 2) <= (($count / 10))) {
 	?>
-	<div class="row visible-xs visible-sm"><div class="col-xs-12"><div class="well-bl-1"><?php publicidad(); ?></div></div></div>
+	<div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div>
 	<?php
 	?><a href="?&pos=<?php echo $proximo; ?>">
 	<div class="row">
     <div class="col-xs-12">
-    <div class=" well-bl-1">
+    <div class=" well-bl text-center">
 		Mostrar más
     </div>
     </div>
@@ -77,25 +77,25 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 	</a><?php
 	} else {
 	?>
-	<div class="row visible-xs visible-sm"><div class="col-xs-12"><div class="well-bl-1"><?php publicidad(); ?></div></div></div>
-	<?php	?><a href="">
+	<div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div>
+	<?php	?>
 	<div class="row">
     <div class="col-xs-12">
-    <div class=" well-bl-1">
-		No hay nada que mostrar
+    <div class=" well-bl text-center">
+		No hay mas publicaciones disponibles
     </div>
     </div>
     </div>
-	</a><?php
+	<?php
 	}
 } else {
 		?>
-	<div class="row visible-xs visible-sm"><div class="col-xs-12"><div class="well-bl-1"><?php publicidad(); ?></div></div></div>
+	<div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div>
 	<?php
 	?><a href="?&pos=<?php echo $proximo; ?>">
 	<div class="row">
     <div class="col-xs-12">
-    <div class=" well-bl-1">
+    <div class=" well-bl text-center">
 		Mostrar más
     </div>
     </div>
