@@ -1,26 +1,22 @@
 <div class="fondo" id="publicar">
+	<div class="well-bl-1">
+		<div class="row">
+			<div class="col-md-12">
 <?php
 if(isset($_SESSION['username'])) {
 	if(!isset($_POST['enviar_nota'])) {
 		?>
-		<div class="well-bl-1">
-        <div class="row">
-        <div class="col-md-12">
 			<form enctype="multipart/form-data" method="post" action="">
                 <div id="publicar-form-file">
                     <input name="archivo" type="file" id="publicar-form-file-input">
                     <div id="publicar-form-file-text">
-                    	Subir archivo
+                    	Subir publicación
                     </div>
-                    
                 </div>
                 <script src="<?php echo "temas/".$prop['tema'];?>/js/publicar.js"></script>
 				<textarea name="nota" class="form-control" maxlength="200" placeholder="Escribe algo..."></textarea>
-				<input class="btn btn-warning form-control" type="submit" name="enviar_nota" value="ENVIAR PUBLICACIÓN" id="publicar-form-submit">
+				<input class="btn btn-warning form-control" type="submit" name="enviar_nota" value="Enviar publicación">
 			</form>
-            </div>
-            </div>
-        </div>
         <?php
 		} else {
 			?><div id="publicar-form"><?php
@@ -62,8 +58,13 @@ if(isset($_SESSION['username'])) {
 			#Envio de la publicacion a la DB en la tabla publicaciones
 			$enviar_nota = mysql_query("INSERT INTO `publicaciones` (`cuentas_idcuenta`, `publicacion`, `imagenes_idimagenes`) VALUES ('".$idcuenta."','".$nota."', '"."$idimagen[idimagenes]"."')") or die (mysql_error());
 			move_uploaded_file($_FILES["archivo"]["tmp_name"], $ruta.$name);
-			echo "Publicacion Enviada!";
-			echo "<img src=".$ruta.$name.">";
+			?>
+            <div class="alert alert-warning alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>¡Publicación enviada!</strong>
+            </div>
+			<?php
+			echo "<img class='img-responsive' src=".$ruta.$name.">";
 			echo $nota;
 				}
 				?></div><?php
@@ -72,4 +73,7 @@ if(isset($_SESSION['username'])) {
 	header("Location: ?p=404");
 	}
 ?>
+            </div>
+		</div>
+	</div>
 </div>

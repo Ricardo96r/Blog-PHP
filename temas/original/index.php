@@ -38,5 +38,9 @@
 		Load: Aside
 	*/
 	include("temas/".$prop['tema']."/aside.php");
+	/*
+		Load: Aside
+	*/
+	include("temas/".$prop['tema']."/footer.php");
 	
 ?>

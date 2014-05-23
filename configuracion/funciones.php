@@ -110,10 +110,10 @@ function post ($dt) {
                     <div class="pb-pb">
                     <?php if (!isset($dt['idcomentario'])) {?>
                         <a class='a-clear' href='?id=<?php echo $dt['idpublicacion']; ?>'>
-                            <div class="center-block text-center pb-text">
+                            <?php echo "<img class='image-md center-block' src="."static-content/publicaciones/".$dt['ruta'].">"; ?>
+                            <div class="center-block pb-text">
                                 <?php echo $dt['publicacion']; ?>
                             </div>
-                            <?php echo "<img class='image-md center-block' src="."static-content/publicaciones/".$dt['ruta'].">"; ?>
                         </a>
                     <?php } else {?>
                             <?php echo $dt['comentario']; ?>

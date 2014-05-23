@@ -26,7 +26,7 @@
           </button>
           <a class="navbar-brand" href="."><?php echo $prop['nombre'];?></a>
         </div>
-        <div class="navbar-collapse collapse">
+        <div class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 			<ul class="nav navbar-nav">
               <li><a href=".">Inicio</a></li>
               <li><a href="?p=explorar">Explora</a></li>
