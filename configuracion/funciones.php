@@ -125,11 +125,11 @@ function post ($dt) {
                     <div class="col-xs-12">
                         <div class="pb-bottom">
 							<ul class="nav nav-pills">
-                              <li><a href="#">Me gusta<span class="badge hidden-xs">423</span></a></li>
-                              <li><a href="#">Favoritos<span class="badge hidden-xs">423</span></a></li>
+                              <li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span><span class="badge">423</span></a></li>
+                              <li><a href="#"><span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span><span class="badge">423</span></a></li>
                                 <li class="dropup  pull-right">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                      Compartir <span class="caret"></span>
+                                      <span class="glyphicon glyphicon-th"></span><span class="hidden-xs"> Compartir</span><span class="caret"></span>
                                     </a>
                                   <ul class="dropdown-menu" role="menu">
                                     <li><a href="#">Facebook</a></li>

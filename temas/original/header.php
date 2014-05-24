@@ -28,45 +28,45 @@
         </div>
         <div class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 			<ul class="nav navbar-nav">
-              <li><a href=".">Inicio</a></li>
-              <li><a href="?p=explorar">Explora</a></li>
+              <li><a href="."><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+              <li><a href="?p=explorar"><span class="glyphicon glyphicon-list-alt"></span> Explora</a></li>
     		</ul>
         <?php if (!isset($_SESSION['username'])) { ?>
           <div class="navbar-form navbar-right">
             <div class="btn-group">
-              <button type="button" class="btn btn-warning"  onclick="document.location.href='?p=login'">Iniciar sesión</button>
-              <button type="submit" class="btn btn-danger" onclick="document.location.href='?p=registro'">Crear cuenta</button>
+              <button type="button" class="btn btn-warning"  onclick="document.location.href='?p=login'"><span class="glyphicon glyphicon-info-sign"></span> Iniciar sesión</button>
+              <button type="submit" class="btn btn-danger" onclick="document.location.href='?p=registro'"><span class="glyphicon glyphicon-hand-right"></span> Crear cuenta</button>
             </div>
           </div>
           <?php } else {?>
           <div class="navbar-form navbar-right">
             <button type="button" class="btn btn-primary"  onclick="document.location.href='?p=publicar'">
-            	Publica
+            	<span class="glyphicon glyphicon-edit"></span> Publica
             </button>
             <div class="btn-group">
               <button type="button" class="btn btn-warning" onclick="document.location.href='?p=perfil&pf=<?php echo $pf['cuenta'];?>'">
-                <?php echo " ".$pf['nombres']." ".$pf['apellidos']?>
+                <span class="glyphicon glyphicon-user"></span> <?php echo " ".$pf['nombres']." ".$pf['apellidos']?>
               </button>
             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                 <span class="glyphicon glyphicon-cog"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="?p=configuracion">Configuración</a></li>
-                <li><a href="?p=opciones">Opciones</a></li>
+                <li><a href="?p=configuracion"><span class="glyphicon glyphicon-wrench"></span> Configuración</a></li>
+                <li><a href="?p=opciones"><span class="glyphicon glyphicon-lock"></span> Seguridad</a></li>
                 <li class="divider"></li>
-                <li><a href="?p=cerrar_sesión">Cerrar sesión</a></li>
+                <li><a href="?p=cerrar_sesión"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>
   			</ul>
             </div>
           </div>
           <?php }?>
           <div class="navbar-form navbar-left visible-sm">
-          	<button class="btn btn-warning" type="button" onclick="document.location.href='?p=buscar'">Buscar</button>
+          	<button class="btn btn-warning" type="button" onclick="document.location.href='?p=buscar'"><span class="glyphicon glyphicon-search"> Buscar</span></button>
           </div>
           <form class="navbar-form navbar-left input-group hidden-sm">
           <div class="input-group">
-          	<input type="text" class="form-control">
+          	<input type="text" class="form-control" placeholder="Buscar...">
             <span class="input-group-btn">
-                <button class="btn btn-warning" type="button">Buscar</button>
+                <button class="btn btn-warning" type="button"><span class="glyphicon glyphicon-search"></span></button>
             </span>
           </div>
           </form>

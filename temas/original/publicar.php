@@ -10,7 +10,10 @@ if(isset($_SESSION['username'])) {
                 <div id="publicar-form-file">
                     <input name="archivo" type="file" id="publicar-form-file-input">
                     <div id="publicar-form-file-text">
-                    	Subir publicación
+                    	<button type="button" class="btn btn-warning btn-lg">
+                            <span class="glyphicon glyphicon-camera"></span>
+                            <div>Subir publicación</div>
+						</button>
                     </div>
                 </div>
                 <script src="<?php echo "temas/".$prop['tema'];?>/js/publicar.js"></script>

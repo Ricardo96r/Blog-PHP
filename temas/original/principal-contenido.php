@@ -120,22 +120,21 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 		post($reg);?>
 		<div class="row">
             <div class="col-xs-12">
-                <div class="well-bl-1">
-                    <h4>Comentarios</h4>
-                </div>
-            </div>
-        </div>
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h3 class="panel-title">Comentarios</h3>
+              </div>
+              <div class="panel-body">
+
 		<?php
 		if(isset($_SESSION['username'])) {
 			if(!isset($_POST['enviar_nota'])) {
 				?>
-                <div class="fondo" id="comentario_enviar">
-                    <div id="comentario_enviar-comentario">
-                        Manda un comentario:
-                    </div>
+                <div class="well-bl-1">
+                	Manda un comentario:
                     <form method="post" action="">
-                        <textarea type="text" name="comentario" maxlength="400" id="comentario_enviar-text" required></textarea>
-                        <input type="submit" name="enviar_nota" value="Enviar comentario" id="comentario_enviar-boton">
+                        <textarea class="form-control" type="text" name="comentario" maxlength="400" required></textarea>
+                        <input class="btn btn-warning form-control" type="submit" name="enviar_nota" value="Enviar comentario">
                     </form>
 				</div><?php
             } else {
@@ -179,5 +178,11 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 	} else {
 		header("Location: ?&pos=$inicio");
 		}
+		?>
+			</div>
+		</div>
+	</div>
+</div>
+		<?php
 	}
 ?>
