@@ -190,4 +190,73 @@ function tiempo_transcurrido($fecha) {
 	return "$tiempo $diferencia $intervalos[$j]";
 }
 
+function mostrar_mas($get, $count, $link) {
+	
+	$proximo = $get+1;
+
+if (isset($get) and is_numeric($get) and $get >= 0) {
+	$count /= 10;
+	$gt = $get;
+	$gts = $get + 1.1;
+	
+	/*
+	Ejemplo si $gts es 4, entonces $get = 4 + 1.1 = 5.1, y si count = $gts*10 = 50 publicaciones
+	$count se divide entre 10 que daria "5" entonses 5 <= 5.1!
+	<?php echo $count."- gts:".$get?> para comprobar!
+	*/
+	?>
+	<div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div>
+	
+		<div class="row">
+    		<div class="col-xs-12">
+    			<div class="text-center">
+					<ul class="pagination pagination-lg">
+                      <?php if ($get == 0) { ?>
+						  <li class="disabled"><a>&laquo; <span class="hidden-xs">Anterior</span></a></li>
+						  <?php } else { ?>
+						  <li><a href="<?php echo $link."=".($get-1);?>">&laquo; <span class="hidden-xs">Anterior</span></a></li><?php
+						  } 
+                     
+					  
+                      if ($get == 0) {?>
+					    <li class="active"><a href="<?php echo $link."=".$get?>"><?php echo $get;?></a></li>
+                        <li><a href="<?php echo $link."=".($get+1)?>"><?php echo ($get +1);?></a></li>
+                      	<li><a href="<?php echo $link."=".($get+2)?>"><?php echo ($get +2);?></a></li>
+                        <li><a href="<?php echo $link."=".($get+3)?>"><?php echo ($get +3);?></a></li>
+                      	<li><a href="<?php echo $link."=".($get+4)?>"><?php echo ($get +4);?></a></li>
+                      <?php } else if ($get == 1) { ?>
+                      	<li><a href="<?php echo $link."=".($get-1)?>"><?php echo $get-1;?></a></li>
+                        <li class="active"><a href="<?php echo $link."=".($get)?>"><?php echo ($get);?></a></li>
+                      	<li><a href="<?php echo $link."=".($get+1)?>"><?php echo ($get +1);?></a></li>
+                        <li><a href="<?php echo $link."=".($get+2)?>"><?php echo ($get +2);?></a></li>
+                      	<li><a href="<?php echo $link."=".($get+3)?>"><?php echo ($get +3);?></a></li>
+                      <?php } else if ($get+1 >= $count) { ?>
+                        <li><a href="<?php echo $link."=".($get-2)?>"><?php echo $get-2;?></a></li>
+                        <li><a href="<?php echo $link."=".($get-1)?>"><?php echo ($get-1);?></a></li>
+                      	<li class="active"><a href="<?php echo $link."=".($get)?>"><?php echo ($get);?></a></li>
+                        <li class="disabled"><a><?php echo ($get +1);?></a></li>
+                      	<li class="disabled"><a><?php echo ($get +2);?></a></li>
+					  <?php } else {
+                      ?>
+					  <li><a href="<?php echo $link."=".($get-2)?>"><?php echo ($get -2);?></a></li>
+                      <li><a href="<?php echo $link."=".($get-1)?>"><?php echo ($get -1);?></a></li>
+                      <li <?php if($gt == $get){echo "class='active'";}else{} ?>><a href="<?php echo $link."=".$get?>"><?php echo $get;?></a></li>
+                      <li><a href="<?php echo $link."=".($get+1)?>"><?php echo ($get +1);?></a></li>
+                      <li><a href="<?php echo $link."=".($get+2)?>"><?php echo ($get +2);?></a></li>
+                      <?php } ?>
+                      
+                      <?php if($get+1 >= $count){
+						  ?><li class="disabled"><a><span class="hidden-xs">Siguiente</span> &raquo;</a></li><?php
+						  }else {
+						  ?><li><a href="<?php echo $link."=".($get+1);?>"><span class="hidden-xs">Siguiente</span> &raquo;</a></li><?php
+							  }?>
+                    </ul>
+    			</div>
+    		</div>
+    	</div>
+	<?php
+} else { ?>
+	<div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div><?php
+	}
+}
 ?>

@@ -29,7 +29,7 @@
                   <?php if (!isset($_SESSION['username'])) { ?>
           <div class="visible-xs pull-right navbar-xs">
             <div class="btn-group">
-              <button type="button" class="btn btn-warning"  onclick="document.location.href='?p=login'"><span class="glyphicon glyphicon-info-sign"></span> Iniciar sesión</button>
+              <button type="button" class="btn btn-warning"  onclick="document.location.href='?p=login'"><span class="glyphicon glyphicon-info-sign"></span></button>
               <button type="submit" class="btn btn-danger" onclick="document.location.href='?p=registro'"><span class="glyphicon glyphicon-hand-right"></span> Crear cuenta</button>
             </div>
           </div>

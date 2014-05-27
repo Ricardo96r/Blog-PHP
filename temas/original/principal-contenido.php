@@ -1,8 +1,9 @@
 <?php
 $counts = mysql_query("SELECT idpublicacion FROM publicaciones") or die (mysql_error());
 $count = (mysql_num_rows($counts));
+
 if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
-	if ($_GET['pos'] <= (($count / 10))) {
+	if (($_GET['pos'] + 0.1) <= (($count / 10))) {
 		$inicio=$_GET['pos'];
 	} else {
 		header("Location: ?&p=404");  
@@ -59,49 +60,9 @@ if (!isset($_GET['id'])) {
 			}
 				
 	}
-	$proximo = $inicio+1;
 	
-if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
-	if (($_GET['pos'] + 2) <= (($count / 10))) {
-	?>
-	<div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div>
-	<?php
-	?><a href="?&pos=<?php echo $proximo; ?>">
-	<div class="row">
-    <div class="col-xs-12">
-    <div class=" well-bl text-center">
-		Mostrar más
-    </div>
-    </div>
-    </div>
-	</a><?php
-	} else {
-	?>
-	<div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div>
-	<?php	?>
-	<div class="row">
-    <div class="col-xs-12">
-    <div class=" well-bl text-center">
-		No hay mas publicaciones disponibles
-    </div>
-    </div>
-    </div>
-	<?php
-	}
-} else {
-		?>
-	<div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div>
-	<?php
-	?><a href="?&pos=<?php echo $proximo; ?>">
-	<div class="row">
-    <div class="col-xs-12">
-    <div class=" well-bl text-center">
-		Mostrar más
-    </div>
-    </div>
-    </div>
-	</a><?php
-	}
+	$link = "?pos";
+	mostrar_mas($inicio, $count, $link);
 		
 /* 
 	COMENTARIOS

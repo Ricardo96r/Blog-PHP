@@ -67,34 +67,15 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 		</div>
 	</div>
     <div class="row">
-        <div class="col-md-12 text-center">
-         	<div class="btn-group">
-            <button class="btn btn-warning">
-                Seguidores
-            </button>
-            <button class="btn btn-danger">
-                <?php echo mysql_num_rows($perfil_notas);?>
-            </button>
-            </div>
-        	<div class="btn-group">
-            <button class="btn btn-warning">
-                Siguiendo
-            </button>
-            <button class="btn btn-danger">
-                <?php echo mysql_num_rows($perfil_notas);?>
-            </button>
-            </div>
-        	<div class="btn-group">
-            <button class="btn btn-warning">
-                Publicaciones
-            </button>
-            <button class="btn btn-danger">
-                <?php echo mysql_num_rows($perfil_notas);?>
-            </button>
-            </div>
+        <div class="col-md-12">
+            <ul class="nav nav-pills">
+				<li><a href="#"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs"> Publicaciones</span><span class="badge">423</span></a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span><span class="badge">423</span></a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span><span class="badge">423</span></a></li>
+            </ul>
         </div>
     </div>
-    </div>
+</div>
     <div id="perfil-publicaciones">
 		<?php			
 		while ($nts = mysql_fetch_array($perfil_notas)) {
