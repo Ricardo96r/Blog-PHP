@@ -1,5 +1,5 @@
 
-	<div class="section">
+	<div class="section-image">
 	<div class="container">
     <div class="row">
-    <div class="col-md-8" role="main">
+    <div class="col-md-8 section" role="main">

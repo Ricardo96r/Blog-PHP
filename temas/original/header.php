@@ -25,7 +25,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="."><?php echo $prop['nombre'];?></a>
+          <a class="navbar-brand" href=".">Nombre</a>
                   <?php if (!isset($_SESSION['username'])) { ?>
           <div class="visible-xs pull-right navbar-xs">
             <div class="btn-group">
@@ -36,7 +36,7 @@
           <?php } else {?>
           <div class="visible-xs pull-right navbar-xs">
             <button type="button" class="btn btn-primary"  onclick="document.location.href='?p=publicar'">
-            	<span class="glyphicon glyphicon-edit"></span> Publica
+            	<span class="glyphicon glyphicon-edit"></span>
             </button>
             <div class="btn-group">
               <button type="button" class="btn btn-warning" onclick="document.location.href='?p=perfil&pf=<?php echo $pf['cuenta'];?>'">
@@ -58,8 +58,8 @@
         
         <div class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 			<ul class="nav navbar-nav">
-              <li><a href="."><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-              <li><a href="?p=explorar"><span class="glyphicon glyphicon-list-alt"></span> Explora</a></li>
+              <li <?php if($page == ""){echo"class='active'";}else{}?>><a href="."><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+              <li <?php if($page == "explorar"){echo"class='active'";}else{}?>><a href="?p=explorar"><span class="glyphicon glyphicon-list-alt"></span> Explora</a></li>
     		</ul>
         <?php if (!isset($_SESSION['username'])) { ?>
           <div class="navbar-form navbar-right hidden-xs">
