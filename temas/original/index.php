@@ -34,13 +34,14 @@
 	}else{
 		header("Location: ?p=404");
 	}
+	
 	/*
 		Load: Aside
 	*/
 	include("temas/".$prop['tema']."/aside.php");
+	
 	/*
 		Load: Aside
 	*/
 	include("temas/".$prop['tema']."/footer.php");
-	
 ?>

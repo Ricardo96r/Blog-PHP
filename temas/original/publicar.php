@@ -9,7 +9,7 @@ if(isset($_SESSION['username'])) {
 			<form enctype="multipart/form-data" method="post" action="">
                 <div id="publicar-form-file">
                     <input name="archivo" type="file" id="publicar-form-file-input">
-                    <div id="publicar-form-file-text">
+                    <div class="img-responsive" id="publicar-form-file-text">
                     	<button type="button" class="btn btn-warning btn-lg">
                             <span class="glyphicon glyphicon-camera"></span>
                             <div>Subir publicación</div>
@@ -40,13 +40,15 @@ if(isset($_SESSION['username'])) {
 				echo "La nota es muy corta, tiene que tener mas de 20 caracteres";
 			} elseif(strlen($nota) > 200) {
 				echo "La nota es muy larga, el máximo de caracteres es 200";
-			} elseif($_FILES["archivo"]["size"] > 200000000) {
-				echo "Foto invalida";
+			} elseif($_FILES["archivo"]["size"] > 6000000) {
+				echo "Foto invalida, la imagen exede los 5MB!";
 			} elseif($_FILES["archivo"]["error"] > 0) {
-				echo $_FILES["archivo"]["error"]. "Error al subir la imagen!";
+				echo "Error al subir la imagen!";
+			} elseif (($_FILES['archivo']['type'] != "image/*") and ($_FILES['archivo']['type'] = "image/gif")) { //REVISAR.
+				echo "Solo puede subir imagenes o gifs!";
 			} elseif(file_exists($ruta.$name)) {
 				echo "Error anormal, reporte. Intente nuevamente.";
-				
+			
 			/*
 				Accion realizada cuando no se encuentran errores mencionados arriba
 			*/

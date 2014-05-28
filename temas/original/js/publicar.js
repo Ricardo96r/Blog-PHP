@@ -13,7 +13,7 @@ function archivo(evt) {
 	reader.onload = (function(theFile) {
 		return function(e) {
 		  // Insertamos la imagen
-		 document.getElementById("publicar-form-file-text").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+		 document.getElementById("publicar-form-file-text").innerHTML = ['<img class="thumb img-responsive" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
 		 $("#publicar-form-file").css({ padding: "0px",});
 		};
 	})(f);

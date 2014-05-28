@@ -25,6 +25,7 @@ if (isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 0 /* and $
 	INNER JOIN cuentas
 	ON cuentas.idcuenta = comentarios.cuentas_idcuenta
 	WHERE publicaciones.idpublicacion=$com
+	ORDER BY `idcomentario` DESC
 	", $conn) or die(mysql_error());
 } else {
 	#REVISAR EN EL FUTURO
@@ -81,25 +82,42 @@ if (!isset($_GET['id'])) {
 		post($reg);?>
 		<div class="row">
             <div class="col-xs-12">
-            <div class="panel panel-warning">
-              <div class="panel-heading">
-                <h3 class="panel-title">Comentarios</h3>
-              </div>
-              <div class="panel-body">
+
 
 		<?php
 		if(isset($_SESSION['username'])) {
 			if(!isset($_POST['enviar_nota'])) {
 				?>
+                        <script>
+						function comentario(msg, idmsg){
+								var parametros = {
+										"msg" : msg,
+										"idmsg" : idmsg,
+								};
+								$.ajax({
+										data:  parametros,
+										url:   '<?php echo "temas/".$prop['tema']."/ajax/comentario.php"; ?>',
+										type:  'post',
+										beforeSend: function () {
+												$("#resultado").html("Cargando...");
+										},
+										success:  function (response) {
+												$("#resultado").html(response);
+										}
+								});
+						}
+						</script>
                 <div class="well-bl-1">
                 	Manda un comentario:
                     <form method="post" action="">
-                        <textarea class="form-control" type="text" name="comentario" maxlength="400" required></textarea>
-                        <input class="btn btn-warning form-control" type="submit" name="enviar_nota" value="Enviar comentario">
+                        <textarea class="form-control" id="comentario" type="text" name="comentario" maxlength="400" required></textarea>
+                        <buttom class="btn btn-warning form-control" name="enviar_notas"
+                        onclick="comentario($('#comentario').val(), <?php echo $com;?>);return false;">Enviar comentario</buttom>
+                        <div id="resultado"></div>
                     </form>
 				</div><?php
             } else {
-				?><div class="fondo" id="comentario_enviar"><?php
+				?><div class="well-bl-1"><?php
                 $idcuentap = mysql_query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'");
                 $idcuentap2 = mysql_fetch_array($idcuentap);
                 $idcuenta = $idcuentap2['idcuenta'];
@@ -140,8 +158,6 @@ if (!isset($_GET['id'])) {
 		header("Location: ?&pos=$inicio");
 		}
 		?>
-			</div>
-		</div>
 	</div>
 </div>
 		<?php

@@ -49,7 +49,7 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
     	<div class="col-xs-12">
             <div class="row">
                 <div class="col-xs-12">
-                    <img class="center-block" src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
+                    <img class="img-perfil center-block" src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
                 </div>
             </div>
             <h4>

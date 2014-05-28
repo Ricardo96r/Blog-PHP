@@ -128,8 +128,71 @@ function post ($dt) {
             <div class="col-xs-12">
                 <div class="pb-bottom">
                     <ul class="nav nav-pills">
-                      <li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span><span class="badge">423</span></a></li>
-                      <li><a href="#"><span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span><span class="badge">423</span></a></li>
+                    	<?php /* Me gusta */ ?>
+                        <script>
+						function me_gusta_<?php echo $dt['idpublicacion']?>(idpb){
+								var parametros = {
+										"idpb" : idpb,
+								};
+								$.ajax({
+										data:  parametros,
+										url:   '<?php echo "temas/".$prop['tema']."/ajax/megusta.php"; ?>',
+										type:  'post',
+										beforeSend: function () {
+												$("#resultado_<?php echo $dt['idpublicacion']?>").html("O");
+										},
+										success:  function (response) {
+												$("#resultado_<?php echo $dt['idpublicacion']?>").html(response);
+										}
+								});
+						}
+						</script>
+                      <?php
+					  	$mg_p = mysql_query("SELECT * FROM megusta WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'") or die(mysql_error());
+						$mg = mysql_num_rows($mg_p);
+					  ?>
+                      <li onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
+                      <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
+                      <span class="badge" id="resultado_<?php echo $dt['idpublicacion']?>"><?php echo $mg;?></span>
+                      </a></li>
+                      
+                      <?php /* Favoritos */ ?>
+                      	<script>
+						function favoritos_<?php echo $dt['idpublicacion']?>(idpb){
+								var parametros = {
+										"idpb" : idpb,
+								};
+								$.ajax({
+										data:  parametros,
+										url:   '<?php echo "temas/".$prop['tema']."/ajax/favoritos.php"; ?>',
+										type:  'post',
+										beforeSend: function () {
+												$("#fav_<?php echo $dt['idpublicacion']?>").html("Enviando");
+										},
+										success:  function (response) {
+												$("#fav_<?php echo $dt['idpublicacion']?>").html(response);
+										}
+								});
+						}
+						</script>
+                      <?php
+					  	$fav_p = mysql_query("SELECT * FROM favoritos WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'") or die(mysql_error());
+						$fav = mysql_num_rows($fav_p);
+					  ?>
+                      <li onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
+                      <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
+                      <span class="badge" id="fav_<?php echo $dt['idpublicacion']?>"><?php echo $fav;?></span>
+                      </a></li>
+                      
+                      <?php
+					  	$com_p = mysql_query("SELECT * FROM comentarios WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'") or die(mysql_error());
+						$com = mysql_num_rows($com_p);
+					  ?>
+                      <li><a>
+                      <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"></span>
+                      <span class="badge"><?php echo $com;?></span>
+                      </a></li>
+                      
                         <li class="dropup  pull-right">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                               <span class="glyphicon glyphicon-th"></span><span class="hidden-xs"> Compartir</span><span class="caret"></span>
@@ -259,4 +322,5 @@ if (isset($get) and is_numeric($get) and $get >= 0) {
 	<div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div><?php
 	}
 }
+
 ?>
