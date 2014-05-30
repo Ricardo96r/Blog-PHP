@@ -18,7 +18,7 @@
 		
 	$inicio_2 = $inicio*10;
 	$registros=mysql_query("
-		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
+		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
 		FROM cuentas
 		INNER JOIN publicaciones 
 		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
@@ -73,7 +73,7 @@
 			
 			$getcom_2 = $getcom * 10;
 			$com_o=mysql_query("
-			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
+			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
 			FROM comentarios 
 			INNER JOIN publicaciones
 			ON publicaciones.idpublicacion = comentarios.publicaciones_idpublicacion
@@ -88,7 +88,7 @@
 	
 	if(isset($getpb)) {
 		$pb_o=mysql_query("
-		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
+		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
 		FROM cuentas
 		INNER JOIN publicaciones 
 		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
@@ -125,14 +125,17 @@
 						}
 						</script>
                 <div class="well-bl-1">
-                	Manda un comentario: <?php echo "Comentarios: ".$count."Getcom: ".$getcom?>
                     <form method="post" action="">
                         <textarea class="form-control" id="comentario" type="text" name="comentario" maxlength="400" required></textarea>
                         <buttom class="btn btn-warning form-control" name="enviar_notas"
                         onclick="comentario($('#comentario').val(), <?php echo $getpb;?>);return false;">Enviar comentario</buttom>
                         <div id="resultado"></div>
                     </form>
-				</div><?php
+				</div>
+				                <div class="well-bl-1">
+                	<h4>Comentarios</h4>
+                </div><?php
+				
             } else {
 				?><div class="well-bl-1"><?php
                 $idcuentap = mysql_query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'");
@@ -162,7 +165,7 @@
 		}
 		if (mysql_num_rows($com_o) > 0) {
 			while ($cm=mysql_fetch_array($com_o)) {
-				post($cm);
+				comentario($cm);
 				}
 		} else {
 			?><div class="row">

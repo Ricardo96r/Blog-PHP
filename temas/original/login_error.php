@@ -1,7 +1,6 @@
  <div class="well-bl-1">
 	<?php
     if (!isset($_SESSION['username'])) {
-        if (!isset($_POST['login_lg'])) {
     ?>
 <div class="row">
 	<div class="col-xs-12">
@@ -22,35 +21,46 @@
                 No cerrar sesión
             </label>
         </div>
-        <input class="btn btn-warning form-control" type="submit" name="login_lg" value="Entrar">
+            <script>
+	function login(permiso, email2, contraseña2){
+			var parametros = {
+					"permiso" : permiso,
+					"email2" : email2,
+					"contraseña2" : contraseña2,
+			};
+			$.ajax({
+					data:  parametros,
+					url:   '<?php echo "temas/".$prop['tema']."/ajax/login.php"; ?>',
+					type:  'post',
+					beforeSend: function () {
+							$("#resultado").html("Enviando...");
+					},
+					success:  function (response) {
+							$("#resultado").html(response);
+					}
+			});
+	}
+	</script>
+        <buttom type="submit" onclick="login(
+        'allowed',
+        $('#login-form-email').val(),
+        $('#login-form-contraseña').val()
+        );return false;" class="btn btn-warning form-control">Iniciar sesión</buttom>
         </p>
     </form>
+    <div id="resultado">
+    <?php if (isset($refresh)) {
+    	header("location: ?p=''");
+    } else {
+    
+    }?>
+    </div>
     <div class="text-center">
         <a href="#">¿Olvidaste tu contraseña?</a>
     </div>
     </div>
 </div>
     <?php 
-    } else {
-        $sesion = mysql_query("SELECT email, contraseña FROM cuentas WHERE email = '$_POST[email2]'");
-        $sesion1 = mysql_fetch_array($sesion);
-    
-        if (isset($_POST["email2"]) and !empty($_POST["email2"]) and
-            isset($_POST["contraseña2"]) and !empty($_POST["contraseña2"])) {
-            if ($_POST["contraseña2"] === $sesion1["contraseña"]) {
-                $_SESSION["username"] = $_POST["email2"];
-                echo "Conectando a la web";
-                header("Location: ".$_SERVER['HTTP_REFERER']);
-                
-            } else {
-                header("Location: ?p=login");
-                echo "Contraseña incorrecta o email incorrecto";
-                }
-            } else {
-                header("Location: ?p=login");
-                echo "Alguno de los campos esta vacio";
-                }	
-            } 
     } else { 
         header("Location: ?p=404");
     }

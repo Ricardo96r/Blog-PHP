@@ -9,7 +9,7 @@ Mysql -> tabla -> verificado {
 */
 
 $explorar = mysql_query("
-	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion 
+	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion 
 	FROM publicaciones
 	INNER JOIN cuentas
 	ON cuentas.idcuenta = publicaciones.cuentas_idcuenta

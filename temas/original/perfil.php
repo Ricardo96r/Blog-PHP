@@ -4,7 +4,7 @@
 if (isset($_GET['pf'])) {
 	$perfil_get = antiSqlInjection($_GET['pf']);
   	$perfil_op = mysql_query("
-		SELECT idcuenta, cuenta, email, nombres, apellidos, nacimiento, sexo, imagen_perfil, imagen_perfil_fondo
+		SELECT idcuenta, cuenta, email, nombre, nacimiento, sexo, imagen_perfil, imagen_perfil_fondo
 		FROM cuentas WHERE cuenta = '$perfil_get'"
 		, $conn) or die (mysql_error());
 	$perfil = mysql_fetch_array($perfil_op);
@@ -34,7 +34,7 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 		if($perfil == !NULL) { 
 		$pfinicio_2 = $pfinicio*10;
 		$perfil_notas = mysql_query("
-			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombres, cuentas.apellidos, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
+			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
 			FROM cuentas
 			INNER JOIN publicaciones 
 			ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
@@ -55,7 +55,7 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
             <h4>
             <div class="row">
                 <div class="col-xs-12 text-center">
-            		<?php echo $perfil['nombres']." ".$perfil['apellidos'];?>
+            		<?php echo $perfil['nombre'];?>
             	</div>
             </div>
 			<div class="row">

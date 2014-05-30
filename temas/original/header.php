@@ -75,7 +75,7 @@
             </button>
             <div class="btn-group">
               <button type="button" class="btn btn-warning" onclick="document.location.href='?p=perfil&pf=<?php echo $pf['cuenta'];?>'">
-                <span class="glyphicon glyphicon-user"></span> <?php echo " ".$pf['nombres']." ".$pf['apellidos']?>
+                <span class="glyphicon glyphicon-user"></span> <?php echo " ".$pf['nombre']?>
               </button>
             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                 <span class="glyphicon glyphicon-cog"></span>
