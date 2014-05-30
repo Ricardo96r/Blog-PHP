@@ -112,7 +112,7 @@ function post ($dt) {
             <div class="col-xs-12">
                 <div class="pb-pb center-block">
                 <?php if (!isset($dt['idcomentario'])) {?>
-                    <a class='a-clear' href='?id=<?php echo $dt['idpublicacion']; ?>'>
+                    <a class='a-clear' href='?pb=<?php echo $dt['idpublicacion']; ?>'>
                         <?php echo "<img class='image-md center-block' src="."static-content/publicaciones/".$dt['ruta'].">"; ?>
                         <div class="center-block pb-text">
                             <?php echo $dt['publicacion']; ?>
