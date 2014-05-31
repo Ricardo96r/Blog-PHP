@@ -265,76 +265,76 @@ function mostrar_mas($get, $count, $link) {
 					<ul class='pagination pagination-lg'><?php
                       if ($count != 0) {
                       	if ($get == 0) {
-						  echo "<li class='disabled'><a>&laquo; <span class='hidden-xs'>Anterior</span></a></li>";
+						  echo "<li class='disabled'><a>&laquo; Anterior</a></li>";
 						 } else {
-						  echo "<li><a href='".$link."=".($get-1)."'>&laquo;<span class='hidden-xs'>Anterior</span></a></li>";
+						  echo "<li><a href='".$link."=".($get-1)."'>&laquo; Anterior</a></li>";
 						 }
-						 
+					
 					# Si get == 0
                       if ($get == 0) {
-						echo "<li class='active'><a href=".$link."=".($get).">".($get)."</a></li>";
+						echo "<li class='active hidden-xs'><a href=".$link."=".($get).">".($get)."</a></li>";
 						if ($get + 1 >= $count) { 
-						   echo "<li class='disabled'><a>".($get+1)."</a></li>";
+						   echo "<li class='disabled hidden-xs'><a>".($get+1)."</a></li>";
 						    } else {
-							   echo "<li><a href=".$link."=".($get+1).">".($get +1)."</a></li>";
+							   echo "<li class='hidden-xs'><a href=".$link."=".($get+1).">".($get +1)."</a></li>";
 							    } 
                       	if ($get + 2 >= $count) { 
-						   echo "<li class='disabled'><a>".($get+2)."</a></li>";
+						   echo "<li class='disabled hidden-xs'><a>".($get+2)."</a></li>";
 						    } else {
-							   echo "<li><a href=".$link."=".($get+2).">".($get +2)."</a></li>";
+							   echo "<li class='hidden-xs'><a href=".$link."=".($get+2).">".($get +2)."</a></li>";
 							    } 
 						if ($get + 3 >= $count) { 
-						   echo "<li class='disabled'><a>".($get+3)."</a></li>";
+						   echo "<li class='disabled hidden-xs'><a>".($get+3)."</a></li>";
 						    } else {
-							   echo "<li><a href=".$link."=".($get+3).">".($get +3)."</a></li>";
+							   echo "<li class='hidden-xs'><a href=".$link."=".($get+3).">".($get +3)."</a></li>";
 							    } 
 						if ($get + 4 >= $count) { 
-						   echo "<li class='disabled'><a>".($get+4)."</a></li>";
+						   echo "<li class='disabled hidden-xs'><a>".($get+4)."</a></li>";
 						    } else {
-							   echo "<li><a href=".$link."=".($get+4).">".($get +4)."</a></li>";
+							   echo "<li class='hidden-xs'><a href=".$link."=".($get+4).">".($get +4)."</a></li>";
 							    } 
 								
 					  # SI GET = 1
 					  } else if ($get == 1) {
-						echo "<li><a href=".$link."=".($get-1).">".($get -1)."</a></li>"; 
-						echo "<li class='active'><a href=".$link."=".($get).">".($get)."</a></li>";
+						echo "<li class='hidden-xs'><a href=".$link."=".($get-1).">".($get -1)."</a></li>"; 
+						echo "<li class='active hidden-xs'><a href=".$link."=".($get).">".($get)."</a></li>";
 						if ($get + 1 >= $count) { 
-						   echo "<li class='disabled'><a>".($get+1)."</a></li>";
+						   echo "<li class='disabled hidden-xs'><a>".($get+1)."</a></li>";
 						    } else {
-							   echo "<li><a href=".$link."=".($get+1).">".($get +1)."</a></li>";
+							   echo "<li class='hidden-xs'><a href=".$link."=".($get+1).">".($get +1)."</a></li>";
 							    } 
                       	if ($get + 2 >= $count) { 
-						   echo "<li class='disabled'><a>".($get+2)."</a></li>";
+						   echo "<li class='disabled hidden-xs'><a>".($get+2)."</a></li>";
 						    } else {
-							   echo "<li><a href=".$link."=".($get+2).">".($get +2)."</a></li>";
+							   echo "<li class='hidden-xs'><a href=".$link."=".($get+2).">".($get +2)."</a></li>";
 							    }
 						if ($get + 3 >= $count) { 
-						   echo "<li class='disabled'><a>".($get+3)."</a></li>";
+						   echo "<li class='disabled hidden-xs'><a>".($get+3)."</a></li>";
 						    } else {
-							   echo "<li><a href=".$link."=".($get+3).">".($get +3)."</a></li>";
+							   echo "<li class='hidden-xs'><a href=".$link."=".($get+3).">".($get +3)."</a></li>";
 							    } 
                        		 
 					   
 						#Si get > 1
 					  } else {
-						echo "<li><a href=".$link."=".($get-2).">".($get -2)."</a></li>";
-						echo "<li><a href=".$link."=".($get-1).">".($get -1)."</a></li>"; 
-						echo "<li class='active'><a href=".$link."=".($get).">".($get)."</a></li>";
+						echo "<li class='hidden-xs'><a href=".$link."=".($get-2).">".($get -2)."</a></li>";
+						echo "<li class='hidden-xs'><a href=".$link."=".($get-1).">".($get -1)."</a></li>"; 
+						echo "<li class='active hidden-xs'><a href=".$link."=".($get).">".($get)."</a></li>";
 						if ($get + 1 >= $count) { 
-						   echo "<li class='disabled'><a>".($get+1)."</a></li>";
+						   echo "<li class='disabled hidden-xs'><a>".($get+1)."</a></li>";
 						    } else {
-							   echo "<li><a href=".$link."=".($get+1).">".($get +1)."</a></li>";
+							   echo "<li class='hidden-xs'><a href=".$link."=".($get+1).">".($get +1)."</a></li>";
 							    } 
                       	if ($get + 2 >= $count) { 
-						   echo "<li class='disabled'><a>".($get+2)."</a></li>";
+						   echo "<li class='disabled hidden-xs'><a>".($get+2)."</a></li>";
 						    } else {
-							   echo "<li><a href=".$link."=".($get+2).">".($get +2)."</a></li>";
+							   echo "<li class='hidden-xs'><a href=".$link."=".($get+2).">".($get +2)."</a></li>";
 							    }
 					  }
 						if($get+1 >= $count) {
-						  echo "<li class='disabled'><a><span class='hidden-xs'>Siguiente</span> &raquo;</a></li>";
+						  echo "<li class='disabled'><a>Siguiente &raquo;</a></li>";
 						  } else {
-						  echo "<li><a href='".$link."=".($get+1)."'><span class='hidden-xs'>Siguiente</span> &raquo;</a></li>";
+						  echo "<li><a href='".$link."=".($get+1)."'>Siguiente &raquo;</a></li>";
 							}
 					#No hay nada esto pasa cuando count vale 0!
 					  } else {
