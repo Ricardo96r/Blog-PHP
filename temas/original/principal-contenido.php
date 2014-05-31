@@ -157,9 +157,7 @@
                     }
                 }
 		} else { ?>
-        <div class="row">
-        <div class="col-xs-12">
-        <div class="well-bl-1">
+        <div class="row"><div class="col-xs-12"><div class="well-bl-1">
 			<?php echo "Para escribir un comentario nesecitas tener una cuenta e iniciar sesión"; ?>
         </div></div></div><?php
 		}
