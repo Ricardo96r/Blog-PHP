@@ -258,7 +258,7 @@ function mostrar_mas($get, $count, $link) {
 		$count /= 10;
 		$gt = $get;
 	?>
-	<div class='well-bl-2 visible-xs visible-sm'><div class='row'><div class='col-xs-12'><?php publicidad() ?>"</div></div></div>
+	<div class='well-bl-2 visible-xs visible-sm'><div class='row'><div class='col-xs-12'><?php publicidad();?></div></div></div>
 		<div class='row'>
     		<div class='col-xs-12'>
     			<div class='text-center'>
@@ -334,7 +334,7 @@ function mostrar_mas($get, $count, $link) {
 						if($get+1 >= $count) {
 						  echo "<li class='disabled'><a><span class='hidden-xs'>Siguiente</span> &raquo;</a></li>";
 						  } else {
-						  echo "<li><a href='".$link."=".($get+1)."><span class='hidden-xs'>Siguiente</span> &raquo;</a></li>";
+						  echo "<li><a href='".$link."=".($get+1)."'><span class='hidden-xs'>Siguiente</span> &raquo;</a></li>";
 							}
 					#No hay nada esto pasa cuando count vale 0!
 					  } else {
@@ -345,3 +345,196 @@ function mostrar_mas($get, $count, $link) {
 		header("Location: ?p=404");
 		}
 	}
+
+function comentario ($dt) {
+	global $prop; //Para usar la global $prop en una funcion
+	?>
+    <div class="well-bl-1">
+        <div class="row">
+            <div class="col-xs-12">
+            	<div class="pb-top">
+                    <a href="?p=perfil&pf=<?php echo $dt['cuenta'];?>">
+                    <div class="pull-left pb-ftpf">
+                        <img class="image-sm" src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
+                    </div>
+                    
+                    <div>
+                    <?php echo $dt['nombre']."" ?></a>
+                    <a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo " - @".$dt['cuenta']."" ?></a>     
+                    </div>
+                    
+                    <span class="time" data-toggle="tooltip" data-placement="right" title="" data-original-title="<?php echo $dt['tiempo_de_creacion'];?>">
+                    <?php echo "<small>".tiempo_transcurrido($dt['tiempo_de_creacion'])."</small>";?>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="pb-pb center-block">
+					<?php echo $dt['comentario']; ?>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="pb-bottom">
+                    <ul class="nav nav-pills">
+                    	<?php /* Me gusta */ ?>
+                        <script>
+						function comentarios_megusta_<?php echo $dt['idcomentario']?>(idcom){
+								var parametros = {
+										"idcom" : idcom,
+								};
+								$.ajax({
+										data:  parametros,
+										url:   '<?php echo "temas/".$prop['tema']."/ajax/comentarios_megusta.php"; ?>',
+										type:  'post',
+										beforeSend: function () {
+												$("#comentario_megusta_<?php echo $dt['idcomentario']?>").html("O");
+										},
+										success:  function (response) {
+												$("#comentario_megusta_<?php echo $dt['idcomentario']?>").html(response);
+										}
+								});
+						}
+						</script>
+                      <?php
+					  	$mg_p = mysql_query("SELECT * FROM comentarios_megusta WHERE comentarios_idcomentario = '$dt[idcomentario]'") or die(mysql_error());
+						$mg = mysql_num_rows($mg_p);
+					  ?>
+                      <li onclick="comentarios_megusta_<?php echo $dt['idcomentario']?>(<?php echo $dt['idcomentario']; ?>);return false;"><a>
+                      <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
+                      <span class="badge" id="comentario_megusta_<?php echo $dt['idcomentario']?>"><?php echo $mg;?></span>
+                      </a></li>
+                      
+                      <?php /* Favoritos */ ?>
+                      	<script>
+						function comentarios_favoritos_<?php echo $dt['idcomentario']?>(idcom){
+								var parametros = {
+										"idcom" : idcom,
+								};
+								$.ajax({
+										data:  parametros,
+										url:   '<?php echo "temas/".$prop['tema']."/ajax/comentarios_favoritos.php"; ?>',
+										type:  'post',
+										beforeSend: function () {
+												$("#comentario_fav_<?php echo $dt['idcomentario']?>").html("Enviando");
+										},
+										success:  function (response) {
+												$("#comentario_fav_<?php echo $dt['idcomentario']?>").html(response);
+										}
+								});
+						}
+						</script>
+                      <?php
+					  	$fav_p = mysql_query("SELECT * FROM comentarios_favoritos WHERE comentarios_idcomentario = '$dt[idcomentario]'") or die(mysql_error());
+						$fav = mysql_num_rows($fav_p);
+					  ?>
+                      <li onclick="comentarios_favoritos_<?php echo $dt['idcomentario']?>(<?php echo $dt['idcomentario']; ?>);return false;"><a>
+                      <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
+                      <span class="badge" id="comentario_fav_<?php echo $dt['idcomentario']?>"><?php echo $fav;?></span>
+                      </a></li>
+                      
+                      <?php
+					  	$com_p = mysql_query("SELECT * FROM subcomentarios WHERE comentarios_idcomentario = '$dt[idcomentario]'") or die(mysql_error());
+						$com = mysql_num_rows($com_p);
+					  ?>
+                      <li><a>
+                      <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"></span>
+                      <span class="badge"><?php echo $com;?></span>
+                      </a></li>
+                      
+                      
+                        <li class="pull-right">
+                            <a data-toggle="modal" data-target="#myModal">
+                              <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
+                            </a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Responder a <strong><?php echo $dt['nombre'];?></strong>
+                                 - <small>@<?php echo $dt['cuenta'];?></small></h4>
+                              </div>
+                              <div class="modal-body">
+                              <div class="well-bl-1">
+                              <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="pb-top">
+                                        <a href="?p=perfil&pf=<?php echo $dt['cuenta'];?>">
+                                        <div class="pull-left pb-ftpf">
+                                            <img class="image-sm" src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
+                                        </div>
+                                        
+                                        <div>
+                                        <?php echo $dt['nombre']."" ?></a>
+                                        <a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo " - @".$dt['cuenta']."" ?></a>     
+                                        </div>
+                                        
+                                        <span class="time" data-toggle="tooltip" data-placement="right" title="" data-original-title="<?php echo $dt['tiempo_de_creacion'];?>">
+                                        <?php echo "<small>".tiempo_transcurrido($dt['tiempo_de_creacion'])."</small>";?>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="pb-pb center-block">
+                                    <?php if (!isset($dt['idcomentario'])) {?>
+                                        <a class='a-clear' href='?pb=<?php echo $dt['idpublicacion']; ?>'>
+                                            <?php echo "<img class='image-md center-block' src="."static-content/publicaciones/".$dt['ruta'].">"; ?>
+                                            <div class="center-block pb-text">
+                                                <?php echo $dt['publicacion']; ?>
+                                            </div>
+                                        </a>
+                                    <?php } else {?>
+                                            <?php echo $dt['comentario']; ?>
+                                    <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-xs-12">
+                                <div class="pb-bottom">
+                                    <ul class="nav nav-pills">
+                                        <?php /* Me gusta */ ?>
+                                      <li onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
+                                      <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
+                                      <span class="badge" id="resultado_<?php echo $dt['idpublicacion']?>"><?php echo $mg;?></span>
+                                      </a></li>
+                                      <li onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
+                                      <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
+                                      <span class="badge" id="fav_<?php echo $dt['idpublicacion']?>"><?php echo $fav;?></span>
+                                      </a></li>
+                                      <li><a>
+                                      <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"></span>
+                                      <span class="badge"><?php echo $com;?></span>
+                                      </a></li>
+                           			</ul>
+                            	</div>
+                            </div>
+                            </div>
+                            
+                            </div>
+                            <h4><strong>Responder</strong></h4>
+                              <form method="post" action="">
+                                <textarea rows="5" class="form-control" id="comentario" type="text" name="comentario" maxlength="400" required></textarea>
+                              </form>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-warning">Responder</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                       </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</div>
+<?php } 

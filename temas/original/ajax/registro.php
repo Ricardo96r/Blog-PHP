@@ -33,11 +33,13 @@
 
 	$crevisar = mysql_query("SELECT cuenta FROM `cuentas` WHERE `cuenta`='".$cuenta."'") or die(mysql_error());
 	$erevisar = mysql_query("SELECT email FROM `cuentas` WHERE `email`='".$email."'") or die(mysql_error());
+	
 	/*
 	-----------------------
 	Errores al registrarse
 	-----------------------
 	*/
+	
 	//$cuenta
 	 if(!isset($cuenta) or empty($cuenta)) {
 		echo "Porfavor llene el nombre de usuario";
@@ -99,12 +101,13 @@
 	//$sexo
 	} elseif (!isset($sexo) or empty($sexo) or $sexo == 3) { //REVISAR ERROR
 		echo "Porfavor llene el campo sexo";
-		
+	
 	/*
 	----------------
 	Envio de datos
 	----------------
 	*/
+	
 	} else {
 		$ia = mysql_query("INSERT INTO `cuentas` (`cuenta`,`contraseña`,`nacimiento`,`email`,`nombre`,`sexo`) VALUES ('".$cuenta."','".$contraseña."','".$nacimiento."','".$email."','".$nombres."','".$sexo."')") or die(mysql_error());
 			
