@@ -447,11 +447,11 @@ function comentario ($dt) {
                       
                       
                         <li class="pull-right">
-                            <a data-toggle="modal" data-target="#myModal">
+                            <a data-toggle="modal" data-target="#comentario_subcomentario_<?php echo $dt['idcomentario']?>">
                               <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
                             </a>
                         <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="comentario_subcomentario_<?php echo $dt['idcomentario']?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -460,73 +460,34 @@ function comentario ($dt) {
                                  - <small>@<?php echo $dt['cuenta'];?></small></h4>
                               </div>
                               <div class="modal-body">
-                              <div class="well-bl-1">
-                              <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="pb-top">
-                                        <a href="?p=perfil&pf=<?php echo $dt['cuenta'];?>">
-                                        <div class="pull-left pb-ftpf">
-                                            <img class="image-sm" src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
-                                        </div>
-                                        
-                                        <div>
-                                        <?php echo $dt['nombre']."" ?></a>
-                                        <a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo " - @".$dt['cuenta']."" ?></a>     
-                                        </div>
-                                        
-                                        <span class="time" data-toggle="tooltip" data-placement="right" title="" data-original-title="<?php echo $dt['tiempo_de_creacion'];?>">
-                                        <?php echo "<small>".tiempo_transcurrido($dt['tiempo_de_creacion'])."</small>";?>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="pb-pb center-block">
-                                    <?php if (!isset($dt['idcomentario'])) {?>
-                                        <a class='a-clear' href='?pb=<?php echo $dt['idpublicacion']; ?>'>
-                                            <?php echo "<img class='image-md center-block' src="."static-content/publicaciones/".$dt['ruta'].">"; ?>
-                                            <div class="center-block pb-text">
-                                                <?php echo $dt['publicacion']; ?>
-                                            </div>
-                                        </a>
-                                    <?php } else {?>
-                                            <?php echo $dt['comentario']; ?>
-                                    <?php } ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <div class="col-xs-12">
-                                <div class="pb-bottom">
-                                    <ul class="nav nav-pills">
-                                        <?php /* Me gusta */ ?>
-                                      <li onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
-                                      <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
-                                      <span class="badge" id="resultado_<?php echo $dt['idpublicacion']?>"><?php echo $mg;?></span>
-                                      </a></li>
-                                      <li onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
-                                      <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
-                                      <span class="badge" id="fav_<?php echo $dt['idpublicacion']?>"><?php echo $fav;?></span>
-                                      </a></li>
-                                      <li><a>
-                                      <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"></span>
-                                      <span class="badge"><?php echo $com;?></span>
-                                      </a></li>
-                           			</ul>
-                            	</div>
-                            </div>
-                            </div>
-                            
-                            </div>
-                            <h4><strong>Responder</strong></h4>
+								<script>
+								function subcomentario_<?php echo $dt['idcomentario']?>(msg, idmsg){
+										var parametros = {
+												"msg" : msg,
+												"idmsg" : idmsg,
+										};
+										$.ajax({
+												data:  parametros,
+												url:   '<?php echo "temas/".$prop['tema']."/ajax/subcomentario.php"; ?>',
+												type:  'post',
+												beforeSend: function () {
+														$("#resultado_subcomentario_<?php echo $dt['idcomentario']?>").html("Cargando...");
+												},
+												success:  function (response) {
+														$("#resultado_subcomentario_<?php echo $dt['idcomentario']?>").html(response);
+												}
+										});
+								}
+								</script>  
                               <form method="post" action="">
-                                <textarea rows="5" class="form-control" id="comentario" type="text" name="comentario" maxlength="400" required></textarea>
+                                <textarea rows="5" class="form-control" id="subcomentario_<?php echo $dt['idcomentario']?>" type="text" name="comentario" maxlength="400" required></textarea>
+                                <div class="text-center" id="resultado_subcomentario_<?php echo $dt['idcomentario']?>"></div>
                               </form>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-warning">Responder</button>
+                                <buttom class="btn btn-warning" name="enviar_notas"
+                                onclick="subcomentario_<?php echo $dt['idcomentario']?>($('#subcomentario_<?php echo $dt['idcomentario']?>').val(), <?php echo $dt['idcomentario']?>);return false;">Enviar subcomentario</buttom>
                               </div>
                             </div>
                           </div>

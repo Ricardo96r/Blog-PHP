@@ -105,35 +105,57 @@
 		if(isset($_SESSION['username'])) {
 			if(!isset($_POST['enviar_nota'])) {
 				?>
-                        <script>
-						function comentario(msg, idmsg){
-								var parametros = {
-										"msg" : msg,
-										"idmsg" : idmsg,
-								};
-								$.ajax({
-										data:  parametros,
-										url:   '<?php echo "temas/".$prop['tema']."/ajax/comentario.php"; ?>',
-										type:  'post',
-										beforeSend: function () {
-												$("#resultado").html("Cargando...");
-										},
-										success:  function (response) {
-												$("#resultado").html(response);
-										}
-								});
-						}
-						</script>
-                <div class="well-bl-1">
-                    <form method="post" action="">
-                        <textarea class="form-control" id="comentario" type="text" name="comentario" maxlength="400" required></textarea>
-                        <buttom class="btn btn-warning form-control" name="enviar_notas"
-                        onclick="comentario($('#comentario').val(), <?php echo $getpb;?>);return false;">Enviar comentario</buttom>
-                        <div id="resultado"></div>
-                    </form>
-				</div>
-				                <div class="well-bl-1">
-                	<h4>Comentarios</h4>
+				<script>
+                function comentario(msg, idmsg){
+                        var parametros = {
+                                "msg" : msg,
+                                "idmsg" : idmsg,
+                        };
+                        $.ajax({
+                                data:  parametros,
+                                url:   '<?php echo "temas/".$prop['tema']."/ajax/comentario.php"; ?>',
+                                type:  'post',
+                                beforeSend: function () {
+                                        $("#resultado").html("Cargando...");
+                                },
+                                success:  function (response) {
+                                        $("#resultado").html(response);
+                                }
+                        });
+                }
+                </script>   
+				<div class="well-bl-1">
+                    <ul class="nav nav-pills">
+                    	<li><a><strong>Comentarios</strong></a></li>
+                    	<li class="pull-right"> 
+                            <a data-toggle="modal" data-target="#responder_publicacion">
+                              <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
+                            </a>
+                    	</li>
+                    </ul>
+                    <!-- Modal -->
+                    <div class="modal fade" id="responder_publicacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Responder a <strong><?php echo $pb['nombre'];?></strong>
+                              - <small>@<?php echo $pb['cuenta'];?></small></h4>
+                          </div>
+                          <div class="modal-body">
+                          	<form method="post" action="">
+                                <textarea rows="5" class="form-control" id="comentario" type="text" name="comentario" maxlength="400" required></textarea>
+                                <div class="text-center text-danger" id="resultado"></div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <buttom class="btn btn-warning" name="enviar_notas"
+                                onclick="comentario($('#comentario').val(), <?php echo $getpb;?>);return false;">Enviar comentario</buttom>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div><?php
 				
             } else {
