@@ -96,7 +96,7 @@
 		ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 			WHERE idpublicacion = '$getpb'", $conn) or die(mysql_error());
 		$pb=mysql_fetch_array($pb_o);
-		post($pb);?>
+		?><div class="height-pb"><?php post($pb);?></div>
 		<div class="row">
             <div class="col-xs-12">
 
@@ -124,9 +124,11 @@
                         });
                 }
                 </script>   
-				<div class="well-bl-1">
-                    <ul class="nav nav-pills">
+				<div class="">
+                    <ul class="nav nav-pills well-bl-3 affix-comentarios" style="width:510px;">
                     	<li><a><strong>Comentarios</strong></a></li>
+                        <li><a>Recientes</a></li>
+                        <li><a>Mejores</a></li>
                     	<li class="pull-right"> 
                             <a data-toggle="modal" data-target="#responder_publicacion">
                               <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
@@ -184,9 +186,11 @@
         </div></div></div><?php
 		}
 		if (mysql_num_rows($com_o) > 0) {
+			?><div id="comentarios-publicacion"><?php
 			while ($cm=mysql_fetch_array($com_o)) {
 				comentario($cm);
 				}
+			?></div><?php
 		} else {
 			?><div class="row">
             <div class="col-xs-12">

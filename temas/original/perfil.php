@@ -40,7 +40,8 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 		WHERE cuentas.cuenta = '$perfil[cuenta]'
 		ORDER BY `idpublicacion` DESC
 		LIMIT $pfinicio_2,10", $conn) or die(mysql_error());?>
-            
+<div class="row">
+<div class="col-xs-12">      
 <div class="well-bl-1">
     <div class="row">
     	<div class="col-xs-12">
@@ -76,6 +77,10 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
         </div>
     </div>
 </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-8 section" role="main">
 	<?php #PUBLICACIONES ?>
     <div class="row"><div class="col-xs-12"><?php			
 		while ($nts = mysql_fetch_array($perfil_notas)) {

@@ -1,7 +1,34 @@
 $(document).ready(function() {
+	
+	/*
+		Tooltip
+	*/
     $('.time').tooltip();
+	$('.responder-comentario').tooltip();
+	
+	/*
+		Affix
+	*/
+  $('.affix-comentarios').affix({
+    offset: {
+	 top: function () {
+        return ((this.bottom = $('.height-pb').outerHeight(true)) + (this.bottom = $('.height-nav').outerHeight(true)))
+      }
+    , bottom: function () {
+        return (this.bottom = $('.footer').outerHeight(true))
+      }
+    }
+  })
+  
+  /*
+  Cierre de ready document
+  */
 });
 
+
+/*
+	Datos de SPIN.JS
+*/
 var opts = {
   lines: 13, // The number of lines to draw
   length: 6, // The length of each line

@@ -447,9 +447,9 @@ function comentario ($dt) {
                       </a></li>
                       
                       
-                        <li class="pull-right">
+                        <li class="pull-right responder-comentario" data-toggle="tooltip" data-placement="top" title="" data-original-title="Responder">
                             <a data-toggle="modal" data-target="#comentario_subcomentario_<?php echo $dt['idcomentario']?>">
-                              <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
+                              <span class="glyphicon glyphicon-pencil"></span>
                             </a>
                         <!-- Modal -->
                         <div class="modal fade" id="comentario_subcomentario_<?php echo $dt['idcomentario']?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
