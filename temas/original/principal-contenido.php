@@ -116,7 +116,7 @@
                                 url:   '<?php echo "temas/".$prop['tema']."/ajax/comentario.php"; ?>',
                                 type:  'post',
                                 beforeSend: function () {
-                                        $("#resultado").html("Cargando...");
+									new Spinner(opts).spin(document.getElementById('resultado'));
                                 },
                                 success:  function (response) {
                                         $("#resultado").html(response);

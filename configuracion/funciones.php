@@ -139,7 +139,8 @@ function post ($dt) {
 										url:   '<?php echo "temas/".$prop['tema']."/ajax/publicaciones_megusta.php"; ?>',
 										type:  'post',
 										beforeSend: function () {
-												$("#resultado_<?php echo $dt['idpublicacion']?>").html("O");
+											new Spinner(opts).spin(document.getElementById('resultado_<?php echo $dt['idpublicacion']?>'))
+												
 										},
 										success:  function (response) {
 												$("#resultado_<?php echo $dt['idpublicacion']?>").html(response);
@@ -167,7 +168,7 @@ function post ($dt) {
 										url:   '<?php echo "temas/".$prop['tema']."/ajax/publicaciones_favoritos.php"; ?>',
 										type:  'post',
 										beforeSend: function () {
-												$("#fav_<?php echo $dt['idpublicacion']?>").html("Enviando");
+											new Spinner(opts).spin(document.getElementById('fav_<?php echo $dt['idpublicacion']?>'));
 										},
 										success:  function (response) {
 												$("#fav_<?php echo $dt['idpublicacion']?>").html(response);
@@ -391,7 +392,7 @@ function comentario ($dt) {
 										url:   '<?php echo "temas/".$prop['tema']."/ajax/comentarios_megusta.php"; ?>',
 										type:  'post',
 										beforeSend: function () {
-												$("#comentario_megusta_<?php echo $dt['idcomentario']?>").html("O");
+											new Spinner(opts).spin(document.getElementById('comentario_megusta_<?php echo $dt['idcomentario']?>'));
 										},
 										success:  function (response) {
 												$("#comentario_megusta_<?php echo $dt['idcomentario']?>").html(response);
@@ -419,7 +420,7 @@ function comentario ($dt) {
 										url:   '<?php echo "temas/".$prop['tema']."/ajax/comentarios_favoritos.php"; ?>',
 										type:  'post',
 										beforeSend: function () {
-												$("#comentario_fav_<?php echo $dt['idcomentario']?>").html("Enviando");
+											new Spinner(opts).spin(document.getElementById('comentario_fav_<?php echo $dt['idcomentario']?>'));
 										},
 										success:  function (response) {
 												$("#comentario_fav_<?php echo $dt['idcomentario']?>").html(response);
@@ -471,7 +472,7 @@ function comentario ($dt) {
 												url:   '<?php echo "temas/".$prop['tema']."/ajax/subcomentario.php"; ?>',
 												type:  'post',
 												beforeSend: function () {
-														$("#resultado_subcomentario_<?php echo $dt['idcomentario']?>").html("Cargando...");
+													new Spinner(opts).spin(document.getElementById('resultado_subcomentario_<?php echo $dt['idcomentario']?>'));
 												},
 												success:  function (response) {
 														$("#resultado_subcomentario_<?php echo $dt['idcomentario']?>").html(response);
