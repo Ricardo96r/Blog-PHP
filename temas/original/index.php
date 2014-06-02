@@ -21,8 +21,8 @@
 		include('login_error.php');
 	} elseif($page == "cerrar_sesión"){
 		include('cerrar_sesion.php');
-	} elseif($page == "opciones"){
-		include('opciones.php');
+	} elseif($page == "configuracion"){
+		include('configuracion.php');
 	} elseif($page == "perfil"){
 		include('perfil.php');
 	} elseif($page == "publicar"){
