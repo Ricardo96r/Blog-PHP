@@ -140,9 +140,21 @@ body {
 	padding:0px;
 	z-index:1;
 	}
-	 
+
+.well-bl-perfil {
+	background-color:#FFFFFF;
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 1px;
+	border-radius:4px;
+	word-wrap: break-word;
+	margin-bottom:5px;
+	padding:5px;
+	padding-bottom:0px;
+	}
+	
 .img-perfil {
-	width:90px;
+	width:200px;
 	height:auto;
 	display:block;
 	}
@@ -306,4 +318,8 @@ a:focus {
 #comentarios-publicacion {
 	margin-left:5px;
 	margin-right:5px;
+	}
+	
+.thumbnail {
+	margin-bottom:5px;
 	}

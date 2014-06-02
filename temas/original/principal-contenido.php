@@ -125,7 +125,18 @@
                 }
                 </script>   
 				<div class="">
-                    <ul class="nav nav-pills well-bl-3 affix-comentarios" style="width:510px;">
+                	
+                    <ul class="nav nav-pills well-bl-3 affix-comentarios hidden-xs" style="width:510px;">
+                    	<li><a><strong>Comentarios</strong></a></li>
+                        <li><a>Recientes</a></li>
+                        <li><a>Mejores</a></li>
+                    	<li class="pull-right"> 
+                            <a data-toggle="modal" data-target="#responder_publicacion">
+                              <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
+                            </a>
+                    	</li>
+                    </ul>
+                    <ul class="nav nav-pills well-bl-3 visible-xs">
                     	<li><a><strong>Comentarios</strong></a></li>
                         <li><a>Recientes</a></li>
                         <li><a>Mejores</a></li>

@@ -41,41 +41,45 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 		ORDER BY `idpublicacion` DESC
 		LIMIT $pfinicio_2,10", $conn) or die(mysql_error());?>
 <div class="row">
-<div class="col-xs-12">      
-<div class="well-bl-1">
+<div class="col-sm-12">      
+<div class="well-bl-perfil">
     <div class="row">
-    	<div class="col-xs-12">
-            <div class="row">
-                <div class="col-xs-12">
-                    <img class="img-perfil center-block" src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
+		<div class="col-sm-4">
+            <div class="img-responsive center-block" style="max-width:260px; min-width: 40px;">
+                <a href="#" class="thumbnail">
+                  <img src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
+                </a>
+            </div>
+		</div>
+		<div class="col-sm-8">
+        	<div class="row">
+            	<div class="col-sm-12">
+               		<h2>
+                    	<span class="hidden-xs">
+							<?php echo $perfil['nombre'];?>
+                            <div><small><?php echo "@".$perfil['cuenta']; ?></small></div>
+                        </span>
+                        <span class="visible-xs text-center">
+							<?php echo $perfil['nombre'];?>
+                            <div><small><?php echo "@".$perfil['cuenta']; ?></small></div>
+                        </span>
+                    </h2>
                 </div>
             </div>
-            <h4>
-            <div class="row">
-                <div class="col-xs-12 text-center">
-            		<?php echo $perfil['nombre'];?>
-            	</div>
-            </div>
-			<div class="row">
-                <div class="col-xs-12 text-center">
-            		<small><?php echo "@".$perfil['cuenta']; ?></small>
-            	</div>
-            </div>
-            </h4>
-		</div>
+        </div>
 	</div>
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row" style="background-color:#FFF4E6;">
+        <div class="col-xs-12">
             <ul class="nav nav-pills">
-				<li><a href="#"><span class="glyphicon glyphicon-th-list"></span>
+                <li><a href="#"><span class="glyphicon glyphicon-th-list"></span>
                 <span class="hidden-xs"> Publicaciones</span><span class="badge">423</span></a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-star"></span>
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span>
                 <span class="hidden-xs"> Favoritos</span><span class="badge">423</span></a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>
+                <li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>
                 <span class="hidden-xs"> Me gusta</span><span class="badge">423</span></a></li>
             </ul>
         </div>
-    </div>
+	</div>
 </div>
 </div>
 </div>
