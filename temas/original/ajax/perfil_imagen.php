@@ -41,6 +41,8 @@
 	*/
 	
 	} else {
+		$cambiar_img_pf = mysql_query("UPDATE cuentas SET imagen_perfil = '$name' WHERE idcuenta = '$pf[idcuenta]'") or die (mysql_error());
+		
 		move_uploaded_file($_FILES["pf_imagen"]["tmp_name"], $ruta.$name);
 		}
 	} else {
