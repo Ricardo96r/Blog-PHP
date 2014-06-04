@@ -23,7 +23,7 @@
             isset($_POST["contraseña2"]) and !empty($_POST["contraseña2"])) {
             if ($_POST["contraseña2"] === $sesion1["contraseña"]) {
                 $_SESSION["username"] = $_POST["email2"];
-                echo "Conectando a la web";
+                echo "Conectando...";
 				header("Location: ?p=explorar");
                 
             } else {

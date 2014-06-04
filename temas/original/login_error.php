@@ -35,8 +35,8 @@
 					beforeSend: function () {
 							$("#resultado").html("Enviando...");
 					},
-					success:  function (response) {
-							$("#resultado").html(response);
+					success: function(respuesta) {
+						$('#resultado').html((respuesta == 'Conectando...' || respuesta == 'No tienes permiso para entrar aqui!') ? location.reload() : respuesta);
 					}
 			});
 	}
@@ -48,13 +48,7 @@
         );return false;" class="btn btn-warning form-control">Iniciar sesión</buttom>
         </p>
     </form>
-    <div id="resultado">
-    <?php if (isset($refresh)) {
-    	header("location: ?p=''");
-    } else {
-    
-    }?>
-    </div>
+    <div id="resultado"></div>
     <div class="text-center">
         <a href="#">¿Olvidaste tu contraseña?</a>
     </div>
@@ -62,7 +56,7 @@
 </div>
     <?php 
     } else { 
-        header("Location: ?p=404");
+        header("Location: .");
     }
     ?>
 	</div>
