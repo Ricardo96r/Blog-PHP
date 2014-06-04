@@ -260,7 +260,10 @@ function mostrar_mas($get, $count, $link) {
 		$gt = $get;
 	?>
 	<div class='well-bl-2 visible-xs visible-sm'><div class='row'><div class='col-xs-12'><?php publicidad();?></div></div></div>
-		<div class='row'>
+ 	
+	<?php if ($get +1 >= $count) {?><div class="well-bl-1 text-center"><strong>No hay nada mas que mostrar</strong></div><?php }else {}?>
+        
+        <div class='row'>
     		<div class='col-xs-12'>
     			<div class='text-center'>
 					<ul class='pagination pagination-lg'><?php
