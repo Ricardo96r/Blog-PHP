@@ -33,7 +33,7 @@
 					url:   '<?php echo "temas/".$prop['tema']."/ajax/login.php"; ?>',
 					type:  'post',
 					beforeSend: function () {
-							$("#resultado").html("Enviando...");
+							new Spinner(opts).spin(document.getElementById('resultado'));
 					},
 					success: function(respuesta) {
 						$('#resultado').html((respuesta == 'Conectando...' || respuesta == 'No tienes permiso para entrar aqui!') ? location.reload() : respuesta);
