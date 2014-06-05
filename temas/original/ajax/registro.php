@@ -110,15 +110,7 @@
 	
 	} else {
 		$ia = mysql_query("INSERT INTO `cuentas` (`cuenta`,`contraseña`,`nacimiento`,`email`,`nombre`,`sexo`) VALUES ('".$cuenta."','".$contraseña."','".$nacimiento."','".$email."','".$nombres."','".$sexo."')") or die(mysql_error());
-			
-		echo "usuario:<br>".$cuenta."<br><br>";
-		echo "contraseña:<br>".$contraseña."<br><br>";
-		echo "contraseña en sha1:<br>".sha1($contraseña)."<br><br>";
-		echo "nacimiento:<br>".$nacimiento."<br><br>";
-		echo "email:<br>".$email."<br><br>";
-		echo "nombres:<br>".$nombres."<br><br>";
-		echo "sexo:<br>".$sexo."<br><br>";
-		echo "Tu registro a sido exitoso, se le enviará un correo para confirmar su correo electrónico";
+		echo "Registrado";
 		}
 	} else {
 		echo "No tienes permiso para entrar aqui!";

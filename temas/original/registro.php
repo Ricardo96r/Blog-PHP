@@ -21,10 +21,10 @@ function registro(permiso, cuenta, contraseña, contraseña2, email, nombres, di
 				url:   '<?php echo "temas/".$prop['tema']."/ajax/registro.php"; ?>',
 				type:  'post',
 				beforeSend: function () {
-						$("#resultado").html("Enviando...");
+						new Spinner(opts).spin(document.getElementById('resultado'));
 				},
-				success:  function (response) {
-						$("#resultado").html(response);
+				success:  function (respuesta) {
+						$('#resultado').html((respuesta == 'Registrado' || respuesta == 'No tienes permiso para entrar aqui!') ? location.reload() : respuesta);
 				}
 		});
 }
