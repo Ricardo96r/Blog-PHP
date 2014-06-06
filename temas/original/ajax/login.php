@@ -7,8 +7,6 @@
             if ($_POST["contraseña2"] === $sesion1["contraseña"]) {
                 $_SESSION["username"] = $_POST["email2"];
                 echo "Conectando...";
-				header("Location: ?p=explorar");
-                
             } else {
 				echo "Contraseña incorrecta o email incorrecto";
                 }
