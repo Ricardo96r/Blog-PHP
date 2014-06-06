@@ -14,8 +14,13 @@
 		require_once("configuracion/propiedades.php");
 		require_once("configuracion/funciones.php");
 		
-		# Cargar tema
-		require_once("temas/$prop[tema]/index.php");
+		if ($page != 'ajax') {
+		# Cargar web
+			require_once("temas/$prop[tema]/index.php");
+		} else {
+		# Cargar ajax
+			require_once("temas/$prop[tema]/ajax/index.php");
+		}
 	
 		mysql_close($conn);
 		ob_end_flush();

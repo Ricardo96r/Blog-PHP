@@ -21,26 +21,27 @@
                 No cerrar sesión
             </label>
         </div>
-            <script>
-	function login(permiso, email2, contraseña2){
-			var parametros = {
-					"permiso" : permiso,
-					"email2" : email2,
-					"contraseña2" : contraseña2,
-			};
-			$.ajax({
-					data:  parametros,
-					url:   '<?php echo "temas/".$prop['tema']."/ajax/login.php"; ?>',
-					type:  'post',
-					beforeSend: function () {
-							new Spinner(opts).spin(document.getElementById('resultado'));
-					},
-					success: function(respuesta) {
-						$('#resultado').html((respuesta == 'Conectando...' || respuesta == 'No tienes permiso para entrar aqui!') ? location.reload() : respuesta);
-					}
-			});
-	}
-	</script>
+		<script>
+        function login(permiso, email2, contraseña2){
+                var parametros = {
+                        "permiso" : permiso,
+                        "email2" : email2,
+                        "contraseña2" : contraseña2,
+                };
+                $.ajax({
+                        data:  parametros,
+                        url:   '?p=ajax&action=login',
+                        type:  'post',
+                        beforeSend: function () {
+                                new Spinner(opts).spin(document.getElementById('resultado'));
+                        },
+                        success: function(respuesta) {
+                            $('#resultado').html((respuesta == 'Conectando...' || respuesta == 'No tienes permiso para entrar aqui!') 
+							? location.reload() : respuesta);
+                        }
+                });
+        }
+        </script>
         <buttom type="submit" onclick="login(
         'allowed',
         $('#login-form-email').val(),

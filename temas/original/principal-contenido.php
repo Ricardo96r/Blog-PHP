@@ -113,7 +113,7 @@
                         };
                         $.ajax({
                                 data:  parametros,
-                                url:   '<?php echo "temas/".$prop['tema']."/ajax/comentario.php"; ?>',
+                                url:   '?p=ajax&action=comentario',
                                 type:  'post',
                                 beforeSend: function () {
 									new Spinner(opts).spin(document.getElementById('resultado'));

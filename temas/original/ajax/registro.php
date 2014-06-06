@@ -1,29 +1,13 @@
 <?php
-	# Comienzo de session
-	session_start();
-	
-	# Compresion GZip
-	if(!extension_loaded('zlib')){
-		ini_set('zlib.output_compression_level', 1);  
-		ob_start('ob_gzhandler'); 
-	}
-	
-	if (isset($_SESSION['admin'])) {
-		# Cargar configuracion
-		require_once("../../../configuracion/database.php");
-		require_once("../../../configuracion/propiedades.php");
-		require_once("../../../configuracion/funciones.php");
-		
-	
-	# Cargar
+
 	if (isset($_POST['permiso']) and $_POST['permiso'] == "allowed") {
-		
-	$cuenta = antiSqlInjection($_POST['cuenta']);
-	$contraseña = antiSqlInjection($_POST['contraseña']);
-	$contraseña2 = antiSqlInjection($_POST['contraseña2']);
-	$email = antiSqlInjection($_POST['email']);
-	$nombres = antiSqlInjection($_POST['nombres']);
-	$nacimiento = antiSqlInjection($_POST['año'])."-".antiSqlInjection($_POST['mes'])."-".antiSqlInjection($_POST['dia']); 
+	
+		$cuenta = antiSqlInjection($_POST['cuenta']);
+		$contraseña = antiSqlInjection($_POST['contraseña']);
+		$contraseña2 = antiSqlInjection($_POST['contraseña2']);
+		$email = antiSqlInjection($_POST['email']);
+		$nombres = antiSqlInjection($_POST['nombres']);
+		$nacimiento = antiSqlInjection($_POST['año'])."-".antiSqlInjection($_POST['mes'])."-".antiSqlInjection($_POST['dia']); 
 	
 	if(isset($_POST['sexo'])) {
 		$sexo = antiSqlInjection($_POST['sexo']);
@@ -114,11 +98,5 @@
 		}
 	} else {
 		echo "No tienes permiso para entrar aqui!";
-		}
-		mysql_close($conn);
-		ob_end_flush();
-	} else {
-		echo "<div style='text-align:center; font-size:50px;'> TEST WEB</div>";
-		//header('location: http://www.hostinger.es/');
 		}
 ?>

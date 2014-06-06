@@ -18,14 +18,14 @@
           </div>
           <div class="modal-body">
           <script>
-			function perfil_imagen(permiso, pf_imagen){
+			function perfil_imagen(permiso, pf_imagen) {
 					var parametros = {
 							"permiso" : permiso,
 							"pf_imagen" : pf_imagen,
 					};
 					$.ajax({
 							data:  parametros,
-							url:   '<?php echo "temas/".$prop['tema']."/ajax/perfil_imagen.php"; ?>',
+							url:   '?p=ajax&action=pefil_imagen',
 							type:  'post',
 							beforeSend: function () {
 									$("#resultado").html("Enviando...");

@@ -136,7 +136,7 @@ function post ($dt) {
 								};
 								$.ajax({
 										data:  parametros,
-										url:   '<?php echo "temas/".$prop['tema']."/ajax/publicaciones_megusta.php"; ?>',
+										url:   '?p=ajax&action=publicaciones_megusta',
 										type:  'post',
 										beforeSend: function () {
 											new Spinner(opts).spin(document.getElementById('resultado_<?php echo $dt['idpublicacion']?>'))
@@ -165,7 +165,7 @@ function post ($dt) {
 								};
 								$.ajax({
 										data:  parametros,
-										url:   '<?php echo "temas/".$prop['tema']."/ajax/publicaciones_favoritos.php"; ?>',
+										url:   '?p=ajax&action=publicaciones_favoritos',
 										type:  'post',
 										beforeSend: function () {
 											new Spinner(opts).spin(document.getElementById('fav_<?php echo $dt['idpublicacion']?>'));
@@ -392,7 +392,7 @@ function comentario ($dt) {
 								};
 								$.ajax({
 										data:  parametros,
-										url:   '<?php echo "temas/".$prop['tema']."/ajax/comentarios_megusta.php"; ?>',
+										url:   '?p=ajax&action=comentarios_megusta',
 										type:  'post',
 										beforeSend: function () {
 											new Spinner(opts).spin(document.getElementById('comentario_megusta_<?php echo $dt['idcomentario']?>'));
@@ -420,7 +420,7 @@ function comentario ($dt) {
 								};
 								$.ajax({
 										data:  parametros,
-										url:   '<?php echo "temas/".$prop['tema']."/ajax/comentarios_favoritos.php"; ?>',
+										url:   '?p=ajax&action=comentarios_favoritos',
 										type:  'post',
 										beforeSend: function () {
 											new Spinner(opts).spin(document.getElementById('comentario_fav_<?php echo $dt['idcomentario']?>'));
@@ -472,7 +472,7 @@ function comentario ($dt) {
 										};
 										$.ajax({
 												data:  parametros,
-												url:   '<?php echo "temas/".$prop['tema']."/ajax/subcomentario.php"; ?>',
+												url:   '?p=ajax&action=subcomentario',
 												type:  'post',
 												beforeSend: function () {
 													new Spinner(opts).spin(document.getElementById('resultado_subcomentario_<?php echo $dt['idcomentario']?>'));

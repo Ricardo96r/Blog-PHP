@@ -18,7 +18,7 @@ function registro(permiso, cuenta, contraseña, contraseña2, email, nombres, di
 		};
 		$.ajax({
 				data:  parametros,
-				url:   '<?php echo "temas/".$prop['tema']."/ajax/registro.php"; ?>',
+				url:   '?p=ajax&action=registro',
 				type:  'post',
 				beforeSend: function () {
 						new Spinner(opts).spin(document.getElementById('resultado'));
