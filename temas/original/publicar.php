@@ -23,13 +23,15 @@ if(isset($_SESSION['username'])) {
         <?php
 		} else {
 			?><div id="publicar-form"><?php
-			$idcuentap = mysql_query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'");
-			$idcuentap2 = mysql_fetch_array($idcuentap);
+			if ($idcuentap = $db->query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'")) {
+				$idcuentap2 = $idcuentap->fetch_array();
+			}
 			$idcuenta = $idcuentap2['idcuenta'];
 			$nota = antiSqlInjection($_POST['nota']);
 			$ruta = "static-content/publicaciones/";
-			$name_m = mysql_query("SELECT idimagenes FROM imagenes");
-			$name = (mysql_num_rows($name_m) + 1)."-".rand();
+			if ($name_m = $db->query("SELECT idimagenes FROM imagenes")) {
+				$name = ($name_m->num_rows + 1)."-".rand();
+			}
 			
 			/*
 				Errores
@@ -54,14 +56,15 @@ if(isset($_SESSION['username'])) {
 			*/
 			} else {
 			#Agrega la imagen a la base de datos en una tabla unica
-			$enviar_imagen = mysql_query("INSERT INTO `imagenes` (`ruta`) VALUES ('".$name."')") or die (mysql_error());
+			$enviar_imagen = $db->query("INSERT INTO `imagenes` (`ruta`) VALUES ('".$name."')");
 			
 			#Busca el idimagen de la tabla imagenes para luego usar el id en la tabla publicaciones
-			$idimage_f = mysql_query("SELECT idimagenes, ruta FROM imagenes WHERE ruta = '$name'") or die (mysql_error()); 
-			$idimagen = mysql_fetch_array($idimage_f);
+			if ($idimage_f = $db->query("SELECT idimagenes, ruta FROM imagenes WHERE ruta = '$name'")) {
+				$idimagen = $idimage_f->fetch_array();
+			}
 			
 			#Envio de la publicacion a la DB en la tabla publicaciones
-			$enviar_nota = mysql_query("INSERT INTO `publicaciones` (`cuentas_idcuenta`, `publicacion`, `imagenes_idimagenes`) VALUES ('".$idcuenta."','".$nota."', '"."$idimagen[idimagenes]"."')") or die (mysql_error());
+			$enviar_nota = $db->query("INSERT INTO `publicaciones` (`cuentas_idcuenta`, `publicacion`, `imagenes_idimagenes`) VALUES ('".$idcuenta."','".$nota."', '"."$idimagen[idimagenes]"."')");
 			move_uploaded_file($_FILES["archivo"]["tmp_name"], $ruta.$name);
 			?>
             <div class="alert alert-warning alert-dismissable">

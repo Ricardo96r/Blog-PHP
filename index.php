@@ -21,12 +21,10 @@
 		# Cargar ajax
 			require_once("temas/$prop[tema]/ajax/index.php");
 		}
-	
-		mysql_close($conn);
-		ob_end_flush();
+		
+		$db->close();
 	} else {
 		echo "<div style='text-align:center; font-size:50px;'> TEST WEB</div>";
 		//header('location: http://www.hostinger.es/');
 		}
-
 ?>

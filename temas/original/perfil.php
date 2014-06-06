@@ -1,11 +1,11 @@
 <?php
 if (isset($_GET['pf'])) {
 	$perfil_get = antiSqlInjection($_GET['pf']);
-  	$perfil_op = mysql_query("
+  	if ($perfil_op = $db->query("
 		SELECT idcuenta, cuenta, email, nombre, nacimiento, sexo, imagen_perfil, imagen_perfil_fondo
-		FROM cuentas WHERE cuenta = '$perfil_get'"
-		, $conn) or die (mysql_error());
-	$perfil = mysql_fetch_array($perfil_op);
+		FROM cuentas WHERE cuenta = '$perfil_get'")) {
+		$perfil = $perfil_op->fetch_array();
+		}
 	
 	/*
 		Necesario para el LIMITE de PUBLICACIONES, atraves de MOSTRAR MAS
@@ -15,13 +15,14 @@ if (isset($_GET['pf'])) {
 	} else {
 		$pfinicio = 0;
 		}
-	$pfcounts = mysql_query("
+	if ($pfcounts = $db->query("
 		SELECT publicaciones.cuentas_idcuenta, cuentas.idcuenta
 		FROM publicaciones 
 		INNER JOIN cuentas
 		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
-		WHERE cuentas.cuenta = '$perfil_get'") or die (mysql_error());
-	$pfcount = (mysql_num_rows($pfcounts));
+		WHERE cuentas.cuenta = '$perfil_get'")) {
+		$pfcount = ($pfcounts->num_rows);
+	}
 } else {
 	header("Location: ?p=404");
 }
@@ -30,7 +31,7 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 	header("Location: ?p=404");
 } else {
 	$pfinicio_2 = $pfinicio*10;
-	$perfil_notas = mysql_query("
+	$perfil_notas = $db->query("
 		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
 		FROM cuentas
 		INNER JOIN publicaciones 
@@ -39,7 +40,7 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 		ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 		WHERE cuentas.cuenta = '$perfil[cuenta]'
 		ORDER BY `idpublicacion` DESC
-		LIMIT $pfinicio_2,10", $conn) or die(mysql_error());?>
+		LIMIT $pfinicio_2,10");?>
 <div class="row">
 <div class="col-sm-12">      
 <div class="well-bl-perfil">
@@ -87,7 +88,7 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
     <div class="col-md-8 section" role="main">
 	<?php #PUBLICACIONES ?>
     <div class="row"><div class="col-xs-12"><?php			
-		while ($nts = mysql_fetch_array($perfil_notas)) {
+		while ($nts = $perfil_notas->fetch_array()) {
 			post($nts);
 			} ?>
 	</div></div>

@@ -1,14 +1,5 @@
 <?php
-
-$host = "localhost:3306";
-$user = "root";
-$pw = "2318860212";
-$db = "proyecto";
-
-$conn = mysql_connect($host, $user, $pw) 
-	or die (mysql_error());
-
-mysql_select_db($db, $conn) 
-	or die (mysql_error());
-
-?>
+$db = new mysqli("localhost", "root", "2318860212", "proyecto");
+if ($db->connect_errno) {
+    echo "Falló la conexión con MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
+}

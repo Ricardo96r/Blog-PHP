@@ -8,15 +8,16 @@
 */
 
 function antiSqlInjection( $variable ) {
+	global $db;
 	if (isset($variable)) {
-		$variable = strip_tags($variable);               // funcion que elimina etiquetas html y php
-		$variable = stripslashes($variable);           // funcion que elimina las barras invertidas 
-		$variable = htmlentities($variable);       //elimina etiquetas html y javascrip
-		$variable = mysql_real_escape_string($variable); //elimina todo lo que tenga que ver con mysql
+		$result = strip_tags($variable);               // funcion que elimina etiquetas html y php
+		$result = stripslashes($variable);           // funcion que elimina las barras invertidas 
+		$result = htmlentities($variable);       //elimina etiquetas html y javascrip
+		$result = $db->real_escape_string($variable); //elimina todo lo que tenga que ver con mysql
 	} else {
-		$variable = "";
+		$result = "";
 		}
-	return $variable;							
+	return $result;							
 }
 
 function mostrarNacimiento( $type ) {
@@ -87,6 +88,7 @@ function mostrarNacimiento( $type ) {
 
 function post ($dt) {
 	global $prop; //Para usar la global $prop en una funcion
+	global $db;
 	?>
     <div class="well-bl-1">
         <div class="row">
@@ -149,8 +151,9 @@ function post ($dt) {
 						}
 						</script>
                       <?php
-					  	$mg_p = mysql_query("SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'") or die(mysql_error());
-						$mg = mysql_num_rows($mg_p);
+					  	if ($mg_p = $db->query("SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'")) {
+							$mg = $mg_p->num_rows;
+						}
 					  ?>
                       <li onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
                       <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
@@ -177,8 +180,9 @@ function post ($dt) {
 						}
 						</script>
                       <?php
-					  	$fav_p = mysql_query("SELECT * FROM publicaciones_favoritos WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'") or die(mysql_error());
-						$fav = mysql_num_rows($fav_p);
+					  	if ($fav_p = $db->query("SELECT * FROM publicaciones_favoritos WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'")) {
+							$fav = $fav_p->num_rows;
+						}
 					  ?>
                       <li onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
                       <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
@@ -186,8 +190,9 @@ function post ($dt) {
                       </a></li>
                       
                       <?php
-					  	$com_p = mysql_query("SELECT * FROM comentarios WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'") or die(mysql_error());
-						$com = mysql_num_rows($com_p);
+					  	if ($com_p = $db->query("SELECT * FROM comentarios WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'")) {
+							$com = $com_p->num_rows;
+						}
 					  ?>
                       <li><a href="?pb=<?php echo $dt['idpublicacion']; ?>">
                       <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"></span>
@@ -352,6 +357,7 @@ function mostrar_mas($get, $count, $link) {
 
 function comentario ($dt) {
 	global $prop; //Para usar la global $prop en una funcion
+	global $db;
 	?>
     <div class="well-bl-1">
         <div class="row">
@@ -404,8 +410,9 @@ function comentario ($dt) {
 						}
 						</script>
                       <?php
-					  	$mg_p = mysql_query("SELECT * FROM comentarios_megusta WHERE comentarios_idcomentario = '$dt[idcomentario]'") or die(mysql_error());
-						$mg = mysql_num_rows($mg_p);
+					  	if ($mg_p = $db->query("SELECT * FROM comentarios_megusta WHERE comentarios_idcomentario = '$dt[idcomentario]'")) {
+							$mg = $mg_p->num_rows;
+						}
 					  ?>
                       <li onclick="comentarios_megusta_<?php echo $dt['idcomentario']?>(<?php echo $dt['idcomentario']; ?>);return false;"><a>
                       <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
@@ -432,8 +439,9 @@ function comentario ($dt) {
 						}
 						</script>
                       <?php
-					  	$fav_p = mysql_query("SELECT * FROM comentarios_favoritos WHERE comentarios_idcomentario = '$dt[idcomentario]'") or die(mysql_error());
-						$fav = mysql_num_rows($fav_p);
+					  	if ($fav_p = $db->query("SELECT * FROM comentarios_favoritos WHERE comentarios_idcomentario = '$dt[idcomentario]'")) {
+							$fav = $fav_p->num_rows;
+						}
 					  ?>
                       <li onclick="comentarios_favoritos_<?php echo $dt['idcomentario']?>(<?php echo $dt['idcomentario']; ?>);return false;"><a>
                       <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
@@ -441,8 +449,9 @@ function comentario ($dt) {
                       </a></li>
                       
                       <?php
-					  	$com_p = mysql_query("SELECT * FROM subcomentarios WHERE comentarios_idcomentario = '$dt[idcomentario]'") or die(mysql_error());
-						$com = mysql_num_rows($com_p);
+					  	if ($com_p = $db->query("SELECT * FROM subcomentarios WHERE comentarios_idcomentario = '$dt[idcomentario]'")) {
+							$com = $com_p->num_rows;
+						}
 					  ?>
                       <li><a>
                       <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"></span>

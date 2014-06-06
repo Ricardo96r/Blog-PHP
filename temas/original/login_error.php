@@ -57,7 +57,7 @@
 </div>
     <?php 
     } else { 
-        header("Location: .");
+        header("Location: ?");
     }
     ?>
 	</div>

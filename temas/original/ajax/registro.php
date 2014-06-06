@@ -15,8 +15,8 @@
 		$sexo = 3;
 		}
 
-	$crevisar = mysql_query("SELECT cuenta FROM `cuentas` WHERE `cuenta`='".$cuenta."'") or die(mysql_error());
-	$erevisar = mysql_query("SELECT email FROM `cuentas` WHERE `email`='".$email."'") or die(mysql_error());
+	$crevisar = $db->query("SELECT cuenta FROM `cuentas` WHERE `cuenta`='".$cuenta."'");
+	$erevisar = $db->query("SELECT email FROM `cuentas` WHERE `email`='".$email."'");
 	
 	/*
 	-----------------------
@@ -39,7 +39,7 @@
 			 Signos: _ <br><br>
 			 <strong>No es valido: </strong><br>
 			 El espacio, todo tiene que ir pegado');
-	} elseif (mysql_num_rows($crevisar) != NULL) {
+	} elseif ($crevisar->num_rows != NULL) {
 		echo "Este nombre de usuario ya esta en uso";
 		
 	//$contraseña
@@ -61,7 +61,7 @@
 		echo "Porfavor llene el campo email";
 	} elseif(strlen($email) > 100){
 		echo "El email es muy largo";
-	} elseif (mysql_num_rows($erevisar) != NULL) {
+	} elseif ($erevisar->num_rows != NULL) {
 		echo "Este email ya esta en uso";
 		
 	//$nombres
@@ -93,7 +93,7 @@
 	*/
 	
 	} else {
-		$ia = mysql_query("INSERT INTO `cuentas` (`cuenta`,`contraseña`,`nacimiento`,`email`,`nombre`,`sexo`) VALUES ('".$cuenta."','".$contraseña."','".$nacimiento."','".$email."','".$nombres."','".$sexo."')") or die(mysql_error());
+		$ia = $db->query("INSERT INTO `cuentas` (`cuenta`,`contraseña`,`nacimiento`,`email`,`nombre`,`sexo`) VALUES ('".$cuenta."','".$contraseña."','".$nacimiento."','".$email."','".$nombres."','".$sexo."')");
 		echo "Registrado";
 		}
 	} else {

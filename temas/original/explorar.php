@@ -8,13 +8,13 @@ Mysql -> tabla -> verificado {
 	}
 */
 
-$explorar = mysql_query("
+$explorar = $db->query("
 	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion 
 	FROM publicaciones
 	INNER JOIN cuentas
 	ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
 	WHERE publicaciones.verificado = 2
-	ORDER BY `idpublicacion` DESC", $conn) or die(mysql_error());
+	ORDER BY `idpublicacion` DESC");
 ?> 
 	<div class="well-bl-1">
     	<div class="row">
@@ -33,7 +33,7 @@ $explorar = mysql_query("
 		</div>
     </div>
 <?php	
-while ($explora = mysql_fetch_array($explorar)) {
+while ($explora = $explorar->fetch_array()) {
 			post($explora);
 			}
 ?>

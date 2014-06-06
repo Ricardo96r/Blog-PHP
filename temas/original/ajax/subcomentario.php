@@ -10,9 +10,9 @@
                 } elseif(strlen($subcomentario) > 400){
                     echo "La nota es muy larga, el máximo de caracteres es 400";
                 } else {
-                $enviar_nota = mysql_query("
+                $enviar_nota = $db->query("
 					INSERT INTO `subcomentarios` (`cuentas_idcuenta`, `comentarios_idcomentario`, `subcomentario`) 
-					VALUES ('".$pf['idcuenta']."','".$idmsg."','".$subcomentario."')") or die (mysql_error());
+					VALUES ('".$pf['idcuenta']."','".$idmsg."','".$subcomentario."')");
                 echo "subcomentario enviado";
 				}
 			

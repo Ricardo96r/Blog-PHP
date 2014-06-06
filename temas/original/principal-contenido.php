@@ -3,8 +3,9 @@
 	PUBLICACIONES 
 */
 	if (!isset($_GET['pb'])) {
-		$counts = mysql_query("SELECT idpublicacion FROM publicaciones") or die (mysql_error());
-		$count = (mysql_num_rows($counts));
+		if($counts = $db->query("SELECT idpublicacion FROM publicaciones")) {
+			$count = $counts->num_rows;
+		}
 	
 	if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 		if (($_GET['pos'] + 0.1) <= (($count / 10))) {
@@ -17,7 +18,7 @@
 		}
 		
 	$inicio_2 = $inicio*10;
-	$registros=mysql_query("
+	$registros = $db->query("
 		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
 		FROM cuentas
 		INNER JOIN publicaciones 
@@ -25,9 +26,9 @@
 		INNER JOIN imagenes
 		ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 		ORDER BY `idpublicacion` DESC
-		LIMIT $inicio_2,10", $conn) or die(mysql_error());
+		LIMIT $inicio_2,10");	
 	$imp = 0;
-	while ($reg=mysql_fetch_array($registros)) {
+	while ($reg = $registros->fetch_assoc()) {
 		post($reg);
 		$imp++;
 		if($imp == 5) {
@@ -56,8 +57,9 @@
 	if (isset($_GET['pb']) and is_numeric($_GET['pb']) and $_GET['pb'] >= 0 ) {
 		$getpb=$_GET['pb'];
 		# Contar los comentarios
-		$counts = mysql_query("SELECT idcomentario, publicaciones_idpublicacion FROM comentarios WHERE publicaciones_idpublicacion = '$getpb'") or die (mysql_error());
-		$count = (mysql_num_rows($counts));
+		if($counts = $db->query("SELECT idcomentario, publicaciones_idpublicacion FROM comentarios WHERE publicaciones_idpublicacion = '$getpb'")) {
+			$count = ($counts->num_rows);
+		}
 		# GET com para saber que id es el comentario
 		if (isset($_GET['com']) and is_numeric($_GET['com']) and $_GET['com'] >= 0) {
 			# Para saber hasta que numero llega $_GET['com'] y evitar problemas de seguridad.
@@ -72,7 +74,7 @@
 			}
 			
 			$getcom_2 = $getcom * 10;
-			$com_o=mysql_query("
+			$com_o=$db->query("
 			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
 			FROM comentarios 
 			INNER JOIN publicaciones
@@ -81,21 +83,22 @@
 			ON cuentas.idcuenta = comentarios.cuentas_idcuenta
 			WHERE publicaciones.idpublicacion=$getpb
 			ORDER BY `idcomentario` DESC
-			LIMIT $getcom_2,10", $conn) or die(mysql_error());
+			LIMIT $getcom_2,10");
 	} else {
 		header("Location: ?p=404");
 	}
 	
 	if(isset($getpb)) {
-		$pb_o=mysql_query("
+		if ($pb_o = $db->query("
 		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
 		FROM cuentas
 		INNER JOIN publicaciones 
 		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
 		INNER JOIN imagenes
 		ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
-			WHERE idpublicacion = '$getpb'", $conn) or die(mysql_error());
-		$pb=mysql_fetch_array($pb_o);
+		WHERE idpublicacion = '$getpb'")) {
+			$pb = $pb_o->fetch_assoc();
+		}
 		?><div class="height-pb"><?php post($pb);?></div>
 		<div class="row">
             <div class="col-xs-12">
@@ -174,8 +177,9 @@
 				
             } else {
 				?><div class="well-bl-1"><?php
-                $idcuentap = mysql_query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'");
-                $idcuentap2 = mysql_fetch_array($idcuentap);
+                if ($idcuentap = $db->query("SELECT idcuenta, email FROM cuentas WHERE email = '$_SESSION[username]'")) {
+                	$idcuentap2 = $idcuentap->fetch_assoc();
+				}
                 $idcuenta = $idcuentap2['idcuenta'];
                 $comentario = antiSqlInjection($_POST['comentario']);
                 if(!isset($comentario) and empty($comentario)) {
@@ -185,9 +189,9 @@
                 } elseif(strlen($comentario) > 400){
                     echo "La nota es muy larga, el máximo de caracteres es 400";
                 } else {
-                $enviar_nota = mysql_query("
+                $enviar_nota = $db->query("
 					INSERT INTO `comentarios` (`cuentas_idcuenta`, `publicaciones_idpublicacion`, `comentario`) 
-					VALUES ('".$idcuenta."','".$getpb."','".$comentario."')") or die (mysql_error());
+					VALUES ('".$idcuenta."','".$getpb."','".$comentario."')");
                 echo "Comentario enviado";
 				?></div><?php
                     }
@@ -197,9 +201,9 @@
 			<?php echo "Para escribir un comentario nesecitas tener una cuenta e iniciar sesión"; ?>
         </div></div></div><?php
 		}
-		if (mysql_num_rows($com_o) > 0) {
+		if ($com_o->num_rows > 0) {
 			?><div id="comentarios-publicacion"><?php
-			while ($cm=mysql_fetch_array($com_o)) {
+			while ($cm = $com_o->fetch_assoc()) {
 				comentario($cm);
 				}
 			?></div><?php

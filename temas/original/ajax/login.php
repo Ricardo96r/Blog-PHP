@@ -1,7 +1,8 @@
 <?php
 	if (isset($_POST['permiso']) and $_POST['permiso'] == "allowed") {
-		$sesion = mysql_query("SELECT email, contraseña FROM cuentas WHERE email = '$_POST[email2]'");
-        $sesion1 = mysql_fetch_array($sesion);
+		if ($sesion = $db->query("SELECT email, contraseña FROM cuentas WHERE email = '$_POST[email2]'")) {
+        	$sesion1 = $sesion->fetch_array();
+		}
         if (isset($_POST["email2"]) and !empty($_POST["email2"]) and
             isset($_POST["contraseña2"]) and !empty($_POST["contraseña2"])) {
             if ($_POST["contraseña2"] === $sesion1["contraseña"]) {
