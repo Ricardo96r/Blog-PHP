@@ -118,8 +118,9 @@
                                 beforeSend: function () {
 									new Spinner(opts).spin(document.getElementById('resultado'));
                                 },
-                                success:  function (response) {
-                                        $("#resultado").html(response);
+                                success:  function (respuesta) {
+									$('#resultado').html((respuesta == 'Comentario enviado') 
+									? location.reload() : respuesta);
                                 }
                         });
                 }
