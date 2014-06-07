@@ -1,6 +1,6 @@
 <div class="well-bl-1">
 <?php
-if (!isset($_SESSION["username"])) {
+if (!isset($_SESSION['username'])) {
 ?>
 <script>
 function registro(permiso, cuenta, contraseña, contraseña2, email, nombres, dia, mes, año, sexo){
@@ -109,10 +109,6 @@ function registro(permiso, cuenta, contraseña, contraseña2, email, nombres, di
 </div>
 </div>
 <?php
-
 } else {
-	header("Location: ?p=404");
+	header('Location: ?p=404');
 	}
-	
-		
-?>

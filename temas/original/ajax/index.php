@@ -4,7 +4,6 @@
  *
  */
 
-
 if (isset($_GET['action'])) {
 	$action = $_GET['action'];
 	} else {
@@ -28,10 +27,10 @@ if ($action == 'registro') {
 # Comentarios
 } elseif($action == 'comentario'){
 	include('comentario.php');
-} elseif($action == 'comentario_megusta'){
-	include('comentario_megusta.php');
-} elseif($action == 'comentario_favoritos'){
-	include('comentario_favoritos.php');
+} elseif($action == 'comentarios_megusta'){
+	include('comentarios_megusta.php');
+} elseif($action == 'comentarios_favoritos'){
+	include('comentarios_favoritos.php');
 	
 # SubComentarios
 } elseif($action == 'subcomentario'){
@@ -42,5 +41,5 @@ if ($action == 'registro') {
 	include('perfil_imagen.php');
 	
 } else {
-	echo "Error: 404";
+	echo 'Error: 404';
 	}

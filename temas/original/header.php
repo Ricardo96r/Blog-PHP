@@ -9,12 +9,12 @@
 	/*
 		Load CSS
 	*/
-	include("temas/$prop[tema]/css/config_css.php");
+	include('temas/'.$prop['tema'].'/css/config_css.php');
 	?>
-    <script src="<?php echo "temas/".$prop['tema'];?>/js/jquery-1.11.0.min.js"></script>
-	<script src="<?php echo "temas/".$prop['tema'];?>/js/bootstrap.min.js"></script>
-    <script src="<?php echo "temas/".$prop['tema'];?>/js/javascript.js"></script>
-    <script src="<?php echo "temas/".$prop['tema'];?>/js/spin.min.js"></script>
+    <script src="<?php echo 'temas/'.$prop['tema'];?>/js/jquery-1.11.0.min.js"></script>
+	<script src="<?php echo 'temas/'.$prop['tema'];?>/js/bootstrap.min.js"></script>
+    <script src="<?php echo 'temas/'.$prop['tema'];?>/js/javascript.js"></script>
+    <script src="<?php echo 'temas/'.$prop['tema'];?>/js/spin.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top" id="height-nav" role="navigation">
@@ -59,8 +59,8 @@
         
         <div class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 			<ul class="nav navbar-nav">
-              <li <?php if($page == ""){echo"class='active'";}else{}?>><a href="."><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-              <li <?php if($page == "explorar"){echo"class='active'";}else{}?>><a href="?p=explorar"><span class="glyphicon glyphicon-list-alt"></span> Explora</a></li>
+              <li <?php if($page == ''){echo'class=active';}else{}?>><a href="."><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+              <li <?php if($page == 'explorar'){echo'class=active';}else{}?>><a href="?p=explorar"><span class="glyphicon glyphicon-list-alt"></span> Explora</a></li>
     		</ul>
         <?php if (!isset($_SESSION['username'])) { ?>
           <div class="navbar-form navbar-right hidden-xs">

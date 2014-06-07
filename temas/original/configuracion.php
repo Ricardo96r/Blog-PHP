@@ -46,7 +46,7 @@
 						</button>
                     </div>
                 </div>
-                <script src="<?php echo "temas/".$prop['tema'];?>/js/publicar.js"></script>
+                <script src="<?php echo 'temas/'.$prop['tema'];?>/js/publicar.js"></script>
 			</form>
             <div id="resultado"></div>
           </div>
@@ -64,5 +64,5 @@
     </div>
     </div>
 <?php } else {
-	header ("Location: ?p=404");
+	header ('Location: ?p=404');
 	}

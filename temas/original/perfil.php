@@ -3,7 +3,7 @@ if (isset($_GET['pf'])) {
 	$perfil_get = antiSqlInjection($_GET['pf']);
   	if ($perfil_op = $db->query("
 		SELECT idcuenta, cuenta, email, nombre, nacimiento, sexo, imagen_perfil, imagen_perfil_fondo
-		FROM cuentas WHERE cuenta = '$perfil_get'")) {
+		FROM cuentas WHERE cuenta = '".$perfil_get."'")) {
 		$perfil = $perfil_op->fetch_array();
 		}
 	
@@ -20,15 +20,15 @@ if (isset($_GET['pf'])) {
 		FROM publicaciones 
 		INNER JOIN cuentas
 		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
-		WHERE cuentas.cuenta = '$perfil_get'")) {
+		WHERE cuentas.cuenta = '".$perfil_get."'")) {
 		$pfcount = ($pfcounts->num_rows);
 	}
 } else {
-	header("Location: ?p=404");
+	header('Location: ?p=404');
 }
 
 if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_get)) {
-	header("Location: ?p=404");
+	header('Location: ?p=404');
 } else {
 	$pfinicio_2 = $pfinicio*10;
 	$perfil_notas = $db->query("
@@ -38,9 +38,9 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
 		INNER JOIN imagenes
 		ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
-		WHERE cuentas.cuenta = '$perfil[cuenta]'
+		WHERE cuentas.cuenta = '".$perfil['cuenta']."'
 		ORDER BY `idpublicacion` DESC
-		LIMIT $pfinicio_2,10");?>
+		LIMIT ".$pfinicio_2.',10');?>
 <div class="row">
 <div class="col-sm-12">      
 <div class="well-bl-perfil">
@@ -93,6 +93,6 @@ if (!isset($perfil) or !isset($perfil_get) or empty($perfil) or empty($perfil_ge
 			} ?>
 	</div></div>
 <?php 
-			$link = "?p=perfil&pf=$perfil[cuenta]&pid";
+			$link = '?p=perfil&pf=$perfil[cuenta]&pid';
 			mostrar_mas($pfinicio, $pfcount, $link);
 }

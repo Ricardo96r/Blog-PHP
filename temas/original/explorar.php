@@ -1,5 +1,4 @@
 <?php
-
 /*
 Mysql -> tabla -> verificado {
 	0 = No verificado
@@ -8,13 +7,13 @@ Mysql -> tabla -> verificado {
 	}
 */
 
-$explorar = $db->query("
+$explorar = $db->query('
 	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion 
 	FROM publicaciones
 	INNER JOIN cuentas
 	ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
 	WHERE publicaciones.verificado = 2
-	ORDER BY `idpublicacion` DESC");
+	ORDER BY `idpublicacion` DESC');
 ?> 
 	<div class="well-bl-1">
     	<div class="row">
@@ -36,4 +35,3 @@ $explorar = $db->query("
 while ($explora = $explorar->fetch_array()) {
 			post($explora);
 			}
-?>
