@@ -15,74 +15,74 @@ function antiSqlInjection( $variable ) {
 		$result = htmlentities($variable);       //elimina etiquetas html y javascrip
 		$result = $db->real_escape_string($variable); //elimina todo lo que tenga que ver con mysql
 	} else {
-		$result = "";
+		$result = '';
 		}
 	return $result;							
 }
 
 function mostrarNacimiento( $type ) {
 	if ($type == 'mes') {
-		echo "
-			<select name=\"mes\" class=\"form-control\" id=\"mes\">
-				<option value=\"mes\">Mes</option>
-				<option value=\"1\">
+		echo '
+			<select name=mes class=form-control id=mes>
+				<option value=mes>Mes</option>
+				<option value=1>
 					Enero
 				</option>	
-				<option value=\"2\">
+				<option value=2>
 					Febrero
 				</option>	
-				<option value=\"3\">
+				<option value=3>
 					Marzo
 				</option>	
-				<option value=\"4\">
+				<option value=4>
 					Abril
 				</option>	
-				<option value=\"5\">
+				<option value=5>
 					Mayo
 				</option>	
-				<option value=\"6\">
+				<option value=6>
 					Junio
 				</option>	
-				<option value=\"7\">
+				<option value=7>
 					Julio
 				</option>
-				<option value=\"8\">
+				<option value=8>
 					Agosto
 				</option>
-				<option value=\"9\">
+				<option value=9>
 					Septiembre
 				</option>
-				<option value=\"10\">
+				<option value=10>
 					Octubre
 				</option>
-				<option value=\"11\">
+				<option value=11>
 					Noviembre
 				</option>
-				<option value=\"12\">
+				<option value=12>
 					Diciembre
 				</option>
 			</select>
-	";
+	';
 	}
 	if ($type == 'dia') {
-		echo "<select name=\"dia\" class=\"form-control\" id=\"dia\">";
-		echo "<option value=\"day\">Día</option>";
+		echo '<select name=dia class=form-control id=dia>';
+		echo '<option value=day>Día</option>';
 		$maxdy = 31;
 		for ($i = 1; $i <= $maxdy; $i++)
 		{
-			echo "<option value=\"$i\">$i</option>";
+			echo '<option value='.$i.'>'.$i.'</option>';
 		}
-		echo "</select>";
+		echo '</select>';
 	}
 	if ($type == 'año') {
-		echo "<select name=\"año\" class=\"form-control\" id=\"año\">";
-		echo "<option value=\"año\">Año</option>";
+		echo '<select name=año class=form-control id=año>';
+		echo '<option value=año>Año</option>';
 		for ($i = date('Y'); $i >= 1900; $i--)
 		{
-			echo "<option value=\"$i\">$i</option>";
+			echo '<option value='.$i.'>'.$i.'</option>';
 		}	 
 		
-		echo "</select>";
+		echo '</select>';
 	}
 }
 
@@ -100,12 +100,12 @@ function post ($dt) {
                     </div>
                     
                     <div>
-                    <?php echo $dt['nombre']."" ?></a>
-                    <a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo " - @".$dt['cuenta']."" ?></a>     
+                    <?php echo $dt['nombre'].'' ?></a>
+                    <a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo ' - @'.$dt['cuenta'].'' ?></a>     
                     </div>
                     
                     <span class="time" data-toggle="tooltip" data-placement="right" title="" data-original-title="<?php echo $dt['tiempo_de_creacion'];?>">
-                    <?php echo "<small>".tiempo_transcurrido($dt['tiempo_de_creacion'])."</small>";?>
+                    <?php echo '<small>'.tiempo_transcurrido($dt['tiempo_de_creacion']).'</small>';?>
                     </span>
                 </div>
             </div>
@@ -115,7 +115,7 @@ function post ($dt) {
                 <div class="pb-pb center-block">
                 <?php if (!isset($dt['idcomentario'])) {?>
                     <a class='a-clear' href='?pb=<?php echo $dt['idpublicacion']; ?>'>
-                        <?php echo "<img class='image-md center-block' src="."static-content/publicaciones/".$dt['ruta'].">"; ?>
+                        <?php echo '<img class=image-md center-block src=static-content/publicaciones/'.$dt['ruta'].'>'; ?>
                         <div class="center-block pb-text">
                             <?php echo $dt['publicacion']; ?>
                         </div>
@@ -151,7 +151,7 @@ function post ($dt) {
 						}
 						</script>
                       <?php
-					  	if ($mg_p = $db->query("SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'")) {
+					  	if ($mg_p = $db->query("SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
 							$mg = $mg_p->num_rows;
 						}
 					  ?>
@@ -180,7 +180,7 @@ function post ($dt) {
 						}
 						</script>
                       <?php
-					  	if ($fav_p = $db->query("SELECT * FROM publicaciones_favoritos WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'")) {
+					  	if ($fav_p = $db->query("SELECT * FROM publicaciones_favoritos WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
 							$fav = $fav_p->num_rows;
 						}
 					  ?>
@@ -190,7 +190,7 @@ function post ($dt) {
                       </a></li>
                       
                       <?php
-					  	if ($com_p = $db->query("SELECT * FROM comentarios WHERE publicaciones_idpublicacion = '$dt[idpublicacion]'")) {
+					  	if ($com_p = $db->query("SELECT * FROM comentarios WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
 							$com = $com_p->num_rows;
 						}
 					  ?>
@@ -229,21 +229,21 @@ function tiempo_transcurrido($fecha) {
 		return "No hay fecha";
 	}
  
-	$intervalos = array("segundo", "minuto", "hora", "dí­a", "semana", "mes", "año");
-	$duraciones = array("60","60","24","7","4.35","12");
+	$intervalos = array('segundo', 'minuto', 'hora', 'dí­a', 'semana', 'mes', 'año');
+	$duraciones = array('60','60','24','7','4.35','12');
  
 	$ahora = time();
 	$Fecha_Unix = strtotime($fecha);
  
 	if(empty($Fecha_Unix)) {  
-		return "Fecha incorrecta";
+		return 'Fecha incorrecta';
 	}
 	if($ahora > $Fecha_Unix) {  
 		$diferencia     = $ahora - $Fecha_Unix;
-		$tiempo         = "Hace";
+		$tiempo         = 'Hace';
 	} else {
 		$diferencia     = $Fecha_Unix - $ahora;
-		$tiempo         = "Dentro de";
+		$tiempo         = 'Dentro de';
 	}
 	for($j = 0; $diferencia >= $duraciones[$j] && $j < count($duraciones)-1; $j++) {
 		$diferencia /= $duraciones[$j];
@@ -252,8 +252,8 @@ function tiempo_transcurrido($fecha) {
 	$diferencia = round($diferencia);
  
 	if($diferencia != 1) {
-		$intervalos[5].="e"; //meses... la magia del español
-		$intervalos[$j].= "s";
+		$intervalos[5].='e'; //meses... la magia del español
+		$intervalos[$j].= 's';
 	}
  
 	return "$tiempo $diferencia $intervalos[$j]";
@@ -274,76 +274,76 @@ function mostrar_mas($get, $count, $link) {
 					<ul class='pagination pagination-lg'><?php
                       if ($count != 0) {
                       	if ($get == 0) {
-						  echo "<li class='disabled'><a>&laquo; Anterior</a></li>";
+						  echo '<li class=disabled><a>&laquo; Anterior</a></li>';
 						 } else {
-						  echo "<li><a href='".$link."=".($get-1)."'>&laquo; Anterior</a></li>";
+						  echo '<li><a href='.$link.'='.($get-1).'>&laquo; Anterior</a></li>';
 						 }
 					
 					# Si get == 0
                       if ($get == 0) {
-						echo "<li class='active hidden-xs'><a href=".$link."=".($get).">".($get)."</a></li>";
+						echo '<li class=active hidden-xs><a href='.$link.'='.($get).'>'.($get).'</a></li>';
 						if ($get + 1 >= $count) { 
-						   echo "<li class='disabled hidden-xs'><a>".($get+1)."</a></li>";
+						   echo '<li class=disabled hidden-xs><a>'.($get+1).'</a></li>';
 						    } else {
-							   echo "<li class='hidden-xs'><a href=".$link."=".($get+1).">".($get +1)."</a></li>";
+							   echo '<li class=hidden-xs><a href='.$link.'='.($get+1).'>'.($get +1).'</a></li>';
 							    } 
                       	if ($get + 2 >= $count) { 
-						   echo "<li class='disabled hidden-xs'><a>".($get+2)."</a></li>";
+						   echo '<li class=disabled hidden-xs><a>'.($get+2).'</a></li>';
 						    } else {
-							   echo "<li class='hidden-xs'><a href=".$link."=".($get+2).">".($get +2)."</a></li>";
+							   echo '<li class=hidden-xs><a href='.$link.'='.($get+2).'>'.($get +2).'</a></li>';
 							    } 
 						if ($get + 3 >= $count) { 
-						   echo "<li class='disabled hidden-xs'><a>".($get+3)."</a></li>";
+						   echo '<li class=disabled hidden-xs><a>'.($get+3).'</a></li>';
 						    } else {
-							   echo "<li class='hidden-xs'><a href=".$link."=".($get+3).">".($get +3)."</a></li>";
+							   echo '<li class=hidden-xs><a href='.$link.'='.($get+3).'>'.($get +3).'</a></li>';
 							    } 
 						if ($get + 4 >= $count) { 
-						   echo "<li class='disabled hidden-xs'><a>".($get+4)."</a></li>";
+						   echo '<li class=disabled hidden-xs><a>'.($get+4).'</a></li>';
 						    } else {
-							   echo "<li class='hidden-xs'><a href=".$link."=".($get+4).">".($get +4)."</a></li>";
+							   echo '<li class=hidden-xs><a href='.$link.'='.($get+4).'>'.($get +4).'</a></li>';
 							    } 
 								
 					  # SI GET = 1
 					  } else if ($get == 1) {
-						echo "<li class='hidden-xs'><a href=".$link."=".($get-1).">".($get -1)."</a></li>"; 
-						echo "<li class='active hidden-xs'><a href=".$link."=".($get).">".($get)."</a></li>";
+						echo '<li class=hidden-xs><a href='.$link.'='.($get-1).'>'.($get -1).'</a></li>'; 
+						echo '<li class=active hidden-xs><a href='.$link.'='.($get).'>'.($get).'</a></li>';
 						if ($get + 1 >= $count) { 
-						   echo "<li class='disabled hidden-xs'><a>".($get+1)."</a></li>";
+						   echo '<li class=disabled hidden-xs><a>'.($get+1).'</a></li>';
 						    } else {
-							   echo "<li class='hidden-xs'><a href=".$link."=".($get+1).">".($get +1)."</a></li>";
+							   echo '<li class=hidden-xs><a href='.$link.'='.($get+1).'>'.($get +1).'</a></li>';
 							    } 
                       	if ($get + 2 >= $count) { 
-						   echo "<li class='disabled hidden-xs'><a>".($get+2)."</a></li>";
+						   echo '<li class=disabled hidden-xs><a>'.($get+2).'</a></li>';
 						    } else {
-							   echo "<li class='hidden-xs'><a href=".$link."=".($get+2).">".($get +2)."</a></li>";
+							   echo '<li class=hidden-xs><a href='.$link.'='.($get+2).'>'.($get +2).'</a></li>';
 							    }
 						if ($get + 3 >= $count) { 
-						   echo "<li class='disabled hidden-xs'><a>".($get+3)."</a></li>";
+						   echo '<li class=disabled hidden-xs><a>'.($get+3).'</a></li>';
 						    } else {
-							   echo "<li class='hidden-xs'><a href=".$link."=".($get+3).">".($get +3)."</a></li>";
+							   echo '<li class=hidden-xs><a href='.$link.'='.($get+3).'>'.($get +3).'</a></li>';
 							    } 
                        		 
 					   
 						#Si get > 1
 					  } else {
-						echo "<li class='hidden-xs'><a href=".$link."=".($get-2).">".($get -2)."</a></li>";
-						echo "<li class='hidden-xs'><a href=".$link."=".($get-1).">".($get -1)."</a></li>"; 
-						echo "<li class='active hidden-xs'><a href=".$link."=".($get).">".($get)."</a></li>";
+						echo '<li class=hidden-xs><a href='.$link.'='.($get-2).'>'.($get -2).'</a></li>';
+						echo '<li class=hidden-xs><a href='.$link.'='.($get-1).'>'.($get -1).'</a></li>'; 
+						echo '<li class=active hidden-xs><a href='.$link.'='.($get).'>'.($get).'</a></li>';
 						if ($get + 1 >= $count) { 
-						   echo "<li class='disabled hidden-xs'><a>".($get+1)."</a></li>";
+						   echo '<li class=disabled hidden-xs><a>'.($get+1).'</a></li>';
 						    } else {
-							   echo "<li class='hidden-xs'><a href=".$link."=".($get+1).">".($get +1)."</a></li>";
+							   echo '<li class=hidden-xs><a href='.$link.'='.($get+1).'>'.($get +1).'</a></li>';
 							    } 
                       	if ($get + 2 >= $count) { 
-						   echo "<li class='disabled hidden-xs'><a>".($get+2)."</a></li>";
+						   echo '<li class=disabled hidden-xs><a>'.($get+2).'</a></li>';
 						    } else {
-							   echo "<li class='hidden-xs'><a href=".$link."=".($get+2).">".($get +2)."</a></li>";
+							   echo '<li class=hidden-xs><a href='.$link.'='.($get+2).'>'.($get +2).'</a></li>';
 							    }
 					  }
 						if($get+1 >= $count) {
-						  echo "<li class='disabled'><a>Siguiente &raquo;</a></li>";
+						  echo '<li class=disabled><a>Siguiente &raquo;</a></li>';
 						  } else {
-						  echo "<li><a href='".$link."=".($get+1)."'>Siguiente &raquo;</a></li>";
+						  echo '<li><a href='.$link.'='.($get+1).'>Siguiente &raquo;</a></li>';
 							}
 					#No hay nada esto pasa cuando count vale 0!
 					  } else {
@@ -351,7 +351,7 @@ function mostrar_mas($get, $count, $link) {
 		?></ul></div></div></div><?php
 		
 	} else {
-		header("Location: ?p=404");
+		header('Location: ?p=404');
 		}
 	}
 
@@ -369,12 +369,12 @@ function comentario ($dt) {
                     </div>
                     
                     <div>
-                    <?php echo $dt['nombre']."" ?></a>
-                    <a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo " - @".$dt['cuenta']."" ?></a>     
+                    <?php echo $dt['nombre'].'' ?></a>
+                    <a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo " - @".$dt['cuenta'].'' ?></a>     
                     </div>
                     
                     <span class="time" data-toggle="tooltip" data-placement="right" title="" data-original-title="<?php echo $dt['tiempo_de_creacion'];?>">
-                    <?php echo "<small>".tiempo_transcurrido($dt['tiempo_de_creacion'])."</small>";?>
+                    <?php echo '<small>'.tiempo_transcurrido($dt['tiempo_de_creacion']).'</small>';?>
                     </span>
                 </div>
             </div>
@@ -410,7 +410,7 @@ function comentario ($dt) {
 						}
 						</script>
                       <?php
-					  	if ($mg_p = $db->query("SELECT * FROM comentarios_megusta WHERE comentarios_idcomentario = '$dt[idcomentario]'")) {
+					  	if ($mg_p = $db->query("SELECT * FROM comentarios_megusta WHERE comentarios_idcomentario = '".$dt['idcomentario']."'")) {
 							$mg = $mg_p->num_rows;
 						}
 					  ?>
@@ -439,7 +439,7 @@ function comentario ($dt) {
 						}
 						</script>
                       <?php
-					  	if ($fav_p = $db->query("SELECT * FROM comentarios_favoritos WHERE comentarios_idcomentario = '$dt[idcomentario]'")) {
+					  	if ($fav_p = $db->query("SELECT * FROM comentarios_favoritos WHERE comentarios_idcomentario = '".$dt['idcomentario']."'")) {
 							$fav = $fav_p->num_rows;
 						}
 					  ?>
@@ -449,7 +449,7 @@ function comentario ($dt) {
                       </a></li>
                       
                       <?php
-					  	if ($com_p = $db->query("SELECT * FROM subcomentarios WHERE comentarios_idcomentario = '$dt[idcomentario]'")) {
+					  	if ($com_p = $db->query("SELECT * FROM subcomentarios WHERE comentarios_idcomentario = '".$dt['idcomentario']."'")) {
 							$com = $com_p->num_rows;
 						}
 					  ?>

@@ -1,6 +1,5 @@
 <?php
 if (isset($_POST['permiso']) and $_POST['permiso'] == 'allowed') {
-
 	$cuenta = antiSqlInjection($_POST['cuenta']);
 	$contraseña = antiSqlInjection($_POST['contraseña']);
 	$contraseña2 = antiSqlInjection($_POST['contraseña2']);
