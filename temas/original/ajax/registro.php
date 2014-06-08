@@ -67,8 +67,8 @@ Errores al registrarse
 	echo 'Porfavor llene el campo nombres';
 } elseif(strlen($nombres) < 1){
 	echo 'Porfavor llene el campo nombres';
-} elseif(strlen($nombres) > 20){
-	echo 'El campo nombre(s) tiene que ser menor o igual a 20 caracteres';
+} elseif(mb_strlen($nombres, 'utf8') > 21){
+	echo 'El campo nombre(s) tiene que ser menor o igual a 20 caracteres ';
 	
 //$nacimiento
 }elseif(!isset($nacimiento) or empty($nacimiento)){
