@@ -1,5 +1,5 @@
- <div class="well-bl-1">
-<?php if (!isset($_SESSION['username'])) { ?>
+<div class="well-bl-1">
+<?php if (!isset($_SESSION['username'])) {?>
 <div class="row">
 	<div class="col-xs-12">
    <form method="post" action="">
@@ -53,9 +53,8 @@
     </div>
     </div>
 </div>
-    <?php 
-    } else { 
-        header('Location: ?');
+	<?php } else {
+        header('Location: ?p=404');
     }
-    ?>
+	?>
 	</div>

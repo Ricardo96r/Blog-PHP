@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title><?php echo ucwords($prop['nombre']); ?></title>
-    <?php 
+	<title><?php echo ucwords($prop['nombre']);?></title>
+    <?php
 	/*
 		Load CSS
 	*/
@@ -93,14 +93,14 @@
           <div class="navbar-form navbar-left visible-sm">
           	<button class="btn btn-warning" type="button" onclick="document.location.href='?p=buscar'"><span class="glyphicon glyphicon-search"> Buscar</span></button>
           </div>
-          <form class="navbar-form navbar-left input-group hidden-sm">
-          <div class="input-group">
-          	<input type="text" class="form-control" placeholder="Buscar...">
-            <span class="input-group-btn">
-                <button class="btn btn-warning" type="button"><span class="glyphicon glyphicon-search"></span></button>
-            </span>
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
+				<form class="navbar-form navbar-left input-group hidden-sm">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Buscar...">
+						<span class="input-group-btn">
+							<button class="btn btn-warning" type="button"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
