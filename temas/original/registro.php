@@ -76,15 +76,13 @@ function registro(permiso, cuenta, contraseña, contraseña2, email, nombres, di
 </div>
 <p>
 <div class="row">
-	<div class="col-md-12 text-center">     
-        <label for="hombre" id="registro-form-label">
-            Hombre
-        </label>
-        <input type="radio" name="sexo" class="registro-form-sexo-input" id="hombre" value="1">
-        <label for="mujer" id="registro-form-label">
-            Mujer
-        </label>
-        <input type="radio" name="sexo" class="registro-form-sexo-input"  id="mujer" value="2">
+	<div class="col-md-12">
+    	<label>Género:</label>
+    	<select name="mes" class="form-control" id="registro-form-sexo-input">
+       		<option value=0>Género</option>
+        	<option value=1>Hombre</option>
+            <option value=2>Mujer</option>	
+        </select>
     </div>
 </div>
 </p>
@@ -100,7 +98,7 @@ function registro(permiso, cuenta, contraseña, contraseña2, email, nombres, di
         $('#dia').val(),
         $('#mes').val(),
         $('#año').val(),
-        $('.registro-form-sexo-input').val()
+        $('#registro-form-sexo-input').val()
         );return false;" name="registro" class="btn btn-warning form-control">Registrarse</buttom>
 	</div>
 </div>
@@ -110,5 +108,5 @@ function registro(permiso, cuenta, contraseña, contraseña2, email, nombres, di
 </div>
 <?php
 } else {
-	header('Location: ?p=404');
+	header('Location: .');
 	}

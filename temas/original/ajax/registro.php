@@ -92,6 +92,12 @@ Envio de datos
 
 } else {
 	$ia = $db->query("INSERT INTO `cuentas` (`cuenta`,`contraseña`,`nacimiento`,`email`,`nombre`,`sexo`) VALUES ('".$cuenta."','".$contraseña."','".$nacimiento."','".$email."','".$nombres."','".$sexo."')");
+	if ($sesion = $db->query("SELECT email, contraseña FROM cuentas WHERE email = '".$email."'")) {
+		$sesion1 = $sesion->fetch_assoc();
+		if ($contraseña == $sesion1['contraseña']) {
+			$_SESSION['username'] = $email;
+		}
+	}
 	echo 'Registrado';
 	}
 } else {
