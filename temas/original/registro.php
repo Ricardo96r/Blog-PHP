@@ -2,34 +2,7 @@
 <?php
 if (!isset($_SESSION['username'])) {
 ?>
-<script>
-function registro(permiso, cuenta, contraseña, contraseña2, email, nombres, dia, mes, año, sexo){
-		var parametros = {
-				"permiso" : permiso,
-				"cuenta" : cuenta,
-				"contraseña" : contraseña,
-				"contraseña2" : contraseña2,
-				"email" : email,
-				"nombres" : nombres,
-				"dia" : dia,
-				"mes" : mes,
-				"año" : año,
-				"sexo" : sexo,
-		};
-		$.ajax({
-				data:  parametros,
-				url:   '?p=ajax&action=registro',
-				type:  'post',
-				beforeSend: function () {
-						new Spinner(opts).spin(document.getElementById('resultado'));
-				},
-				success:  function (respuesta) {
-						$('#resultado').html((respuesta == 'Registrado' || respuesta == 'No tienes permiso para entrar aqui!') ? location.reload() : respuesta);
-				}
-		});
-}
-</script>
-<form method="post" action="">
+<form method="post">
 <div class="row">
     <div class="col-xs-12">
         <label for="registro-form-cuenta-input" id="registro-form-label">Nombre de usuario</label>
@@ -88,23 +61,12 @@ function registro(permiso, cuenta, contraseña, contraseña2, email, nombres, di
 </p>
 <div class="row">
 	<div class="col-xs-12">
-    	<buttom onclick="registro(
-        'allowed',
-        $('#registro-form-cuenta-input').val(),
-        $('#registro-form-contraseña1-input').val(),
-        $('#registro-form-contraseña2-input').val(),
-        $('#registro-form-correo-input').val(),
-        $('#registro-form-nombres-input').val(),
-        $('#dia').val(),
-        $('#mes').val(),
-        $('#año').val(),
-        $('#registro-form-sexo-input').val()
-        );return false;" name="registro" class="btn btn-warning form-control">Registrarse</buttom>
+		<button class="btn btn-warning form-control registro-submit" id="registro-submit">Enviar Mensaje</button>
 	</div>
 </div>
 </form>
-<div id="resultado">
-</div>
+<div id="resultado"></div>
+<script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/registro.js"></script>
 </div>
 <?php
 } else {

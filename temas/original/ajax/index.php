@@ -10,9 +10,11 @@ if (isset($_GET['action'])) {
 		header('Location: ?p=404');
 		}
 
-# Sin estar logueado	
+# Registro
 if ($action == 'registro') {
 	include('registro.php');
+	
+# Login
 } elseif($action == 'login'){
 	include('login.php');
 	
