@@ -66,11 +66,14 @@
 				"mes" : mes,
 				"año" : año,
 				"sexo" : sexo,
+				
 			};
+			/*var datos = 'permiso='+ permiso + '&cuenta=' + cuenta + '&contraseña=' + contraseña + '&contraseña2=' + contraseña2
+			+ '&email=' + email + '&nombres=' + nombres + '&dia=' + dia + '&mes=' + mes + '&año=' + año + '&sexo=' + sexo;*/
 			$.ajax({
-				data:  datos,
+				type:  'POST',
 				url:   '?p=ajax&action=registro',
-				type:  'post',
+				data:  datos,
 				beforeSend: function () {
 						new Spinner(opts).spin(document.getElementById('resultado'));
 				},

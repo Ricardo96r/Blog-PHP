@@ -97,8 +97,7 @@ mostrar_mas($inicio, $count, $link);
 			$pb = $pb_o->fetch_assoc();
 		}
 		?><div class="height-pb"><?php post($pb);?></div>
-		<div class="row">
-            <div class="col-xs-12">
+
 
 
 		<?php
@@ -127,7 +126,7 @@ mostrar_mas($inicio, $count, $link);
                 </script>   
 				<div class="">
                 	
-                    <ul class="nav nav-pills well-bl-3 affix-comentarios hidden-xs" style="width:510px;">
+                    <ul class="nav nav-pills well-bl-3 affix-comentarios hidden-xs" style="width:505px;">
                     	<li><a><strong>Comentarios</strong></a></li>
                         <li><a>Recientes</a></li>
                         <li><a>Mejores</a></li>
@@ -217,6 +216,4 @@ mostrar_mas($inicio, $count, $link);
 		header('Location: ?&pos=$inicio');
 		}
 		?>
-	</div>
-</div>
 <?php }
