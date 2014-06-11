@@ -153,12 +153,23 @@ body {
 	border-style: solid;
 	border-color: #D3D3D3;
 	border-width: 1px;
-	border-radius:4px;
+	border-bottom-width:0px;
 	word-wrap: break-word;
-	margin-bottom:5px;
+	margin-bottom:0px;
 	padding:5px;
 	padding-bottom:0px;
 	}
+	
+.well-bl-perfil-nav {
+	background-color: #FFFBF6;
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 1px;
+	word-wrap: break-word;
+	margin-bottom:10px;
+	padding:3px;
+	z-index:1;
+}
 	
 .img-perfil {
 	width:200px;
@@ -325,7 +336,18 @@ a:focus {
 .affix-aside {
   top:60px;
 }
+
+.affix-aside-perfil {
+  top:108px;
+}
 	
 .thumbnail {
 	margin-bottom:5px;
 	}
+	
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: #fff;
+  background-color: #FF8E00;
+}
