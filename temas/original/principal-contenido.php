@@ -126,7 +126,7 @@ mostrar_mas($inicio, $count, $link);
                 </script>   
 				<div class="">
                 	
-                    <ul class="nav nav-pills well-bl-3 affix-comentarios hidden-xs" style="width:505px;">
+                    <ul class="nav nav-pills well-bl-3 affix-comentarios hidden-xs hidden-sm" style="width:505px;">
                     	<li><a><strong>Comentarios</strong></a></li>
                         <li><a>Recientes</a></li>
                         <li><a>Mejores</a></li>
@@ -136,7 +136,7 @@ mostrar_mas($inicio, $count, $link);
                             </a>
                     	</li>
                     </ul>
-                    <ul class="nav nav-pills well-bl-3 visible-xs">
+                    <ul class="nav nav-pills well-bl-3 visible-xs visible-sm">
                     	<li><a><strong>Comentarios</strong></a></li>
                         <li><a>Recientes</a></li>
                         <li><a>Mejores</a></li>

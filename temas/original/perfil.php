@@ -135,41 +135,87 @@ if (isset($_GET['pf'])) {
 		 */
 		case 'favoritos';
 			$pfinicio_2 = $pfinicio*10;
-			# Busqueda de datos para consegir idpublicacion
-			$pf_fav_o = $db->query("
-				SELECT
-				publicaciones_favoritos.idfavorito, publicaciones_favoritos.publicaciones_idpublicacion, 
-				publicaciones_favoritos.tiempo_de_creacion, publicaciones_favoritos.cuentas_idcuenta,
-				cuentas.idcuenta, cuentas.cuenta
+			$pf_pb = $db->query("SELECT
+				# Favoritos
+				publicaciones_favoritos.idfavorito,
+				publicaciones_favoritos.cuentas_idcuenta as idcuenta_fav,
+				publicaciones_favoritos.publicaciones_idpublicacion as idpublicacion_fav,
+				publicaciones_favoritos.tiempo_de_creacion as idtiempo_fav,
+				# Publicaciones  en base de idpublicacion_fav
+				publicaciones.cuentas_idcuenta,
+				publicaciones.idpublicacion,
+				publicaciones.imagenes_idimagenes,
+				publicaciones.publicacion,
+				publicaciones.tiempo_de_creacion,
+				# Cuentas en base de publicaciones.cuentas_idcuenta
+				cuentas.cuenta,
+				cuentas.idcuenta,
+				cuentas.imagen_perfil,
+				cuentas.nombre,
+				# Imagenes
+				imagenes.idimagenes, 
+				imagenes.ruta
 				FROM publicaciones_favoritos
-				INNER JOIN cuentas
-				ON cuentas.idcuenta = publicaciones_favoritos.cuentas_idcuenta
-				WHERE publicaciones_favoritos.cuentas_idcuenta = ".$perfil['idcuenta']."
-				ORDER BY `idfavorito` DESC
-				LIMIT ".$pfinicio_2.",2");
-			$pf_fav = $pf_fav_o->fetch_array();
-				
-			$pf_pb = $db->query("
-				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, 
-				publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, 
-				publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
-				FROM publicaciones
+				INNER JOIN publicaciones
+				ON publicaciones.idpublicacion = publicaciones_favoritos.publicaciones_idpublicacion
 				INNER JOIN cuentas
 				ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
 				INNER JOIN imagenes
 				ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
-				WHERE publicaciones.idpublicacion = ".$pf_fav_o.""
-				);
+				WHERE publicaciones_favoritos.cuentas_idcuenta = ".$perfil['idcuenta']."
+				ORDER BY `idfavorito` DESC
+				LIMIT ".$pfinicio_2.',10
+				');
 			while ($nts = $pf_pb->fetch_array()) {
+				echo "<div class='well-bl-fav'><span class='glyphicon glyphicon-star'></span><small> Favorito por ".$perfil['cuenta'].' ';
+				?><span class="time" data-toggle="tooltip" data-placement="right" title="" data-original-title="<?php echo $nts['idtiempo_fav'];?>"><?php
+				echo strtolower(tiempo_transcurrido($nts['idtiempo_fav'])).'</span></small></div>';
 				post($nts);
 			}
 			break;
 			
 		/*
-		 *	Sección favoritos
+		 *	Sección megusta
 		 */
 		case 'me_gusta';
-		
+			$pfinicio_2 = $pfinicio*10;
+			$pf_pb = $db->query("SELECT
+				# Megusta
+				publicaciones_megusta.idmegusta,
+				publicaciones_megusta.cuentas_idcuenta as idcuenta_fav,
+				publicaciones_megusta.publicaciones_idpublicacion as idpublicacion_fav,
+				publicaciones_megusta.tiempo_de_creacion as idtiempo_fav,
+				# Publicaciones  en base de idpublicacion_fav
+				publicaciones.cuentas_idcuenta,
+				publicaciones.idpublicacion,
+				publicaciones.imagenes_idimagenes,
+				publicaciones.publicacion,
+				publicaciones.tiempo_de_creacion,
+				# Cuentas en base de publicaciones.cuentas_idcuenta
+				cuentas.cuenta,
+				cuentas.idcuenta,
+				cuentas.imagen_perfil,
+				cuentas.nombre,
+				# Imagenes
+				imagenes.idimagenes, 
+				imagenes.ruta
+				FROM publicaciones_megusta
+				INNER JOIN publicaciones
+				ON publicaciones.idpublicacion = publicaciones_megusta.publicaciones_idpublicacion
+				INNER JOIN cuentas
+				ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
+				INNER JOIN imagenes
+				ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
+				WHERE publicaciones_megusta.cuentas_idcuenta = ".$perfil['idcuenta']."
+				ORDER BY `idmegusta` DESC
+				LIMIT ".$pfinicio_2.',10
+				');
+			while ($nts = $pf_pb->fetch_array()) {
+				echo "<div class='well-bl-fav'><span class='glyphicon glyphicon-thumbs-up'></span><small> Le gusta a ".$perfil['cuenta'].' ';
+				?><span class="time" data-toggle="tooltip" data-placement="right" title="" data-original-title="<?php echo $nts['idtiempo_fav'];?>"><?php
+				echo strtolower(tiempo_transcurrido($nts['idtiempo_fav'])).'</span></small></div>';
+				post($nts);
+			}
 			break;		
 	}
 	

@@ -166,6 +166,15 @@ body {
 	padding:3px;
 	z-index:1;
 }
+
+.well-bl-fav {
+	background-color: #FFFBF6;
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 1px;
+	border-bottom-width:0px;
+	padding:5px;
+	}
 	
 .img-perfil {
 	width:200px;
