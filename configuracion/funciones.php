@@ -281,24 +281,24 @@ function mostrar_mas($get, $count, $link) {
 					
 					# Si get == 0
                       if ($get == 0) {
-						echo '<li class=active hidden-xs><a href='.$link.'='.($get).'>'.($get).'</a></li>';
+						echo "<li class='active hidden-xs'><a href=".$link.'='.($get).'>'.($get).'</a></li>';
 						if ($get + 1 >= $count) { 
-						   echo '<li class=disabled hidden-xs><a>'.($get+1).'</a></li>';
+						   echo "<li class='disabled hidden-xs'><a>".($get+1).'</a></li>';
 						    } else {
 							   echo '<li class=hidden-xs><a href='.$link.'='.($get+1).'>'.($get +1).'</a></li>';
 							    } 
                       	if ($get + 2 >= $count) { 
-						   echo '<li class=disabled hidden-xs><a>'.($get+2).'</a></li>';
+						   echo "<li class='disabled hidden-xs'><a>".($get+2).'</a></li>';
 						    } else {
 							   echo '<li class=hidden-xs><a href='.$link.'='.($get+2).'>'.($get +2).'</a></li>';
 							    } 
 						if ($get + 3 >= $count) { 
-						   echo '<li class=disabled hidden-xs><a>'.($get+3).'</a></li>';
+						   echo "<li class='disabled hidden-xs'><a>".($get+3).'</a></li>';
 						    } else {
 							   echo '<li class=hidden-xs><a href='.$link.'='.($get+3).'>'.($get +3).'</a></li>';
 							    } 
 						if ($get + 4 >= $count) { 
-						   echo '<li class=disabled hidden-xs><a>'.($get+4).'</a></li>';
+						   echo "<li class='disabled hidden-xs'><a>".($get+4).'</a></li>';
 						    } else {
 							   echo '<li class=hidden-xs><a href='.$link.'='.($get+4).'>'.($get +4).'</a></li>';
 							    } 
@@ -306,19 +306,19 @@ function mostrar_mas($get, $count, $link) {
 					  # SI GET = 1
 					  } else if ($get == 1) {
 						echo '<li class=hidden-xs><a href='.$link.'='.($get-1).'>'.($get -1).'</a></li>'; 
-						echo '<li class=active hidden-xs><a href='.$link.'='.($get).'>'.($get).'</a></li>';
+						echo "<li class='active hidden-xs'><a href=".$link.'='.($get).'>'.($get).'</a></li>';
 						if ($get + 1 >= $count) { 
-						   echo '<li class=disabled hidden-xs><a>'.($get+1).'</a></li>';
+						   echo "<li class='disabled hidden-xs'><a>".($get+1).'</a></li>';
 						    } else {
 							   echo '<li class=hidden-xs><a href='.$link.'='.($get+1).'>'.($get +1).'</a></li>';
 							    } 
                       	if ($get + 2 >= $count) { 
-						   echo '<li class=disabled hidden-xs><a>'.($get+2).'</a></li>';
+						   echo "<li class='disabled hidden-xs'><a>".($get+2).'</a></li>';
 						    } else {
 							   echo '<li class=hidden-xs><a href='.$link.'='.($get+2).'>'.($get +2).'</a></li>';
 							    }
 						if ($get + 3 >= $count) { 
-						   echo '<li class=disabled hidden-xs><a>'.($get+3).'</a></li>';
+						   echo "<li class='disabled hidden-xs'><a>".($get+3).'</a></li>';
 						    } else {
 							   echo '<li class=hidden-xs><a href='.$link.'='.($get+3).'>'.($get +3).'</a></li>';
 							    } 
@@ -328,14 +328,14 @@ function mostrar_mas($get, $count, $link) {
 					  } else {
 						echo '<li class=hidden-xs><a href='.$link.'='.($get-2).'>'.($get -2).'</a></li>';
 						echo '<li class=hidden-xs><a href='.$link.'='.($get-1).'>'.($get -1).'</a></li>'; 
-						echo '<li class=active hidden-xs><a href='.$link.'='.($get).'>'.($get).'</a></li>';
+						echo "<li class='active hidden-xs'><a href=".$link.'='.($get).'>'.($get).'</a></li>';
 						if ($get + 1 >= $count) { 
-						   echo '<li class=disabled hidden-xs><a>'.($get+1).'</a></li>';
+						   echo "<li class='disabled hidden-xs'><a>".($get+1).'</a></li>';
 						    } else {
 							   echo '<li class=hidden-xs><a href='.$link.'='.($get+1).'>'.($get +1).'</a></li>';
 							    } 
                       	if ($get + 2 >= $count) { 
-						   echo '<li class=disabled hidden-xs><a>'.($get+2).'</a></li>';
+						   echo "<li class='disabled hidden-xs'><a>".($get+2).'</a></li>';
 						    } else {
 							   echo '<li class=hidden-xs><a href='.$link.'='.($get+2).'>'.($get +2).'</a></li>';
 							    }

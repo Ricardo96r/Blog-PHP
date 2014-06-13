@@ -125,7 +125,7 @@ body {
 	border-width: 1px;
 	border-radius: 4px;
 	word-wrap: break-word;
-	margin-bottom:5px;
+	margin-bottom:10px;
 }
 
 @media (max-width: 330px) {
@@ -150,7 +150,7 @@ body {
 	margin-bottom:0px;
 	padding:5px;
 	padding-bottom:0px;
-	background-image: url(../../../static-content/perfiles/new_user.jpg); 
+	background-image: url(../../../static-content/perfiles/photo.jpg); 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;

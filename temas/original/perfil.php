@@ -37,7 +37,7 @@ if (isset($_GET['pf'])) {
 		header('Location: ?p=404');
 		}
 ?>
-	<div class="well-bl-perfil">  
+	<div class="well-bl-perfil" style="background-image: url(static-content/perfiles/<?php echo $perfil['imagen_perfil_fondo']?>);">  
     	<div class="container">
             <div class="row">
                 <div class="col-xs-12">
