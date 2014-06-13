@@ -70,7 +70,27 @@ if (isset($_GET['pf'])) {
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <ul class="nav nav-pills well-bl-perfil-nav" data-spy="affix" data-offset-top="60" style="z-index:999999; background-color:#FFF4E6; width:840px;">
+            <ul class="nav nav-pills well-bl-perfil-nav affix-pefil-nav hidden-xs hidden-sm" data-spy="affix" data-offset-top="60">
+                <li <?php
+                if ($pfp == 'publicaciones') {
+                    echo 'class=active';
+                    }
+                ?>><a href="<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=publicaciones';?>"><span class="glyphicon glyphicon-th-list"></span>
+                <span class="hidden-xs"> Publicaciones</span><span class="badge">423</span></a></li>
+                <li <?php
+                if ($pfp == 'favoritos') {
+                    echo 'class=active';
+                    }
+                ?>><a href="<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=favoritos';?>"><span class="glyphicon glyphicon-star"></span>
+                <span class="hidden-xs"> Favoritos</span><span class="badge">423</span></a></li>
+                <li <?php
+                if ($pfp == 'me_gusta') {
+                    echo 'class=active';
+                    }
+                ?>><a href=<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=me_gusta';?>><span class="glyphicon glyphicon-thumbs-up"></span>
+                <span class="hidden-xs"> Me gusta</span><span class="badge">423</span></a></li>
+            </ul>
+            <ul class="nav nav-pills well-bl-perfil-nav visible-xs visible-sm">
                 <li <?php
                 if ($pfp == 'publicaciones') {
                     echo 'class=active';
