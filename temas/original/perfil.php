@@ -42,9 +42,25 @@ if (isset($_GET['pf'])) {
             <div class="row">
                 <div class="col-xs-12">
                     <div class="img-responsive center-block" style="max-width:200px; min-width: 40px;">
-                        <a href="#" class="thumbnail edit">
+                        <a href="#" class="thumbnail edit" data-toggle="modal" data-target="#perfil_img_modal">
                           <img src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
                         </a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="perfil_img_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></button>
+                                <h4 class="modal-title" id="myModalLabel">
+									<strong><?php echo $perfil['nombre'];?></strong><small> <?php echo "@".$perfil['cuenta']; ?></small>
+                                </h4>
+                              </div>
+                              <div class="modal-body">
+                              	<img class="img-responsive center-block" src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
