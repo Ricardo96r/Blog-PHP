@@ -147,24 +147,23 @@ body {
 	}
 
 .well-bl-perfil {
-	background-color:#FFFFFF;
-	border-style: solid;
-	border-color: #D3D3D3;
-	border-width: 1px;
-	border-bottom-width:0px;
 	word-wrap: break-word;
 	margin-bottom:0px;
 	padding:5px;
 	padding-bottom:0px;
+	background-image: url(../../../static-content/perfiles/new_user.jpg); 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	}
 	
 .well-bl-perfil-nav {
-	background-color:#FFF4E6;
+	background-color: #FFFFFF;
 	border-style: solid;
 	border-color: #D3D3D3;
 	border-width: 1px;
 	word-wrap: break-word;
-	margin-bottom:10px;
 	padding:3px;
 	z-index:1;
 }
@@ -341,11 +340,12 @@ a:focus {
 	}
 
 .affix-aside-perfil {
-  top:108px;
+  top:60px;
 }
 	
 .thumbnail {
-	margin-bottom:5px;
+	margin-top:10px;
+	margin-bottom:0px;
 	}
 	
 .nav-pills > li.active > a,

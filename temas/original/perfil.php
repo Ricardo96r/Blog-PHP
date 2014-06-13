@@ -37,82 +37,58 @@ if (isset($_GET['pf'])) {
 		header('Location: ?p=404');
 		}
 ?>
-    <div class="row">
-    <div class="col-sm-12">      
-    <div class="well-bl-perfil">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="img-responsive center-block" style="max-width:260px; min-width: 40px;">
-                    <a href="#" class="thumbnail">
-                      <img src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h2>
-                            <span class="hidden-xs">
-                                <?php echo $perfil['nombre'];?>
-                                <div><small><?php echo "@".$perfil['cuenta']; ?></small></div>
-                            </span>
-                            <span class="visible-xs text-center">
-                                <?php echo $perfil['nombre'];?>
-                                <div><small><?php echo "@".$perfil['cuenta']; ?></small></div>
-                            </span>
-                        </h2>
+	<div class="well-bl-perfil">  
+    	<div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="img-responsive center-block" style="max-width:200px; min-width: 40px;">
+                        <a href="#" class="thumbnail edit">
+                          <img src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
- 	</div>
-    </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <ul class="nav nav-pills well-bl-perfil-nav affix-pefil-nav hidden-xs hidden-sm" data-spy="affix" data-offset-top="60">
-                <li <?php
-                if ($pfp == 'publicaciones') {
-                    echo 'class=active';
-                    }
-                ?>><a href="<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=publicaciones';?>"><span class="glyphicon glyphicon-th-list"></span>
-                <span class="hidden-xs"> Publicaciones</span><span class="badge">423</span></a></li>
-                <li <?php
-                if ($pfp == 'favoritos') {
-                    echo 'class=active';
-                    }
-                ?>><a href="<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=favoritos';?>"><span class="glyphicon glyphicon-star"></span>
-                <span class="hidden-xs"> Favoritos</span><span class="badge">423</span></a></li>
-                <li <?php
-                if ($pfp == 'me_gusta') {
-                    echo 'class=active';
-                    }
-                ?>><a href=<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=me_gusta';?>><span class="glyphicon glyphicon-thumbs-up"></span>
-                <span class="hidden-xs"> Me gusta</span><span class="badge">423</span></a></li>
-            </ul>
-            <ul class="nav nav-pills well-bl-perfil-nav visible-xs visible-sm">
-                <li <?php
-                if ($pfp == 'publicaciones') {
-                    echo 'class=active';
-                    }
-                ?>><a href="<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=publicaciones';?>"><span class="glyphicon glyphicon-th-list"></span>
-                <span class="hidden-xs"> Publicaciones</span><span class="badge">423</span></a></li>
-                <li <?php
-                if ($pfp == 'favoritos') {
-                    echo 'class=active';
-                    }
-                ?>><a href="<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=favoritos';?>"><span class="glyphicon glyphicon-star"></span>
-                <span class="hidden-xs"> Favoritos</span><span class="badge">423</span></a></li>
-                <li <?php
-                if ($pfp == 'me_gusta') {
-                    echo 'class=active';
-                    }
-                ?>><a href=<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=me_gusta';?>><span class="glyphicon glyphicon-thumbs-up"></span>
-                <span class="hidden-xs"> Me gusta</span><span class="badge">423</span></a></li>
-            </ul>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>
+                        <span class="text-center">
+                            <div><?php echo $perfil['nombre'];?></div>
+                            <div><small><?php echo "@".$perfil['cuenta']; ?></small></div>
+                        </span>
+                    </h2>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row"><div class="col-md-8 section" role="main">
+    <div class="well-bl-perfil-nav">
+		<div class="container">
+        	<div class="row">
+            	<div class="col-xs-12">
+                <ul class="nav nav-pills">
+                    <li <?php
+                    if ($pfp == 'publicaciones') {
+                        echo 'class=active';
+                        }
+                    ?>><a href="<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=publicaciones';?>"><span class="glyphicon glyphicon-th-list"></span>
+                    <span class="hidden-xs"> Publicaciones</span><span class="badge">423</span></a></li>
+                    <li <?php
+                    if ($pfp == 'favoritos') {
+                        echo 'class=active';
+                        }
+                    ?>><a href="<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=favoritos';?>"><span class="glyphicon glyphicon-star"></span>
+                    <span class="hidden-xs"> Favoritos</span><span class="badge">423</span></a></li>
+                    <li <?php
+                    if ($pfp == 'me_gusta') {
+                        echo 'class=active';
+                        }
+                    ?>><a href=<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=me_gusta';?>><span class="glyphicon glyphicon-thumbs-up"></span>
+                    <span class="hidden-xs"> Me gusta</span><span class="badge">423</span></a></li>
+                </ul>
+            	</div>
+            </div>
+        </div>
+    </div>
+    <div class="section-image"><div class="container"><div class="row"><div class="col-md-8 section" role="main">
 	<?php 
 	# Contenido
 	switch ($pfp) {
