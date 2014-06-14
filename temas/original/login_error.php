@@ -1,60 +1,34 @@
-<div class="well-bl-1">
-<?php if (!isset($_SESSION['username'])) {?>
-<div class="row">
-	<div class="col-xs-12">
-   <form method="post" action="">
-   <p>
-        <label for="login-form-email" id="login-form-label">
-            Email:
-        </label>
-        <input class="form-control" type="email" name="email2" placeholder="email" id="login-form-email" required>
-        
-        <label for="login-form-contraseña" id="login-form-label">
-            Contraseña:
-        </label>
-        <input class="form-control" type="password" name="contraseña2" id="login-form-contraseña" placeholder="contraseña" required>
-        <div id="login-form-ncsesion">
-            <input type="checkbox" name="ncsesion2" id="login-form-ncsesion-input" value="1">
-            <label for="login-form-ncsesion-input" id="login-form-label">
+<div class="well-bl-form">
+	<?php if (!isset($_SESSION['username'])) {?>
+    <h1>
+    	Iniciar sesión
+    </h1>
+    <form method="post">
+        <div class="form-group login-email">
+            <label for="login-email" class="control-label">Email: <small><span id="resultado-email-error"></span></small></label>
+            <input class="form-control" type="email" name="email" placeholder="email" id="login-email" required>
+        </div>
+        <div class="form-group login-contraseña">
+            <label for="login-contraseña" class="control-label">Contraseña: <small><span id="resultado-contraseña-error"></span></small></label>
+            <input class="form-control" type="password" name="contraseña" id="login-contraseña" placeholder="contraseña" required>
+        </div>
+        <div class="form-group login-ncsesion">
+            <input type="checkbox" name="ncsesion" id="login-ncsesion" value="1">
+            <label for="login-ncsesion" class="control-label">
                 No cerrar sesión
             </label>
         </div>
-		<script>
-        function login(permiso, email2, contraseña2){
-                var parametros = {
-                        "permiso" : permiso,
-                        "email2" : email2,
-                        "contraseña2" : contraseña2,
-                };
-                $.ajax({
-                        data:  parametros,
-                        url:   '?p=ajax&action=login',
-                        type:  'post',
-                        beforeSend: function () {
-                                new Spinner(opts).spin(document.getElementById('resultado'));
-                        },
-                        success: function(respuesta) {
-                            $('#resultado').html((respuesta == 'Conectando...' || respuesta == 'No tienes permiso para entrar aqui!') 
-							? location.reload() : respuesta);
-                        }
-                });
-        }
-        </script>
-        <buttom type="submit" onclick="login(
-        'allowed',
-        $('#login-form-email').val(),
-        $('#login-form-contraseña').val()
-        );return false;" class="btn btn-warning form-control">Iniciar sesión</buttom>
-        </p>
+        <div class="form-group">
+            <button class="btn btn-warning form-control login-submit" id="login-submit">Registrarse</button>
+        </div>
     </form>
     <div id="resultado"></div>
+    <script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/login.js"></script>
     <div class="text-center">
         <a href="#">¿Olvidaste tu contraseña?</a>
     </div>
-    </div>
-</div>
-	<?php } else {
+    <?php } else {
         header('Location: ?p=404');
     }
-	?>
-	</div>
+    ?>
+</div>

@@ -1,4 +1,4 @@
-<div class="well-bl-registro">
+<div class="well-bl-form">
 <?php
 if (!isset($_SESSION['username'])) {
 ?>

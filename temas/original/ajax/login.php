@@ -1,11 +1,11 @@
 <?php
 if (isset($_POST['permiso']) and $_POST['permiso'] == 'allowed') {
-	if (isset($_POST['email2']) and !empty($_POST['email2']) and isset($_POST['contraseña2']) and !empty($_POST['contraseña2'])) {
-		if ($sesion = $db->query("SELECT email, contraseña FROM cuentas WHERE email = '".$_POST['email2']."'")) {
+	if (isset($_POST['email']) and !empty($_POST['email']) and isset($_POST['contraseña']) and !empty($_POST['contraseña'])) {
+		if ($sesion = $db->query("SELECT email, contraseña FROM cuentas WHERE email = '".$_POST['email']."'")) {
 			$sesion1 = $sesion->fetch_assoc();
 		}
-		if ($_POST['contraseña2'] == $sesion1['contraseña']) {
-			$_SESSION['username'] = $_POST['email2'];
+		if ($_POST['contraseña'] == $sesion1['contraseña']) {
+			$_SESSION['username'] = $_POST['email'];
 			echo 'Conectando...';
 		} else {
 			echo 'Contraseña incorrecta o email incorrecto';

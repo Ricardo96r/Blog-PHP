@@ -3,7 +3,7 @@
 <div class="row">
 <?php 
 if ($page != 'perfil') {?>
-	<div class="affix-aside" data-spy="affix" data-offset-top="60" style="width:320px;">
+	<div class="affix-aside" data-spy="affix" data-offset-top="200" style="width:320px;">
 <?php } else {?>
 	<div class="affix-aside-perfil" data-spy="affix" data-offset-top="400" style="width:320px;">
 	<?php }?>

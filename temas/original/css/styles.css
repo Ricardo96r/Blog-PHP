@@ -176,7 +176,7 @@ body {
 	padding:5px;
 	}
 	
-.well-bl-registro {
+.well-bl-form {
 	background-color:#FFFFFF;
 	border-style: solid;
 	border-color: #D3D3D3;
@@ -375,9 +375,9 @@ a:focus {
 }
 
 .alert {
-	margin-bottom:0px;
+	margin-bottom:10px;
 	}
 	
-.well-bl-registro h1 {
+.well-bl-form h1 {
 	margin-top:5px;
 	}
