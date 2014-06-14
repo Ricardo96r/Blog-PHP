@@ -362,7 +362,7 @@ a:focus {
   top:60px;
 }
 	
-.thumbnail {
+.thumbnail, .thumbnail_perfil {
 	margin-top:10px;
 	margin-bottom:0px;
 	}

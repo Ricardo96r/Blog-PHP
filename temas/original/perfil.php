@@ -56,7 +56,7 @@ if (isset($_GET['pf'])) {
             <div class="row">
                 <div class="col-xs-12">
                     <div class="img-responsive center-block" style="max-width:200px; min-width: 40px;">
-                        <a href="#" class="thumbnail edit" data-toggle="modal" data-target="#perfil_img_modal">
+                        <a href="#" class="thumbnail thumbnail_perfil" data-toggle="modal" data-target="#perfil_img_modal">
                           <img src="static-content/perfiles/<?php echo $perfil['imagen_perfil']?>">
                         </a>
                         <!-- Modal -->
