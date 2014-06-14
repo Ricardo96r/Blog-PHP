@@ -2,31 +2,33 @@
 # Inicializando GET['pf']
 if (isset($_GET['pf'])) {
 	$pf_get = antiSqlInjection($_GET['pf']);
-	
-  	if ($pf_op = $db->query("
-		SELECT idcuenta, cuenta, email, nombre, nacimiento, sexo, imagen_perfil, imagen_perfil_fondo
-		FROM cuentas WHERE cuenta = '".$pf_get."'")) {
-		$perfil = $pf_op->fetch_array();
-		}
+	$pf_true = $db->query("SELECT cuenta FROM cuentas WHERE cuenta = '".$pf_get."'");
+	# Para saber si existe la cuenta
+	if ($pf_true->num_rows > 0) {
+		if ($pf_op = $db->query("
+			SELECT idcuenta, cuenta, email, nombre, nacimiento, sexo, imagen_perfil, imagen_perfil_fondo
+			FROM cuentas WHERE cuenta = '".$pf_get."'")) {
+			$perfil = $pf_op->fetch_array();
+			}
+			
+		# Inicializando GET['pid']
+		if (isset($_GET['pid']) and isset($_GET['pf']) and is_numeric($_GET['pid']) and $_GET['pid'] >= 0) {
+			$pfinicio = $_GET['pid'];
+		} else {
+			$pfinicio = 0;
+			}
 		
-	# Inicializando GET['pid']
-	if (isset($_GET['pid']) and isset($_GET['pf']) and is_numeric($_GET['pid']) and $_GET['pid'] >= 0) {
-		$pfinicio = $_GET['pid'];
-	} else {
-		$pfinicio = 0;
-		}
-	
-	# Inicializando GET['pfp']
-	if (isset($_GET['pfp'])) {
-		$pfp = antiSqlInjection($_GET['pfp']);
-	} else {
-		$pfp = 'publicaciones';
-		}
-	if ($pfp == 'publicaciones' or $pfp == 'favoritos' or $pfp == 'me_gusta') {
-		$pfp_act = 'active';
-	} else {
-		header('Location: ?p=404');
-		}
+		# Inicializando GET['pfp']
+		if (isset($_GET['pfp'])) {
+			$pfp = antiSqlInjection($_GET['pfp']);
+		} else {
+			$pfp = 'publicaciones';
+			}
+		if ($pfp == 'publicaciones' or $pfp == 'favoritos' or $pfp == 'me_gusta') {
+			$pfp_act = 'active';
+		} else {
+			header('Location: ?p=404');
+			}
 ?>
 	<div class="well-bl-perfil" style="background-image: url(static-content/perfiles/<?php echo $perfil['imagen_perfil_fondo']?>);">  
     	<div class="container">
@@ -243,7 +245,11 @@ if (isset($_GET['pf'])) {
 	# Paginacion
 	mostrar_mas($pfinicio, $pfcount, $link);
 	
-# Cierre de isset GET[pf]
+	# Cierre de $pf_true
+	} else {
+		header('Location: ?p=404');
+	}
+	# Cierre de isset GET[pf]
 } else {
 	header('Location: ?p=404');
 }
