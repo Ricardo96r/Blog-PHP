@@ -23,7 +23,7 @@
         </div>
     </form>
     <div id="resultado"></div>
-    <script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/login.js"></script>
+    <script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/login.js"></script>
     <div class="text-center">
         <a href="#">¿Olvidaste tu contraseña?</a>
     </div>

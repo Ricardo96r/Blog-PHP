@@ -1,6 +1,6 @@
 <?php if (isset($_SESSION['username'])) {?>
-<div class="well-bl-1">
-<h2>Configuración:</h2>
+<div class="well-bl-form">
+<h1>Configuración:</h1>
 	<h4>Editar imagen de perfil:</h4>
     <div class="img-responsive center-block" style="max-width:260px; min-width: 40px;">
         <a href="#" class="thumbnail">
