@@ -10,13 +10,6 @@ if (isset($_GET['pf'])) {
 			FROM cuentas WHERE cuenta = '".$pf_get."'")) {
 			$perfil = $pf_op->fetch_array();
 			}
-			
-		# Inicializando GET['pid']
-		if (isset($_GET['pid']) and isset($_GET['pf']) and is_numeric($_GET['pid']) and $_GET['pid'] >= 0) {
-			$pfinicio = $_GET['pid'];
-		} else {
-			$pfinicio = 0;
-			}
 		
 		# Inicializando GET['pfp']
 		if (isset($_GET['pfp'])) {
@@ -29,6 +22,34 @@ if (isset($_GET['pf'])) {
 		} else {
 			header('Location: ?p=404');
 			}
+			
+		# Contar cuantas publicaciones existen
+		if ($pb_counts = $db->query("
+			SELECT publicaciones.cuentas_idcuenta, cuentas.idcuenta
+			FROM publicaciones 
+			INNER JOIN cuentas
+			ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
+			WHERE cuentas.cuenta = '".$pf_get."'")) {
+			$pb_count = ($pb_counts->num_rows);
+		}
+		# Contar cuantas fav existen
+		if ($fav_counts = $db->query("
+			SELECT publicaciones.idpublicacion, publicaciones_favoritos.publicaciones_idpublicacion, publicaciones_favoritos.cuentas_idcuenta
+			FROM publicaciones_favoritos
+			INNER JOIN publicaciones
+			ON publicaciones.idpublicacion = publicaciones_favoritos.publicaciones_idpublicacion
+			WHERE publicaciones_favoritos.cuentas_idcuenta = '".$perfil['idcuenta']."'")) {
+			$fav_count = ($fav_counts->num_rows);
+		}
+		# Contar cuantas megusta existen
+		if ($like_counts = $db->query("
+			SELECT publicaciones.idpublicacion, publicaciones_megusta.publicaciones_idpublicacion, publicaciones_megusta.cuentas_idcuenta
+			FROM publicaciones_megusta
+			INNER JOIN publicaciones
+			ON publicaciones.idpublicacion = publicaciones_megusta.publicaciones_idpublicacion
+			WHERE publicaciones_megusta.cuentas_idcuenta = '".$perfil['idcuenta']."'")) {
+			$like_count = ($like_counts->num_rows);
+		}
 ?>
 	<div class="well-bl-perfil" style="background-image: url(static-content/perfiles/<?php echo $perfil['imagen_perfil_fondo']?>);">  
     	<div class="container">
@@ -79,19 +100,19 @@ if (isset($_GET['pf'])) {
                         echo 'class=active';
                         }
                     ?>><a href="<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=publicaciones';?>"><span class="glyphicon glyphicon-th-list"></span>
-                    <span class="hidden-xs"> Publicaciones</span><span class="badge">423</span></a></li>
+                    <span class="hidden-xs"> Publicaciones</span><span class="badge"><?php echo $pb_count;?></span></a></li>
                     <li <?php
                     if ($pfp == 'favoritos') {
                         echo 'class=active';
                         }
                     ?>><a href="<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=favoritos';?>"><span class="glyphicon glyphicon-star"></span>
-                    <span class="hidden-xs"> Favoritos</span><span class="badge">423</span></a></li>
+                    <span class="hidden-xs"> Favoritos</span><span class="badge"><?php echo $fav_count;?></span></a></li>
                     <li <?php
                     if ($pfp == 'me_gusta') {
                         echo 'class=active';
                         }
                     ?>><a href=<?php echo '?p=perfil&pf='.$perfil['cuenta'].'&pfp=me_gusta';?>><span class="glyphicon glyphicon-thumbs-up"></span>
-                    <span class="hidden-xs"> Me gusta</span><span class="badge">423</span></a></li>
+                    <span class="hidden-xs"> Me gusta</span><span class="badge"><?php echo $like_count;?></span></a></li>
                 </ul>
             	</div>
             </div>
@@ -105,6 +126,17 @@ if (isset($_GET['pf'])) {
 		 *	Sección publicaciones
 		 */
 		case 'publicaciones':
+			# Inicializando GET['pid']
+			if (isset($_GET['pid']) and isset($_GET['pf']) and is_numeric($_GET['pid']) and $_GET['pid'] >= 0) {
+				if (($_GET['pid'] + 0.1) <= (($pb_count / 10))) {
+					$pfinicio = $_GET['pid'];
+				} else {
+					header('Location: ?&p=404');  
+				}
+			} else {
+				$pfinicio = 0;
+				}
+			# Contenido
 			$pfinicio_2 = $pfinicio*10;
 			$pf_pb = $db->query("
 				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, 
@@ -123,20 +155,24 @@ if (isset($_GET['pf'])) {
 			}
 			# Paginacion
 			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=publicaciones&pid';
-			if ($pfcounts = $db->query("
-				SELECT publicaciones.cuentas_idcuenta, cuentas.idcuenta
-				FROM publicaciones 
-				INNER JOIN cuentas
-				ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
-				WHERE cuentas.cuenta = '".$pf_get."'")) {
-				$pfcount = ($pfcounts->num_rows);
-			}
+			mostrar_mas($pfinicio, $pb_count, $link);
 			break;
 			
 		/*
 		 *	Sección favoritos
 		 */
 		case 'favoritos';
+			# Inicializando GET['pid']
+			if (isset($_GET['pid']) and isset($_GET['pf']) and is_numeric($_GET['pid']) and $_GET['pid'] >= 0) {
+				if (($_GET['pid'] + 0.1) <= (($fav_count / 10))) {
+					$pfinicio = $_GET['pid'];
+				} else {
+					header('Location: ?&p=404');  
+				}
+			} else {
+				$pfinicio = 0;
+				}
+			# Contenido
 			$pfinicio_2 = $pfinicio*10;
 			$pf_pb = $db->query("SELECT
 				# Favoritos
@@ -177,20 +213,24 @@ if (isset($_GET['pf'])) {
 			}
 			# Paginacion
 			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=favoritos&pid';
-			if ($pfcounts = $db->query("
-				SELECT publicaciones.idpublicacion, publicaciones_favoritos.publicaciones_idpublicacion, publicaciones_favoritos.cuentas_idcuenta
-				FROM publicaciones_favoritos
-				INNER JOIN publicaciones
-				ON publicaciones.idpublicacion = publicaciones_favoritos.publicaciones_idpublicacion
-				WHERE publicaciones_favoritos.cuentas_idcuenta = '".$perfil['idcuenta']."'")) {
-				$pfcount = ($pfcounts->num_rows);
-			}
+			mostrar_mas($pfinicio, $fav_count, $link);
 			break;
 			
 		/*
 		 *	Sección megusta
 		 */
 		case 'me_gusta';
+			# Inicializando GET['pid']
+			if (isset($_GET['pid']) and isset($_GET['pf']) and is_numeric($_GET['pid']) and $_GET['pid'] >= 0) {
+				if (($_GET['pid'] + 0.1) <= (($like_count / 10))) {
+					$pfinicio = $_GET['pid'];
+				} else {
+					header('Location: ?&p=404');  
+				}
+			} else {
+				$pfinicio = 0;
+				}
+			# Contenido
 			$pfinicio_2 = $pfinicio*10;
 			$pf_pb = $db->query("SELECT
 				# Megusta
@@ -231,19 +271,9 @@ if (isset($_GET['pf'])) {
 			}
 			# Paginacion
 			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=me_gusta&pid';
-			if ($pfcounts = $db->query("
-				SELECT publicaciones.idpublicacion, publicaciones_megusta.publicaciones_idpublicacion, publicaciones_megusta.cuentas_idcuenta
-				FROM publicaciones_megusta
-				INNER JOIN publicaciones
-				ON publicaciones.idpublicacion = publicaciones_megusta.publicaciones_idpublicacion
-				WHERE publicaciones_megusta.cuentas_idcuenta = '".$perfil['idcuenta']."'")) {
-				$pfcount = ($pfcounts->num_rows);
-			}
+			mostrar_mas($pfinicio, $like_count, $link);
 			break;		
 	}
-	
-	# Paginacion
-	mostrar_mas($pfinicio, $pfcount, $link);
 	
 	# Cierre de $pf_true
 	} else {
