@@ -61,7 +61,7 @@ if (!isset($_SESSION['username'])) {
 </p>
 <div class="row">
 	<div class="col-xs-12">
-		<button class="btn btn-warning form-control registro-submit" id="registro-submit">Enviar Mensaje</button>
+		<button class="btn btn-warning form-control registro-submit" id="registro-submit">Registrarse</button>
 	</div>
 </div>
 </form>
