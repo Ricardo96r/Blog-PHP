@@ -15,15 +15,6 @@ if (isset($_GET['pf'])) {
 	} else {
 		$pfinicio = 0;
 		}
-		
-	if ($pfcounts = $db->query("
-		SELECT publicaciones.cuentas_idcuenta, cuentas.idcuenta
-		FROM publicaciones 
-		INNER JOIN cuentas
-		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
-		WHERE cuentas.cuenta = '".$pf_get."'")) {
-		$pfcount = ($pfcounts->num_rows);
-	}
 	
 	# Inicializando GET['pfp']
 	if (isset($_GET['pfp'])) {
@@ -128,6 +119,16 @@ if (isset($_GET['pf'])) {
 			while ($nts = $pf_pb->fetch_array()) {
 				post($nts);
 			}
+			# Paginacion
+			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=publicaciones&pid';
+			if ($pfcounts = $db->query("
+				SELECT publicaciones.cuentas_idcuenta, cuentas.idcuenta
+				FROM publicaciones 
+				INNER JOIN cuentas
+				ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
+				WHERE cuentas.cuenta = '".$pf_get."'")) {
+				$pfcount = ($pfcounts->num_rows);
+			}
 			break;
 			
 		/*
@@ -171,6 +172,16 @@ if (isset($_GET['pf'])) {
 				?><span class="time" data-toggle="tooltip" data-placement="right" title="" data-original-title="<?php echo $nts['idtiempo_fav'];?>"><?php
 				echo strtolower(tiempo_transcurrido($nts['idtiempo_fav'])).'</span></small></div>';
 				post($nts);
+			}
+			# Paginacion
+			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=favoritos&pid';
+			if ($pfcounts = $db->query("
+				SELECT publicaciones.idpublicacion, publicaciones_favoritos.publicaciones_idpublicacion, publicaciones_favoritos.cuentas_idcuenta
+				FROM publicaciones_favoritos
+				INNER JOIN publicaciones
+				ON publicaciones.idpublicacion = publicaciones_favoritos.publicaciones_idpublicacion
+				WHERE publicaciones_favoritos.cuentas_idcuenta = '".$perfil['idcuenta']."'")) {
+				$pfcount = ($pfcounts->num_rows);
 			}
 			break;
 			
@@ -216,11 +227,20 @@ if (isset($_GET['pf'])) {
 				echo strtolower(tiempo_transcurrido($nts['idtiempo_fav'])).'</span></small></div>';
 				post($nts);
 			}
+			# Paginacion
+			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=me_gusta&pid';
+			if ($pfcounts = $db->query("
+				SELECT publicaciones.idpublicacion, publicaciones_megusta.publicaciones_idpublicacion, publicaciones_megusta.cuentas_idcuenta
+				FROM publicaciones_megusta
+				INNER JOIN publicaciones
+				ON publicaciones.idpublicacion = publicaciones_megusta.publicaciones_idpublicacion
+				WHERE publicaciones_megusta.cuentas_idcuenta = '".$perfil['idcuenta']."'")) {
+				$pfcount = ($pfcounts->num_rows);
+			}
 			break;		
 	}
 	
 	# Paginacion
-	$link = '?p=perfil&pf='.$perfil['cuenta'].'&pid';
 	mostrar_mas($pfinicio, $pfcount, $link);
 	
 # Cierre de isset GET[pf]
