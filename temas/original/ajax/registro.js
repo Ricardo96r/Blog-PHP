@@ -13,6 +13,26 @@
 			sexo = $("#registro-form-sexo-input").val();
 			
 		/*
+			Reiniciar errores
+		*/
+		$(".registro-form-cuenta-input").removeClass("has-error");
+		$(".registro-form-contraseña1-input").removeClass("has-error");
+		$(".registro-form-contraseña2-input").removeClass("has-error");
+		$(".registro-form-correo-input").removeClass("has-error");
+		$(".registro-form-nombres-input").removeClass("has-error");
+		$(".registro-form-nacimiento-input").removeClass("has-error");
+		$(".registro-form-sexo-input").removeClass("has-error");
+		
+		$("#resultado-cuenta-error").html("");
+		$("#resultado-contraseña1-error").html(""); 
+		$("#resultado-contraseña2-error").html("");
+		$("#resultado-correo-error").html(""); 
+		$("#resultado-nombres-error").html(""); 
+		$("#resultado-nacimiento-error").html(""); 
+		$("#resultado-sexo-error").html(""); 
+		
+			
+		/*
 		-----------------------
 		Errores al registrarse
 		-----------------------
@@ -25,47 +45,58 @@
 		// Cuenta
 		} else if(cuenta == ""){
 			$("#registro-form-cuenta-input").focus();
-			$("#resultado").html("Llene el campo cuenta"); 
+			$("#resultado-cuenta-error").html(" *Llene el campo usuario"); 
+			$(".registro-form-cuenta-input").addClass("has-error");
 			return false;
 		
 		// Contraseña
 		} else if(contraseña1 == ""){
 			$("#registro-form-contraseña1-input").focus();
-			$("#resultado").html("Llene el campo contraseña");
+			$("#resultado-contraseña1-error").html(" *Ponga contraseña");
+			$(".registro-form-contraseña1-input").addClass("has-error");
 			return false;
 		} else if(contraseña2 == ""){
 			$("#registro-form-contraseña2-input").focus();
-			$("#resultado").html("Llene el campo repetir contraseña");
+			$("#resultado-contraseña2-error").html(" *Complete");
+			$(".registro-form-contraseña2-input").addClass("has-error");
 			return false;
 		} else if(contraseña1 != contraseña2) {
 			$("#registro-form-contraseña1-input").focus();
-			$("#resultado").html("Los campos de contraseña y repetir contraseña no son iguales");
+			$("#resultado-contraseña1-error").html(" *Diferentes!");
+			$("#resultado-contraseña2-error").html(" *Diferentes!");
+			$(".registro-form-contraseña1-input").addClass("has-error");
+			$(".registro-form-contraseña2-input").addClass("has-error");
 			return false;
 			
 		// Email
 		} else if(email == ""){
             $("#registro-form-correo-input").focus();
-			$("#resultado").html("Llene el campo de correo electrónico");
+			$("#resultado-correo-error").html("Llene el campo de correo electrónico");
+			$(".registro-form-correo-input").addClass("has-error");
             return false;
         } else if(!validacion_email.test(email)){
             $("#registro-form-correo-input").focus();
-			$("#resultado").html("El correo electrónico proporcionado no es válido");
+			$("#resultado-correo-error").html("El correo electrónico proporcionado no es válido");
+			$(".registro-form-correo-input").addClass("has-error");
             return false;
 			
 		// Nombres
 		} else if(nombres == ""){
             $("#registro-form-nombres-input").focus();
-			$("#resultado").html("Llene el campo de nombre");
+			$("#resultado-nombres-error").html("Llene el campo de nombre");
+			$(".registro-form-nombres-input").addClass("has-error");
             return false;
 			
 		// Nacimiento
 		} else if(dia == "día" || mes == "mes" || año == "año"){
-			$("#resultado").html("Ponga una fecha de nacimiento válida");
+			$("#resultado-nacimiento-error").html("Fecha inválida");
+			$(".registro-form-nacimiento-input").addClass("has-error");
             return false;
 			
 		// Genero
-		} else if(sexo == "género"){
-			$("#resultado").html("Ponga su género");
+		} else if(sexo == "0"){
+			$("#resultado-sexo-error").html("Ponga su género");
+			$(".registro-form-sexo-input").addClass("has-error");
             return false;
 			
 		/*
@@ -95,7 +126,7 @@
 						new Spinner(opts).spin(document.getElementById("resultado"));
 				},
 				success:  function (respuesta) {
-						$("#resultado").html((respuesta == "Registrado") ? location.reload() : respuesta);
+						$("#resultado").html((respuesta == "Registrado") ? location.reload() : "<div class='alert alert-warning'>" + respuesta + "</div>");
 				},
 				error: function() {
 					$("#resultado").html("Error al enviar.")                 

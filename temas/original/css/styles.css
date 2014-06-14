@@ -176,6 +176,17 @@ body {
 	padding:5px;
 	}
 	
+.well-bl-registro {
+	background-color:#FFFFFF;
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 1px;
+	word-wrap: break-word;
+	margin-bottom:10px;
+	padding:10px;
+	}
+	
+	
 .img-perfil {
 	width:200px;
 	height:auto;
@@ -362,3 +373,11 @@ a:focus {
   color: #fff;
   background-color: #FF8E00;
 }
+
+.alert {
+	margin-bottom:0px;
+	}
+	
+.well-bl-registro h1 {
+	margin-top:5px;
+	}
