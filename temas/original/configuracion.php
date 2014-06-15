@@ -18,7 +18,7 @@
           <div class="modal-body">
             <form enctype="multipart/form-data" method="post" class="form-perfil-imagen">
                 <div class="form-group" id="publicar-form-file">
-                <input name="img_pf" type="file" class="form-control perfil_imagen_cambiar" id="publicar-form-file-input">
+                <input name="img_pf" type="file" class="form-control perfil_imagen_cambiar" id="publicar-form-file-input" accept="image/x-png, image/gif, image/jpeg">
                     <div class="img-responsive" id="publicar-form-file-text">
                     	<button type="button" class="btn btn-warning btn-lg">
                             <span class="glyphicon glyphicon-camera"></span>

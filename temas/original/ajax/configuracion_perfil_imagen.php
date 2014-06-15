@@ -1,19 +1,17 @@
 <?php		
 	if ( isset($_SESSION['username'])) {
 		$ruta = 'static-content/perfiles/';
-		
-		
+
 		if (isset($_FILES['file_0'])) {
 			$imagen = $_FILES['file_0'];
 			list($ancho, $alto, $tipo, $atributos) = getimagesize($imagen['tmp_name']);
 			$ext_o = explode(".", $imagen['name']);
 			$extension = end($ext_o);
 			$name = ($pf['idcuenta']).'-'.rand().".".$extension;
+			$finfo = image_type_to_mime_type(exif_imagetype($imagen['tmp_name']));
 		} else {
 			$imagen = NULL;
-			}
-
-	    
+			}	    
 	/*
 	-----------------------
 	Errores al registrarse
@@ -23,6 +21,8 @@
 	//$cuenta
 	if(!isset($imagen)) {
 		echo 'No existe la imagen';
+	} else if ($finfo != 'image/jpeg' && $finfo != 'image/png' ) {
+		echo '<strong>Imagen no válida</strong>. Solo fotos con extenciones jpeg y png. Tu extencion es: '.$finfo;
 	} else if($ancho != $alto) {
 		echo "Solo se aceptan <strong>imagenes cuadradas!</strong>. Tu imagen tiene un tamaño de: <strong>".$ancho."x".$alto."</strong>";
 	} else if($imagen['size'] > 3000000) {

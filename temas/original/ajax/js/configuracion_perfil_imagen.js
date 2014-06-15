@@ -15,8 +15,8 @@
 		
 		if (!imagen) {
 			$("#resultado").html("<div class='alert alert-warning'>Coloque una imagen</div>");
-		}else if(imagen.type != "image/jpeg" || imagen.type != "image/png") {
-			$("#resultado").html("<div class='alert alert-warning'><strong>Imagen inválida.</strong> Solo se aceptan imagenes image/jpeg y image/png. Tu extencion de archivo es: <strong>"+imagen.type+"</strong></div>");
+		} else if(imagen.type != 'image/png' && imagen.type != 'image/jpeg') {
+			$("#resultado").html("<div class='alert alert-warning'><strong>Imagen no válida</strong>. Solo fotos con extenciones jpeg y png. Tu extencion es "+ imagen.type +"</div>");
 		} else if(imagen.size > 3145728) {
 			$("#resultado").html("<div class='alert alert-warning'>Solo se aceptan imagenes menores de 3MB</div>");
 			
