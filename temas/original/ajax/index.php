@@ -39,8 +39,8 @@ if ($action == 'registro') {
 	include('subcomentario.php');
 	
 # Configuracion
-} elseif($action == 'perfil_imagen'){
-	include('perfil_imagen.php');
+} elseif($action == 'configuracion_perfil_imagen'){
+	include('configuracion_perfil_imagen.php');
 	
 } else {
 	echo 'Error: 404';
