@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['permiso']) and $_POST['permiso'] == 'allowed') {
+if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_POST['permiso']) && $_POST['permiso'] == 'allowed') {
 	if (isset($_POST['email']) and !empty($_POST['email']) and isset($_POST['contraseña']) and !empty($_POST['contraseña'])) {
 		if ($sesion = $db->query("SELECT email, contraseña FROM cuentas WHERE email = '".$_POST['email']."'")) {
 			$sesion1 = $sesion->fetch_assoc();

@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['permiso']) and $_POST['permiso'] == 'allowed') {
+if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_POST['permiso']) and $_POST['permiso'] == 'allowed') {
 	$cuenta = antiSqlInjection($_POST['cuenta']);
 	$contraseña = antiSqlInjection($_POST['contraseña1']);
 	$contraseña2 = antiSqlInjection($_POST['contraseña2']);

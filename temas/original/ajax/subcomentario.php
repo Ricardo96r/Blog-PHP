@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['msg']) and isset($_POST['idmsg']) and is_numeric($_POST['idmsg']) and $_POST['idmsg'] > 0 and isset($_SESSION['username'])) {
+if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_POST['msg']) && isset($_POST['idmsg']) && is_numeric($_POST['idmsg']) && $_POST['idmsg'] > 0 && isset($_SESSION['username'])) {
 		$subcomentario = antiSqlInjection($_POST['msg']);
 		$idmsg = antiSqlInjection($_POST['idmsg']);
 		

@@ -12,7 +12,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></button>
             <h4 class="modal-title" id="myModalLabel">Editar foto de perfil<small> Solo imagenes cuadradas!</small></h4>
           </div>
           <div class="modal-body">
