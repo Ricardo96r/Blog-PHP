@@ -8,7 +8,7 @@ if ($prop_op = $db->query('SELECT * FROM propiedades WHERE idpropiedad = 1')) {
 	
 # Inicializada variable global $pf cuando se incia sesion
 if (isset($_SESSION['username'])) {
-	if($pf_op = $db->query("SELECT idcuenta, cuenta, email, nombre, nacimiento, sexo, imagen_perfil 
+	if($pf_op = $db->query("SELECT idcuenta, cuenta, email, nombre, nacimiento, sexo, imagen_perfil, imagen_perfil_fondo
 								FROM cuentas WHERE email = '".$_SESSION['username']."'")) {
 	$pf = $pf_op->fetch_assoc();
 	}

@@ -41,6 +41,8 @@ if ($action == 'registro') {
 # Configuracion
 } elseif($action == 'configuracion_perfil_imagen'){
 	include('configuracion_perfil_imagen.php');
+} elseif($action == 'configuracion_perfil_imagen_fondo'){
+	include('configuracion_perfil_imagen_fondo.php');
 	
 } else {
 	echo 'Error: 404';
