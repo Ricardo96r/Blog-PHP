@@ -1,5 +1,5 @@
 (function(){
-    $("#imagen_perfil-submit").click(function() {
+    $("#imagen_perfil_fondo-submit").click(function() {
 		var fd = new FormData();
 		var file_data = $('input[type="file"]')[0].files; // for multiple files
 		
@@ -11,7 +11,7 @@
 			fd.append(input.name,input.value);
 		});
 		
-		var imagen = $('#publicar-form-file-input')[0].files[0];
+		var imagen = $('.perfil_imagen_fondo_cambiar')[0].files[0];
 		
 		if (!imagen) {
 			$("#resultado").html("<div class='alert alert-warning'>Coloque una imagen</div>");

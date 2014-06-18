@@ -55,7 +55,7 @@
           <div class="modal-body">
             <form enctype="multipart/form-data" method="post" class="form-perfil-imagen">
                 <div class="form-group" id="publicar-form-file">
-                <input name="img_pf" type="file" class="form-control perfil_imagen_cambiar" id="publicar-form-file-input" accept="image/x-png, image/gif, image/jpeg">
+                <input name="img_pf" type="file" class="form-control perfil_imagen_fondo_cambiar" id="publicar-form-file-input" accept="image/x-png, image/gif, image/jpeg">
                     <div class="img-responsive" id="publicar-form-file-text">
                     	<button type="button" class="btn btn-warning btn-lg">
                             <span class="glyphicon glyphicon-camera"></span>
@@ -69,7 +69,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-			<button class="btn btn-warning" id="imagen_perfil-submit">Cambiar imagen de perfil</button>
+			<button class="btn btn-warning" id="imagen_perfil_fondo-submit">Cambiar imagen de perfil</button>
           </div>
         </div>
       </div>
