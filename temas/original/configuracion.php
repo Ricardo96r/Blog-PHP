@@ -69,7 +69,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-			<button class="btn btn-warning" id="imagen_perfil_fondo-submit">Cambiar imagen de perfil</button>
+			<button class="btn btn-warning" id="imagen_perfil_fondo-submit">Cambiar imagen de perfil.</button>
           </div>
         </div>
       </div>
