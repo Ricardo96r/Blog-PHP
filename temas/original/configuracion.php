@@ -17,16 +17,15 @@
           </div>
           <div class="modal-body">
             <form enctype="multipart/form-data" method="post" class="form-perfil-imagen">
-                <div class="form-group" id="publicar-form-file">
-                <input name="img_pf" type="file" class="form-control perfil_imagen_cambiar" id="publicar-form-file-input" accept="image/x-png, image/gif, image/jpeg">
-                    <div class="img-responsive" id="publicar-form-file-text">
+                <div class="form-group upload_pf_img-form-file" id="upload-form-file">
+                <input name="img_pf" type="file" class="form-control perfil_imagen_cambiar" id="upload-form-file-input" accept="image/x-png, image/gif, image/jpeg">
+                    <div class="img-responsive" id="img_pf_cambiar">
                     	<button type="button" class="btn btn-warning btn-lg">
                             <span class="glyphicon glyphicon-camera"></span>
                             <div>Subir imagen de perfil</div>
 						</button>
                     </div>
                 </div>
-                <script src="<?php echo 'temas/'.$prop['tema'];?>/js/publicar.js"></script>
 			</form>
             <div id="resultado"></div>
           </div>
@@ -54,16 +53,15 @@
           </div>
           <div class="modal-body">
             <form enctype="multipart/form-data" method="post" class="form-perfil-imagen">
-                <div class="form-group" id="publicar-form-file">
-                <input name="img_pf" type="file" class="form-control perfil_imagen_fondo_cambiar" id="publicar-form-file-input" accept="image/x-png, image/gif, image/jpeg">
-                    <div class="img-responsive" id="publicar-form-file-text">
+                <div class="form-group" id="upload-form-file">
+                <input name="img_pf" type="file" class="form-control perfil_imagen_fondo_cambiar" id="upload-form-file-input" accept="image/x-png, image/gif, image/jpeg">
+                    <div class="img-responsive" id="img_pf_fondo_cambiar">
                     	<button type="button" class="btn btn-warning btn-lg">
                             <span class="glyphicon glyphicon-camera"></span>
                             <div>Subir imagen de perfil</div>
 						</button>
                     </div>
                 </div>
-                <script src="<?php echo 'temas/'.$prop['tema'];?>/js/publicar.js"></script>
 			</form>
             <div id="resultado"></div>
           </div>
@@ -74,7 +72,7 @@
         </div>
       </div>
     </div>
-    <script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/configuracion_perfil_fondo_imagen.js"></script>
+    <script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/configuracion_perfil_imagen_fondo.js"></script>
     </div>
 <?php } else {
 	header ('Location: ?p=404');

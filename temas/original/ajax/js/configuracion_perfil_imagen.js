@@ -1,3 +1,28 @@
+function archivo(evt) {
+  var files = evt.target.files; // FileList object
+
+  // Obtenemos la imagen del campo "file".
+  for (var i = 0, f; f = files[i]; i++) {
+	//Solo admitimos imágenes.
+	if (!f.type.match('image.*')) {
+		continue;
+	}
+
+	var reader = new FileReader();
+
+	reader.onload = (function(theFile) {
+		return function(e) {
+		  // Insertamos la imagen
+		 document.getElementById("img_pf_cambiar").innerHTML = ['<img class="thumb img-responsive center-block" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+		 $("#upload-form-file").css({ padding: "0px",});
+		};
+	})(f);
+
+	reader.readAsDataURL(f);
+  }
+}
+document.$(".upload_pf_img-form-file").addEventListener('change', archivo, false);
+
 (function(){
     $("#imagen_perfil-submit").click(function() {
 		var fd = new FormData();
@@ -11,7 +36,7 @@
 			fd.append(input.name,input.value);
 		});
 		
-		var imagen = $('#publicar-form-file-input')[0].files[0];
+		var imagen = $('.perfil_imagen_cambiar')[0].files[0];
 		
 		if (!imagen) {
 			$("#resultado").html("<div class='alert alert-warning'>Coloque una imagen</div>");
