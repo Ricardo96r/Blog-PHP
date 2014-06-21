@@ -1,6 +1,6 @@
 <?php		
 	if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_SESSION['username'])) {
-		$ruta = 'static-content/perfiles/';
+		$ruta = 'static-content/perfiles_fondo/';
 
 		if (isset($_FILES['file_0'])) {
 			$imagen = $_FILES['file_0'];
@@ -37,12 +37,12 @@
 	*/
 	
 	} else {
-		$select_img_pf_o = $db->query("SELECT imagen_perfil FROM cuentas WHERE idcuenta = ".$pf['idcuenta']);
+		$select_img_pf_o = $db->query("SELECT imagen_perfil_fondo FROM cuentas WHERE idcuenta = ".$pf['idcuenta']);
 		$select_img_pf = $select_img_pf_o->fetch_array();
 		if (file_exists($ruta.$select_img_pf['imagen_perfil'])) {
 			unlink($ruta.$select_img_pf['imagen_perfil']);
 		}
-		$cambiar_img_pf = $db->query("UPDATE cuentas SET imagen_perfil = '".$name."' WHERE idcuenta = ".$pf['idcuenta']);
+		$cambiar_img_pf = $db->query("UPDATE cuentas SET imagen_perfil_fondo = '".$name."' WHERE idcuenta = ".$pf['idcuenta']);
 		move_uploaded_file($imagen['tmp_name'], $ruta.$name);
 		echo "Finalizado";
 		}

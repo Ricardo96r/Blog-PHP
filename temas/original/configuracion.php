@@ -17,8 +17,8 @@
           </div>
           <div class="modal-body">
             <form enctype="multipart/form-data" method="post" class="form-perfil-imagen">
-                <div class="form-group upload_pf_img-form-file" id="upload-form-file">
-                <input name="img_pf" type="file" class="form-control perfil_imagen_cambiar" id="upload-form-file-input" accept="image/x-png, image/gif, image/jpeg">
+                <div class="form-group upload-form-file" id="upload_pf_img-form-file">
+                <input name="img_pf" type="file" class="form-control upload-form-file-input perfil_imagen_cambiar" accept="image/x-png, image/gif, image/jpeg">
                     <div class="img-responsive" id="img_pf_cambiar">
                     	<button type="button" class="btn btn-warning btn-lg">
                             <span class="glyphicon glyphicon-camera"></span>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
 			</form>
-            <div id="resultado"></div>
+            <div id="resultado_pf_img"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -53,8 +53,8 @@
           </div>
           <div class="modal-body">
             <form enctype="multipart/form-data" method="post" class="form-perfil-imagen">
-                <div class="form-group" id="upload-form-file">
-                <input name="img_pf" type="file" class="form-control perfil_imagen_fondo_cambiar" id="upload-form-file-input" accept="image/x-png, image/gif, image/jpeg">
+                <div class="form-group upload-form-file" id="upload_pf_fondo_img-form-file">
+                <input name="img_pf" type="file" class="form-control upload-form-file-input" id="perfil_imagen_fondo_cambiar" accept="image/x-png, image/gif, image/jpeg">
                     <div class="img-responsive" id="img_pf_fondo_cambiar">
                     	<button type="button" class="btn btn-warning btn-lg">
                             <span class="glyphicon glyphicon-camera"></span>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
 			</form>
-            <div id="resultado"></div>
+            <div id="resultado_pf_fondo_img"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

@@ -271,7 +271,7 @@ a:focus {
 	text-decoration: none;
 	}
 
-#upload-form-file {
+.upload-form-file {
     overflow: hidden;
     position: relative;
     cursor: pointer;
@@ -280,11 +280,11 @@ a:focus {
 	background-color: #F1F1F1;
 	}
 	
-#upload-form-file:hover {
+.upload-form-file:hover {
 	background-color:#F9F9F9;
 	}
 
-#upload-form-file-input {
+.upload-form-file-input {
     margin: 0;
     padding: 0;
     outline: 0;
