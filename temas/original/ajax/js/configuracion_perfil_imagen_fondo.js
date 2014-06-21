@@ -26,12 +26,12 @@ document.getElementById('upload_pf_fondo_img-form-file').addEventListener('chang
 (function(){
     $("#imagen_perfil_fondo-submit").click(function() {
 		var fd = new FormData();
-		var file_data = $('input[type="file"]')[0].files; // for multiple files
+		var file_data = $('#perfil_imagen_fondo_cambiar')[0].files; // for multiple files
 		
 		for(var i = 0;i<file_data.length;i++){
-			fd.append("file_"+i, file_data[i]);
+			fd.append("fondo_"+i, file_data[i]);
 		}
-		var other_data = $('form').serializeArray();
+		var other_data = $('form#form-perfil_fondo-imagen').serializeArray();
 		$.each(other_data,function(key,input){
 			fd.append(input.name,input.value);
 		});
