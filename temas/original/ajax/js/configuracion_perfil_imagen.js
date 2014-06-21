@@ -14,14 +14,14 @@ function archivo(evt) {
 		return function(e) {
 		  // Insertamos la imagen
 		 document.getElementById("img_pf_cambiar").innerHTML = ['<img class="thumb img-responsive center-block" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
-		 $("#upload-form-file").css({ padding: "0px",});
+		 $("#upload_pf_img-form-file").css({ padding: "0px",});
 		};
 	})(f);
 
 	reader.readAsDataURL(f);
   }
 }
-document.$(".upload_pf_img-form-file").addEventListener('change', archivo, false);
+document.getElementById('upload_pf_img-form-file').addEventListener('change', archivo, false);
 
 (function(){
     $("#imagen_perfil-submit").click(function() {
@@ -39,11 +39,11 @@ document.$(".upload_pf_img-form-file").addEventListener('change', archivo, false
 		var imagen = $('.perfil_imagen_cambiar')[0].files[0];
 		
 		if (!imagen) {
-			$("#resultado").html("<div class='alert alert-warning'>Coloque una imagen</div>");
+			$("#resultado_pf_img").html("<div class='alert alert-warning'>Coloque una imagen</div>");
 		} else if(imagen.type != 'image/png' && imagen.type != 'image/jpeg') {
-			$("#resultado").html("<div class='alert alert-warning'><strong>Imagen no válida</strong>. Solo fotos con extenciones jpeg y png. Tu extencion es "+ imagen.type +"</div>");
+			$("#resultado_pf_img").html("<div class='alert alert-warning'><strong>Imagen no válida</strong>. Solo fotos con extenciones jpeg y png. Tu extencion es "+ imagen.type +"</div>");
 		} else if(imagen.size > 3145728) {
-			$("#resultado").html("<div class='alert alert-warning'>Solo se aceptan imagenes menores de 3MB</div>");
+			$("#resultado_pf_img").html("<div class='alert alert-warning'>Solo se aceptan imagenes menores de 3MB</div>");
 			
 		} else {
 			$.ajax({
@@ -53,13 +53,13 @@ document.$(".upload_pf_img-form-file").addEventListener('change', archivo, false
 				processData: false,
 				type: 'POST',
 					beforeSend: function () {
-							new Spinner(opts).spin(document.getElementById("resultado"));
+							new Spinner(opts).spin(document.getElementById("resultado_pf_img"));
 					},
 					success:  function (respuesta) {
-							$("#resultado").html((respuesta == "Finalizado") ? location.reload() : "<div class='alert alert-warning'>" + respuesta + "</div>");
+							$("#resultado_pf_img").html((respuesta == "Finalizado") ? location.reload() : "<div class='alert alert-warning'>" + respuesta + "</div>");
 					},
 					error: function() {
-						$("#resultado").html("Error al enviar.")                 
+						$("#resultado_pf_img").html("Error al enviar.")                 
 					}
 				});
 			return false;
