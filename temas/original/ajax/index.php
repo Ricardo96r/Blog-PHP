@@ -43,6 +43,8 @@ if ($action == 'registro') {
 	include('configuracion_perfil_imagen.php');
 } elseif($action == 'configuracion_perfil_imagen_fondo'){
 	include('configuracion_perfil_imagen_fondo.php');
+} elseif($action == 'configuracion_perfil_nombre'){
+	include('configuracion_perfil_nombre.php');
 	
 } else {
 	echo 'Error: 404';

@@ -51,7 +51,7 @@ if (isset($_GET['pf'])) {
 			$like_count = ($like_counts->num_rows);
 		}
 ?>
-	<div class="well-bl-perfil" style="background-image: url(static-content/perfiles/<?php echo $perfil['imagen_perfil_fondo']?>);">  
+	<div class="well-bl-perfil" style="background-image: url(static-content/perfiles_fondo/<?php echo $perfil['imagen_perfil_fondo']?>);">  
     	<div class="container">
             <div class="row">
                 <div class="col-xs-12">

@@ -2,8 +2,8 @@
 	if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_SESSION['username'])) {
 		$ruta = 'static-content/perfiles/';
 
-		if (isset($_FILES['file_0'])) {
-			$imagen = $_FILES['file_0'];
+		if (isset($_FILES['pf_img_0'])) {
+			$imagen = $_FILES['pf_img_0'];
 			list($ancho, $alto, $tipo, $atributos) = getimagesize($imagen['tmp_name']);
 			$ext_o = explode(".", $imagen['name']);
 			$extension = end($ext_o);
