@@ -31,12 +31,14 @@ document.getElementById('upload-publicacion').addEventListener('change', imagen_
 		for(var i = 0;i<file_data.length;i++){
 			fd.append("publicacion_"+i, file_data[i]);
 		}
-		var other_data = $('form#form-publicacion').serializeArray();
+		var other_data = $('form.form-publicacion').serializeArray();
 		$.each(other_data,function(key,input){
 			fd.append(input.name,input.value);
 		});
 		
 		var imagen = $('#publicacion_img')[0].files[0];
+		var text = $('#publicacion').val();
+		$("#text_publicacion").removeClass("has-error");
 		
 		if (!imagen) {
 			$("#resultado_publicacion").html("<div class='alert alert-warning'>Coloque una imagen</div>");
@@ -44,6 +46,12 @@ document.getElementById('upload-publicacion').addEventListener('change', imagen_
 			$("#resultado_publicacion").html("<div class='alert alert-warning'><strong>Imagen no válida</strong>. Solo fotos con extenciones jpeg y png. Tu extencion es "+ imagen.type +"</div>");
 		} else if(imagen.size > 3145728) {
 			$("#resultado_publicacion").html("<div class='alert alert-warning'>Solo se aceptan imagenes menores de 3MB</div>");
+		} else if(imagen.size > 3145728) {
+			$("#resultado_publicacion").html("<div class='alert alert-warning'>Solo se aceptan imagenes menores de 3MB</div>");
+		} else if(!text) {
+			$("#resultado_publicacion").html("<div class='alert alert-warning'>Diga algo sobre la publicación</div>");
+			$("#text_publicacion").addClass("has-error");
+			$("#publicacion").focus();
 			
 		} else {
 			$.ajax({

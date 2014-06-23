@@ -111,7 +111,7 @@
       <div class="modal-body">
         <form enctype="multipart/form-data" method="post" class="form-publicacion">
             <div class="form-group upload-form-file" id="upload-publicacion">
-            <input name="publicacion_img" type="file" class="form-control upload-form-file-input" id="publicacion_img" accept="image/x-png, image/gif, image/jpeg">
+            <input name="publicacion_img_input" type="file" class="form-control upload-form-file-input" id="publicacion_img" accept="image/x-png, image/gif, image/jpeg">
                 <div class="img-responsive" id="img_publicacion">
                     <button type="button" class="btn btn-warning btn-lg">
                         <span class="glyphicon glyphicon-camera"></span>
@@ -119,7 +119,9 @@
                     </button>
                 </div>
             </div>
+            <div class="form-group" id="text_publicacion">
             <textarea name="publicacion" class="form-control" id="publicacion" maxlength="200" placeholder="Escribe algo sobre la publicacion..."></textarea>
+            </div>
         </form>
         <div id="resultado_publicacion"></div>
       </div>
