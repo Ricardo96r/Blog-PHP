@@ -31,7 +31,6 @@
         </div>
       </div>
     </div>
-    <script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/configuracion_perfil_imagen.js"></script>
     <h5><div class="btn btn-warning" data-toggle="modal" data-target="#editar_perfil_fondo"><span class="glyphicon glyphicon-pencil"></span> Cambiar fondo de perfil</div></h5>
     <!-- Modal -->
     <div class="modal fade" id="editar_perfil_fondo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -62,7 +61,6 @@
         </div>
       </div>
     </div>
-    <script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/configuracion_perfil_imagen_fondo.js"></script>
     <h5><div class="btn btn-warning" data-toggle="modal" data-target="#editar_nombre"><span class="glyphicon glyphicon-pencil"></span> Editar nombre</div></h5>
     <!-- Modal -->
     <div class="modal fade" id="editar_nombre" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -87,7 +85,6 @@
         </div>
       </div>
     </div>
-    <script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/configuracion_perfil_nombre.js"></script>
     </div>
 <?php } else {
 	header ('Location: ?p=404');

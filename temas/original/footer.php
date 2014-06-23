@@ -20,9 +20,9 @@
         </div>
 	</div>
 </div>
-</body>
-    <script src="<?php echo 'temas/'.$prop['tema'];?>/js/jquery-1.11.0.min.js"></script>
-	<script src="<?php echo 'temas/'.$prop['tema'];?>/js/bootstrap.min.js"></script>
-    <script src="<?php echo 'temas/'.$prop['tema'];?>/js/javascript.js"></script>
-    <script src="<?php echo 'temas/'.$prop['tema'];?>/js/spin.min.js"></script>
+</body>   
+    <?php 
+	# Carga de javascripts
+	include('loadjs.php');
+	?>
 </html>

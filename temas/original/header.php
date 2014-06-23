@@ -130,4 +130,3 @@
     </div>
   </div>
 </div>
-<script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/publicar.js"></script>
