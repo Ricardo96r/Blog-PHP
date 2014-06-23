@@ -61,5 +61,5 @@ if (!isset($_SESSION['username'])) {
 </div>
 <?php
 } else {
-	header('Location: .');
+	header('Location: ?#ref=registro');
 	}

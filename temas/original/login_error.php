@@ -19,7 +19,7 @@
             </label>
         </div>
         <div class="form-group">
-            <button class="btn btn-warning form-control login-submit" id="login-submit">Registrarse</button>
+            <button class="btn btn-warning form-control login-submit" id="login-submit">Inicar Sesión</button>
         </div>
     </form>
     <div id="resultado"></div>
@@ -28,7 +28,7 @@
         <a href="#">¿Olvidaste tu contraseña?</a>
     </div>
     <?php } else {
-        header('Location: ?p=404');
+        header('Location: ?#ref=login');
     }
     ?>
 </div>
