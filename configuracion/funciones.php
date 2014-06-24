@@ -98,12 +98,10 @@ function post ($dt) {
                     <div class="pull-left pb-ftpf">
                         <img class="image-sm" src="static-content/perfiles/<?php echo $dt['imagen_perfil']?>">
                     </div>
-                    
                     <div>
-                    <?php echo $dt['nombre'].'' ?></a>
-                    <a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo ' - @'.$dt['cuenta'].'' ?></a>     
+                    <strong><?php echo $dt['nombre'].'' ?></a></strong>
+                    <small><a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo ' - @'.$dt['cuenta'].'' ?></a></small>    
                     </div>
-                    
                     <span class="time" data-toggle="tooltip" data-placement="right" title="" data-original-title="<?php echo $dt['tiempo_de_creacion'];?>">
                     <?php echo '<small>'.tiempo_transcurrido($dt['tiempo_de_creacion']).'</small>';?>
                     </span>
@@ -113,16 +111,10 @@ function post ($dt) {
         <div class="row">
             <div class="col-xs-12">
                 <div class="pb-pb center-block">
-                <?php if (!isset($dt['idcomentario'])) {?>
                     <a class='a-clear' href='?pb=<?php echo $dt['idpublicacion']; ?>'>
+                    	<blockquote><p><?php echo $dt['publicacion']; ?></p></blockquote>
                         <?php echo '<img class=image-md center-block src=static-content/publicaciones/'.$dt['ruta'].'>'; ?>
-                        <div class="center-block pb-text">
-                            <?php echo $dt['publicacion']; ?>
-                        </div>
                     </a>
-                <?php } else {?>
-                        <?php echo $dt['comentario']; ?>
-                <?php } ?>
                 </div>
             </div>
         </div>
