@@ -4,12 +4,13 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
 	if ($mg_is_p = $db->query('SELECT cuentas_idcuenta, publicaciones_idpublicacion FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '.$idpb.' AND cuentas_idcuenta = '.$pf['idcuenta'])) {
 		$mg_is =  $mg_is_p->num_rows;
 	}
+	if ($mg_p = $db->query('SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '.$idpb)) {
+		$mg = $mg_p->num_rows;
+	}
 	if ($mg_is > 0) {
-		echo 'Ya votaste';
+		$ia = $db->query("DELETE FROM publicaciones_megusta WHERE cuentas_idcuenta = ".$pf['idcuenta']." and publicaciones_idpublicacion = ".$idpb);
+		echo $mg - 1;
 		} else {
-			if ($mg_p = $db->query('SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '.$idpb)) {
-				$mg = $mg_p->num_rows;
-			}
 			$ia = $db->query('INSERT INTO `publicaciones_megusta` (`cuentas_idcuenta`,`publicaciones_idpublicacion`) VALUES ('.$pf['idcuenta'].','.$idpb.')');
 			echo $mg + 1;
 			}

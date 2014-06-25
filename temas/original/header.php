@@ -32,7 +32,7 @@
 		</div>
 		<?php } else {?>
 		<div class="visible-xs pull-right navbar-xs">
-			<button type="button" class="btn btn-primary"  onclick="document.location.href='?p=publicar'">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#publicar">
             	<span class="glyphicon glyphicon-edit"></span>
             </button>
             <div class="btn-group">

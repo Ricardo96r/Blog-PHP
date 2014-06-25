@@ -87,8 +87,7 @@ function mostrarNacimiento( $type ) {
 }
 
 function post ($dt) {
-	global $prop; //Para usar la global $prop en una funcion
-	global $db;
+	global $prop, $db, $pf;
 	?>
     <div class="well-bl-1">
         <div class="row">
@@ -122,8 +121,24 @@ function post ($dt) {
             <div class="col-xs-12">
                 <div class="pb-bottom">
                     <ul class="nav nav-pills">
-                    	<?php /* Me gusta */ ?>
-                        <script>
+                      <?php
+					  	if ($mg_p = $db->query("SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
+							$mg = $mg_p->num_rows;
+						}
+						if (isset($_SESSION['username'])) {
+							if ($ismg_p = $db->query("SELECT cuentas_idcuenta, publicaciones_idpublicacion FROM publicaciones_megusta WHERE cuentas_idcuenta = ".$pf['idcuenta']." and publicaciones_idpublicacion = ".$dt['idpublicacion'])) {
+								$ismg = $ismg_p->num_rows;
+								}
+						} else {
+							$ismg = 0;
+							}
+					  ?>
+                      <li class="resultado_<?php echo $dt['idpublicacion']?> <?php if($ismg > 0){echo "active";}?>"
+                      onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
+                      <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
+                      <span class="badge" id="resultado_<?php echo $dt['idpublicacion']?>"><?php echo $mg;?></span>
+                      </a></li>
+						<script>
 						function me_gusta_<?php echo $dt['idpublicacion']?>(idpb){
 								var parametros = {
 										"idpb" : idpb,
@@ -137,20 +152,13 @@ function post ($dt) {
 												
 										},
 										success:  function (response) {
+												$(".resultado_<?php echo $dt['idpublicacion']?>").toggleClass("active");
+												
 												$("#resultado_<?php echo $dt['idpublicacion']?>").html(response);
 										}
 								});
 						}
 						</script>
-                      <?php
-					  	if ($mg_p = $db->query("SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
-							$mg = $mg_p->num_rows;
-						}
-					  ?>
-                      <li onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
-                      <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
-                      <span class="badge" id="resultado_<?php echo $dt['idpublicacion']?>"><?php echo $mg;?></span>
-                      </a></li>
                       
                       <?php /* Favoritos */ ?>
                       	<script>
@@ -171,12 +179,21 @@ function post ($dt) {
 								});
 						}
 						</script>
-                      <?php
-					  	if ($fav_p = $db->query("SELECT * FROM publicaciones_favoritos WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
-							$fav = $fav_p->num_rows;
+					<?php
+					if ($fav_p = $db->query("SELECT * FROM publicaciones_favoritos WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
+						$fav = $fav_p->num_rows;
+					}
+					if (isset($_SESSION['username'])) {
+						if ($isfav_p = $db->query("SELECT cuentas_idcuenta, publicaciones_idpublicacion FROM publicaciones_favoritos WHERE cuentas_idcuenta = ".$pf['idcuenta']." and publicaciones_idpublicacion = ".$dt['idpublicacion'])) {
+							$isfav = $isfav_p->num_rows;
+							}
+					} else {
+						$isfav = 0;
 						}
 					  ?>
-                      <li onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
+                      <li 
+                      <?php if($isfav > 0){echo "class='active'";}?>
+                      onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
                       <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
                       <span class="badge" id="fav_<?php echo $dt['idpublicacion']?>"><?php echo $fav;?></span>
                       </a></li>
