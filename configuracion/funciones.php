@@ -121,65 +121,46 @@ function post ($dt) {
             <div class="col-xs-12">
                 <div class="pb-bottom">
                     <ul class="nav nav-pills">
-                      <?php
-					  	if ($mg_p = $db->query("SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
-							$mg = $mg_p->num_rows;
-						}
-						if (isset($_SESSION['username'])) {
-							if ($ismg_p = $db->query("SELECT cuentas_idcuenta, publicaciones_idpublicacion FROM publicaciones_megusta WHERE cuentas_idcuenta = ".$pf['idcuenta']." and publicaciones_idpublicacion = ".$dt['idpublicacion'])) {
-								$ismg = $ismg_p->num_rows;
-								}
-						} else {
-							$ismg = 0;
+                    <?php
+					#ME GUSTA
+					if ($mg_p = $db->query("SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
+						$mg = $mg_p->num_rows;
+					}
+					if (isset($_SESSION['username'])) {
+						if ($ismg_p = $db->query("SELECT cuentas_idcuenta, publicaciones_idpublicacion FROM publicaciones_megusta WHERE cuentas_idcuenta = ".$pf['idcuenta']." and publicaciones_idpublicacion = ".$dt['idpublicacion'])) {
+							$ismg = $ismg_p->num_rows;
 							}
-					  ?>
-                      <li class="resultado_<?php echo $dt['idpublicacion']?> <?php if($ismg > 0){echo "active";}?>"
-                      onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
-                      <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
-                      <span class="badge" id="resultado_<?php echo $dt['idpublicacion']?>"><?php echo $mg;?></span>
-                      </a></li>
-						<script>
-						function me_gusta_<?php echo $dt['idpublicacion']?>(idpb){
-								var parametros = {
-										"idpb" : idpb,
-								};
-								$.ajax({
-										data:  parametros,
-										url:   '?p=ajax&action=publicaciones_megusta',
-										type:  'post',
-										beforeSend: function () {
-											new Spinner(opts).spin(document.getElementById('resultado_<?php echo $dt['idpublicacion']?>'))
-												
-										},
-										success:  function (response) {
-												$(".resultado_<?php echo $dt['idpublicacion']?>").toggleClass("active");
-												
-												$("#resultado_<?php echo $dt['idpublicacion']?>").html(response);
-										}
-								});
+					} else {
+						$ismg = 0;
 						}
-						</script>
-                      
-                      <?php /* Favoritos */ ?>
-                      	<script>
-						function favoritos_<?php echo $dt['idpublicacion']?>(idpb){
-								var parametros = {
-										"idpb" : idpb,
-								};
-								$.ajax({
-										data:  parametros,
-										url:   '?p=ajax&action=publicaciones_favoritos',
-										type:  'post',
-										beforeSend: function () {
-											new Spinner(opts).spin(document.getElementById('fav_<?php echo $dt['idpublicacion']?>'));
-										},
-										success:  function (response) {
-												$("#fav_<?php echo $dt['idpublicacion']?>").html(response);
-										}
-								});
-						}
-						</script>
+					?>
+                    <li class="resultado_<?php echo $dt['idpublicacion']?> <?php if($ismg > 0){echo "active";}?>"
+                    onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a  href="">
+                    <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
+                    <span class="badge" id="resultado_<?php echo $dt['idpublicacion']?>"><?php echo $mg;?></span>
+                    </a></li>
+					<script>
+                    function me_gusta_<?php echo $dt['idpublicacion']?>(idpb){
+                            var parametros = {
+                                    "idpb" : idpb,
+                            };
+                            $.ajax({
+                                    data:  parametros,
+                                    url:   '?p=ajax&action=publicaciones_megusta',
+                                    type:  'post',
+                                    beforeSend: function () {
+                                        new Spinner(opts).spin(document.getElementById('resultado_<?php echo $dt['idpublicacion']?>'))
+                                            
+                                    },
+                                    success:  function (response) {
+                                            $(".resultado_<?php echo $dt['idpublicacion']?>").toggleClass("active");
+                                            $("#resultado_<?php echo $dt['idpublicacion']?>").html(response);
+                                    }
+                            });
+                    }
+                    </script>
 					<?php
+					# FAVORITOS
 					if ($fav_p = $db->query("SELECT * FROM publicaciones_favoritos WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
 						$fav = $fav_p->num_rows;
 					}
@@ -190,37 +171,54 @@ function post ($dt) {
 					} else {
 						$isfav = 0;
 						}
-					  ?>
-                      <li 
-                      <?php if($isfav > 0){echo "class='active'";}?>
-                      onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a>
-                      <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
-                      <span class="badge" id="fav_<?php echo $dt['idpublicacion']?>"><?php echo $fav;?></span>
-                      </a></li>
-                      
-                      <?php
-					  	if ($com_p = $db->query("SELECT * FROM comentarios WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
-							$com = $com_p->num_rows;
-						}
-					  ?>
-                      <li><a href="?pb=<?php echo $dt['idpublicacion']; ?>">
-                      <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"></span>
-                      <span class="badge"><?php echo $com;?></span>
-                      </a></li>
-                      
-                        <li class="dropup  pull-right">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                              <span class="glyphicon glyphicon-th"></span><span class="hidden-xs"> Compartir</span><span class="caret"></span>
-                            </a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Tuenti</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Otro</a></li>
-                          </ul>
-                       </li>
-                    </ul>
+					?>
+                    <li class="fav_<?php echo $dt['idpublicacion']?> <?php if($isfav > 0){echo "active";}?>"
+                    onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a href="">
+                    <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
+                    <span class="badge" id="fav_<?php echo $dt['idpublicacion']?>"><?php echo $fav;?></span>
+                    </a></li>
+					<script>
+                    function favoritos_<?php echo $dt['idpublicacion']?>(idpb){
+                            var parametros = {
+                                    "idpb" : idpb,
+                            };
+                            $.ajax({
+                                    data:  parametros,
+                                    url:   '?p=ajax&action=publicaciones_favoritos',
+                                    type:  'post',
+                                    beforeSend: function () {
+                                        new Spinner(opts).spin(document.getElementById('fav_<?php echo $dt['idpublicacion']?>'));
+                                    },
+                                    success:  function (response) {
+                                        $(".fav_<?php echo $dt['idpublicacion']?>").toggleClass("active");
+                                        $("#fav_<?php echo $dt['idpublicacion']?>").html(response);
+                                    }
+                            });
+                    }
+                    </script>
+                    <?php
+                    if ($com_p = $db->query("SELECT * FROM comentarios WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
+                        $com = $com_p->num_rows;
+                    }
+                    ?>
+                    <li><a href="?pb=<?php echo $dt['idpublicacion']; ?>">
+                    <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs"></span>
+                    <span class="badge"><?php echo $com;?></span>
+                    </a></li>
+                  
+                    <li class="dropup pull-right">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                          <span class="glyphicon glyphicon-th"></span><span class="hidden-xs"> Compartir</span><span class="caret"></span>
+                        </a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Tuenti</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Otro</a></li>
+                      </ul>
+					</li>
+					</ul>
                 </div>
             </div>
         </div>
