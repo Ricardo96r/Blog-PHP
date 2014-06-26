@@ -388,3 +388,7 @@ blockquote {
   font-size: 14.5px;
   border-left: 5px solid #FF8E00;
 }
+
+.nav-pills-space{
+	margin-right:5px;
+	}

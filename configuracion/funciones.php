@@ -134,7 +134,7 @@ function post ($dt) {
 						$ismg = 0;
 						}
 					?>
-                    <li class="resultado_<?php echo $dt['idpublicacion']?> <?php if($ismg > 0){echo "active";}?>"
+                    <li class="nav-pills-space resultado_<?php echo $dt['idpublicacion']?> <?php if($ismg > 0){echo "active";}?>"
                     onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a  href="">
                     <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
                     <span class="badge" id="resultado_<?php echo $dt['idpublicacion']?>"><?php echo $mg;?></span>
@@ -172,7 +172,7 @@ function post ($dt) {
 						$isfav = 0;
 						}
 					?>
-                    <li class="fav_<?php echo $dt['idpublicacion']?> <?php if($isfav > 0){echo "active";}?>"
+                    <li class="nav-pills-space fav_<?php echo $dt['idpublicacion']?> <?php if($isfav > 0){echo "active";}?>"
                     onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a href="">
                     <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
                     <span class="badge" id="fav_<?php echo $dt['idpublicacion']?>"><?php echo $fav;?></span>
