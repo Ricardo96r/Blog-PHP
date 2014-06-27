@@ -133,12 +133,20 @@ function post ($dt) {
 					} else {
 						$ismg = 0;
 						}
+					if (isset($_SESSION['username'])) {
 					?>
-                    <li class="nav-pills-space resultado_<?php echo $dt['idpublicacion']?> <?php if($ismg > 0){echo "active";}?>"
-                    onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a  href="">
-                    <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
-                    <span class="badge" id="resultado_<?php echo $dt['idpublicacion']?>"><?php echo $mg;?></span>
-                    </a></li>
+                        <li class="nav-pills-space resultado_<?php echo $dt['idpublicacion']?> <?php if($ismg > 0){echo "active";}?>"
+                        onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a  href="">
+                        <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
+                        <span class="badge" id="resultado_<?php echo $dt['idpublicacion']?>"><?php echo $mg;?></span>
+                        </a></li>
+                    <?php
+					} else { ?>
+                        <li class="nav-pills-space"><a href="?p=login">
+                        <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
+                        <span class="badge"><?php echo $mg;?></span>
+                        </a></li>
+					<?php }?>
 					<script>
                     function me_gusta_<?php echo $dt['idpublicacion']?>(idpb){
                             var parametros = {
@@ -171,12 +179,19 @@ function post ($dt) {
 					} else {
 						$isfav = 0;
 						}
+					if(isset($_SESSION['username'])) {
 					?>
-                    <li class="nav-pills-space fav_<?php echo $dt['idpublicacion']?> <?php if($isfav > 0){echo "active";}?>"
-                    onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a href="">
-                    <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
-                    <span class="badge" id="fav_<?php echo $dt['idpublicacion']?>"><?php echo $fav;?></span>
-                    </a></li>
+                        <li class="nav-pills-space fav_<?php echo $dt['idpublicacion']?> <?php if($isfav > 0){echo "active";}?>"
+                        onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a href="">
+                        <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
+                        <span class="badge" id="fav_<?php echo $dt['idpublicacion']?>"><?php echo $fav;?></span>
+                        </a></li>
+                    <?php } else {?>
+                        <li class="nav-pills-space"><a href="?p=login">
+                        <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
+                        <span class="badge"><?php echo $fav;?></span>
+                        </a></li>
+                    <?php } ?>
 					<script>
                     function favoritos_<?php echo $dt['idpublicacion']?>(idpb){
                             var parametros = {

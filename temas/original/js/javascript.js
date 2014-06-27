@@ -3,9 +3,8 @@ $(document).ready(function() {
 	/*
 		Tooltip
 	*/
-    $('.time').tooltip();
-	$('.responder-comentario').tooltip();
-	
+	$('[data-toggle="tooltip"]').tooltip();
+	$('[data-toggle="popover"]').popover();
 	/*
 		Affix
 	*/
