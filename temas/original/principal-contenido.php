@@ -126,26 +126,18 @@ mostrar_mas($inicio, $count, $link);
                 </script>   
 				<div class="">
                 	
-                    <ul class="nav nav-pills well-bl-3 affix-comentarios hidden-xs hidden-sm" style="width:505px;">
-                    	<li><a><strong>Comentarios</strong></a></li>
-                        <li><a>Recientes</a></li>
-                        <li><a>Mejores</a></li>
-                    	<li class="pull-right"> 
-                            <a data-toggle="modal" data-target="#responder_publicacion">
-                              <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
-                            </a>
-                    	</li>
-                    </ul>
-                    <ul class="nav nav-pills well-bl-3 visible-xs visible-sm">
-                    	<li><a><strong>Comentarios</strong></a></li>
-                        <li><a>Recientes</a></li>
-                        <li><a>Mejores</a></li>
-                    	<li class="pull-right"> 
-                            <a data-toggle="modal" data-target="#responder_publicacion">
-                              <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
-                            </a>
-                    	</li>
-                    </ul>
+                	<div class="well-bl-form">
+                    	<h1>Comentarios</h1>
+                        <ul class="nav nav-pills">
+                            <li><a>Recientes</a></li>
+                            <li><a>Mejores</a></li>
+                            <li class="pull-right"> 
+                                <a data-toggle="modal" data-target="#responder_publicacion">
+                                  <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <!-- Modal -->
                     <div class="modal fade" id="responder_publicacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
