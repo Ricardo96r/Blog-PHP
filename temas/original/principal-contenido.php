@@ -189,21 +189,11 @@ mostrar_mas($inicio, $count, $link);
 			<?php echo 'Para escribir un comentario nesecitas tener una cuenta e iniciar sesión'; ?>
         </div></div></div><?php
 		}
-		if ($com_o->num_rows > 0) {
-			?><div id="comentarios-publicacion"><?php
-			while ($cm = $com_o->fetch_assoc()) {
-				comentario($cm);
-				}
-			?></div><?php
-		} else {
-			?><div class="row">
-            <div class="col-xs-12">
-            <div class="well-bl-1">
-            	No hay comentarios
-            </div></div></div>
-		<?php }
-			$link = '?pb=$getpb&com';
-			mostrar_mas($getcom, $count, $link);
+		while ($cm = $com_o->fetch_assoc()) {
+			comentario($cm);
+			}
+		$link = '?pb=$getpb&com';
+		mostrar_mas($getcom, $count, $link);
 	} else {
 		header('Location: ?&pos=$inicio');
 		}
