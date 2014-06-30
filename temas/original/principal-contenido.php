@@ -165,9 +165,9 @@ mostrar_mas($inicio, $count, $link);
 				
             } else {
 				?><div class="well-bl-1"><?php
-                if ($idcuentap = $db->query('SELECT idcuenta, email FROM cuentas WHERE email = '.$_SESSION['username'])) {
-                	$idcuentap2 = $idcuentap->fetch_assoc();
-				}
+					if ($idcuentap = $db->query('SELECT idcuenta, email FROM cuentas WHERE email = '.$_SESSION['username'])) {
+						$idcuentap2 = $idcuentap->fetch_assoc();
+					}
                 $idcuenta = $idcuentap2['idcuenta'];
                 $comentario = antiSqlInjection($_POST['comentario']);
                 if(!isset($comentario) and empty($comentario)) {
@@ -184,10 +184,8 @@ mostrar_mas($inicio, $count, $link);
 				?></div><?php
                     }
                 }
-		} else { ?>
-        <div class="row"><div class="col-xs-12"><div class="well-bl-1">
-			<?php echo 'Para escribir un comentario nesecitas tener una cuenta e iniciar sesión'; ?>
-        </div></div></div><?php
+		} else {
+			#revisar
 		}
 		while ($cm = $com_o->fetch_assoc()) {
 			comentario($cm);
