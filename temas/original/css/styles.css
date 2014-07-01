@@ -5,6 +5,7 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
+  overflow-y:scroll;
 }
 
 .container {
@@ -64,7 +65,7 @@ body {
 .navbar {
 	background: #FFFFFF;
 	border-style: solid;
-	border-color: #D3D3D3;
+	border-color: #FF8E00;
 	border-bottom-width: 1px;
 }
 
@@ -80,6 +81,7 @@ body {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-left: -5px;
+	margin-right:10px;
   }
 }
 
@@ -392,3 +394,18 @@ blockquote {
 .nav-pills-space{
 	margin-right:4px;
 	}
+	
+.navbar-default .navbar-nav > .edit > a,
+.navbar-default .navbar-nav > .edit > a:hover,
+.navbar-default .navbar-nav > .edit > a:focus {
+  color: #FF8E00;
+  border-bottom-color:#FF8E00;
+  border-bottom-width:5px;
+  border-bottom-style:solid;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-bottom: 10px;
+  }
+}

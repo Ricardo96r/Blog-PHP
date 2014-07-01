@@ -54,8 +54,8 @@
 	</div>
 	<div class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
         <ul class="nav navbar-nav">
-          <li <?php if($page == ''){echo'class=active';}else{}?>><a href="."><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-          <li <?php if($page == 'explorar'){echo'class=active';}else{}?>><a href="?p=explorar"><span class="glyphicon glyphicon-list-alt"></span> Explora</a></li>
+          <li <?php if($page == ''){echo'class=edit';}else{}?>><a href="."><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+          <li <?php if($page == 'explorar'){echo'class=edit';}else{}?>><a href="?p=explorar"><span class="glyphicon glyphicon-list-alt"></span> Explora</a></li>
         </ul>
         <?php if (!isset($_SESSION['username'])) { ?>
 		<div class="navbar-form navbar-right hidden-xs">
