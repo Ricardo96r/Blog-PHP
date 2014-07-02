@@ -70,17 +70,43 @@ mostrar_mas($inicio, $count, $link);
 			$getcom=0;
 			}
 			
-			$getcom_2 = $getcom * 10;
-			$com_o=$db->query('
-			SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
-			FROM comentarios 
-			INNER JOIN publicaciones
-			ON publicaciones.idpublicacion = comentarios.publicaciones_idpublicacion
-			INNER JOIN cuentas
-			ON cuentas.idcuenta = comentarios.cuentas_idcuenta
-			WHERE publicaciones.idpublicacion='.$getpb.'
-			ORDER BY `idcomentario` DESC
-			LIMIT '.$getcom_2.',10');
+		# Inicializando GET['tp']
+		if (isset($_GET['tp'])) {
+			if ($_GET['tp'] == 'recientes' or $_GET['tp'] == 'populares') {
+				$tp = $_GET['tp'];
+			}
+		} else {
+			$tp = 'populares';
+			}
+			
+		$getcom_2 = $getcom * 10;
+		
+		switch ($tp) {
+			case 'populares':
+				$com_o=$db->query('
+				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
+				FROM comentarios 
+				INNER JOIN publicaciones
+				ON publicaciones.idpublicacion = comentarios.publicaciones_idpublicacion
+				INNER JOIN cuentas
+				ON cuentas.idcuenta = comentarios.cuentas_idcuenta
+				WHERE publicaciones.idpublicacion='.$getpb.'
+				ORDER BY `idcomentario` DESC
+				LIMIT '.$getcom_2.',10');
+				break;
+			case 'recientes':
+				$com_o=$db->query('
+				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
+				FROM comentarios 
+				INNER JOIN publicaciones
+				ON publicaciones.idpublicacion = comentarios.publicaciones_idpublicacion
+				INNER JOIN cuentas
+				ON cuentas.idcuenta = comentarios.cuentas_idcuenta
+				WHERE publicaciones.idpublicacion='.$getpb.'
+				ORDER BY `idcomentario` DESC
+				LIMIT '.$getcom_2.',10');
+				break;
+		}
 	} else {
 		header('Location: ?p=404');
 	}
@@ -129,8 +155,8 @@ mostrar_mas($inicio, $count, $link);
                 	<div class="well-bl-form">
                     	<h1>Comentarios</h1>
                         <ul class="nav nav-pills">
-                            <li><a>Recientes</a></li>
-                            <li><a>Mejores</a></li>
+                       		<li <?php if($tp=='populares'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=populares">Populares</a></li>
+                            <li <?php if($tp=='recientes'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=recientes">Recientes</a></li>
                             <li class="pull-right"> 
                                 <a data-toggle="modal" data-target="#responder_publicacion">
                                   <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
