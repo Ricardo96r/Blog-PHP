@@ -158,7 +158,7 @@ mostrar_mas($inicio, $count, $link);
                        		<li <?php if($tp=='populares'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=populares">Populares</a></li>
                             <li <?php if($tp=='recientes'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=recientes">Recientes</a></li>
                             <li class="pull-right"> 
-                                <a data-toggle="modal" data-target="#responder_publicacion">
+                                <a href="" data-toggle="modal" data-target="#responder_publicacion">
                                   <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
                                 </a>
                             </li>

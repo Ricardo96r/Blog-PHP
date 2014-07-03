@@ -8,7 +8,7 @@
 	# Cargar configuracion
 	require_once('configuracion/database.php');
 	require_once('configuracion/propiedades.php');
-	require_once('configuracion/funciones.php');
+	require_once('configuracion/load-func.php');
 	
 	if ($page != 'ajax') {
 	# Cargar web
