@@ -1,7 +1,6 @@
 <?php
 function comentario ($dt) {
-	global $prop; //Para usar la global $prop en una funcion
-	global $db;
+	global $prop, $db, $pf;
 	?>
     <div class="well-bl-1">
         <div class="row">
@@ -26,71 +25,119 @@ function comentario ($dt) {
         <div class="row">
             <div class="col-xs-12">
                 <div class="pb-pb center-block">
-					<?php echo $dt['comentario']; ?>
+                	<blockquote><p><?php echo $dt['comentario']; ?></p></blockquote>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <div class="pb-bottom">
-                    <ul class="nav nav-pills">
-                    	<?php /* Me gusta */ ?>
-                        <script>
-						function comentarios_megusta_<?php echo $dt['idcomentario']?>(idcom){
-								var parametros = {
-										"idcom" : idcom,
-								};
-								$.ajax({
-										data:  parametros,
-										url:   '?p=ajax&action=comentarios_megusta',
-										type:  'post',
-										beforeSend: function () {
-											new Spinner(opts).spin(document.getElementById('comentario_megusta_<?php echo $dt['idcomentario']?>'));
-										},
-										success:  function (response) {
-												$("#comentario_megusta_<?php echo $dt['idcomentario']?>").html(response);
-										}
-								});
+                    <ul class="nav nav-pills"><?php
+					
+					/*
+					-------------------
+					ME GUSTA
+					-------------------
+					*/
+					if ($mg_p = $db->query("SELECT * FROM comentarios_megusta WHERE comentarios_idcomentario = '".$dt['idcomentario']."'")) {
+						$mg = $mg_p->num_rows;
+					}
+					if (isset($_SESSION['username'])) {
+						if ($ismg_p = $db->query("SELECT cuentas_idcuenta, comentarios_idcomentario FROM comentarios_megusta WHERE cuentas_idcuenta = ".$pf['idcuenta']." and comentarios_idcomentario = ".$dt['idcomentario'])) {
+							$ismg = $ismg_p->num_rows;
+							}
+					} else {
+						$ismg = 0;
 						}
-						</script>
-                      <?php
-					  	if ($mg_p = $db->query("SELECT * FROM comentarios_megusta WHERE comentarios_idcomentario = '".$dt['idcomentario']."'")) {
-							$mg = $mg_p->num_rows;
+					if (isset($_SESSION['username'])) {
+					?>
+                        <li class="nav-pills-space resultado_<?php echo $dt['idcomentario']?> <?php if($ismg > 0){echo "active";}?>"
+                        onclick="comentarios_megusta_<?php echo $dt['idcomentario']?>(<?php echo $dt['idcomentario']; ?>);return false;"><a  href="">
+                        <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
+                        <span class="badge" id="resultado_<?php echo $dt['idcomentario']?>"><?php echo $mg;?></span>
+                        </a></li>
+                    <?php
+					} else { ?>
+                        <li class="nav-pills-space"><a href="?p=login">
+                        <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
+                        <span class="badge"><?php echo $mg;?></span>
+                        </a></li>
+					<?php }?>
+					<script>
+                    function comentarios_megusta_<?php echo $dt['idcomentario']?>(idcom){
+                            var parametros = {
+                                    "idcom" : idcom,
+                            };
+                            $.ajax({
+                                    data:  parametros,
+                                    url:   '?p=ajax&action=comentarios_megusta',
+                                    type:  'post',
+                                    beforeSend: function () {
+                                        new Spinner(opts).spin(document.getElementById('resultado_<?php echo $dt['idcomentario']?>'))
+                                            
+                                    },
+                                    success:  function (response) {
+                                            $(".resultado_<?php echo $dt['idcomentario']?>").toggleClass("active");
+                                            $("#resultado_<?php echo $dt['idcomentario']?>").html(response);
+                                    }
+                            });
+                    }
+                    </script>
+                    
+					<?php  
+                    /*
+					-------------------
+					FAVORITOS
+					-------------------
+					*/
+                    if ($fav_p = $db->query("SELECT * FROM comentarios_favoritos WHERE comentarios_idcomentario = '".$dt['idcomentario']."'")) {
+						$fav = $fav_p->num_rows;
+					}
+					if (isset($_SESSION['username'])) {
+						if ($isfav_p = $db->query("SELECT cuentas_idcuenta, comentarios_idcomentario FROM comentarios_favoritos WHERE cuentas_idcuenta = ".$pf['idcuenta']." and comentarios_idcomentario = ".$dt['idcomentario'])) {
+							$isfav = $isfav_p->num_rows;
+							}
+					} else {
+						$isfav = 0;
 						}
-					  ?>
-                      <li onclick="comentarios_megusta_<?php echo $dt['idcomentario']?>(<?php echo $dt['idcomentario']; ?>);return false;"><a>
-                      <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs"> Me gusta</span>
-                      <span class="badge" id="comentario_megusta_<?php echo $dt['idcomentario']?>"><?php echo $mg;?></span>
-                      </a></li>
+					if(isset($_SESSION['username'])) {
+					?>
+                        <li class="nav-pills-space com_fav_<?php echo $dt['idcomentario']?> <?php if($isfav > 0){echo "active";}?>"
+                        onclick="comentarios_favoritos_<?php echo $dt['idcomentario']?>(<?php echo $dt['idcomentario']; ?>);return false;"><a href="">
+                        <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
+                        <span class="badge" id="com_fav_<?php echo $dt['idcomentario']?>"><?php echo $fav;?></span>
+                        </a></li>
+                    <?php } else {?>
+                        <li class="nav-pills-space"><a href="?p=login">
+                        <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
+                        <span class="badge"><?php echo $fav;?></span>
+                        </a></li>
+                    <?php } ?>
+					<script>
+                    function comentarios_favoritos_<?php echo $dt['idcomentario']?>(idcom){
+                            var parametros = {
+                                    "idcom" : idcom,
+                            };
+                            $.ajax({
+                                    data:  parametros,
+                                    url:   '?p=ajax&action=comentarios_favoritos',
+                                    type:  'post',
+                                    beforeSend: function () {
+                                        new Spinner(opts).spin(document.getElementById('com_fav_<?php echo $dt['idcomentario']?>'));
+                                    },
+                                    success:  function (response) {
+                                        $(".com_fav_<?php echo $dt['idcomentario']?>").toggleClass("active");
+                                        $("#com_fav_<?php echo $dt['idcomentario']?>").html(response);
+                                    }
+                            });
+                    }
+                    </script>
                       
-                      <?php /* Favoritos */ ?>
-                      	<script>
-						function comentarios_favoritos_<?php echo $dt['idcomentario']?>(idcom){
-								var parametros = {
-										"idcom" : idcom,
-								};
-								$.ajax({
-										data:  parametros,
-										url:   '?p=ajax&action=comentarios_favoritos',
-										type:  'post',
-										beforeSend: function () {
-											new Spinner(opts).spin(document.getElementById('comentario_fav_<?php echo $dt['idcomentario']?>'));
-										},
-										success:  function (response) {
-												$("#comentario_fav_<?php echo $dt['idcomentario']?>").html(response);
-										}
-								});
-						}
-						</script>
-                      <?php
-					  	if ($fav_p = $db->query("SELECT * FROM comentarios_favoritos WHERE comentarios_idcomentario = '".$dt['idcomentario']."'")) {
-							$fav = $fav_p->num_rows;
-						}
-					  ?>
-                      <li onclick="comentarios_favoritos_<?php echo $dt['idcomentario']?>(<?php echo $dt['idcomentario']; ?>);return false;"><a>
-                      <span class="glyphicon glyphicon-star"></span><span class="hidden-xs"> Favoritos</span>
-                      <span class="badge" id="comentario_fav_<?php echo $dt['idcomentario']?>"><?php echo $fav;?></span>
-                      </a></li>
+                      
+                      
+                      
+                      
+                      
                       
                       <?php
 					  	if ($com_p = $db->query("SELECT * FROM subcomentarios WHERE comentarios_idcomentario = '".$dt['idcomentario']."'")) {

@@ -333,6 +333,9 @@ a:focus {
 	border-top-width: 1px;
 	padding-top:5px;
 	padding-bottom:5px;
+	border-top-width:1px;
+	border-top-color:#FF8E00;
+	border-top-style:solid;
 	}
 	
 .modal-footer {
