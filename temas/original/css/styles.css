@@ -401,8 +401,16 @@ blockquote {
 .navbar-default .navbar-nav > .edit > a,
 .navbar-default .navbar-nav > .edit > a:hover,
 .navbar-default .navbar-nav > .edit > a:focus {
-  color: #FF8E00;
+  color: #000000;
   border-bottom-color:#FF8E00;
+  border-bottom-width:5px;
+  border-bottom-style:solid;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #FF8E00;
+    border-bottom-color:#FF8E00;
   border-bottom-width:5px;
   border-bottom-style:solid;
 }

@@ -20,7 +20,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href=".">Nombre</a>
+        <a class="navbar-brand" href="."><img class="img-responsive pull-left" src="static-content/logo.png" style="width:30px; margin-right:5px;"> Nombre</a>
         <?php if (!isset($_SESSION['username'])) { ?>
 		<div class="visible-xs pull-right navbar-xs">
             <div class="btn-group">
@@ -85,18 +85,11 @@
             </div>
 		</div>
 		<?php }?>
-        <div class="navbar-form navbar-left visible-sm">
+        <div class="navbar-form navbar-right">
         	<button class="btn btn-warning" type="button" onclick="document.location.href='?p=buscar'">
             <span class="glyphicon glyphicon-search"> Buscar</span></button>
         </div>
-        <form class="navbar-form navbar-left input-group hidden-sm">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar...">
-                <span class="input-group-btn">
-                    <button class="btn btn-warning" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-            </div>
-        </form>
+
         </div>
     </div>
 </div>
