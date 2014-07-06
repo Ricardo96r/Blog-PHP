@@ -167,9 +167,9 @@ mostrar_mas($inicio, $count, $link);
                 	<div class="well-bl-form">
                     	<h1>Comentarios</h1>
                         <ul class="nav nav-pills">
-                       		<li <?php if($tp=='populares'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=populares">Populares</a></li>
-                            <li <?php if($tp=='recientes'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=recientes">Recientes</a></li>
-                            <li <?php if($tp=='orden'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=orden">En orden</a></li>
+                       		<li <?php if($tp=='populares'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=populares"><span class="glyphicon glyphicon-fire"></span><span class="hidden-xs"> Populares</span></a></li>
+                            <li <?php if($tp=='recientes'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=recientes"><span class="glyphicon glyphicon-time"></span><span class="hidden-xs"> Recientes</span></a></li>
+                            <li <?php if($tp=='orden'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=orden"><span class="glyphicon glyphicon-list"></span><span class="hidden-xs"> En orden</span></a></li>
                             <li class="pull-right"> 
                                 <a href="" data-toggle="modal" data-target="#responder_publicacion">
                                   <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
