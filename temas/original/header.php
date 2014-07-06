@@ -59,6 +59,8 @@
         </ul>
         <?php if (!isset($_SESSION['username'])) { ?>
 		<div class="navbar-form navbar-right hidden-xs">
+            <button class="btn btn-warning" type="button" onclick="document.location.href='?p=buscar'">
+            <span class="glyphicon glyphicon-search"></span></button>
             <div class="btn-group">
               <button type="button" class="btn btn-warning"  onclick="document.location.href='?p=login'"><span class="glyphicon glyphicon-info-sign"></span> Iniciar sesión</button>
               <button type="submit" class="btn btn-danger" onclick="document.location.href='?p=registro'"><span class="glyphicon glyphicon-hand-right"></span> Crear cuenta</button>
@@ -66,6 +68,8 @@
 		</div>
 		<?php } else {?>
         <div class="navbar-form navbar-right hidden-xs">
+            <button class="btn btn-warning" type="button" onclick="document.location.href='?p=buscar'">
+            <span class="glyphicon glyphicon-search"></span></button>
             <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#publicar">
                 <span class="glyphicon glyphicon-edit"></span> Publica
             </button>
@@ -85,11 +89,6 @@
             </div>
 		</div>
 		<?php }?>
-        <div class="navbar-form navbar-right">
-        	<button class="btn btn-warning" type="button" onclick="document.location.href='?p=buscar'">
-            <span class="glyphicon glyphicon-search"> Buscar</span></button>
-        </div>
-
         </div>
     </div>
 </div>

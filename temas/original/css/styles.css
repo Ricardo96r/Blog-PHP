@@ -62,6 +62,12 @@ body {
   padding-right:10px;
 }
 
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #FF8E00;
+  background-color: transparent;
+}
+
 .navbar {
 	background: #FFFFFF;
 	border-style: solid;
@@ -407,12 +413,26 @@ blockquote {
   border-bottom-style:solid;
 }
 
+@media (max-width: 768px) {
+ .navbar-default .navbar-nav > .edit > a,
+.navbar-default .navbar-nav > .edit > a:hover,
+.navbar-default .navbar-nav > .edit > a:focus {
+    border-bottom-width:0px;
+  }
+}
+
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #FF8E00;
-    border-bottom-color:#FF8E00;
+  border-bottom-color:#FF8E00;
   border-bottom-width:5px;
   border-bottom-style:solid;
+}
+@media (max-width: 768px) {
+	.navbar-default .navbar-nav > li > a:hover,
+	.navbar-default .navbar-nav > li > a:focus {
+	  border-bottom-width:0px;
+	}
 }
 
 @media (min-width: 768px) {
