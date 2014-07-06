@@ -72,7 +72,7 @@ mostrar_mas($inicio, $count, $link);
 			
 		# Inicializando GET['tp']
 		if (isset($_GET['tp'])) {
-			if ($_GET['tp'] == 'recientes' or $_GET['tp'] == 'populares') {
+			if ($_GET['tp'] == 'recientes' or $_GET['tp'] == 'populares' or $_GET['tp'] == 'orden') {
 				$tp = $_GET['tp'];
 			}
 		} else {
@@ -104,6 +104,18 @@ mostrar_mas($inicio, $count, $link);
 				ON cuentas.idcuenta = comentarios.cuentas_idcuenta
 				WHERE publicaciones.idpublicacion='.$getpb.'
 				ORDER BY `idcomentario` DESC
+				LIMIT '.$getcom_2.',10');
+				break;
+			case 'orden':
+				$com_o=$db->query('
+				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
+				FROM comentarios 
+				INNER JOIN publicaciones
+				ON publicaciones.idpublicacion = comentarios.publicaciones_idpublicacion
+				INNER JOIN cuentas
+				ON cuentas.idcuenta = comentarios.cuentas_idcuenta
+				WHERE publicaciones.idpublicacion='.$getpb.'
+				ORDER BY `idcomentario` ASC
 				LIMIT '.$getcom_2.',10');
 				break;
 		}
@@ -157,6 +169,7 @@ mostrar_mas($inicio, $count, $link);
                         <ul class="nav nav-pills">
                        		<li <?php if($tp=='populares'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=populares">Populares</a></li>
                             <li <?php if($tp=='recientes'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=recientes">Recientes</a></li>
+                            <li <?php if($tp=='orden'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=orden">En orden</a></li>
                             <li class="pull-right"> 
                                 <a href="" data-toggle="modal" data-target="#responder_publicacion">
                                   <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
