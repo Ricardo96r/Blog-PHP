@@ -44,7 +44,7 @@
                 </button>
                 <ul class="dropdown-menu pull-right" role="menu">
                     <li><a href="?p=configuracion"><span class="glyphicon glyphicon-wrench"></span> Configuración</a></li>
-                    <li><a href="?p=opciones"><span class="glyphicon glyphicon-lock"></span> Seguridad</a></li>
+                    <li><a href="?p=seguridad"><span class="glyphicon glyphicon-lock"></span> Seguridad</a></li>
                     <li class="divider"></li>
                     <li><a href="?p=cerrar_sesión"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>
                 </ul>
@@ -82,7 +82,7 @@
                 </button>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="?p=configuracion"><span class="glyphicon glyphicon-wrench"></span> Configuración</a></li>
-                    <li><a href="?p=opciones"><span class="glyphicon glyphicon-lock"></span> Seguridad</a></li>
+                    <li><a href="?p=seguridad"><span class="glyphicon glyphicon-lock"></span> Seguridad</a></li>
                     <li class="divider"></li>
                     <li><a href="?p=cerrar_sesión"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>
                 </ul>

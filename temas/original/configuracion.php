@@ -1,7 +1,7 @@
 <?php if (isset($_SESSION['username'])) {?>
 <div class="well-bl-form">
 <div class="page-header">
-<h1>Configuración:</h1>
+<h1>Configuración</h1>
 </div>
 	<h5><div class="btn btn-warning" data-toggle="modal" data-target="#editar_perfil"><span class="glyphicon glyphicon-pencil"></span> Cambiar imagen de perfil</div></h5>
     <!-- Modal -->

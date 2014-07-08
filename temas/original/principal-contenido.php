@@ -83,6 +83,7 @@ mostrar_mas($inicio, $count, $link);
 		
 		switch ($tp) {
 			case 'populares':
+				# Revisar
 				$com_o=$db->query('
 				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
 				FROM comentarios 
