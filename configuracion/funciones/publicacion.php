@@ -14,9 +14,10 @@ function post ($dt) {
                     <strong><?php echo $dt['nombre'].'' ?></a></strong>
                     <small><a class="a-clear" href="?p=perfil&pf=<?php echo $dt['cuenta'];?>"><?php echo ' - @'.$dt['cuenta'].'' ?></a></small>    
                     </div>
-                    <span class="time" data-toggle="tooltip" data-placement="right" title="" data-original-title="<?php echo $dt['tiempo_de_creacion'];?>">
+                    <span class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo $dt['tiempo_de_creacion'];?>">
                     <?php echo '<small>'.tiempo_transcurrido($dt['tiempo_de_creacion']).'</small>';?>
                     </span>
+                    <strong class="text-success">+1012350</strong>
                 </div>
             </div>
         </div>
