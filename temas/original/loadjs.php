@@ -14,6 +14,11 @@
         <script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/configuracion_perfil_imagen_fondo.js"></script>
         <script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/configuracion_perfil_nombre.js"></script>
 <?php }
+
+	if ($page == "seguridad") {?>
+		<script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/seguridad_password.js"></script>
+		<?php }
+		
 	if ($page == 'login') { ?>
 		<script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/login.js"></script>
 <?php }

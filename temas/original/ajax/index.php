@@ -46,6 +46,10 @@ if ($action == 'registro') {
 } elseif($action == 'configuracion_perfil_nombre'){
 	include('configuracion_perfil_nombre.php');
 	
+# Seguridad
+} elseif($action == 'seguridad_password'){
+	include('seguridad_password.php');
+	
 } else {
 	echo 'Error: 404';
 	}
