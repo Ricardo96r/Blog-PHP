@@ -92,7 +92,7 @@ mostrar_mas($inicio, $count, $link);
 				INNER JOIN cuentas
 				ON cuentas.idcuenta = comentarios.cuentas_idcuenta
 				WHERE publicaciones.idpublicacion='.$getpb.'
-				ORDER BY `idcomentario` DESC
+				ORDER BY `puntos` DESC
 				LIMIT '.$getcom_2.',10');
 				break;
 			case 'recientes':
@@ -215,11 +215,12 @@ mostrar_mas($inicio, $count, $link);
                 } elseif(strlen($comentario) < 20) {
                     echo 'La nota es muy corta, tiene que tener mas de 20 caracteres';
                 } elseif(strlen($comentario) > 400){
-                    echo 'La nota es muy larga, el máximo de caracteres es 400';
+                    echo 'El comentario es muy largo, el máximo de caracteres es 400';
                 } else {
                 $enviar_nota = $db->query('
 					INSERT INTO `comentarios` (`cuentas_idcuenta`, `publicaciones_idpublicacion`, `comentario`) 
 					VALUES ('.$idcuenta.','.$getpb.','.$comentario.')');
+				
                 echo 'Comentario enviado';
 				?></div><?php
                     }

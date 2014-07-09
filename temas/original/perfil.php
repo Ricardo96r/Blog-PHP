@@ -140,7 +140,7 @@ if (isset($_GET['pf'])) {
 			$pfinicio_2 = $pfinicio*10;
 			$pf_pb = $db->query("
 				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, 
-				publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, 
+				publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.puntos,
 				publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
 				FROM cuentas
 				INNER JOIN publicaciones 
@@ -186,6 +186,7 @@ if (isset($_GET['pf'])) {
 				publicaciones.imagenes_idimagenes,
 				publicaciones.publicacion,
 				publicaciones.tiempo_de_creacion,
+				publicaciones.puntos,
 				# Cuentas en base de publicaciones.cuentas_idcuenta
 				cuentas.cuenta,
 				cuentas.idcuenta,
@@ -244,6 +245,7 @@ if (isset($_GET['pf'])) {
 				publicaciones.imagenes_idimagenes,
 				publicaciones.publicacion,
 				publicaciones.tiempo_de_creacion,
+				publicaciones.puntos,
 				# Cuentas en base de publicaciones.cuentas_idcuenta
 				cuentas.cuenta,
 				cuentas.idcuenta,
