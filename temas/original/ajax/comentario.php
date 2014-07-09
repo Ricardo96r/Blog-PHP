@@ -13,6 +13,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
 		$enviar_nota = $db->query("
 			INSERT INTO `comentarios` (`cuentas_idcuenta`, `publicaciones_idpublicacion`, `comentario`) 
 			VALUES (".$pf['idcuenta'].','.$idmsg.",'".$comentario."')");
+			puntos('+','1','publicaciones','idpublicacion',$idmsg);
 		echo 'Comentario enviado';
 		}
 	
