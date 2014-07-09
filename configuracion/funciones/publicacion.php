@@ -17,7 +17,7 @@ function post ($dt) {
                     <span class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo $dt['tiempo_de_creacion'];?>">
                     <?php echo '<small>'.tiempo_transcurrido($dt['tiempo_de_creacion']).'</small>';?>
                     </span>
-                    <strong class="text-success">+1012350</strong>
+                    <strong class="text-success"> +<?php echo $dt['puntos'];?></strong>
                 </div>
             </div>
         </div>

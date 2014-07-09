@@ -19,7 +19,7 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 	
 $inicio_2 = $inicio*10;
 $registros = $db->query('
-	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
+	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, publicaciones.puntos, imagenes.idimagenes, imagenes.ruta
 	FROM cuentas
 	INNER JOIN publicaciones 
 	ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
@@ -85,7 +85,7 @@ mostrar_mas($inicio, $count, $link);
 			case 'populares':
 				# Revisar
 				$com_o=$db->query('
-				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
+				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario, comentarios.puntos,publicaciones.idpublicacion
 				FROM comentarios 
 				INNER JOIN publicaciones
 				ON publicaciones.idpublicacion = comentarios.publicaciones_idpublicacion
@@ -97,7 +97,7 @@ mostrar_mas($inicio, $count, $link);
 				break;
 			case 'recientes':
 				$com_o=$db->query('
-				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
+				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario, comentarios.puntos, publicaciones.idpublicacion
 				FROM comentarios 
 				INNER JOIN publicaciones
 				ON publicaciones.idpublicacion = comentarios.publicaciones_idpublicacion
@@ -109,7 +109,7 @@ mostrar_mas($inicio, $count, $link);
 				break;
 			case 'orden':
 				$com_o=$db->query('
-				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario,publicaciones.idpublicacion
+				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, comentarios.cuentas_idcuenta, comentarios.publicaciones_idpublicacion, comentarios.comentario, comentarios.tiempo_de_creacion, comentarios.idcomentario, comentarios.puntos, publicaciones.idpublicacion
 				FROM comentarios 
 				INNER JOIN publicaciones
 				ON publicaciones.idpublicacion = comentarios.publicaciones_idpublicacion
@@ -126,7 +126,7 @@ mostrar_mas($inicio, $count, $link);
 	
 	if(isset($getpb)) {
 		if ($pb_o = $db->query('
-		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, imagenes.idimagenes, imagenes.ruta
+		SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, publicaciones.puntos, imagenes.idimagenes, imagenes.ruta
 		FROM cuentas
 		INNER JOIN publicaciones 
 		ON cuentas.idcuenta = publicaciones.cuentas_idcuenta
