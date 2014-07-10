@@ -57,7 +57,6 @@ if (!isset($_SESSION['username'])) {
 </div>
 </form>
 <div id="resultado"></div>
-<script src="<?php echo 'temas/'.$prop['tema'];?>/ajax/js/registro.js"></script>
 </div>
 <?php
 } else {
