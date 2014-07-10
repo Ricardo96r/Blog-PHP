@@ -74,7 +74,9 @@ mostrar_mas($inicio, $count, $link);
 		if (isset($_GET['tp'])) {
 			if ($_GET['tp'] == 'recientes' or $_GET['tp'] == 'populares' or $_GET['tp'] == 'orden') {
 				$tp = $_GET['tp'];
-			}
+			} else {
+				$tp = 'populares';
+				}
 		} else {
 			$tp = 'populares';
 			}

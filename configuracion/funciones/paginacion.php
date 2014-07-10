@@ -6,13 +6,13 @@ function mostrar_mas($get, $count, $link) {
 	?>
 	<div class='well-bl-2 visible-xs visible-sm'><div class='row'><div class='col-xs-12'><?php publicidad();?></div></div></div>
  	
-	<?php if ($get +1 >= $count) {?><div class="well-bl-1 text-center"><strong>No hay nada mas que mostrar</strong></div><?php }else {}?>
-        
+	<?php if ($get +1 >= $count) {?><div class="well-bl-1 text-center"><strong>No hay nada mas que mostrar</strong></div><?php }else {}
+       if ($count != 0) { ?>
         <div class='row'>
     		<div class='col-xs-12'>
     			<div class='text-center'>
 					<ul class='pagination pagination-lg'><?php
-                      if ($count != 0) {
+                      
                       	if ($get == 0) {
 						  echo '<li class=disabled><a>&laquo; Anterior</a></li>';
 						 } else {
@@ -85,11 +85,10 @@ function mostrar_mas($get, $count, $link) {
 						  } else {
 						  echo '<li><a href='.$link.'='.($get+1).'>Siguiente &raquo;</a></li>';
 							}
+					?></ul></div></div></div><?php
 					#No hay nada esto pasa cuando count vale 0!
 					  } else {
 						  }
-		?></ul></div></div></div><?php
-		
 	} else {
 		header('Location: ?p=404');
 		}
