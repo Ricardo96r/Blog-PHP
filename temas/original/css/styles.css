@@ -367,17 +367,16 @@ a:focus {
 }
 
 .affix-pefil-nav {
-	style="z-index:999999; 
-	width:840px;
-	}
+    width:840px;
+}
 
 .affix-aside-perfil {
-  top:60px;
+    top:60px;
 }
 	
 .thumbnail_perfil {
-	margin-top:10px;
-	margin-bottom:0px;
+    margin-top:10px;
+    margin-bottom:0px;
 	}
 	
 .nav-pills > li.active > a,

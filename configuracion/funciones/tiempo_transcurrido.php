@@ -13,7 +13,7 @@ function tiempo_transcurrido($fecha) {
 	if(empty($Fecha_Unix)) {   
 		  return "Fecha incorracta";
 	}
-	if($ahora > $Fecha_Unix) {   
+	if($ahora >= $Fecha_Unix) {   
 		  $diferencia     =$ahora - $Fecha_Unix;
 		  $tiempo         = "Hace";
 	} else {
