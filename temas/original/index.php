@@ -30,6 +30,8 @@ if($page == ''){
 	include('explorar.php');
 } elseif($page == 'seguridad'){
 	include('seguridad.php');
+} elseif($page == 'buscar'){
+	include('buscar.php');
 } elseif($page == '404'){
 	include('404.php');
 }else{
