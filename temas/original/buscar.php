@@ -51,24 +51,25 @@
 		$getbp=0;
 		}
 	
-	$buscar_p = $db->query($psql."LIMIT 0,3"); ?>
-	<div class="well-bl-1">
-    <?php
-	while ($bcuenta = $buscar_p->fetch_array()) { ?>
-    <ul class="media-list">
-      <li class="media">
-        <a class="pull-left" href="#">
-          <img class="img-responsive" style="width:45px;" src="static-content/perfiles/<?php echo $bcuenta['imagen_perfil'];?>" alt="...">
-        </a>
-        <div class="media-body">
-          <h4 class="media-heading"><?php echo $bcuenta['nombre'];?></h4>
-          <?php echo $bcuenta['cuenta'];?>
-        </div>
-      </li>
-    </ul><?php
-		} ?>
-        </div>
-        <?php
+	$buscar_p = $db->query($psql."LIMIT 0,3"); 
+	if (($buscar_p->num_rows) > 0) {
+		?><div class="well-bl-1"><?php
+		while ($bcuenta = $buscar_p->fetch_array()) { 
+		?><ul class="media-list">
+		  <li class="media">
+			<a class="pull-left" href="#">
+			  <img class="img-responsive" style="width:45px;" src="static-content/perfiles/<?php echo $bcuenta['imagen_perfil'];?>" alt="...">
+			</a>
+			<div class="media-body">
+			  <h4 class="media-heading"><?php echo $bcuenta['nombre'];?></h4>
+			  <?php echo $bcuenta['cuenta'];?>
+			</div>
+		  </li>
+		</ul><?php
+			} ?>
+			</div>
+			<?php
+	}
 	
 	$getbp_2 = $getbp * 10;
 	$buscar_o = $db->query($bsql."LIMIT ".$getbp_2.",5");
