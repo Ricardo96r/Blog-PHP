@@ -70,9 +70,7 @@ body {
 
 .navbar {
 	background: #FFFFFF;
-	border-style: solid;
-	border-color: #FF8E00;
-	border-bottom-width: 1px;
+	border-bottom-width: 0px;
 }
 
 .container > .navbar-header,
@@ -175,10 +173,10 @@ body {
 .well-bl-perfil-nav {
 	background-color: #FFFFFF;
 	border-style: solid;
-	border-color: #D3D3D3;
-	border-width: 1px;
+	border-color:#D3D3D3;
+	border-bottom-color: #FF8E00;
+	border-width: 0px;
 	word-wrap: break-word;
-	padding:3px;
 	z-index:1;
 }
 
@@ -395,6 +393,40 @@ a.list-group-item.active > .badge,
   background-color: #FF8E00;
 }
 
+/*
+	Usado en perfil-nav
+*/
+.nav-pills > li.edit > a {
+	color: #777;
+}
+
+.nav-pills > li.edit > a:hover {
+	background-color: #FFFFFF;
+	color: #FF8E00;
+	border-bottom-style:solid;
+	border-bottom-width:5px;
+	border-radius:0px;
+	border-color: #FF8E00;
+}
+
+.nav-pills > li.active_edit > a {
+	background-color:#FFFFFF;
+	color: #777;
+	border-bottom-style:solid;
+	border-bottom-width:5px;
+	border-radius:0px;
+	border-color: #FF8E00;
+}
+
+.nav-pills > li.active_edit > a:hover {
+	background-color: #FFFFFF;
+	color: #FF8E00;
+}
+
+.nav-pills > li + li {
+  margin-left: 0px;
+}
+
 .alert {
 	margin-bottom:10px;
 	}
@@ -420,33 +452,32 @@ blockquote {
 	margin-right:4px;
 	}
 	
-.navbar-default .navbar-nav > .edit > a,
-.navbar-default .navbar-nav > .edit > a:hover,
-.navbar-default .navbar-nav > .edit > a:focus {
-  color: #000000;
+.navbar-nav > .edit > a,
+.navbar-nav > .edit > a:hover,
+.navbar-nav > .edit > a:focus {
   border-bottom-color:#FF8E00;
   border-bottom-width:5px;
   border-bottom-style:solid;
 }
 
 @media (max-width: 768px) {
- .navbar-default .navbar-nav > .edit > a,
-.navbar-default .navbar-nav > .edit > a:hover,
-.navbar-default .navbar-nav > .edit > a:focus {
+.navbar-nav > .edit > a,
+.navbar-nav > .edit > a:hover,
+.navbar-nav > .edit > a:focus {
     border-bottom-width:0px;
   }
 }
 
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
   color: #FF8E00;
   border-bottom-color:#FF8E00;
   border-bottom-width:5px;
   border-bottom-style:solid;
 }
 @media (max-width: 768px) {
-	.navbar-default .navbar-nav > li > a:hover,
-	.navbar-default .navbar-nav > li > a:focus {
+	.navbar-nav > li > a:hover,
+	.navbar-nav > li > a:focus {
 	  border-bottom-width:0px;
 	}
 }
