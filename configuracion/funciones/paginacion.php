@@ -1,7 +1,7 @@
 <?php
-function mostrar_mas($get, $count, $link) {
+function mostrar_mas($get, $count, $link, $cantidad) {
 	if (isset($get) and is_numeric($get) and $get >= 0) {
-		$count /= 10;
+		$count /= $cantidad;
 		$gt = $get;
 	?>
 	<div class='well-bl-2 visible-xs visible-sm'><div class='row'><div class='col-xs-12'><?php publicidad();?></div></div></div>

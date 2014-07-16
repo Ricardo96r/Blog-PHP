@@ -128,7 +128,7 @@ if (isset($_GET['pf'])) {
 		case 'publicaciones':
 			# Inicializando GET['pid']
 			if (isset($_GET['pid']) and isset($_GET['pf']) and is_numeric($_GET['pid']) and $_GET['pid'] >= 0) {
-				if (($_GET['pid'] + 0.1) <= (($pb_count / 10))) {
+				if (($_GET['pid'] + 0.1) <= (($pb_count / 5))) {
 					$pfinicio = $_GET['pid'];
 				} else {
 					header('Location: ?&p=404');  
@@ -137,7 +137,7 @@ if (isset($_GET['pf'])) {
 				$pfinicio = 0;
 				}
 			# Contenido
-			$pfinicio_2 = $pfinicio*10;
+			$pfinicio_2 = $pfinicio*5;
 			$pf_pb = $db->query("
 				SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, 
 				publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.puntos,
@@ -149,13 +149,14 @@ if (isset($_GET['pf'])) {
 				ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 				WHERE cuentas.cuenta = '".$perfil['cuenta']."'
 				ORDER BY `idpublicacion` DESC
-				LIMIT ".$pfinicio_2.',10');
+				LIMIT ".$pfinicio_2.',5');
 			while ($nts = $pf_pb->fetch_array()) {
 				post($nts);
 			}
 			# Paginacion
 			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=publicaciones&pid';
-			mostrar_mas($pfinicio, $pb_count, $link);
+			$cantidad = 5;
+			mostrar_mas($pfinicio, $pb_count, $link, $cantidad);
 			break;
 			
 		/*
@@ -164,7 +165,7 @@ if (isset($_GET['pf'])) {
 		case 'favoritos';
 			# Inicializando GET['pid']
 			if (isset($_GET['pid']) and isset($_GET['pf']) and is_numeric($_GET['pid']) and $_GET['pid'] >= 0) {
-				if (($_GET['pid'] + 0.1) <= (($fav_count / 10))) {
+				if (($_GET['pid'] + 0.1) <= (($fav_count / 5))) {
 					$pfinicio = $_GET['pid'];
 				} else {
 					header('Location: ?&p=404');  
@@ -173,7 +174,7 @@ if (isset($_GET['pf'])) {
 				$pfinicio = 0;
 				}
 			# Contenido
-			$pfinicio_2 = $pfinicio*10;
+			$pfinicio_2 = $pfinicio*5;
 			$pf_pb = $db->query("SELECT
 				# Favoritos
 				publicaciones_favoritos.idfavorito,
@@ -204,7 +205,7 @@ if (isset($_GET['pf'])) {
 				ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 				WHERE publicaciones_favoritos.cuentas_idcuenta = ".$perfil['idcuenta']."
 				ORDER BY `idfavorito` DESC
-				LIMIT ".$pfinicio_2.',10
+				LIMIT ".$pfinicio_2.',5
 				');
 			while ($nts = $pf_pb->fetch_array()) {
 				echo "<div class='well-bl-fav'><span class='glyphicon glyphicon-star'></span><small> Favorito por ".$perfil['cuenta'].' ';
@@ -214,7 +215,8 @@ if (isset($_GET['pf'])) {
 			}
 			# Paginacion
 			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=favoritos&pid';
-			mostrar_mas($pfinicio, $fav_count, $link);
+			$cantidad = 5;
+			mostrar_mas($pfinicio, $fav_count, $link, $cantidad);
 			break;
 			
 		/*
@@ -223,7 +225,7 @@ if (isset($_GET['pf'])) {
 		case 'me_gusta';
 			# Inicializando GET['pid']
 			if (isset($_GET['pid']) and isset($_GET['pf']) and is_numeric($_GET['pid']) and $_GET['pid'] >= 0) {
-				if (($_GET['pid'] + 0.1) <= (($like_count / 10))) {
+				if (($_GET['pid'] + 0.1) <= (($like_count / 5))) {
 					$pfinicio = $_GET['pid'];
 				} else {
 					header('Location: ?&p=404');  
@@ -232,7 +234,7 @@ if (isset($_GET['pf'])) {
 				$pfinicio = 0;
 				}
 			# Contenido
-			$pfinicio_2 = $pfinicio*10;
+			$pfinicio_2 = $pfinicio*5;
 			$pf_pb = $db->query("SELECT
 				# Megusta
 				publicaciones_megusta.idmegusta,
@@ -263,7 +265,7 @@ if (isset($_GET['pf'])) {
 				ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 				WHERE publicaciones_megusta.cuentas_idcuenta = ".$perfil['idcuenta']."
 				ORDER BY `idmegusta` DESC
-				LIMIT ".$pfinicio_2.',10
+				LIMIT ".$pfinicio_2.',5
 				');
 			while ($nts = $pf_pb->fetch_array()) {
 				echo "<div class='well-bl-fav'><span class='glyphicon glyphicon-thumbs-up'></span><small> Le gusta a ".$perfil['cuenta'].' ';
@@ -273,7 +275,8 @@ if (isset($_GET['pf'])) {
 			}
 			# Paginacion
 			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=me_gusta&pid';
-			mostrar_mas($pfinicio, $like_count, $link);
+			$cantidad = 5;
+			mostrar_mas($pfinicio, $like_count, $link, $cantidad);
 			break;		
 	}
 	

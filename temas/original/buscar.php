@@ -42,7 +42,7 @@
 	$bcount = ($bcount_o->num_rows);
 
 	if (isset($_GET['bp']) and is_numeric($_GET['bp']) and $_GET['bp'] >= 0) {
-		if (($_GET['bp'] + 0.1) <= (($bcount / 10))) {
+		if (($_GET['bp'] + 0.1) <= (($bcount / 5))) {
 			$getbp=$_GET['bp'];
 		} else {
 			header('Location: ?&p=404');  
@@ -71,13 +71,14 @@
 			<?php
 	}
 	
-	$getbp_2 = $getbp * 10;
+	$getbp_2 = $getbp * 5;
 	$buscar_o = $db->query($bsql."LIMIT ".$getbp_2.",5");
 	while ($buscar = $buscar_o->fetch_array()) {
 		post($buscar);
 		}
 
 	$link = '?p=buscar&q='.$q.'&bp';
+	$cantidad = 5;
 	
-	mostrar_mas($getbp, $bcount, $link);
+	mostrar_mas($getbp, $bcount, $link, $cantidad);
 	}

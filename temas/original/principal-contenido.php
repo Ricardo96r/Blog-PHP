@@ -8,7 +8,7 @@ if (!isset($_GET['pb'])) {
 	}
 
 if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
-	if (($_GET['pos'] + 0.1) <= (($count / 10))) {
+	if (($_GET['pos'] + 0.1) <= (($count / 5))) {
 		$inicio=$_GET['pos'];
 	} else {
 		header('Location: ?&p=404');  
@@ -17,7 +17,7 @@ if (isset($_GET['pos']) and is_numeric($_GET['pos']) and $_GET['pos'] >= 0) {
 	$inicio=0;
 	}
 	
-$inicio_2 = $inicio*10;
+$inicio_2 = $inicio*5;
 $registros = $db->query('
 	SELECT cuentas.idcuenta, cuentas.cuenta, cuentas.nombre, cuentas.imagen_perfil, cuentas.imagen_perfil_fondo, publicaciones.idpublicacion, publicaciones.publicacion, publicaciones.tiempo_de_creacion, publicaciones.imagenes_idimagenes, publicaciones.puntos, imagenes.idimagenes, imagenes.ruta
 	FROM cuentas
@@ -26,7 +26,7 @@ $registros = $db->query('
 	INNER JOIN imagenes
 	ON publicaciones.imagenes_idimagenes = imagenes.idimagenes
 	ORDER BY `idpublicacion` DESC
-	LIMIT '.$inicio_2.',10');	
+	LIMIT '.$inicio_2.',5');	
 $imp = 0;
 while ($reg = $registros->fetch_assoc()) {
 	post($reg);
@@ -39,14 +39,15 @@ while ($reg = $registros->fetch_assoc()) {
 }
 	
 $link = '?pos';
-mostrar_mas($inicio, $count, $link);
+$cantidad = 5;
+mostrar_mas($inicio, $count, $link, $cantidad);
 		
 /* 
 	COMENTARIOS
 	$getpb=$_GET['pb']; pagina de publicacion
 	$count = numero de comentarios
 	$getcom=$_GET['com']; pagina de comentarios
-	$getcom_2 = $getcom * 10; para el limit de mysql
+	$getcom_2 = $getcom * 5; para el limit de mysql
 	$pb = publicacion
 */
 } else {
@@ -60,7 +61,7 @@ mostrar_mas($inicio, $count, $link);
 		# GET com para saber que id es el comentario
 		if (isset($_GET['com']) and is_numeric($_GET['com']) and $_GET['com'] >= 0) {
 			# Para saber hasta que numero llega $_GET['com'] y evitar problemas de seguridad.
-			if (($_GET['com'] + 0.1) <= (($count / 10))) {
+			if (($_GET['com'] + 0.1) <= (($count / 5))) {
 				$getcom=$_GET['com'];
 			} else {
 				header('Location: ?&p=404');  
@@ -81,7 +82,7 @@ mostrar_mas($inicio, $count, $link);
 			$tp = 'populares';
 			}
 			
-		$getcom_2 = $getcom * 10;
+		$getcom_2 = $getcom * 5;
 		
 		switch ($tp) {
 			case 'populares':
@@ -95,7 +96,7 @@ mostrar_mas($inicio, $count, $link);
 				ON cuentas.idcuenta = comentarios.cuentas_idcuenta
 				WHERE publicaciones.idpublicacion='.$getpb.'
 				ORDER BY `puntos` DESC
-				LIMIT '.$getcom_2.',10');
+				LIMIT '.$getcom_2.',5');
 				break;
 			case 'recientes':
 				$com_o=$db->query('
@@ -107,7 +108,7 @@ mostrar_mas($inicio, $count, $link);
 				ON cuentas.idcuenta = comentarios.cuentas_idcuenta
 				WHERE publicaciones.idpublicacion='.$getpb.'
 				ORDER BY `idcomentario` DESC
-				LIMIT '.$getcom_2.',10');
+				LIMIT '.$getcom_2.',5');
 				break;
 			case 'orden':
 				$com_o=$db->query('
@@ -119,7 +120,7 @@ mostrar_mas($inicio, $count, $link);
 				ON cuentas.idcuenta = comentarios.cuentas_idcuenta
 				WHERE publicaciones.idpublicacion='.$getpb.'
 				ORDER BY `idcomentario` ASC
-				LIMIT '.$getcom_2.',10');
+				LIMIT '.$getcom_2.',5');
 				break;
 		}
 	} else {
@@ -233,10 +234,11 @@ mostrar_mas($inicio, $count, $link);
 		while ($cm = $com_o->fetch_assoc()) {
 			comentario($cm);
 			}
-		$link = '?pb=$getpb&com';
-		mostrar_mas($getcom, $count, $link);
+		$link = '?pb='.$getpb.'&com';
+		$cantidad = 5;
+		mostrar_mas($getcom, $count, $link, $cantidad);
 	} else {
-		header('Location: ?&pos=$inicio');
+		header('Location: ?&pos='.$inicio);
 		}
 		?>
 <?php }
