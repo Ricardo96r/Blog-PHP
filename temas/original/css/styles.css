@@ -139,6 +139,8 @@ body {
 	border-radius: 4px;
 	word-wrap: break-word;
 	margin-bottom:10px;
+	padding-top:5px;
+	padding-bottom:5px;
 }
 
 @media (max-width: 330px) {

@@ -31,7 +31,7 @@ $imp = 0;
 while ($reg = $registros->fetch_assoc()) {
 	post($reg);
 	$imp++;
-	if($imp == 5) {
+	if($imp == 2) {
 		?>
 		<div class="well-bl-2 visible-xs visible-sm"><div class="row"><div class="col-xs-12"><?php publicidad(); ?></div></div></div>
 		<?php
