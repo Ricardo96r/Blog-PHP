@@ -1,7 +1,7 @@
 <?php		
 	if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_SESSION['username'])) {
 		if (isset($_POST['nombres'])) {
-			$nombres = antiSqlInjection($_POST['nombres']);
+			$nombres = depurar($_POST['nombres']);
 		} else {
 			$nombres = NULL;
 			}	    

@@ -1,14 +1,14 @@
 <?php
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_POST['permiso']) and $_POST['permiso'] == 'allowed') {
-	$cuenta = antiSqlInjection($_POST['cuenta']);
-	$contraseña = antiSqlInjection($_POST['contraseña1']);
-	$contraseña2 = antiSqlInjection($_POST['contraseña2']);
-	$email = antiSqlInjection($_POST['email']);
-	$nombres = antiSqlInjection($_POST['nombres']);
-	$nacimiento = antiSqlInjection($_POST['año']).'-'.antiSqlInjection($_POST['mes']).'-'.antiSqlInjection($_POST['dia']); 
+	$cuenta = depurar($_POST['cuenta']);
+	$contraseña = depurar($_POST['contraseña1']);
+	$contraseña2 = depurar($_POST['contraseña2']);
+	$email = depurar($_POST['email']);
+	$nombres = depurar($_POST['nombres']);
+	$nacimiento = depurar($_POST['año']).'-'.depurar($_POST['mes']).'-'.depurar($_POST['dia']); 
 
 if(isset($_POST['sexo'])) {
-	$sexo = antiSqlInjection($_POST['sexo']);
+	$sexo = depurar($_POST['sexo']);
 } else {
 	$sexo = 3;
 	}

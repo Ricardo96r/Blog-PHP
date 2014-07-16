@@ -40,7 +40,7 @@ while ($reg = $registros->fetch_assoc()) {
 	
 $link = '?pos';
 $cantidad = 5;
-mostrar_mas($inicio, $count, $link, $cantidad);
+paginacion($inicio, $count, $link, $cantidad);
 		
 /* 
 	COMENTARIOS
@@ -212,7 +212,7 @@ mostrar_mas($inicio, $count, $link, $cantidad);
 						$idcuentap2 = $idcuentap->fetch_assoc();
 					}
                 $idcuenta = $idcuentap2['idcuenta'];
-                $comentario = antiSqlInjection($_POST['comentario']);
+                $comentario = depurar($_POST['comentario']);
                 if(!isset($comentario) and empty($comentario)) {
                     echo 'Porfavor no deje campos vacios';
                 } elseif(strlen($comentario) < 20) {
@@ -236,7 +236,7 @@ mostrar_mas($inicio, $count, $link, $cantidad);
 			}
 		$link = '?pb='.$getpb.'&com';
 		$cantidad = 5;
-		mostrar_mas($getcom, $count, $link, $cantidad);
+		paginacion($getcom, $count, $link, $cantidad);
 	} else {
 		header('Location: ?&pos='.$inicio);
 		}

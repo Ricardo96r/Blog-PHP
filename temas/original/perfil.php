@@ -1,7 +1,7 @@
 <?php
 # Inicializando GET['pf']
 if (isset($_GET['pf'])) {
-	$pf_get = antiSqlInjection($_GET['pf']);
+	$pf_get = depurar($_GET['pf']);
 	$pf_true = $db->query("SELECT cuenta FROM cuentas WHERE cuenta = '".$pf_get."'");
 	# Para saber si existe la cuenta
 	if ($pf_true->num_rows > 0) {
@@ -13,7 +13,7 @@ if (isset($_GET['pf'])) {
 		
 		# Inicializando GET['pfp']
 		if (isset($_GET['pfp'])) {
-			$pfp = antiSqlInjection($_GET['pfp']);
+			$pfp = depurar($_GET['pfp']);
 		} else {
 			$pfp = 'publicaciones';
 			}
@@ -156,7 +156,7 @@ if (isset($_GET['pf'])) {
 			# Paginacion
 			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=publicaciones&pid';
 			$cantidad = 5;
-			mostrar_mas($pfinicio, $pb_count, $link, $cantidad);
+			paginacion($pfinicio, $pb_count, $link, $cantidad);
 			break;
 			
 		/*
@@ -216,7 +216,7 @@ if (isset($_GET['pf'])) {
 			# Paginacion
 			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=favoritos&pid';
 			$cantidad = 5;
-			mostrar_mas($pfinicio, $fav_count, $link, $cantidad);
+			paginacion($pfinicio, $fav_count, $link, $cantidad);
 			break;
 			
 		/*
@@ -276,7 +276,7 @@ if (isset($_GET['pf'])) {
 			# Paginacion
 			$link = '?p=perfil&pf='.$perfil['cuenta'].'&pfp=me_gusta&pid';
 			$cantidad = 5;
-			mostrar_mas($pfinicio, $like_count, $link, $cantidad);
+			paginacion($pfinicio, $like_count, $link, $cantidad);
 			break;		
 	}
 	

@@ -27,7 +27,7 @@ if(isset($_SESSION['username'])) {
 				$idcuentap2 = $idcuentap->fetch_array();
 			}
 			$idcuenta = $idcuentap2['idcuenta'];
-			$nota = antiSqlInjection($_POST['nota']);
+			$nota = depurar($_POST['nota']);
 			$ruta = 'static-content/publicaciones/';
 			if ($name_m = $db->query('SELECT idimagenes FROM imagenes')) {
 				$name = ($name_m->num_rows + 1).'-'.rand();

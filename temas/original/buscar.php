@@ -17,7 +17,7 @@
 		}?>
 </div>
 <?php } else {
-	$q = antiSqlInjection($_GET['q']);?>
+	$q = depurar($_GET['q']);?>
 	<div class="well-bl-form">
         <h1>Buscar: <small><?php echo $q;?></small></h1>
 	</div><?php
@@ -80,5 +80,5 @@
 	$link = '?p=buscar&q='.$q.'&bp';
 	$cantidad = 5;
 	
-	mostrar_mas($getbp, $bcount, $link, $cantidad);
+	paginacion($getbp, $bcount, $link, $cantidad);
 	}

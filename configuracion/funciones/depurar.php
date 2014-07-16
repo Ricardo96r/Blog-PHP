@@ -1,5 +1,5 @@
 <?php 
-function antiSqlInjection( $variable ) {
+function depurar( $variable ) {
 	global $db;
 	if (isset($variable)) {
 		$result = strip_tags($variable);               // funcion que elimina etiquetas html y php

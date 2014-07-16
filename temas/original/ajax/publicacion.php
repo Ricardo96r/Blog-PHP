@@ -11,7 +11,7 @@
 					$name = ($name_m->num_rows + 1).'-'.rand().".".$extension;;
 				}
 				$finfo = image_type_to_mime_type(exif_imagetype($imagen['tmp_name']));
-				$publicacion = antiSqlInjection($_POST['publicacion']);
+				$publicacion = depurar($_POST['publicacion']);
 			} else {
 				$error = TRUE;
 			}	      

@@ -1,7 +1,7 @@
 <?php
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_POST['msg']) && isset($_POST['idmsg']) && is_numeric($_POST['idmsg']) && $_POST['idmsg'] > 0 && isset($_SESSION['username'])) {
-		$comentario = antiSqlInjection($_POST['msg']);
-		$idmsg = antiSqlInjection($_POST['idmsg']);
+		$comentario = depurar($_POST['msg']);
+		$idmsg = depurar($_POST['idmsg']);
 		
 		if(!isset($comentario) and empty($comentario)) {
 			echo 'Porfavor no deje campos vacios';

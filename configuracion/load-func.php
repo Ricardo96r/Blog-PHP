@@ -1,7 +1,7 @@
 <?php
 $func_ruta = 'configuracion/funciones/';
 
-include($func_ruta.'antiSqlInjection.php');
+include($func_ruta.'depurar.php');
 include($func_ruta.'comentario.php');
 include($func_ruta.'mostrarNacimiento.php');
 include($func_ruta.'paginacion.php');

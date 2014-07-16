@@ -1,9 +1,9 @@
 <?php		
 	if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_SESSION['username'])) {
 		if (isset($_POST['contraseña1']) and isset($_POST['contraseña2'])) {
-			$contraseña = antiSqlInjection($_POST['contraseña']);
-			$contraseña1 = antiSqlInjection($_POST['contraseña1']);
-			$contraseña2 = antiSqlInjection($_POST['contraseña2']);
+			$contraseña = depurar($_POST['contraseña']);
+			$contraseña1 = depurar($_POST['contraseña1']);
+			$contraseña2 = depurar($_POST['contraseña2']);
 		if ($contraseña_verificar_p = $db->query("SELECT email, contraseña FROM cuentas WHERE email = '".$_SESSION['username']."'")) {
 			$contraseña_verificar = $contraseña_verificar_p->fetch_array();
 		}

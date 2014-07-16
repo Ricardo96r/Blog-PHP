@@ -1,5 +1,5 @@
 <?php
-function mostrar_mas($get, $count, $link, $cantidad) {
+function paginacion($get, $count, $link, $cantidad) {
 	if (isset($get) and is_numeric($get) and $get >= 0) {
 		$count /= $cantidad;
 		$gt = $get;
