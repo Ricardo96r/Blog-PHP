@@ -378,11 +378,20 @@ a:focus {
     margin-top:10px;
     margin-bottom:0px;
 	}
-	
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
-  color: #fff;
+
+.nav-pills > li.active > a {
+	background-color:#FFFFFF;
+	color: #FF8E00;
+}
+
+.nav-pills > li.active > a:hover {
+	background-color: #FFF7EE;
+	color: #FF8E00;
+}
+
+a.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge {
+  color: #FFFFFF;
   background-color: #FF8E00;
 }
 
