@@ -143,7 +143,7 @@ paginacion($inicio, $count, $link, $cantidad);
 
 
 		<?php
-		if(isset($_SESSION['username'])) {
+
 			if(!isset($_POST['enviar_nota'])) {
 				?>
 				<script>
@@ -175,7 +175,12 @@ paginacion($inicio, $count, $link, $cantidad);
                             <li <?php if($tp=='recientes'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=recientes"><span class="glyphicon glyphicon-time"></span><span class="hidden-xs"> Recientes</span></a></li>
                             <li <?php if($tp=='orden'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=orden"><span class="glyphicon glyphicon-list"></span><span class="hidden-xs"> En orden</span></a></li>
                             <li class="pull-right"> 
-                                <a href="" data-toggle="modal" data-target="#responder_publicacion">
+                                
+                            <?php if (isset($_POST['username'])) { ?>
+								<a href="" data-toggle="modal" data-target="#responder_publicacion">
+							<?php } else { ?>
+                               	<a href="?p=login">
+                            <?php } ?>
                                   <span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs"> Responder</span>
                                 </a>
                             </li>
@@ -228,9 +233,7 @@ paginacion($inicio, $count, $link, $cantidad);
 				?></div><?php
                     }
                 }
-		} else {
-			#revisar
-		}
+
 		while ($cm = $com_o->fetch_assoc()) {
 			comentario($cm);
 			}
