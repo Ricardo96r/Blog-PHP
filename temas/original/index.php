@@ -32,6 +32,8 @@ if($page == ''){
 	include('seguridad.php');
 } elseif($page == 'buscar'){
 	include('buscar.php');
+} elseif($page == 'contactanos'){
+	include('contactanos.php');
 } elseif($page == '404'){
 	include('404.php');
 }else{
