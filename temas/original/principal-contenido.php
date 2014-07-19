@@ -168,15 +168,33 @@ paginacion($inicio, $count, $link, $cantidad);
                 </script>   
 				<div class="">
                 	
-                	<div class="well-bl-form">
+                	<div class="well-bl-form-nav">
                     	<h1>Comentarios</h1>
                         <ul class="nav nav-pills">
-                       		<li <?php if($tp=='populares'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=populares"><span class="glyphicon glyphicon-fire"></span><span class="hidden-xs"> Populares</span></a></li>
-                            <li <?php if($tp=='recientes'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=recientes"><span class="glyphicon glyphicon-time"></span><span class="hidden-xs"> Recientes</span></a></li>
-                            <li <?php if($tp=='orden'){echo"class='active'";}?>><a href="?pb=<?php echo $getpb?>&tp=orden"><span class="glyphicon glyphicon-list"></span><span class="hidden-xs"> En orden</span></a></li>
+                       		<li class=<?php 
+							if($tp=='populares'){
+								echo "'active_edit'";
+							} else {
+								echo "'edit'";
+							}
+                            ?>><a href="?pb=<?php echo $getpb?>&tp=populares"><span class="glyphicon glyphicon-fire"></span><span class="hidden-xs"> Populares</span></a></li>
+                            <li class=<?php 
+							if($tp=='recientes'){
+								echo "'active_edit'";
+							} else {
+								echo "'edit'";
+								}
+							?>><a href="?pb=<?php echo $getpb?>&tp=recientes"><span class="glyphicon glyphicon-time"></span><span class="hidden-xs"> Recientes</span></a></li>
+                            <li class=<?php 
+							if($tp=='orden'){
+								echo "'active_edit'";
+							} else {
+								echo "'edit'";
+							}
+							?>><a href="?pb=<?php echo $getpb?>&tp=orden"><span class="glyphicon glyphicon-list"></span><span class="hidden-xs"> En orden</span></a></li>
                             <li class="pull-right"> 
                                 
-                            <?php if (isset($_POST['username'])) { ?>
+                            <?php if (isset($_SESSION['username'])) { ?>
 								<a href="" data-toggle="modal" data-target="#responder_publicacion">
 							<?php } else { ?>
                                	<a href="?p=login">

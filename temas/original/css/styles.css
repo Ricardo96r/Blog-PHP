@@ -201,6 +201,17 @@ body {
 	padding:10px;
 	}
 	
+.well-bl-form-nav {
+	background-color:#FFFFFF;
+	border-style: solid;
+	border-color: #D3D3D3;
+	border-width: 1px;
+	word-wrap: break-word;
+	margin-bottom:10px;
+	padding:10px;
+	padding-bottom:0px;
+	}
+	
 	
 .img-perfil {
 	width:200px;
@@ -436,6 +447,15 @@ a.list-group-item.active > .badge,
 	}
 	
 .well-bl-form .page-header {
+	margin:0px;
+	}
+	
+.well-bl-form-nav h1 {
+	margin-top:5px;
+	margin-bottom:5px;
+	}
+	
+.well-bl-form-nav .page-header {
 	margin:0px;
 	}
 	
