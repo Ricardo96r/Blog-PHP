@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION['username'])) {
+if(rango() >= 1) {
 	session_destroy();
 	echo 'cerrando sesión';
 	header('Location: '.$_SERVER['HTTP_REFERER']);

@@ -43,14 +43,14 @@ function comentario ($dt) {
 					if ($mg_p = $db->query("SELECT * FROM comentarios_megusta WHERE comentarios_idcomentario = '".$dt['idcomentario']."'")) {
 						$mg = $mg_p->num_rows;
 					}
-					if (isset($_SESSION['username'])) {
+					if (rango() >= 1) {
 						if ($ismg_p = $db->query("SELECT cuentas_idcuenta, comentarios_idcomentario FROM comentarios_megusta WHERE cuentas_idcuenta = ".$pf['idcuenta']." and comentarios_idcomentario = ".$dt['idcomentario'])) {
 							$ismg = $ismg_p->num_rows;
 							}
 					} else {
 						$ismg = 0;
 						}
-					if (isset($_SESSION['username'])) {
+					if (rango() >= 1) {
 					?>
                         <li class="nav-pills-space resultado_<?php echo $dt['idcomentario']?> <?php if($ismg > 0){echo "active";}?>"
                         onclick="comentarios_megusta_<?php echo $dt['idcomentario']?>(<?php echo $dt['idcomentario']; ?>);return false;"><a  href="">
@@ -94,14 +94,14 @@ function comentario ($dt) {
                     if ($fav_p = $db->query("SELECT * FROM comentarios_favoritos WHERE comentarios_idcomentario = '".$dt['idcomentario']."'")) {
 						$fav = $fav_p->num_rows;
 					}
-					if (isset($_SESSION['username'])) {
+					if (rango() >= 1) {
 						if ($isfav_p = $db->query("SELECT cuentas_idcuenta, comentarios_idcomentario FROM comentarios_favoritos WHERE cuentas_idcuenta = ".$pf['idcuenta']." and comentarios_idcomentario = ".$dt['idcomentario'])) {
 							$isfav = $isfav_p->num_rows;
 							}
 					} else {
 						$isfav = 0;
 						}
-					if(isset($_SESSION['username'])) {
+					if(rango() >= 1) {
 					?>
                         <li class="nav-pills-space com_fav_<?php echo $dt['idcomentario']?> <?php if($isfav > 0){echo "active";}?>"
                         onclick="comentarios_favoritos_<?php echo $dt['idcomentario']?>(<?php echo $dt['idcomentario']; ?>);return false;"><a href="">

@@ -40,14 +40,14 @@ function post ($dt) {
 					if ($mg_p = $db->query("SELECT * FROM publicaciones_megusta WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
 						$mg = $mg_p->num_rows;
 					}
-					if (isset($_SESSION['username'])) {
+					if (rango() >= 1) {
 						if ($ismg_p = $db->query("SELECT cuentas_idcuenta, publicaciones_idpublicacion FROM publicaciones_megusta WHERE cuentas_idcuenta = ".$pf['idcuenta']." and publicaciones_idpublicacion = ".$dt['idpublicacion'])) {
 							$ismg = $ismg_p->num_rows;
 							}
 					} else {
 						$ismg = 0;
 						}
-					if (isset($_SESSION['username'])) {
+					if (rango() >= 1) {
 					?>
                         <li class="nav-pills-space resultado_<?php echo $dt['idpublicacion']?> <?php if($ismg > 0){echo "active";}?>"
                         onclick="me_gusta_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a  href="">
@@ -86,14 +86,14 @@ function post ($dt) {
 					if ($fav_p = $db->query("SELECT * FROM publicaciones_favoritos WHERE publicaciones_idpublicacion = '".$dt['idpublicacion']."'")) {
 						$fav = $fav_p->num_rows;
 					}
-					if (isset($_SESSION['username'])) {
+					if (rango() >= 1) {
 						if ($isfav_p = $db->query("SELECT cuentas_idcuenta, publicaciones_idpublicacion FROM publicaciones_favoritos WHERE cuentas_idcuenta = ".$pf['idcuenta']." and publicaciones_idpublicacion = ".$dt['idpublicacion'])) {
 							$isfav = $isfav_p->num_rows;
 							}
 					} else {
 						$isfav = 0;
 						}
-					if(isset($_SESSION['username'])) {
+					if(rango() >= 1) {
 					?>
                         <li class="nav-pills-space fav_<?php echo $dt['idpublicacion']?> <?php if($isfav > 0){echo "active";}?>"
                         onclick="favoritos_<?php echo $dt['idpublicacion']?>(<?php echo $dt['idpublicacion']; ?>);return false;"><a href="">

@@ -29,5 +29,5 @@ function rango() {
 		$rango = 0;
 		}
 		
-	echo $rango;
+	return $rango;
 }

@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="."><img class="img-responsive pull-left" src="static-content/logo.png" style="width:30px; margin-right:5px;"> Nombre</a>
-        <?php if (!isset($_SESSION['username'])) { ?>
+        <?php if (rango() == 0) { ?>
 		<div class="visible-xs pull-right navbar-xs">
             <div class="btn-group">
                 <button type="button" class="btn btn-warning"  onclick="document.location.href='?p=login'">
@@ -57,7 +57,7 @@
           <li <?php if($page == ''){echo'class=edit';}else{}?>><a href="."><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
           <li <?php if($page == 'explorar'){echo'class=edit';}else{}?>><a href="?p=explorar"><span class="glyphicon glyphicon-list-alt"></span> Explora</a></li>
         </ul>
-        <?php if (!isset($_SESSION['username'])) { ?>
+        <?php if (rango() == 0) { ?>
 		<div class="navbar-form navbar-right hidden-xs">
             <button class="btn btn-warning" type="button" onclick="document.location.href='?p=buscar'">
             <span class="glyphicon glyphicon-search"></span></button>

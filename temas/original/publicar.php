@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-12">
 <?php
-if(isset($_SESSION['username'])) {
+if(rango() >= 1) {
 	if(!isset($_POST['enviar_nota'])) {
 		?>
 			<form enctype="multipart/form-data" method="post" action="">

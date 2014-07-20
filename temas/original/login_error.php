@@ -1,5 +1,5 @@
 <div class="well-bl-form">
-	<?php if (!isset($_SESSION['username'])) {?>
+	<?php if (rango() == 0) {?>
     <h1>
     	Iniciar sesión
     </h1>

@@ -1,5 +1,5 @@
 <?php		
-	if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_SESSION['username'])) {
+	if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && rango() >= 1) {
 		$ruta = 'static-content/perfiles_fondo/';
 
 		if (isset($_FILES['fondo_0'])) {

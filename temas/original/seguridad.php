@@ -1,4 +1,4 @@
-<?php if (isset($_SESSION['username'])) {?>
+<?php if (rango() >= 1) {?>
 <div class="well-bl-form">
 <div class="page-header">
 <h1>Seguridad</h1>

@@ -1,6 +1,6 @@
 <div class="well-bl-form">
 <?php
-if (!isset($_SESSION['username'])) {
+if (rango() == 0) {
 ?>
 <h1> ¡Regístrate!</h1>
 <form method="post">

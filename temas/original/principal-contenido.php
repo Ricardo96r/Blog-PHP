@@ -194,7 +194,7 @@ paginacion($inicio, $count, $link, $cantidad);
 							?>><a href="?pb=<?php echo $getpb?>&tp=orden"><span class="glyphicon glyphicon-list"></span><span class="hidden-xs"> En orden</span></a></li>
                             <li class="pull-right"> 
                                 
-                            <?php if (isset($_SESSION['username'])) { ?>
+                            <?php if (rango() >= 1) { ?>
 								<a href="" data-toggle="modal" data-target="#responder_publicacion">
 							<?php } else { ?>
                                	<a href="?p=login">
