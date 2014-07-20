@@ -9,3 +9,4 @@ include($func_ruta.'publicacion.php');
 include($func_ruta.'publicidad.php');
 include($func_ruta.'tiempo_transcurrido.php');
 include($func_ruta.'puntos.php');
+include($func_ruta.'rango.php');
