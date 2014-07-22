@@ -60,8 +60,9 @@ if(!isset($indexphp) and $indexphp !== TRUE) {
 	</div>
 	<div class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
         <ul class="nav navbar-nav">
-          <li <?php if($page == ''){echo'class=edit';}else{}?>><a href="."><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-          <li <?php if($page == 'explorar'){echo'class=edit';}else{}?>><a href="?p=explorar"><span class="glyphicon glyphicon-list-alt"></span> Explora</a></li>
+          <li <?php if($page == ''){echo'class=edit';}?>><a href="."><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+          <li <?php if($page == 'explorar'){echo'class=edit';}?>><a href="?p=explorar"><span class="glyphicon glyphicon-list-alt"></span> Explora</a></li>
+          <li class="visible-xs"><a href="?p=buscar"><span class="glyphicon glyphicon-search"></span> Buscar</a></li>
         </ul>
         <?php if (rango() == 0) { ?>
 		<div class="navbar-form navbar-right hidden-xs">
@@ -104,14 +105,14 @@ if(!isset($indexphp) and $indexphp !== TRUE) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></button>
-        <h4 class="modal-title" id="myModalLabel">Publicar</h4>
+        <h4 class="modal-title" id="myModalLabel"><strong>Publicar</strong></h4>
       </div>
       <div class="modal-body">
         <form enctype="multipart/form-data" method="post" class="form-publicacion">
             <blockquote class="form-group"><div id="text_publicacion">
             <textarea name="publicacion" class="form-control" id="publicacion" maxlength="200" placeholder="Escribe algo sobre la publicacion..."></textarea>
             </div></blockquote>
-            <div class="upload-form-file" id="upload-publicacion">
+            <div class="form-group upload-form-file" id="upload-publicacion">
             <input name="publicacion_img_input" type="file" class="form-control upload-form-file-input" id="publicacion_img" accept="image/x-png, image/gif, image/jpeg">
                 <div class="img-responsive" id="img_publicacion">
                     <button type="button" class="btn btn-warning btn-lg">
