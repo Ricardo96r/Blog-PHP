@@ -1,7 +1,11 @@
-<div class="well-bl-form">
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 if (rango() == 0) {
 ?>
+<div class="well-bl-form">
 <h1> ¡Regístrate!</h1>
 <form method="post">
 <div class="form-group registro-form-cuenta-input">

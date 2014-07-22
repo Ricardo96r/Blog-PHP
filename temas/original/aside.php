@@ -1,3 +1,9 @@
+<?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
+?>
 </div>
 <div class="col-md-4 aside visible-md visible-lg">
 <div class="row">

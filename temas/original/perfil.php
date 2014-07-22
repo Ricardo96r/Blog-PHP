@@ -1,4 +1,8 @@
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 # Inicializando GET['pf']
 if (isset($_GET['pf'])) {
 	$pf_get = depurar($_GET['pf']);

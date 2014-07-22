@@ -1,4 +1,8 @@
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 function paginacion($get, $count, $link, $cantidad) {
 	if (isset($get) and is_numeric($get) and $get >= 0) {
 		$count /= $cantidad;

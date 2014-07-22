@@ -1,4 +1,9 @@
-<?php if (!isset($_GET['q'])) {?>
+<?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
+if (!isset($_GET['q'])) {?>
 <div class="well-bl-form">
     <div class="page-header">
         <h1>Buscar</h1>

@@ -1,4 +1,8 @@
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 function post ($dt) {
 	global $prop, $db, $pf;
 	?>

@@ -1,4 +1,9 @@
-<?php if($page != 'perfil') { ?>
+<?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
+if($page != 'perfil') { ?>
 <div class="section-image">
 	<div class="container">
     	<div class="row">

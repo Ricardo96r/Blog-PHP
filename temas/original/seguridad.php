@@ -1,4 +1,9 @@
-<?php if (rango() >= 1) {?>
+<?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
+if (rango() >= 1) {?>
 <div class="well-bl-form">
 <div class="page-header">
 <h1>Seguridad</h1>

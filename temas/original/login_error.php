@@ -1,5 +1,10 @@
+<?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
+if (rango() == 0) {?>
 <div class="well-bl-form">
-	<?php if (rango() == 0) {?>
     <h1>
     	Iniciar sesión
     </h1>

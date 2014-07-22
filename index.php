@@ -4,6 +4,10 @@
 	
 	#  Activa el almacenamiento en búfer de salida. Uso para la funcion header()
 	ob_start();
+	
+	/* Todo tiene que pasar por index.php. 
+	Si no pasa por este medio es redirigido a un 404 */
+	$indexphp = TRUE;
 
 	# Cargar configuracion
 	require_once('configuracion/database.php');

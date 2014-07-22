@@ -1,4 +1,9 @@
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
+
 /*
 	Load: HEADER
 */
@@ -24,8 +29,6 @@ if($page == ''){
 	include('configuracion.php');
 } elseif($page == 'perfil'){
 	include('perfil.php');
-} elseif($page == 'publicar'){
-	include('publicar.php');
 } elseif($page == 'explorar'){
 	include('explorar.php');
 } elseif($page == 'seguridad'){
@@ -39,7 +42,6 @@ if($page == ''){
 }else{
 	header('Location: ?p=404');
 }
-
 
 /*
 	Load: Aside

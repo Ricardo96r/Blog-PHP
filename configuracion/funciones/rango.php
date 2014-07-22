@@ -1,4 +1,8 @@
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 /*
 	NO-USER == 0
 	USER == 1

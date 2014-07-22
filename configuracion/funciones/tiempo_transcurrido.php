@@ -1,4 +1,8 @@
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 function tiempo_transcurrido($fecha) {
 	if(empty($fecha)) {
 		  return "No hay fecha";

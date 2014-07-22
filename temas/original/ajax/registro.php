@@ -1,4 +1,8 @@
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_POST['permiso']) and $_POST['permiso'] == 'allowed') {
 	$cuenta = depurar($_POST['cuenta']);
 	$contraseña = depurar($_POST['contraseña1']);

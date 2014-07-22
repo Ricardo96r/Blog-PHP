@@ -1,4 +1,8 @@
-<?php 
+<?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 /*
  * Funcion que suma puntos a cualquier tabla que tenga la columna puntos en mysql
  * $tabla = la tabla de mysql que es nombrada

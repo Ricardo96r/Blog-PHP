@@ -1,8 +1,8 @@
 <?php
-/*
- * Cofiguracion de ajax
- *
- */
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 
 if (isset($_GET['action'])) {
 	$action = $_GET['action'];

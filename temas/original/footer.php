@@ -1,3 +1,9 @@
+<?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
+?>
 <div class="container-fluid footer">
 	<div class="container">
     	<div class="row">

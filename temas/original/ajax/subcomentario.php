@@ -1,4 +1,8 @@
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && isset($_POST['msg']) && isset($_POST['idmsg']) && is_numeric($_POST['idmsg']) && $_POST['idmsg'] > 0 && rango() >= 1) {
 		$subcomentario = depurar($_POST['msg']);
 		$idmsg = depurar($_POST['idmsg']);

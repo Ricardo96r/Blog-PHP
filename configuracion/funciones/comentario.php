@@ -1,4 +1,8 @@
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 function comentario ($dt) {
 	global $prop, $db, $pf;
 	?>

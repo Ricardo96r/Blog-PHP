@@ -1,4 +1,8 @@
 <?php
+if(!isset($indexphp) and $indexphp !== TRUE) {
+	header('Location: /index.php');
+	exit;
+}
 
 # Inicializada variable global $prop
 if ($prop_op = $db->query('SELECT * FROM propiedades WHERE idpropiedad = 1')) {
