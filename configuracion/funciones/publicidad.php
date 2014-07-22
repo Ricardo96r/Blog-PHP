@@ -5,5 +5,5 @@ if(!isset($indexphp) and $indexphp !== TRUE) {
 }
 function publicidad () {
 	global $prop;?>
-	<img class="center-block" src="temas/<?php echo $prop['tema'];?>/imagenes/publicidad.png" >
+	<img class="center-block" src="static-content/publicidad.png" >
 	<?php }
