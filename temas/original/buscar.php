@@ -58,21 +58,24 @@ if (!isset($_GET['q'])) {?>
 	
 	$buscar_p = $db->query($psql."LIMIT 0,3"); 
 	if (($buscar_p->num_rows) > 0) {
-		?><div class="well-bl-1"><?php
+		?><div class="well-bl-media"><?php
 		while ($bcuenta = $buscar_p->fetch_array()) { 
-		?><ul class="media-list">
+		?><ul class="media-list pb-top">
 		  <li class="media">
-			<a class="pull-left" href="#">
+			<a class="pull-left" href="<?php echo'?p=perfil&pf='.$bcuenta['cuenta'];?>">
 			  <img class="img-responsive" style="width:45px;" src="static-content/perfiles/<?php echo $bcuenta['imagen_perfil'];?>" alt="...">
-			</a>
+              </a>
 			<div class="media-body">
+              <a href="<?php echo'?p=perfil&pf='.$bcuenta['cuenta'];?>"><div class="pull-right btn btn-warning">Ver</div></a>
 			  <h4 class="media-heading"><?php echo $bcuenta['nombre'];?></h4>
 			  <?php echo $bcuenta['cuenta'];?>
 			</div>
+         
 		  </li>
 		</ul><?php
 			} ?>
-			</div>
+			<div class="text-center"><a href="?p=buscar&q=<?php echo $q;?>&action=cuentas"><h5>Ver todos</h5></a></div>
+            </div>
 			<?php
 	}
 	
