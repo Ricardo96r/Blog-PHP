@@ -29,7 +29,7 @@ if (rango() == 0) {?>
     </form>
     <div id="resultado"></div>
     <div class="text-center">
-        <a href="#">¿Olvidaste tu contraseña?</a>
+        <a href="?p=recuperar_contraseña">¿Olvidaste tu contraseña?</a>
     </div>
     <?php } else {
         header('Location: ?#ref=login');

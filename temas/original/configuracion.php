@@ -5,10 +5,8 @@ if(!isset($indexphp) and $indexphp !== TRUE) {
 }
 if (rango() >= 1) { ?>
 <div class="well-bl-form">
-<div class="page-header">
 <h1>Configuración</h1>
-</div>
-	<h5><div class="btn btn-warning" data-toggle="modal" data-target="#editar_perfil"><span class="glyphicon glyphicon-pencil"></span> Cambiar imagen de perfil</div></h5>
+	<h5>Imagen de perfil: <a href="" data-toggle="modal" data-target="#editar_perfil"> Editar <span class="glyphicon glyphicon-pencil"></span></a></h5>
     <!-- Modal -->
     <div class="modal fade" id="editar_perfil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -38,7 +36,7 @@ if (rango() >= 1) { ?>
         </div>
       </div>
     </div>
-    <h5><div class="btn btn-warning" data-toggle="modal" data-target="#editar_perfil_fondo"><span class="glyphicon glyphicon-pencil"></span> Cambiar fondo de perfil</div></h5>
+	<h5>Fondo de perfil: <a href="" data-toggle="modal" data-target="#editar_perfil_fondo"> Editar <span class="glyphicon glyphicon-pencil"></span></a></h5>
     <!-- Modal -->
     <div class="modal fade" id="editar_perfil_fondo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -68,7 +66,7 @@ if (rango() >= 1) { ?>
         </div>
       </div>
     </div>
-    <h5><div class="btn btn-warning" data-toggle="modal" data-target="#editar_nombre"><span class="glyphicon glyphicon-pencil"></span> Editar nombre</div></h5>
+    <h5>Nombre de perfil: <a href="" data-toggle="modal" data-target="#editar_nombre"> Editar <span class="glyphicon glyphicon-pencil"></span></a></h5>
     <!-- Modal -->
     <div class="modal fade" id="editar_nombre" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">

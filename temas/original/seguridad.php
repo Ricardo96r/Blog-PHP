@@ -5,10 +5,8 @@ if(!isset($indexphp) and $indexphp !== TRUE) {
 }
 if (rango() >= 1) {?>
 <div class="well-bl-form">
-<div class="page-header">
 <h1>Seguridad</h1>
-</div>
-	<h5><div class="btn btn-warning" data-toggle="modal" data-target="#cambiar_password"><span class="glyphicon glyphicon-pencil"></span> Cambiar contraseña</div></h5>
+<h5>Cambiar contraseña: <a href="" data-toggle="modal" data-target="#cambiar_password"> Cambiar <span class="glyphicon glyphicon-pencil"></span></a></h5>
     <!--- modal --->
     <div class="modal fade" id="cambiar_password" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">

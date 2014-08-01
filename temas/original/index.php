@@ -37,6 +37,8 @@ if($page == ''){
 	include('buscar.php');
 } elseif($page == 'contactanos'){
 	include('contactanos.php');
+} elseif($page == 'recuperar_contraseña'){
+	include('forgotPassword.php');
 } elseif($page == '404'){
 	include('404.php');
 }else{
